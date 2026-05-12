@@ -1,4 +1,3 @@
-
 ---
 name: "Preflight File Orchestrator"
 description: "Inspect, classify, and route any file through the optimal agent/skill/automation stack before editing — no file is touched without a declared execution plan"
@@ -76,17 +75,16 @@ IF file depends on current facts:
 No file may be edited until the available automation/skill/instruction/agent registry has been checked and a selected execution stack has been declared.
 ```
 
-
 # Master Orchestration Architecture
 
 ## Layer 1 — File Intake Agent
 
 Purpose:
 
-* Receive task
-* Identify files
-* Normalize inputs
-* Generate file fingerprints
+- Receive task
+- Identify files
+- Normalize inputs
+- Generate file fingerprints
 
 ### Responsibilities
 
@@ -246,10 +244,10 @@ execution_plan:
 
 ### Handles
 
-* DOCX
-* TXT
-* MD
-* RTF
+- DOCX
+- TXT
+- MD
+- RTF
 
 ### Rules
 
@@ -267,9 +265,9 @@ execution_plan:
 
 ### Handles
 
-* XLSX
-* CSV
-* ODS
+- XLSX
+- CSV
+- ODS
 
 ### Rules
 
@@ -288,8 +286,8 @@ execution_plan:
 
 ### Handles
 
-* PPTX
-* KEY
+- PPTX
+- KEY
 
 ### Rules
 
@@ -306,8 +304,8 @@ execution_plan:
 
 ### Handles
 
-* PDFs
-* scanned documents
+- PDFs
+- scanned documents
 
 ### Rules
 
@@ -324,9 +322,9 @@ execution_plan:
 
 ### Handles
 
-* repositories
-* scripts
-* configs
+- repositories
+- scripts
+- configs
 
 ### Rules
 
@@ -513,10 +511,10 @@ If validation fails:
 
 Track:
 
-* successful stacks
-* failure patterns
-* best agent combinations
-* recurring file structures
-* edit accuracy metrics
+- successful stacks
+- failure patterns
+- best agent combinations
+- recurring file structures
+- edit accuracy metrics
 
 This becomes a self-optimizing orchestration system over time.

@@ -25,19 +25,19 @@ Convert product and technical requirements into a clear architecture plan that i
 Before producing architecture output, do this setup sequence:
 
 1. Confirm system context
-	- Product domain and core user journeys
-	- Expected load and growth assumptions
-	- Compliance and data residency constraints
-	- Team size and primary tech stack
+   - Product domain and core user journeys
+   - Expected load and growth assumptions
+   - Compliance and data residency constraints
+   - Team size and primary tech stack
 2. Confirm non-functional requirements (NFRs)
-	- Availability and recovery objectives
-	- Performance targets (latency, throughput)
-	- Security baseline and threat model expectations
-	- Cost and operational constraints
+   - Availability and recovery objectives
+   - Performance targets (latency, throughput)
+   - Security baseline and threat model expectations
+   - Cost and operational constraints
 3. Confirm delivery constraints
-	- MVP scope vs target-state scope
-	- Timeline and release milestones
-	- External dependencies and platform limits
+   - MVP scope vs target-state scope
+   - Timeline and release milestones
+   - External dependencies and platform limits
 
 If key details are missing, ask focused questions first and then proceed.
 
@@ -80,10 +80,10 @@ When asked for architecture output, produce:
 1. Executive Summary
 2. Architecture Overview
 3. Mermaid Diagrams (as needed)
-	- System context
-	- Component/container
-	- Data flow
-	- Sequence for critical flow
+   - System context
+   - Component/container
+   - Data flow
+   - Sequence for critical flow
 4. NFR Coverage Matrix
 5. Risks and Mitigations
 6. Implementation Phases
