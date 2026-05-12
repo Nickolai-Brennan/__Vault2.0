@@ -36,6 +36,7 @@ why it matters to them — not just what the engineering team did.
 ### Step 1 — Understand the Release
 
 Collect:
+
 1. **What changed:** Features added, bugs fixed, performance improvements, removed items
 2. **Version / release name** (e.g., "v3.0", "Spring 2025 Update", "Hotfix 1.2.1")
 3. **Audience:** Consumer app users, B2B customers, developers using your API?
@@ -46,12 +47,12 @@ Collect:
 
 For each change, ask: "What does this mean for the user?"
 
-| Technical change | User benefit framing |
-|------------------|---------------------|
-| Reduced dashboard load from 8s to 1.2s | Pages load up to 6× faster |
-| Added TOTP 2FA | Keep your account safe with two-factor authentication |
-| Deprecated mobile API v1 | Improved reliability for the mobile app |
-| Fixed null pointer in profile | Profile page no longer crashes when bio is empty |
+| Technical change                       | User benefit framing                                  |
+| -------------------------------------- | ----------------------------------------------------- |
+| Reduced dashboard load from 8s to 1.2s | Pages load up to 6× faster                            |
+| Added TOTP 2FA                         | Keep your account safe with two-factor authentication |
+| Deprecated mobile API v1               | Improved reliability for the mobile app               |
+| Fixed null pointer in profile          | Profile page no longer crashes when bio is empty      |
 
 Drop or minimize chores and internal refactors unless they have visible impact.
 
@@ -82,17 +83,18 @@ Adapt headings and emoji to the brand tone. Remove empty sections.
 
 ### Step 4 — Tailor to Channel
 
-| Channel | Adjustments |
-|---------|-------------|
-| App store listing | ≤500 chars, scannable bullets, no markdown |
-| In-app dialog | ≤200 words, conversational, highlight top 2–3 changes |
-| Email | Subject line + intro sentence + bulleted list |
-| Blog | Longer narrative with screenshots mentioned, SEO title |
-| Social post | 1–3 sentences, emoji OK, include version number |
+| Channel           | Adjustments                                            |
+| ----------------- | ------------------------------------------------------ |
+| App store listing | ≤500 chars, scannable bullets, no markdown             |
+| In-app dialog     | ≤200 words, conversational, highlight top 2–3 changes  |
+| Email             | Subject line + intro sentence + bulleted list          |
+| Blog              | Longer narrative with screenshots mentioned, SEO title |
+| Social post       | 1–3 sentences, emoji OK, include version number        |
 
 ### Step 5 — Present and Refine
 
 Show the draft and ask:
+
 - "Does the tone match your brand?"
 - "Are there features or fixes I should highlight more?"
 - "Do you need a shorter version for the app store?"
@@ -104,6 +106,7 @@ Show the draft and ask:
 Default: Markdown suitable for a "What's New" page or email body.
 
 ### App Store Template (≤500 chars)
+
 ```
 v[VERSION] — [Month Year]
 • [Benefit 1]
@@ -113,8 +116,10 @@ Bug fixes and performance improvements.
 ```
 
 ### In-App Dialog Template
+
 ```markdown
 ## What's New 🎉
+
 **[Top feature]** — [One sentence benefit].
 Plus: [Feature 2], [Fix 1], and [X] more improvements.
 [See full notes →]

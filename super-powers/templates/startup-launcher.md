@@ -70,6 +70,7 @@ Choose the primary build type:
 - [ ] Other: `_____________`
 
 ### Secondary Project Types
+
 - [ ] Frontend UI
 - [ ] Admin Panel
 - [ ] Analytics Layer
@@ -84,18 +85,18 @@ Choose the primary build type:
 
 Fill in this section after project creation.
 
-| Field | Value |
-|---|---|
-| Project Name | |
-| Working Title | |
-| Project Type | |
-| Secondary Type(s) | |
-| Description | |
-| Primary Goal | |
-| Target Users | |
-| Main Platform | |
-| Owner | |
-| Repo Status | |
+| Field             | Value |
+| ----------------- | ----- |
+| Project Name      |       |
+| Working Title     |       |
+| Project Type      |       |
+| Secondary Type(s) |       |
+| Description       |       |
+| Primary Goal      |       |
+| Target Users      |       |
+| Main Platform     |       |
+| Owner             |       |
+| Repo Status       |       |
 
 ---
 
@@ -104,6 +105,7 @@ Fill in this section after project creation.
 Mark all systems needed for the project.
 
 ### Product / Experience
+
 - [ ] Public frontend
 - [ ] Admin dashboard
 - [ ] Authentication
@@ -116,6 +118,7 @@ Mark all systems needed for the project.
 - [ ] Blog / content system
 
 ### Technical
+
 - [ ] Frontend app
 - [ ] Backend app
 - [ ] Database
@@ -129,6 +132,7 @@ Mark all systems needed for the project.
 - [ ] Deployment pipeline
 
 ### AI / Data
+
 - [ ] Prompt workflows
 - [ ] AI assistant
 - [ ] Embeddings
@@ -147,6 +151,7 @@ Mark all systems needed for the project.
 List current and future systems this project should connect with.
 
 ### Internal Connections
+
 - [ ] Shared database
 - [ ] Shared auth
 - [ ] Shared design system
@@ -157,6 +162,7 @@ List current and future systems this project should connect with.
 - [ ] Shared AI prompt / agent system
 
 ### External Integrations
+
 - [ ] GitHub
 - [ ] Google Drive
 - [ ] Google Docs
@@ -175,12 +181,13 @@ List current and future systems this project should connect with.
 - [ ] Other third-party APIs
 
 ### Integration Notes
+
 Document what should connect now vs later.
 
-| System | Purpose | Phase | Notes |
-|---|---|---|---|
-| | | Now / Later | |
-| | | Now / Later | |
+| System | Purpose | Phase       | Notes |
+| ------ | ------- | ----------- | ----- |
+|        |         | Now / Later |       |
+|        |         | Now / Later |       |
 
 ---
 
@@ -189,6 +196,7 @@ Document what should connect now vs later.
 Define how the project will actually move through work.
 
 ### Standard Workflow
+
 - [ ] Idea captured
 - [ ] Problem defined
 - [ ] Scope drafted
@@ -203,6 +211,7 @@ Define how the project will actually move through work.
 - [ ] Post-launch support defined
 
 ### Workflow Stages
+
 1. Discovery
 2. Planning
 3. Architecture
@@ -220,19 +229,19 @@ Define how the project will actually move through work.
 
 Identify what work is being done and which tool/app is responsible.
 
-| Area | Task | Tool / App | Output |
-|---|---|---|---|
-| Frontend Design | Design system / wireframes | Google Stitch / Figma | Layouts, UI patterns |
-| Frontend Build | Component development | React / TanStack / Tailwind | Reusable UI |
-| Backend | Route planning / services | FastAPI / Postman / Bruno | Endpoints, service logic |
-| API Design | Schema and data contract | GraphQL / Strawberry / Apollo | Queries, mutations |
-| Database | Schema / tables / views | PostgreSQL / pgAdmin / DBeaver | Database structure |
-| Docs | Project docs / specs | Google Docs / Markdown | Living documentation |
-| Planning | Whiteboards / flows | Miro | Process maps |
-| Design Assets | Brand / visual assets | Canva | Media, graphics |
-| AI Work | Prompting / copilots / agents | ChatGPT / Copilot / Gemini | Drafts, code, workflows |
-| Research | Source gathering / references | Drive / Docs / NotebookLM | Notes, references |
-| Task Tracking | Action lists / execution | GitHub Issues / Sheets | Work queue |
+| Area            | Task                          | Tool / App                     | Output                   |
+| --------------- | ----------------------------- | ------------------------------ | ------------------------ |
+| Frontend Design | Design system / wireframes    | Google Stitch / Figma          | Layouts, UI patterns     |
+| Frontend Build  | Component development         | React / TanStack / Tailwind    | Reusable UI              |
+| Backend         | Route planning / services     | FastAPI / Postman / Bruno      | Endpoints, service logic |
+| API Design      | Schema and data contract      | GraphQL / Strawberry / Apollo  | Queries, mutations       |
+| Database        | Schema / tables / views       | PostgreSQL / pgAdmin / DBeaver | Database structure       |
+| Docs            | Project docs / specs          | Google Docs / Markdown         | Living documentation     |
+| Planning        | Whiteboards / flows           | Miro                           | Process maps             |
+| Design Assets   | Brand / visual assets         | Canva                          | Media, graphics          |
+| AI Work         | Prompting / copilots / agents | ChatGPT / Copilot / Gemini     | Drafts, code, workflows  |
+| Research        | Source gathering / references | Drive / Docs / NotebookLM      | Notes, references        |
+| Task Tracking   | Action lists / execution      | GitHub Issues / Sheets         | Work queue               |
 
 Add or replace tools per project.
 
@@ -243,6 +252,7 @@ Add or replace tools per project.
 This is the main startup to-do list.
 
 ### Project Setup
+
 - [ ] Rename repo
 - [ ] Replace placeholder branding
 - [ ] Update README project summary
@@ -253,6 +263,7 @@ This is the main startup to-do list.
 - [ ] Create workflow doc
 
 ### Strategy
+
 - [ ] Define problem statement
 - [ ] Define user base
 - [ ] Define monetization or purpose
@@ -260,6 +271,7 @@ This is the main startup to-do list.
 - [ ] Define future roadmap
 
 ### Technical Setup
+
 - [ ] Select frontend stack
 - [ ] Select backend stack
 - [ ] Select database
@@ -270,6 +282,7 @@ This is the main startup to-do list.
 - [ ] Define repo structure
 
 ### Product Design
+
 - [ ] Define views / screens
 - [ ] Define page types
 - [ ] Define reusable components
@@ -278,6 +291,7 @@ This is the main startup to-do list.
 - [ ] Define dashboard/reporting needs
 
 ### Data / Architecture
+
 - [ ] Define entities
 - [ ] Define schemas
 - [ ] Define tables
@@ -288,6 +302,7 @@ This is the main startup to-do list.
 - [ ] Define analytics layer
 
 ### Tool / App Assignment
+
 - [ ] Assign design tasks to design tools
 - [ ] Assign backend planning tools
 - [ ] Assign docs and planning tools
@@ -295,6 +310,7 @@ This is the main startup to-do list.
 - [ ] Assign testing and validation tools
 
 ### Launch Prep
+
 - [ ] Define QA checklist
 - [ ] Define seed/sample data
 - [ ] Define release checklist
@@ -322,19 +338,20 @@ Create these first once the project is activated.
 ## 10. Example Project Intake
 
 ### Example
-| Field | Value |
-|---|---|
-| Project Name | WeatherTrax |
-| Project Type | Microservice + Data Model + API |
-| Description | Weather and course-condition intelligence system for golf events |
-| Target Users | Golf analysts, fantasy players, bettors |
-| Frontend Tools | Figma, React |
-| Backend Tools | FastAPI |
-| Database | PostgreSQL |
-| API Layer | REST + GraphQL |
-| Docs Tools | Google Docs, Markdown |
-| Planning Tools | Miro, GitHub Issues |
-| AI Tools | ChatGPT, Copilot, Gemini |
+
+| Field          | Value                                                            |
+| -------------- | ---------------------------------------------------------------- |
+| Project Name   | WeatherTrax                                                      |
+| Project Type   | Microservice + Data Model + API                                  |
+| Description    | Weather and course-condition intelligence system for golf events |
+| Target Users   | Golf analysts, fantasy players, bettors                          |
+| Frontend Tools | Figma, React                                                     |
+| Backend Tools  | FastAPI                                                          |
+| Database       | PostgreSQL                                                       |
+| API Layer      | REST + GraphQL                                                   |
+| Docs Tools     | Google Docs, Markdown                                            |
+| Planning Tools | Miro, GitHub Issues                                              |
+| AI Tools       | ChatGPT, Copilot, Gemini                                         |
 
 ---
 

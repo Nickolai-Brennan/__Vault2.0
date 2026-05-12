@@ -1,4 +1,4 @@
-#1  — EXECUTION ORDER + BUILD OPERATING SYSTEM
+#1 — EXECUTION ORDER + BUILD OPERATING SYSTEM
 
 Step 3 turns the project-aware structure from Step 2 into an execution system.
 
@@ -1390,3 +1390,4 @@ Prepare deployment
 NEXT STEP
 
 Step 4 should generate the actual starter files, templates, configs, scripts, docs, instructions, agent files, skill files, plugin files, command files, and placeholder app folders.
+```

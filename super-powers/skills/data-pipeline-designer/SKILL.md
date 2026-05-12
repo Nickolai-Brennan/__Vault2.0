@@ -38,6 +38,7 @@ loading stages, error handling, and orchestration configuration.
 ### Step 1 — Gather Pipeline Requirements
 
 Ask for:
+
 1. **Source:** Where does the data come from? (PostgreSQL, API, CSV, S3, Salesforce)
 2. **Destination:** Where does it land? (BigQuery, Snowflake, Redshift, PostgreSQL, S3)
 3. **Transform:** Any business logic, aggregations, or joins needed?
@@ -57,6 +58,7 @@ CSV on S3   ──→   boto3 read   ──→  pandas clean  ──→ bq load 
 ### Step 3 — Scaffold the Extraction Layer
 
 **Database extraction (incremental):**
+
 ```python
 # pipeline/extract/postgres.py
 import psycopg2
@@ -74,7 +76,7 @@ def extract_orders(
     Uses `updated_at` for incremental detection.
     """
     since = since or (datetime.utcnow() - timedelta(days=1))
-    
+
     query = """
         SELECT
             id, customer_id, status, total_amount,
@@ -83,7 +85,7 @@ def extract_orders(
         WHERE updated_at >= %(since)s
         ORDER BY updated_at
     """
-    
+
     with psycopg2.connect(conn_str) as conn:
         chunks = []
         for chunk in pd.read_sql(
@@ -93,11 +95,12 @@ def extract_orders(
             chunksize=batch_size
         ):
             chunks.append(chunk)
-    
+
     return pd.concat(chunks, ignore_index=True) if chunks else pd.DataFrame()
 ```
 
 **REST API extraction (paginated):**
+
 ```python
 # pipeline/extract/api.py
 import httpx
@@ -113,7 +116,7 @@ def extract_from_api(
     """Extract all records from a paginated REST API."""
     records = []
     page = 1
-    
+
     with httpx.Client(headers={'Authorization': f'Bearer {api_key}'}, timeout=30) as client:
         while True:
             resp = client.get(
@@ -122,17 +125,17 @@ def extract_from_api(
             )
             resp.raise_for_status()
             data = resp.json()
-            
+
             batch = data.get('data', data)
             if not batch:
                 break
-            
+
             records.extend(batch)
             page += 1
-            
+
             if not data.get('has_next_page', len(batch) == page_size):
                 break
-    
+
     return pd.DataFrame(records)
 ```
 
@@ -150,22 +153,22 @@ def transform_orders(df: pd.DataFrame) -> pd.DataFrame:
     """
     if df.empty:
         return df
-    
+
     result = df.copy()
-    
+
     # Normalize types
     result['id'] = result['id'].astype(str)
     result['customer_id'] = result['customer_id'].astype(str)
     result['total_amount'] = pd.to_numeric(result['total_amount'], errors='coerce')
     result['created_at'] = pd.to_datetime(result['created_at'], utc=True)
     result['updated_at'] = pd.to_datetime(result['updated_at'], utc=True)
-    
+
     # Standardize status values
     STATUS_MAP = {'completed': 'complete', 'cancelled': 'canceled'}
     result['status'] = result['status'].str.lower().map(
         lambda s: STATUS_MAP.get(s, s)
     )
-    
+
     # Drop rows missing critical fields
     critical_fields = ['id', 'customer_id', 'total_amount']
     before = len(result)
@@ -173,10 +176,10 @@ def transform_orders(df: pd.DataFrame) -> pd.DataFrame:
     dropped = before - len(result)
     if dropped > 0:
         print(f'[transform] Dropped {dropped} rows with null critical fields')
-    
+
     # Add pipeline metadata
     result['_loaded_at'] = pd.Timestamp.utcnow()
-    
+
     return result
 ```
 
@@ -198,20 +201,20 @@ def load_to_bigquery(
     if df.empty:
         print('[load] Nothing to load')
         return 0
-    
+
     client = bigquery.Client(project=project)
     table_id = f'{project}.{dataset}.{table}'
-    
+
     job_config = bigquery.LoadJobConfig(
         write_disposition=write_mode,
         schema_update_options=[
             bigquery.SchemaUpdateOption.ALLOW_FIELD_ADDITION
         ],
     )
-    
+
     job = client.load_table_from_dataframe(df, table_id, job_config=job_config)
     job.result()  # Wait for completion
-    
+
     print(f'[load] Loaded {len(df)} rows into {table_id}')
     return len(df)
 ```
@@ -233,23 +236,23 @@ logger = logging.getLogger(__name__)
 def run_orders_pipeline():
     start = datetime.utcnow()
     logger.info('Starting orders pipeline')
-    
+
     # 1. Get watermark for incremental extraction
     last_run = get_last_run('orders')
     logger.info(f'Extracting changes since {last_run}')
-    
+
     # 2. Extract
     raw = extract_orders(conn_str=os.environ['SOURCE_DB_URL'], since=last_run)
     logger.info(f'Extracted {len(raw)} rows')
-    
+
     if raw.empty:
         logger.info('No new data — done')
         return
-    
+
     # 3. Transform
     transformed = transform_orders(raw)
     logger.info(f'Transformed {len(transformed)} rows')
-    
+
     # 4. Load
     rows_loaded = load_to_bigquery(
         transformed,
@@ -257,10 +260,10 @@ def run_orders_pipeline():
         dataset='raw',
         table='orders'
     )
-    
+
     # 5. Update watermark
     save_last_run('orders', start)
-    
+
     elapsed = (datetime.utcnow() - start).total_seconds()
     logger.info(f'Pipeline complete: {rows_loaded} rows in {elapsed:.1f}s')
 

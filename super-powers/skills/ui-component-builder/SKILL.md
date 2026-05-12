@@ -22,6 +22,7 @@ Create accessible, type-safe, and consistently styled UI components for the DZIR
 ## When To Use
 
 Use this skill when the user asks to:
+
 - Add a missing primitive (Input, Textarea, Select, Checkbox, Toggle, Tooltip, Drawer, Tabs, Pagination, etc.)
 - Add a new variant to an existing component
 - Fix a bug or accessibility issue in an existing component
@@ -48,9 +49,9 @@ Use this skill when the user asks to:
 ## Component Template
 
 ```tsx
-import React from 'react';
+import React from "react";
 
-export type ExampleVariant = 'default' | 'primary';
+export type ExampleVariant = "default" | "primary";
 export interface ExampleProps {
   variant?: ExampleVariant;
   children: React.ReactNode;
@@ -58,14 +59,14 @@ export interface ExampleProps {
 }
 
 const variantClasses: Record<ExampleVariant, string> = {
-  default: 'bg-surface text-textPrimary border border-white/10',
-  primary: 'bg-primary text-white',
+  default: "bg-surface text-textPrimary border border-white/10",
+  primary: "bg-primary text-white",
 };
 
 export const Example: React.FC<ExampleProps> = ({
-  variant = 'default',
+  variant = "default",
   children,
-  className = '',
+  className = "",
 }) => (
   <div className={`rounded-xl ${variantClasses[variant]} ${className}`}>
     {children}
@@ -87,8 +88,8 @@ export const Example: React.FC<ExampleProps> = ({
 - [`docs/ui-components.md`](../../docs/ui-components.md)
 - [`.github/agents/ui-component-agent.md`](../../.github/agents/ui-component-agent.md)
 
-
 ## References
+
 - [Frontend Rules](../../instructions/frontend-rules.md)
 - [HTML/CSS Style Guide](../../instructions/html-css-style-color-guide.instructions.md)
 - [Dashboard Design Guide](../../references/dashboard-design-guide.md)

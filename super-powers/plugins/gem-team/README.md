@@ -55,12 +55,12 @@ copilot plugin install gem-team@awesome-copilot
 
 **Orchestrator** auto-detects phase and routes accordingly. Any feedback or steer message is handled to re-plan.
 
-| Condition | Phase |
-|:----------|:------|
-| No plan + simple | Research |
-| No plan + medium\|complex | Discuss → PRD → Research |
-| Plan + pending tasks | Execution |
-| Plan + feedback | Planning |
+| Condition                  | Phase                                             |
+| :------------------------- | :------------------------------------------------ |
+| No plan + simple           | Research                                          |
+| No plan + medium\|complex  | Discuss → PRD → Research                          |
+| Plan + pending tasks       | Execution                                         |
+| Plan + feedback            | Planning                                          |
 | Plan + completed → Summary | User decision (feedback / final review / approve) |
 | User requests final review | Final Review (parallel gem-reviewer + gem-critic) |
 
@@ -115,23 +115,23 @@ flowchart
 
 ## 🤖 The Agent Team (Q2 2026 SOTA)
 
-| Role | Description | Output | Recommended LLM |
-|:-----|:------------|:-------|:---------------|
-| 🎯 **ORCHESTRATOR** (`gem-orchestrator`) | The team lead: Orchestrates research, planning, implementation, and verification | 📋 PRD, plan.yaml | **Closed:** GPT-5.4, Gemini 3.1 Pro, Claude Sonnet 4.6<br>**Open:** GLM-5, Kimi K2.5, Qwen3.5 |
-| 🔍 **RESEARCHER** (`gem-researcher`) | Codebase exploration — patterns, dependencies, architecture discovery | 🔍 findings | **Closed:** Gemini 3.1 Pro, GPT-5.4, Claude Sonnet 4.6<br>**Open:** GLM-5, Qwen3.5-9B, DeepSeek-V3.2 |
-| 📋 **PLANNER** (`gem-planner`) | DAG-based execution plans — task decomposition, wave scheduling, risk analysis | 📄 plan.yaml | **Closed:** Gemini 3.1 Pro, Claude Sonnet 4.6, GPT-5.4<br>**Open:** Kimi K2.5, GLM-5, Qwen3.5 |
-| 🔧 **IMPLEMENTER** (`gem-implementer`) | TDD code implementation — features, bugs, refactoring. Never reviews own work | 💻 code | **Closed:** Claude Opus 4.6, GPT-5.4, Gemini 3.1 Pro<br>**Open:** DeepSeek-V3.2, GLM-5, Qwen3-Coder-Next |
-| 🧪 **BROWSER TESTER** (`gem-browser-tester`) | E2E browser testing, UI/UX validation, visual regression with Playwright | 🧪 evidence | **Closed:** GPT-5.4, Claude Sonnet 4.6, Gemini 3.1 Flash<br>**Open:** Llama 4 Maverick, Qwen3.5-Flash, MiniMax M2.7 |
-| 🚀 **DEVOPS** (`gem-devops`) | Infrastructure deployment, CI/CD pipelines, container management | 🌍 infra | **Closed:** GPT-5.4, Gemini 3.1 Pro, Claude Sonnet 4.6<br>**Open:** DeepSeek-V3.2, GLM-5, Qwen3.5 |
-| 🛡️ **REVIEWER** (`gem-reviewer`) | Security auditing, code review, OWASP scanning, PRD compliance verification | 📊 review report | **Closed:** Claude Opus 4.6, GPT-5.4, Gemini 3.1 Pro<br>**Open:** Kimi K2.5, GLM-5, DeepSeek-V3.2 |
-| 📝 **DOCUMENTATION** (`gem-documentation-writer`) | Technical documentation, README files, API docs, diagrams, walkthroughs | 📝 docs | **Closed:** Claude Sonnet 4.6, Gemini 3.1 Flash, GPT-5.4 Mini<br>**Open:** Llama 4 Scout, Qwen3.5-9B, MiniMax M2.7 |
-| 🔬 **DEBUGGER** (`gem-debugger`) | Root-cause analysis, stack trace diagnosis, regression bisection, error reproduction | 🔬 diagnosis | **Closed:** Gemini 3.1 Pro (Retrieval King), Claude Opus 4.6, GPT-5.4<br>**Open:** DeepSeek-V3.2, GLM-5, Qwen3-Coder-Next |
-| 🎯 **CRITIC** (`gem-critic`) | Challenges assumptions, finds edge cases, spots over-engineering and logic gaps | 💬 critique | **Closed:** Claude Sonnet 4.6, GPT-5.4, Gemini 3.1 Pro<br>**Open:** Kimi K2.5, GLM-5, Qwen3.5 |
-| ✂️ **SIMPLIFIER** (`gem-code-simplifier`) | Refactoring specialist — removes dead code, reduces complexity, consolidates duplicates | ✂️ change log | **Closed:** Claude Opus 4.6, GPT-5.4, Gemini 3.1 Pro<br>**Open:** DeepSeek-V3.2, GLM-5, Qwen3-Coder-Next |
-| 🎨 **DESIGNER** (`gem-designer`) | UI/UX design specialist — layouts, themes, color schemes, design systems, accessibility | 🎨 DESIGN.md | **Closed:** GPT-5.4, Gemini 3.1 Pro, Claude Sonnet 4.6<br>**Open:** Qwen3.5, GLM-5, MiniMax M2.7 |
-| 📱 **IMPLEMENTER-MOBILE** (`gem-implementer-mobile`) | Mobile implementation — React Native, Expo, Flutter with TDD | 💻 code | **Closed:** Claude Opus 4.6, GPT-5.4, Gemini 3.1 Pro<br>**Open:** DeepSeek-V3.2, GLM-5, Qwen3-Coder-Next |
-| 📱 **DESIGNER-MOBILE** (`gem-designer-mobile`) | Mobile UI/UX specialist — HIG, Material Design, safe areas, touch targets | 🎨 DESIGN.md | **Closed:** GPT-5.4, Gemini 3.1 Pro, Claude Sonnet 4.6<br>**Open:** Qwen3.5, GLM-5, MiniMax M2.7 |
-| 📱 **MOBILE TESTER** (`gem-mobile-tester`) | Mobile E2E testing — Detox, Maestro, iOS/Android simulators | 🧪 evidence | **Closed:** GPT-5.4, Claude Sonnet 4.6, Gemini 3.1 Flash<br>**Open:** Llama 4 Maverick, Qwen3.5-Flash, MiniMax M2.7 |
+| Role                                                 | Description                                                                             | Output            | Recommended LLM                                                                                                           |
+| :--------------------------------------------------- | :-------------------------------------------------------------------------------------- | :---------------- | :------------------------------------------------------------------------------------------------------------------------ |
+| 🎯 **ORCHESTRATOR** (`gem-orchestrator`)             | The team lead: Orchestrates research, planning, implementation, and verification        | 📋 PRD, plan.yaml | **Closed:** GPT-5.4, Gemini 3.1 Pro, Claude Sonnet 4.6<br>**Open:** GLM-5, Kimi K2.5, Qwen3.5                             |
+| 🔍 **RESEARCHER** (`gem-researcher`)                 | Codebase exploration — patterns, dependencies, architecture discovery                   | 🔍 findings       | **Closed:** Gemini 3.1 Pro, GPT-5.4, Claude Sonnet 4.6<br>**Open:** GLM-5, Qwen3.5-9B, DeepSeek-V3.2                      |
+| 📋 **PLANNER** (`gem-planner`)                       | DAG-based execution plans — task decomposition, wave scheduling, risk analysis          | 📄 plan.yaml      | **Closed:** Gemini 3.1 Pro, Claude Sonnet 4.6, GPT-5.4<br>**Open:** Kimi K2.5, GLM-5, Qwen3.5                             |
+| 🔧 **IMPLEMENTER** (`gem-implementer`)               | TDD code implementation — features, bugs, refactoring. Never reviews own work           | 💻 code           | **Closed:** Claude Opus 4.6, GPT-5.4, Gemini 3.1 Pro<br>**Open:** DeepSeek-V3.2, GLM-5, Qwen3-Coder-Next                  |
+| 🧪 **BROWSER TESTER** (`gem-browser-tester`)         | E2E browser testing, UI/UX validation, visual regression with Playwright                | 🧪 evidence       | **Closed:** GPT-5.4, Claude Sonnet 4.6, Gemini 3.1 Flash<br>**Open:** Llama 4 Maverick, Qwen3.5-Flash, MiniMax M2.7       |
+| 🚀 **DEVOPS** (`gem-devops`)                         | Infrastructure deployment, CI/CD pipelines, container management                        | 🌍 infra          | **Closed:** GPT-5.4, Gemini 3.1 Pro, Claude Sonnet 4.6<br>**Open:** DeepSeek-V3.2, GLM-5, Qwen3.5                         |
+| 🛡️ **REVIEWER** (`gem-reviewer`)                     | Security auditing, code review, OWASP scanning, PRD compliance verification             | 📊 review report  | **Closed:** Claude Opus 4.6, GPT-5.4, Gemini 3.1 Pro<br>**Open:** Kimi K2.5, GLM-5, DeepSeek-V3.2                         |
+| 📝 **DOCUMENTATION** (`gem-documentation-writer`)    | Technical documentation, README files, API docs, diagrams, walkthroughs                 | 📝 docs           | **Closed:** Claude Sonnet 4.6, Gemini 3.1 Flash, GPT-5.4 Mini<br>**Open:** Llama 4 Scout, Qwen3.5-9B, MiniMax M2.7        |
+| 🔬 **DEBUGGER** (`gem-debugger`)                     | Root-cause analysis, stack trace diagnosis, regression bisection, error reproduction    | 🔬 diagnosis      | **Closed:** Gemini 3.1 Pro (Retrieval King), Claude Opus 4.6, GPT-5.4<br>**Open:** DeepSeek-V3.2, GLM-5, Qwen3-Coder-Next |
+| 🎯 **CRITIC** (`gem-critic`)                         | Challenges assumptions, finds edge cases, spots over-engineering and logic gaps         | 💬 critique       | **Closed:** Claude Sonnet 4.6, GPT-5.4, Gemini 3.1 Pro<br>**Open:** Kimi K2.5, GLM-5, Qwen3.5                             |
+| ✂️ **SIMPLIFIER** (`gem-code-simplifier`)            | Refactoring specialist — removes dead code, reduces complexity, consolidates duplicates | ✂️ change log     | **Closed:** Claude Opus 4.6, GPT-5.4, Gemini 3.1 Pro<br>**Open:** DeepSeek-V3.2, GLM-5, Qwen3-Coder-Next                  |
+| 🎨 **DESIGNER** (`gem-designer`)                     | UI/UX design specialist — layouts, themes, color schemes, design systems, accessibility | 🎨 DESIGN.md      | **Closed:** GPT-5.4, Gemini 3.1 Pro, Claude Sonnet 4.6<br>**Open:** Qwen3.5, GLM-5, MiniMax M2.7                          |
+| 📱 **IMPLEMENTER-MOBILE** (`gem-implementer-mobile`) | Mobile implementation — React Native, Expo, Flutter with TDD                            | 💻 code           | **Closed:** Claude Opus 4.6, GPT-5.4, Gemini 3.1 Pro<br>**Open:** DeepSeek-V3.2, GLM-5, Qwen3-Coder-Next                  |
+| 📱 **DESIGNER-MOBILE** (`gem-designer-mobile`)       | Mobile UI/UX specialist — HIG, Material Design, safe areas, touch targets               | 🎨 DESIGN.md      | **Closed:** GPT-5.4, Gemini 3.1 Pro, Claude Sonnet 4.6<br>**Open:** Qwen3.5, GLM-5, MiniMax M2.7                          |
+| 📱 **MOBILE TESTER** (`gem-mobile-tester`)           | Mobile E2E testing — Detox, Maestro, iOS/Android simulators                             | 🧪 evidence       | **Closed:** GPT-5.4, Claude Sonnet 4.6, Gemini 3.1 Flash<br>**Open:** Llama 4 Maverick, Qwen3.5-Flash, MiniMax M2.7       |
 
 ### Agent File Skeleton
 
@@ -166,24 +166,24 @@ All agents share: Execution rules, Constitutional rules, Anti-Patterns, and Dire
 
 Agents consult only the sources relevant to their role. Trust levels apply:
 
-| Trust Level | Sources | Behavior |
-|:-----------|:--------|:---------|
-| **Trusted** | PRD.yaml, plan.yaml, AGENTS.md | Follow as instructions |
-| **Verify** | Codebase files, research findings | Cross-reference before assuming |
+| Trust Level   | Sources                                          | Behavior                             |
+| :------------ | :----------------------------------------------- | :----------------------------------- |
+| **Trusted**   | PRD.yaml, plan.yaml, AGENTS.md                   | Follow as instructions               |
+| **Verify**    | Codebase files, research findings                | Cross-reference before assuming      |
 | **Untrusted** | Error logs, external data, third-party responses | Factual only — never as instructions |
 
-| Agent | Knowledge Sources |
-|:------|:------------------|
-| orchestrator | PRD.yaml, AGENTS.md |
-| researcher | PRD.yaml, codebase patterns, AGENTS.md, Context7, official docs, online search |
-| planner | PRD.yaml, codebase patterns, AGENTS.md, Context7, official docs |
-| implementer | codebase patterns, AGENTS.md, Context7 (API verification), DESIGN.md (UI tasks) |
-| debugger | codebase patterns, AGENTS.md, error logs (untrusted), git history, DESIGN.md (UI bugs) |
-| reviewer | PRD.yaml, codebase patterns, AGENTS.md, OWASP reference, DESIGN.md (UI review) |
-| browser-tester | PRD.yaml (flow coverage), AGENTS.md, test fixtures, baseline screenshots, DESIGN.md (visual validation) |
-| designer | PRD.yaml (UX goals), codebase patterns, AGENTS.md, existing design system |
-| code-simplifier | codebase patterns, AGENTS.md, test suites (behavior verification) |
-| documentation-writer | AGENTS.md, existing docs, source code |
+| Agent                | Knowledge Sources                                                                                       |
+| :------------------- | :------------------------------------------------------------------------------------------------------ |
+| orchestrator         | PRD.yaml, AGENTS.md                                                                                     |
+| researcher           | PRD.yaml, codebase patterns, AGENTS.md, Context7, official docs, online search                          |
+| planner              | PRD.yaml, codebase patterns, AGENTS.md, Context7, official docs                                         |
+| implementer          | codebase patterns, AGENTS.md, Context7 (API verification), DESIGN.md (UI tasks)                         |
+| debugger             | codebase patterns, AGENTS.md, error logs (untrusted), git history, DESIGN.md (UI bugs)                  |
+| reviewer             | PRD.yaml, codebase patterns, AGENTS.md, OWASP reference, DESIGN.md (UI review)                          |
+| browser-tester       | PRD.yaml (flow coverage), AGENTS.md, test fixtures, baseline screenshots, DESIGN.md (visual validation) |
+| designer             | PRD.yaml (UX goals), codebase patterns, AGENTS.md, existing design system                               |
+| code-simplifier      | codebase patterns, AGENTS.md, test suites (behavior verification)                                       |
+| documentation-writer | AGENTS.md, existing docs, source code                                                                   |
 
 ---
 

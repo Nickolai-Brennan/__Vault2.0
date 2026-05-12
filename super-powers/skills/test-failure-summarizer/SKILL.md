@@ -37,11 +37,13 @@ and what to do next.
 ### Step 1 — Receive Test Output
 
 Accept:
+
 - Pasted test runner output (any framework)
 - CI/CD log output
 - A description of the failures
 
 Identify the test framework from the output format:
+
 - `FAILED test_file.py::test_name` → pytest
 - `✕ test name` → Jest
 - `1) Context: behavior` → RSpec
@@ -50,26 +52,29 @@ Identify the test framework from the output format:
 ### Step 2 — Extract Failing Tests
 
 Parse and list:
+
 1. Test file and test name
 2. Failure message (first line of the assertion error)
 3. Line number of failure
 4. Whether the failure is in the test or in application code
 
 Group failures by:
+
 - **Same error message** (one root cause may explain multiple failures)
 - **Same file / component** (localized issue)
 
 ### Step 3 — Classify Each Failure
 
-| Type | Signals |
-|------|---------|
-| **Real regression** | New failure on unchanged test, passes on older commit |
-| **Test bug** | Test was always wrong (wrong assertion, wrong setup) |
+| Type                  | Signals                                                         |
+| --------------------- | --------------------------------------------------------------- |
+| **Real regression**   | New failure on unchanged test, passes on older commit           |
+| **Test bug**          | Test was always wrong (wrong assertion, wrong setup)            |
 | **Environment issue** | Passes locally, fails in CI (network, missing env var, OS diff) |
-| **Flaky test** | Intermittently passes/fails, often timing-related |
-| **Dependency change** | External dep changed behavior |
+| **Flaky test**        | Intermittently passes/fails, often timing-related               |
+| **Dependency change** | External dep changed behavior                                   |
 
 Look for flakiness signals:
+
 - Timeout errors
 - Race conditions in async tests
 - Order-dependent tests
@@ -79,22 +84,28 @@ Look for flakiness signals:
 
 ```markdown
 ## Test Failure Summary
+
 _Framework: [pytest/Jest/etc.] | Total failures: N | Analyzed: [Date]_
 
 ### Overview
+
 [2–3 sentence summary: N tests failed, likely caused by X, affects Y component]
 
 ### Failure Groups
 
 #### Group 1 — [Common cause] (N tests)
+
 **Failure type:** Real regression / Flaky / Test bug / Environment
 **Tests:**
+
 - `test_file.py::test_name` — line 42
 - `test_file.py::test_name_2` — line 67
 
 **Error:**
 ```
+
 AssertionError: Expected 200, got 500
+
 ```
 
 **Likely cause:** [One-sentence explanation]
@@ -118,6 +129,7 @@ AssertionError: Expected 200, got 500
 ### Step 5 — Identify Quick Wins
 
 Flag any:
+
 - Tests that can be unblocked by updating a fixture or mock
 - Obvious assertion bugs (e.g., asserting wrong expected value)
 - Tests that should be skipped or marked as expected failures

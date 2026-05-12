@@ -84,14 +84,14 @@ Draft → Test → Evaluate → Iterate → Publish
 
 ### Common improvements
 
-| Issue | Fix |
-|-------|-----|
-| Skill doesn't trigger | Make `description` more specific and pushy |
-| Wrong output format | Add/tighten `## Output Format` section |
-| Missing steps | Expand `## Workflow` |
-| Over-triggers | Narrow `description` trigger contexts |
-| Wrong tone | Add style guidance to body |
-| Missing edge case handling | Add edge case notes to workflow |
+| Issue                      | Fix                                        |
+| -------------------------- | ------------------------------------------ |
+| Skill doesn't trigger      | Make `description` more specific and pushy |
+| Wrong output format        | Add/tighten `## Output Format` section     |
+| Missing steps              | Expand `## Workflow`                       |
+| Over-triggers              | Narrow `description` trigger contexts      |
+| Wrong tone                 | Add style guidance to body                 |
+| Missing edge case handling | Add edge case notes to workflow            |
 
 ### Steps
 
@@ -102,6 +102,7 @@ Draft → Test → Evaluate → Iterate → Publish
 5. Repeat until quality gates are met
 
 **Quality gates for "done":**
+
 - ≥ 80% of eval cases pass
 - No critical failures (completely wrong output type)
 - At least one baseline comparison shows improvement
@@ -132,18 +133,18 @@ Draft → Test → Evaluate → Iterate → Publish
 
 Every published skill must have:
 
-| Item | Required |
-|------|---------|
-| YAML frontmatter with `name` + `description` | ✅ Required |
-| `## Purpose` section | ✅ Required |
-| `## When To Use` section | ✅ Required |
-| `## Inputs` section | ✅ Required |
-| `## Workflow` section | ✅ Required |
-| `## Output Format` section | Recommended |
-| `## Quality Checklist` section | Recommended |
-| `## References` section | Recommended |
-| At least 2 eval cases in `evals/` | Recommended |
-| `assets/`, `references/`, `scripts/` as needed | Optional |
+| Item                                           | Required    |
+| ---------------------------------------------- | ----------- |
+| YAML frontmatter with `name` + `description`   | ✅ Required |
+| `## Purpose` section                           | ✅ Required |
+| `## When To Use` section                       | ✅ Required |
+| `## Inputs` section                            | ✅ Required |
+| `## Workflow` section                          | ✅ Required |
+| `## Output Format` section                     | Recommended |
+| `## Quality Checklist` section                 | Recommended |
+| `## References` section                        | Recommended |
+| At least 2 eval cases in `evals/`              | Recommended |
+| `assets/`, `references/`, `scripts/` as needed | Optional    |
 
 ---
 

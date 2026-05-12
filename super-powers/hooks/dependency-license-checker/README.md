@@ -1,7 +1,7 @@
 ---
-name: 'Dependency License Checker'
-description: 'Scans newly added dependencies for license compliance (GPL, AGPL, etc.) at session end'
-tags: ['compliance', 'license', 'dependencies', 'session-end']
+name: "Dependency License Checker"
+description: "Scans newly added dependencies for license compliance (GPL, AGPL, etc.) at session end"
+tags: ["compliance", "license", "dependencies", "session-end"]
 ---
 
 # Dependency License Checker Hook
@@ -72,13 +72,13 @@ The hook is configured in `hooks.json` to run on the `sessionEnd` event:
 
 ### Environment Variables
 
-| Variable | Values | Default | Description |
-|----------|--------|---------|-------------|
-| `LICENSE_MODE` | `warn`, `block` | `warn` | `warn` logs violations only; `block` exits non-zero to prevent auto-commit |
-| `SKIP_LICENSE_CHECK` | `true` | unset | Disable the checker entirely |
-| `LICENSE_LOG_DIR` | path | `logs/copilot/license-checker` | Directory where check logs are written |
-| `BLOCKED_LICENSES` | comma-separated SPDX IDs | copyleft set | Licenses to flag as violations |
-| `LICENSE_ALLOWLIST` | comma-separated | unset | Package names to skip (e.g., `linux-headers,glibc`) |
+| Variable             | Values                   | Default                        | Description                                                                |
+| -------------------- | ------------------------ | ------------------------------ | -------------------------------------------------------------------------- |
+| `LICENSE_MODE`       | `warn`, `block`          | `warn`                         | `warn` logs violations only; `block` exits non-zero to prevent auto-commit |
+| `SKIP_LICENSE_CHECK` | `true`                   | unset                          | Disable the checker entirely                                               |
+| `LICENSE_LOG_DIR`    | path                     | `logs/copilot/license-checker` | Directory where check logs are written                                     |
+| `BLOCKED_LICENSES`   | comma-separated SPDX IDs | copyleft set                   | Licenses to flag as violations                                             |
+| `LICENSE_ALLOWLIST`  | comma-separated          | unset                          | Package names to skip (e.g., `linux-headers,glibc`)                        |
 
 ## How It Works
 
@@ -94,13 +94,13 @@ The hook is configured in `hooks.json` to run on the `sessionEnd` event:
 
 ## Supported Ecosystems
 
-| Ecosystem | Manifest File | Primary Lookup | Fallback |
-|-----------|--------------|----------------|----------|
-| npm/yarn/pnpm | `package.json` | `node_modules/<pkg>/package.json` license field | `npm view <pkg> license` |
-| pip | `requirements.txt`, `pyproject.toml` | `pip show <pkg>` License field | UNKNOWN |
-| Go | `go.mod` | LICENSE file in module cache (keyword match) | UNKNOWN |
-| Ruby | `Gemfile` | `gem spec <pkg> license` | UNKNOWN |
-| Rust | `Cargo.toml` | `cargo metadata` license field | UNKNOWN |
+| Ecosystem     | Manifest File                        | Primary Lookup                                  | Fallback                 |
+| ------------- | ------------------------------------ | ----------------------------------------------- | ------------------------ |
+| npm/yarn/pnpm | `package.json`                       | `node_modules/<pkg>/package.json` license field | `npm view <pkg> license` |
+| pip           | `requirements.txt`, `pyproject.toml` | `pip show <pkg>` License field                  | UNKNOWN                  |
+| Go            | `go.mod`                             | LICENSE file in module cache (keyword match)    | UNKNOWN                  |
+| Ruby          | `Gemfile`                            | `gem spec <pkg> license`                        | UNKNOWN                  |
+| Rust          | `Cargo.toml`                         | `cargo metadata` license field                  | UNKNOWN                  |
 
 ## Default Blocked Licenses
 
@@ -176,11 +176,31 @@ Override with `BLOCKED_LICENSES` to customize.
 Check events are written to `logs/copilot/license-checker/check.log` in JSON Lines format:
 
 ```json
-{"timestamp":"2026-03-17T10:30:00Z","event":"license_check_complete","mode":"warn","dependencies_checked":3,"violation_count":1,"violations":[{"package":"readline-sync","ecosystem":"npm","license":"GPL-3.0","status":"BLOCKED"}]}
+{
+  "timestamp": "2026-03-17T10:30:00Z",
+  "event": "license_check_complete",
+  "mode": "warn",
+  "dependencies_checked": 3,
+  "violation_count": 1,
+  "violations": [
+    {
+      "package": "readline-sync",
+      "ecosystem": "npm",
+      "license": "GPL-3.0",
+      "status": "BLOCKED"
+    }
+  ]
+}
 ```
 
 ```json
-{"timestamp":"2026-03-17T10:30:00Z","event":"license_check_complete","mode":"warn","status":"clean","dependencies_checked":0}
+{
+  "timestamp": "2026-03-17T10:30:00Z",
+  "event": "license_check_complete",
+  "mode": "warn",
+  "status": "clean",
+  "dependencies_checked": 0
+}
 ```
 
 ## Pairing with Other Hooks

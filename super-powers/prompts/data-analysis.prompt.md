@@ -7,9 +7,11 @@ phase: PROTOTYPE|MVP|PRODUCTION
 # Prompt: Data Analysis
 
 ## Objective
+
 Analyze a cleaned dataset to produce descriptive statistics, hypothesis test results, and a ranked list of actionable insights.
 
 ## Context Requirements
+
 - Cleaned dataset (`cleaned_dataset/`) from WF-02
 - Analysis goals from `project_brief.md`
 - Target variable or outcome metric (if applicable)
@@ -54,10 +56,12 @@ key_insights:
 ```
 
 ## Quality Checks
+
 - [ ] All numeric columns have complete descriptive stats
 - [ ] Each analysis goal has at least one hypothesis test
 - [ ] Insights are ranked with explicit evidence citations
 
 ## Safety Rules
+
 - Never include PII or individual-level identifiers in statistical outputs
 - Flag any column containing names, emails, or IDs before analysis

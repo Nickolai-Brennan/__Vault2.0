@@ -13,27 +13,27 @@ Use this template when initializing a **Static Site / Landing Page** project (no
 
 ## Section 2: Basic Identity
 
-| Field | Value |
-|-------|-------|
-| **Project Name** | |
-| **Tagline** (one sentence) | |
-| **Version / Phase** | `prototype` · `mvp` · `production` |
-| **Status** | `active` · `on-hold` · `archived` |
-| **Owner / Team** | |
-| **Created** | YYYY-MM-DD |
-| **Last Updated** | YYYY-MM-DD |
+| Field                      | Value                              |
+| -------------------------- | ---------------------------------- |
+| **Project Name**           |                                    |
+| **Tagline** (one sentence) |                                    |
+| **Version / Phase**        | `prototype` · `mvp` · `production` |
+| **Status**                 | `active` · `on-hold` · `archived`  |
+| **Owner / Team**           |                                    |
+| **Created**                | YYYY-MM-DD                         |
+| **Last Updated**           | YYYY-MM-DD                         |
 
 ---
 
 ## Section 3: Purpose
 
 **3.1 — What is the purpose of this site?**
-*(e.g. product landing page, portfolio, event page, marketing microsite)*
+_(e.g. product landing page, portfolio, event page, marketing microsite)_
 
 > **Answer**:
 
 **3.2 — What is the single most important conversion or outcome this site must drive?**
-*(e.g. newsletter sign-up, product purchase, contact form submission)*
+_(e.g. newsletter sign-up, product purchase, contact form submission)_
 
 > **Answer**:
 
@@ -60,7 +60,7 @@ Use this template when initializing a **Static Site / Landing Page** project (no
 > **Answer**:
 
 **4.4 — What is the expected monthly traffic?**
-*(e.g. "5,000 unique visitors/month")*
+_(e.g. "5,000 unique visitors/month")_
 
 > **Answer**:
 
@@ -69,22 +69,22 @@ Use this template when initializing a **Static Site / Landing Page** project (no
 ## Section 5: Technical Stack
 
 **5.1 — What site generator or build tool is used?**
-*(e.g. Astro, Hugo, Jekyll, Eleventy, plain HTML/CSS, Vite)*
+_(e.g. Astro, Hugo, Jekyll, Eleventy, plain HTML/CSS, Vite)_
 
 > **Answer**:
 
 **5.2 — What templating language or component system is used?**
-*(e.g. Nunjucks, Handlebars, MDX, vanilla HTML)*
+_(e.g. Nunjucks, Handlebars, MDX, vanilla HTML)_
 
 > **Answer**:
 
 **5.3 — What CSS / styling approach is used?**
-*(e.g. Tailwind, Bootstrap, vanilla CSS, Sass)*
+_(e.g. Tailwind, Bootstrap, vanilla CSS, Sass)_
 
 > **Answer**:
 
 **5.4 — What hosting / CDN platform is used?**
-*(e.g. Vercel, Netlify, GitHub Pages, Cloudflare Pages, AWS S3 + CloudFront)*
+_(e.g. Vercel, Netlify, GitHub Pages, Cloudflare Pages, AWS S3 + CloudFront)_
 
 > **Answer**:
 
@@ -93,7 +93,7 @@ Use this template when initializing a **Static Site / Landing Page** project (no
 > **Answer**:
 
 **5.6 — What third-party scripts or integrations are embedded?**
-*(e.g. analytics, CRM forms, chat widgets, payment buttons, social embeds)*
+_(e.g. analytics, CRM forms, chat widgets, payment buttons, social embeds)_
 
 > **Answer**:
 
@@ -106,22 +106,22 @@ Use this template when initializing a **Static Site / Landing Page** project (no
 > **Answer**:
 
 **6.2 — What CMS or content source is used, if any?**
-*(e.g. Contentful, Sanity, Markdown files, Google Sheets, none)*
+_(e.g. Contentful, Sanity, Markdown files, Google Sheets, none)_
 
 > **Answer**:
 
 **6.3 — What SEO strategy or requirements apply?**
-*(e.g. meta tags, structured data, sitemap, OpenGraph, canonical URLs)*
+_(e.g. meta tags, structured data, sitemap, OpenGraph, canonical URLs)_
 
 > **Answer**:
 
 **6.4 — What are the localization / multi-language requirements?**
-*(e.g. English only, EN + ES, none)*
+_(e.g. English only, EN + ES, none)_
 
 > **Answer**:
 
 **6.5 — What accessibility standard must this site meet?**
-*(e.g. WCAG 2.1 AA, none specified)*
+_(e.g. WCAG 2.1 AA, none specified)_
 
 > **Answer**:
 
@@ -130,7 +130,7 @@ Use this template when initializing a **Static Site / Landing Page** project (no
 ## Section 7: Data Profile
 
 **7.1 — What data does the site collect?**
-*(e.g. email addresses via form, analytics events, none)*
+_(e.g. email addresses via form, analytics events, none)_
 
 > **Answer**:
 
@@ -177,12 +177,12 @@ Choose one: `true` · `false`
 > **Answer**:
 
 **9.3 — What compliance or regulatory requirements apply?**
-*(e.g. GDPR cookie consent, CCPA, ADA)*
+_(e.g. GDPR cookie consent, CCPA, ADA)_
 
 > **Answer**:
 
 **9.4 — What are the performance targets?**
-*(e.g. "Lighthouse Performance score ≥ 90", "LCP < 2.5 s")*
+_(e.g. "Lighthouse Performance score ≥ 90", "LCP < 2.5 s")_
 
 > **Answer**:
 
@@ -202,8 +202,8 @@ Choose one: `true` · `false`
 
 ## Section 11: Related Files
 
-| File / URL | Purpose |
-|------------|---------|
+| File / URL  | Purpose          |
+| ----------- | ---------------- |
 | `README.md` | Project overview |
-| | |
-| | |
+|             |                  |
+|             |                  |

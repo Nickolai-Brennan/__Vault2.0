@@ -31,6 +31,7 @@ use roundup-setup
 ```
 
 The setup flow walks you through:
+
 - Describing your role and team
 - Pasting in example updates you've already written
 - Defining your audiences (leadership, team, partners, etc.) and what each one cares about
@@ -54,21 +55,21 @@ use roundup -- draft a team update since Monday
 
 ## What's Included
 
-| Skill | What It Does |
-|-------|-------------|
+| Skill           | What It Does                                                               |
+| --------------- | -------------------------------------------------------------------------- |
 | `roundup-setup` | Interactive onboarding that learns your style, audiences, and data sources |
-| `roundup` | Generates draft briefings from your config on demand |
+| `roundup`       | Generates draft briefings from your config on demand                       |
 
 ## What It Can Pull From
 
 Roundup adapts to whatever tools are available in your environment:
 
-| Source | What It Looks For |
-|--------|-------------------|
-| GitHub | PRs, issues, commits, review activity across your configured repos |
-| M365 / WorkIQ | Email threads, Teams messages, calendar events, shared docs |
-| Slack | Channel messages, threads, announcements |
-| Google Workspace | Gmail, Calendar, Drive activity |
+| Source           | What It Looks For                                                  |
+| ---------------- | ------------------------------------------------------------------ |
+| GitHub           | PRs, issues, commits, review activity across your configured repos |
+| M365 / WorkIQ    | Email threads, Teams messages, calendar events, shared docs        |
+| Slack            | Channel messages, threads, announcements                           |
+| Google Workspace | Gmail, Calendar, Drive activity                                    |
 
 During setup, roundup discovers which of these you have access to and configures itself accordingly. If you add new tools later, re-run setup to include them.
 

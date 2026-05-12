@@ -37,6 +37,7 @@ help text, and colored output — ready to install globally or distribute.
 ### Step 1 — Understand the CLI Requirements
 
 Collect:
+
 1. **Tool name** and one-sentence description
 2. **Commands:** What actions does it perform? (e.g., `create`, `list`, `delete`, `deploy`)
 3. **Flags/options:** Required and optional flags for each command
@@ -71,23 +72,20 @@ Global options:
 #!/usr/bin/env node
 // bin/mytool.ts
 
-import { Command } from 'commander';
-import chalk from 'chalk';
-import { createResource } from './commands/create';
-import { listResources } from './commands/list';
+import { Command } from "commander";
+import chalk from "chalk";
+import { createResource } from "./commands/create";
+import { listResources } from "./commands/list";
 
 const program = new Command();
 
-program
-  .name('mytool')
-  .description('My automation CLI tool')
-  .version('1.0.0');
+program.name("mytool").description("My automation CLI tool").version("1.0.0");
 
 program
-  .command('create <name>')
-  .description('Create a new resource')
-  .option('-t, --type <type>', 'Resource type', 'default')
-  .option('--dry-run', 'Preview without making changes')
+  .command("create <name>")
+  .description("Create a new resource")
+  .option("-t, --type <type>", "Resource type", "default")
+  .option("--dry-run", "Preview without making changes")
   .action(async (name, options) => {
     try {
       await createResource(name, options);
@@ -99,15 +97,17 @@ program
   });
 
 program
-  .command('list')
-  .description('List all resources')
-  .option('--json', 'Output as JSON')
+  .command("list")
+  .description("List all resources")
+  .option("--json", "Output as JSON")
   .action(async (options) => {
     const items = await listResources();
     if (options.json) {
       console.log(JSON.stringify(items, null, 2));
     } else {
-      items.forEach(item => console.log(`  ${chalk.cyan(item.id)}  ${item.name}`));
+      items.forEach((item) =>
+        console.log(`  ${chalk.cyan(item.id)}  ${item.name}`),
+      );
     }
   });
 
@@ -168,6 +168,7 @@ if __name__ == '__main__':
 #### package.json / setup.py / go.mod configuration
 
 **Node.js — package.json:**
+
 ```json
 {
   "name": "mytool",
@@ -181,6 +182,7 @@ if __name__ == '__main__':
 ```
 
 **Python — pyproject.toml:**
+
 ```toml
 [project.scripts]
 mytool = "mytool.cli:cli"
@@ -189,6 +191,7 @@ mytool = "mytool.cli:cli"
 ### Step 4 — Add Error Handling and Exit Codes
 
 Standard exit codes:
+
 - `0` — success
 - `1` — general error
 - `2` — usage error (wrong args)

@@ -37,5 +37,6 @@ Output:
 ---
 
 ## Related
+
 - [`prompt/frontend-system.md`](../prompt/frontend-system.md) — existing frontend system prompt
 - [`instructions/frontend.md`](../instructions/frontend.md)

@@ -12,30 +12,30 @@ copilot plugin install react19-upgrade@awesome-copilot
 
 ### Agents
 
-1. **react19-commander**  Master orchestrator that coordinates the entire migration pipeline through audit, dependencies, source code migration, and test verification phases.
+1. **react19-commander** Master orchestrator that coordinates the entire migration pipeline through audit, dependencies, source code migration, and test verification phases.
 
-2. **react19-auditor**  Deep-scan specialist that identifies every React 19 breaking change and deprecated pattern:
+2. **react19-auditor** Deep-scan specialist that identifies every React 19 breaking change and deprecated pattern:
    - Removed APIs: `ReactDOM.render`, `ReactDOM.hydrate`, `unmountComponentAtNode`, `findDOMNode`, `createFactory`, `react-dom/test-utils` exports
    - Legacy Context API (`contextTypes`, `childContextTypes`, `getChildContext`)
    - String refs (`this.refs.x`)
    - Deprecated patterns: `forwardRef`, `defaultProps` on function components, `useRef()` without initial value
    - Test-specific issues: `act` import location, `Simulate` usage, StrictMode changes
 
-3. **react19-dep-surgeon**  Dependency upgrade specialist that upgrades to react@19, handles @testing-library/react@16+, resolves all peer conflicts, and returns GO/NO-GO confirmation.
+3. **react19-dep-surgeon** Dependency upgrade specialist that upgrades to react@19, handles @testing-library/react@16+, resolves all peer conflicts, and returns GO/NO-GO confirmation.
 
-4. **react19-migrator**  Source code migration engine that rewrites required React 19 changes and can apply optional modernizations for deprecated patterns:  
-   - `ReactDOM.render` → `createRoot`  
-   - `ReactDOM.hydrate` → `hydrateRoot`  
-   - `unmountComponentAtNode` → `root.unmount()`  
-   - `findDOMNode` → direct refs  
-   - Optional modernization: `forwardRef` → ref as direct prop  
+4. **react19-migrator** Source code migration engine that rewrites required React 19 changes and can apply optional modernizations for deprecated patterns:
+   - `ReactDOM.render` → `createRoot`
+   - `ReactDOM.hydrate` → `hydrateRoot`
+   - `unmountComponentAtNode` → `root.unmount()`
+   - `findDOMNode` → direct refs
+   - Optional modernization: `forwardRef` → ref as direct prop
    - `defaultProps` → ES6 defaults
    - Legacy Context → `createContext`
    - String refs → `createRef`
    - `useRef()` → `useRef(null)`
    - `propTypes` → documentation comments
 
-5. **react19-test-guardian**  Test suite fixer that handles:
+5. **react19-test-guardian** Test suite fixer that handles:
    - `act` import fixes (react-dom/test-utils → react)
    - `Simulate` → `fireEvent` migrations
    - StrictMode spy call count deltas (no more double-invoke in React 19)
@@ -46,11 +46,11 @@ copilot plugin install react19-upgrade@awesome-copilot
 
 ### Skills
 
-1. **react19-concurrent-patterns**  Deep patterns for React 19 concurrent features including Suspense, use() Hook, Server Components integration, and concurrent batching.
+1. **react19-concurrent-patterns** Deep patterns for React 19 concurrent features including Suspense, use() Hook, Server Components integration, and concurrent batching.
 
-2. **react19-source-patterns**  Migration patterns for source API changes including DOM/root APIs, refs, and context updates.
+2. **react19-source-patterns** Migration patterns for source API changes including DOM/root APIs, refs, and context updates.
 
-3. **react19-test-patterns**  Comprehensive test migration guide covering `act()` semantics, error boundary testing, and StrictMode behavioral changes.
+3. **react19-test-patterns** Comprehensive test migration guide covering `act()` semantics, error boundary testing, and StrictMode behavioral changes.
 
 ## Quick Start
 
@@ -69,20 +69,20 @@ The react19-commander will guide you through:
 
 ### Removed APIs
 
-- `ReactDOM.render()`  use `createRoot()`
-- `ReactDOM.hydrate()`  use `hydrateRoot()`
-- `ReactDOM.unmountComponentAtNode()`  use `root.unmount()`
-- `ReactDOM.findDOMNode()`  use direct refs
-- `React.createFactory()`  use JSX
+- `ReactDOM.render()` use `createRoot()`
+- `ReactDOM.hydrate()` use `hydrateRoot()`
+- `ReactDOM.unmountComponentAtNode()` use `root.unmount()`
+- `ReactDOM.findDOMNode()` use direct refs
+- `React.createFactory()` use JSX
 - `react-dom/test-utils` exports
 - Legacy Context API
 - String refs
 
 ### Deprecated Patterns (Still work but should migrate)
 
-- `forwardRef`  ref is now a direct prop
-- `defaultProps` on function components  use ES6 defaults
-- `useRef()` without initial value  pass `null`
+- `forwardRef` ref is now a direct prop
+- `defaultProps` on function components use ES6 defaults
+- `useRef()` without initial value pass `null`
 
 ### Behavioral Changes
 
@@ -93,8 +93,8 @@ The react19-commander will guide you through:
 
 - ✅ Comprehensive removal of 8+ deprecated React APIs
 - ✅ Handles complex patterns: legacy context, forwardRef, defaultProps
-- ✅ Memory-based resumable pipeline  survive interruptions
-- ✅ Zero tolerance for incomplete migrations  run to full success
+- ✅ Memory-based resumable pipeline survive interruptions
+- ✅ Zero tolerance for incomplete migrations run to full success
 - ✅ StrictMode-aware test fixes
 - ✅ Testing-library v16+ compatibility verification
 - ✅ Error boundary and async test pattern updates

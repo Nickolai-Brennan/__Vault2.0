@@ -36,5 +36,6 @@ Rules:
 ---
 
 ## Related
+
 - [`config/stack.config.json`](../config/stack.config.json) — source of truth
 - [`docs/stack.md`](../docs/stack.md) — stack documentation

@@ -5,6 +5,7 @@ Reference for the `eval-runner` skill. Covers how to write, structure, run, and 
 ## What Makes a Good Eval
 
 A good eval case:
+
 1. **Realistic**: Uses a prompt a real user would actually write
 2. **Specific**: Has a clear, verifiable expected output (not "a good response")
 3. **Targeted**: Tests one behavior per case (not multiple things at once)
@@ -40,22 +41,24 @@ A good eval case:
 
 ## Assertion Types
 
-| Type | Description | Example |
-|------|-------------|---------|
-| `contains` | Output must include this text | `{"type": "contains", "value": "def create_user"}` |
-| `not_contains` | Output must not include this text | `{"type": "not_contains", "value": "TODO"}` |
-| `starts_with` | Output starts with this prefix | `{"type": "starts_with", "value": "# "}` |
-| `matches_regex` | Output matches regex pattern | `{"type": "matches_regex", "value": "\\d{4}-\\d{2}-\\d{2}"}` |
-| `file_created` | A specific file was created | `{"type": "file_created", "value": "docs/api-reference.md"}` |
+| Type            | Description                       | Example                                                      |
+| --------------- | --------------------------------- | ------------------------------------------------------------ |
+| `contains`      | Output must include this text     | `{"type": "contains", "value": "def create_user"}`           |
+| `not_contains`  | Output must not include this text | `{"type": "not_contains", "value": "TODO"}`                  |
+| `starts_with`   | Output starts with this prefix    | `{"type": "starts_with", "value": "# "}`                     |
+| `matches_regex` | Output matches regex pattern      | `{"type": "matches_regex", "value": "\\d{4}-\\d{2}-\\d{2}"}` |
+| `file_created`  | A specific file was created       | `{"type": "file_created", "value": "docs/api-reference.md"}` |
 
 ## Good vs. Poor Expected Outputs
 
 **Poor** (too vague):
+
 ```
 "expected_output": "A good API design"
 ```
 
 **Good** (specific and verifiable):
+
 ```
 "expected_output": "A FastAPI router file with at least GET, POST, and DELETE routes for the 'users' resource, using Pydantic v2 schemas, and the router registered in main.py"
 ```
@@ -75,13 +78,14 @@ A good eval case:
 
 ## Number of Cases
 
-| Skill complexity | Recommended cases |
-|-----------------|------------------|
-| Simple (1 output type) | 2–3 |
-| Medium (2–3 output types) | 4–6 |
-| Complex (many paths) | 6–10 |
+| Skill complexity          | Recommended cases |
+| ------------------------- | ----------------- |
+| Simple (1 output type)    | 2–3               |
+| Medium (2–3 output types) | 4–6               |
+| Complex (many paths)      | 6–10              |
 
 Always include:
+
 - At least 1 "happy path" (typical use)
 - At least 1 edge case (unusual input)
 - At least 1 validation case (what should the skill reject or handle gracefully)

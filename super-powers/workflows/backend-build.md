@@ -5,9 +5,11 @@
 ---
 
 ## Purpose
+
 Build and extend the FastAPI Python backend.
 
 ## Stack
+
 - FastAPI + Python 3.11+
 - SQLAlchemy / asyncpg
 - Pydantic v2
@@ -17,6 +19,7 @@ Build and extend the FastAPI Python backend.
 ## Steps
 
 1. **Start dev server**
+
    ```bash
    cd backend
    pip install -r requirements.txt
@@ -45,6 +48,7 @@ Build and extend the FastAPI Python backend.
    ```
 
 ## Outputs
+
 - Working FastAPI routes
 - Pydantic schemas for all endpoints
 - Passing backend tests

@@ -17,10 +17,13 @@ license: Complete terms in LICENSE.txt
 # Web Application Testing
 
 ## Purpose
+
 Automate browser interactions, verify frontend functionality, capture screenshots, and debug UI behavior for local web applications using Playwright.
 
 ## When To Use
+
 Use this skill when the user asks to:
+
 - Test a web application's UI or user flows
 - Verify that a page renders correctly
 - Capture screenshots of the application
@@ -29,11 +32,13 @@ Use this skill when the user asks to:
 - Check browser console logs for errors
 
 ## Inputs
+
 - A running web application (or server start command)
 - Description of what to test or verify
 - Target URL (defaults to `localhost`)
 
 ## Workflow
+
 1. Determine whether the app is static HTML or a dynamic server-based app
 2. Start the server if needed using `scripts/with_server.py`
 3. Write a Playwright script targeting the correct URL
@@ -41,10 +46,10 @@ Use this skill when the user asks to:
 5. Execute test actions and capture output (screenshots, logs, assertions)
 6. Report results with pass/fail and relevant screenshots
 
-
 To test local web applications, write native Python Playwright scripts.
 
 **Helper Scripts Available**:
+
 - `scripts/with_server.py` - Manages server lifecycle (supports multiple servers)
 
 **Always run scripts with `--help` first** to see usage. DO NOT read the source until you try running the script first and find that a customized solution is abslutely necessary. These scripts can be very large and thus pollute your context window. They exist to be called directly as black-box scripts rather than ingested into your context window.
@@ -73,11 +78,13 @@ User task → Is it static HTML?
 To start a server, run `--help` first, then use the helper:
 
 **Single server:**
+
 ```bash
 python scripts/with_server.py --server "npm run dev" --port 5173 -- python your_automation.py
 ```
 
 **Multiple servers (e.g., backend + frontend):**
+
 ```bash
 python scripts/with_server.py \
   --server "cd backend && python server.py" --port 3000 \
@@ -86,6 +93,7 @@ python scripts/with_server.py \
 ```
 
 To create an automation script, include only Playwright logic (servers are managed automatically):
+
 ```python
 from playwright.sync_api import sync_playwright
 
@@ -101,6 +109,7 @@ with sync_playwright() as p:
 ## Reconnaissance-Then-Action Pattern
 
 1. **Inspect rendered DOM**:
+
    ```python
    page.screenshot(path='/tmp/inspect.png', full_page=True)
    content = page.content()
@@ -118,7 +127,7 @@ with sync_playwright() as p:
 
 ## Best Practices
 
-- **Use bundled scripts as black boxes** - To accomplish a task, consider whether one of the scripts available in `scripts/` can help. These scripts handle common, complex workflows reliably without cluttering the context window. Use `--help` to see usage, then invoke directly. 
+- **Use bundled scripts as black boxes** - To accomplish a task, consider whether one of the scripts available in `scripts/` can help. These scripts handle common, complex workflows reliably without cluttering the context window. Use `--help` to see usage, then invoke directly.
 - Use `sync_playwright()` for synchronous scripts
 - Always close the browser when done
 - Use descriptive selectors: `text=`, `role=`, CSS selectors, or IDs
@@ -132,6 +141,7 @@ with sync_playwright() as p:
   - `console_logging.py` - Capturing console logs during automation
 
 ## Quality Checklist
+
 - [ ] Server started (or confirmed running) before script execution
 - [ ] `page.wait_for_load_state('networkidle')` called on dynamic apps
 - [ ] Selectors identified from inspection before executing actions
@@ -140,5 +150,6 @@ with sync_playwright() as p:
 - [ ] Results documented with pass/fail status
 
 ## References
+
 - [Playwright docs](https://playwright.dev/python/docs/intro)
 - [`scripts/with_server.py`](scripts/with_server.py) — server lifecycle helper

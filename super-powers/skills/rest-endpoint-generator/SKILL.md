@@ -37,6 +37,7 @@ error responses, and OpenAPI documentation comments.
 ### Step 1 — Define the Resource
 
 Ask for:
+
 1. **Resource name:** (e.g., `User`, `Post`, `Order`)
 2. **Operations needed:** GET (list), GET (single), POST (create), PUT/PATCH (update), DELETE
 3. **Fields:** What data does the resource have?
@@ -74,26 +75,26 @@ Auth:
 
 ```typescript
 // routes/users.ts
-import { Router } from 'express';
-import { z } from 'zod';
-import { asyncHandler } from '../middleware/asyncHandler';
-import { requireAuth, requireRole } from '../middleware/auth';
-import { userService } from '../services/userService';
-import { NotFoundError, ValidationError } from '../errors';
+import { Router } from "express";
+import { z } from "zod";
+import { asyncHandler } from "../middleware/asyncHandler";
+import { requireAuth, requireRole } from "../middleware/auth";
+import { userService } from "../services/userService";
+import { NotFoundError, ValidationError } from "../errors";
 
 const router = Router();
 
 // ── Validation Schemas ──
 const CreateUserSchema = z.object({
   email: z.string().email(),
-  name:  z.string().min(2).max(100),
-  role:  z.enum(['admin', 'user']).default('user'),
+  name: z.string().min(2).max(100),
+  role: z.enum(["admin", "user"]).default("user"),
 });
 
 const UpdateUserSchema = CreateUserSchema.partial().omit({ email: true });
 
 const PaginationSchema = z.object({
-  page:    z.coerce.number().int().min(1).default(1),
+  page: z.coerce.number().int().min(1).default(1),
   perPage: z.coerce.number().int().min(1).max(100).default(20),
 });
 
@@ -106,47 +107,69 @@ const PaginationSchema = z.object({
  *     tags: [Users]
  *     security: [{ bearerAuth: [] }]
  */
-router.get('/', requireAuth(), asyncHandler(async (req, res) => {
-  const { page, perPage } = PaginationSchema.parse(req.query);
-  const result = await userService.list({ page, perPage });
-  res.json(result);
-}));
+router.get(
+  "/",
+  requireAuth(),
+  asyncHandler(async (req, res) => {
+    const { page, perPage } = PaginationSchema.parse(req.query);
+    const result = await userService.list({ page, perPage });
+    res.json(result);
+  }),
+);
 
 // ── GET /users/:id ──
-router.get('/:id', requireAuth(), asyncHandler(async (req, res) => {
-  const user = await userService.findById(req.params.id);
-  if (!user) throw new NotFoundError('User');
-  res.json(user);
-}));
+router.get(
+  "/:id",
+  requireAuth(),
+  asyncHandler(async (req, res) => {
+    const user = await userService.findById(req.params.id);
+    if (!user) throw new NotFoundError("User");
+    res.json(user);
+  }),
+);
 
 // ── POST /users ──
-router.post('/', requireAuth(), requireRole('admin'), asyncHandler(async (req, res) => {
-  const body = CreateUserSchema.parse(req.body);
-  const user = await userService.create(body);
-  res.status(201).json(user);
-}));
+router.post(
+  "/",
+  requireAuth(),
+  requireRole("admin"),
+  asyncHandler(async (req, res) => {
+    const body = CreateUserSchema.parse(req.body);
+    const user = await userService.create(body);
+    res.status(201).json(user);
+  }),
+);
 
 // ── PATCH /users/:id ──
-router.patch('/:id', requireAuth(), asyncHandler(async (req, res) => {
-  const existing = await userService.findById(req.params.id);
-  if (!existing) throw new NotFoundError('User');
+router.patch(
+  "/:id",
+  requireAuth(),
+  asyncHandler(async (req, res) => {
+    const existing = await userService.findById(req.params.id);
+    if (!existing) throw new NotFoundError("User");
 
-  // Allow admin or self
-  const isSelf = req.user!.id === req.params.id;
-  if (!isSelf && req.user!.role !== 'admin') throw new ForbiddenError();
+    // Allow admin or self
+    const isSelf = req.user!.id === req.params.id;
+    if (!isSelf && req.user!.role !== "admin") throw new ForbiddenError();
 
-  const body = UpdateUserSchema.parse(req.body);
-  const updated = await userService.update(req.params.id, body);
-  res.json(updated);
-}));
+    const body = UpdateUserSchema.parse(req.body);
+    const updated = await userService.update(req.params.id, body);
+    res.json(updated);
+  }),
+);
 
 // ── DELETE /users/:id ──
-router.delete('/:id', requireAuth(), requireRole('admin'), asyncHandler(async (req, res) => {
-  const existing = await userService.findById(req.params.id);
-  if (!existing) throw new NotFoundError('User');
-  await userService.delete(req.params.id);
-  res.status(204).send();
-}));
+router.delete(
+  "/:id",
+  requireAuth(),
+  requireRole("admin"),
+  asyncHandler(async (req, res) => {
+    const existing = await userService.findById(req.params.id);
+    if (!existing) throw new NotFoundError("User");
+    await userService.delete(req.params.id);
+    res.status(204).send();
+  }),
+);
 
 export { router as usersRouter };
 ```

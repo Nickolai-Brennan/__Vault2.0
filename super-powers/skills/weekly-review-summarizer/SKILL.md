@@ -36,6 +36,7 @@ aligned, spot patterns, and plan the next sprint.
 ### Step 1 — Gather Input
 
 Accept any of:
+
 1. Five days of standup updates (pasted or described)
 2. Git commit history for the week
 3. Closed tickets/PRs for the week
@@ -47,6 +48,7 @@ Ask: "What week is this for? What team or project?"
 ### Step 2 — Extract Themes
 
 Group individual items into themes or workstreams:
+
 - Feature work
 - Bug fixes
 - Reviews and collaboration
@@ -57,6 +59,7 @@ Group individual items into themes or workstreams:
 ### Step 3 — Calculate Progress Signal
 
 Where possible, include a quick quantitative summary:
+
 - PRs merged: N
 - Issues closed: N
 - Deployments: N
@@ -66,37 +69,44 @@ Where possible, include a quick quantitative summary:
 
 ```markdown
 ## Weekly Review — Week of [Date]
+
 **Team / Individual:** [Name]
 
 ### 📦 Shipped This Week
+
 - [Item 1] — brief impact note
 - [Item 2]
 
 ### 🔄 In Progress
+
 - [Item] — [% complete or next milestone]
 
 ### 🚧 Blockers & Risks
+
 - [Blocker] — action needed: [what / who]
 
 ### 📈 Metrics (if available)
+
 - PRs merged: N | Issues closed: N | Deploys: N
 
 ### 🗓️ Next Week
+
 - [Priority 1]
 - [Priority 2]
 - [Priority 3]
 
 ### 💡 Insights & Learnings
+
 - [Optional: patterns noticed, process improvements, shoutouts]
 ```
 
 ### Step 5 — Tailor for Audience
 
-| Audience | Adjustments |
-|----------|-------------|
-| Manager/exec | Lead with outcomes and impact, not tasks |
-| Peer team | More technical detail, mention reviews/collab |
-| Personal journal | Add reflection, energy levels, lessons learned |
+| Audience          | Adjustments                                       |
+| ----------------- | ------------------------------------------------- |
+| Manager/exec      | Lead with outcomes and impact, not tasks          |
+| Peer team         | More technical detail, mention reviews/collab     |
+| Personal journal  | Add reflection, energy levels, lessons learned    |
 | Stakeholder email | Convert to prose narrative with bullet highlights |
 
 ---
@@ -106,6 +116,7 @@ Where possible, include a quick quantitative summary:
 Default: Markdown with emoji section headers, suitable for Notion, Confluence, or GitHub issues.
 
 ### Prose Email Format
+
 ```
 Hi [name],
 

@@ -5,6 +5,7 @@ Use this template when creating a new prompt.
 ## Structure
 
 Each prompt should include:
+
 - Clear objective
 - Context and background
 - Instructions and steps

@@ -7,9 +7,11 @@ phase: MVP|PRODUCTION
 # Prompt: ML Model Spec Builder
 
 ## Objective
+
 Design a complete ML model specification including algorithm selection, feature engineering, training strategy, and evaluation plan.
 
 ## Context Requirements
+
 - `analysis_report.md` and `key_insights.md` from WF-03
 - `cleaned_dataset/` from WF-02
 - Target variable and success metric definitions
@@ -56,11 +58,13 @@ model_spec:
 ```
 
 ## Quality Checks
+
 - [ ] Algorithm selection includes rationale and comparison to alternatives
 - [ ] All features have defined transformations
 - [ ] Performance threshold exceeds stated baseline
 - [ ] Evaluation plan uses held-out test set
 
 ## Safety Rules
+
 - Flag features that may encode protected characteristics for bias audit
 - Never train on PII without documented privacy review

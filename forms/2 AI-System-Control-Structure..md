@@ -10,7 +10,7 @@ This layer comes before project-specific stack decisions, CMS features, social p
 
 Create the base directory system for:
 
-```text
+````text
 Repo-Level Agent
 Sub-Agents
 Runtime Agents
@@ -815,3 +815,4 @@ Future scaling
 NEXT STEP
 
 Step 2 should identify the project stack and integrate the AI system specifically into the project being built.
+````

@@ -15,20 +15,25 @@ outputs:
 # Stack Verifier Skill
 
 ## Purpose
+
 Confirm that all required tools, frameworks, and environment variables for the locked project stack are present and correctly configured.
 
 ## When To Use
+
 Use this skill when the user asks to:
+
 - Verify the stack is set up
 - Check if required tools are installed
 - Produce an environment setup checklist
 
 ## Inputs
+
 - `config/stack.config.json` (locked stack)
 - `config/env.example` (required env vars)
 - Shell environment
 
 ## Workflow
+
 1. Read locked stack from `config/stack.config.json`
 2. Check each tool: Node, Python, Docker, Git
 3. Verify frontend dependencies (`package.json`)
@@ -37,6 +42,7 @@ Use this skill when the user asks to:
 6. Report missing items with install commands
 
 ## Output Format
+
 ```
 # Stack Verification Report
 ## Tools
@@ -48,12 +54,14 @@ Use this skill when the user asks to:
 ```
 
 ## Quality Checklist
+
 - [ ] All stack tools confirmed present or missing noted
 - [ ] Install commands provided for anything missing
 - [ ] Env var list cross-referenced against `config/env.example`
 - [ ] Report is copy-ready
 
 ## References
+
 - [`scripts/verify-stack.sh`](../../scripts/verify-stack.sh)
 - [`config/stack.config.json`](../../config/stack.config.json)
 - [Automation Best Practices](../../references/automation-best-practices.md)

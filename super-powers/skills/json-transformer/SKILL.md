@@ -40,6 +40,7 @@ schema into a target schema — with field mapping, renaming, and normalization.
 Collect both JSON structures:
 
 **Source:**
+
 ```json
 {
   "user_id": 123,
@@ -58,6 +59,7 @@ Collect both JSON structures:
 ```
 
 **Target:**
+
 ```json
 {
   "id": "123",
@@ -77,20 +79,21 @@ Collect both JSON structures:
 
 Produce a mapping table:
 
-| Source field | Target field | Transformation |
-|-------------|-------------|----------------|
-| `user_id` | `id` | `.toString()` |
-| `full_name` | `name` | None |
-| `contact.email_address` | `email` | None |
-| `contact.phone_number` | `phone` | Remove dashes/spaces |
-| `account_status` | `status` | Replace `_user` suffix |
-| `created_timestamp` | `createdAt` | Unix timestamp → ISO 8601 |
-| `preferences.notifications_enabled` | `settings.notifications` | None |
-| `preferences.theme` | `settings.theme` | `dark_mode` → `dark` |
+| Source field                        | Target field             | Transformation            |
+| ----------------------------------- | ------------------------ | ------------------------- |
+| `user_id`                           | `id`                     | `.toString()`             |
+| `full_name`                         | `name`                   | None                      |
+| `contact.email_address`             | `email`                  | None                      |
+| `contact.phone_number`              | `phone`                  | Remove dashes/spaces      |
+| `account_status`                    | `status`                 | Replace `_user` suffix    |
+| `created_timestamp`                 | `createdAt`              | Unix timestamp → ISO 8601 |
+| `preferences.notifications_enabled` | `settings.notifications` | None                      |
+| `preferences.theme`                 | `settings.theme`         | `dark_mode` → `dark`      |
 
 ### Step 3 — Generate the Transformer
 
 **TypeScript:**
+
 ```typescript
 // transforms/userTransform.ts
 
@@ -115,15 +118,15 @@ interface TargetUser {
 
 export function transformUser(source: SourceUser): TargetUser {
   return {
-    id:        source.user_id.toString(),
-    name:      source.full_name,
-    email:     source.contact.email_address,
-    phone:     normalizePhone(source.contact.phone_number),
-    status:    normalizeStatus(source.account_status),
+    id: source.user_id.toString(),
+    name: source.full_name,
+    email: source.contact.email_address,
+    phone: normalizePhone(source.contact.phone_number),
+    status: normalizeStatus(source.account_status),
     createdAt: new Date(source.created_timestamp * 1000).toISOString(),
     settings: {
       notifications: source.preferences.notifications_enabled,
-      theme:         normalizeTheme(source.preferences.theme),
+      theme: normalizeTheme(source.preferences.theme),
     },
   };
 }
@@ -135,19 +138,20 @@ export function transformUsers(sources: SourceUser[]): TargetUser[] {
 
 // Helper functions
 function normalizePhone(phone: string): string {
-  return phone.replace(/[\s\-\(\)]/g, '');
+  return phone.replace(/[\s\-\(\)]/g, "");
 }
 
 function normalizeStatus(status: string): string {
-  return status.replace(/_user$/, '').replace(/_/g, '-');
+  return status.replace(/_user$/, "").replace(/_/g, "-");
 }
 
 function normalizeTheme(theme: string): string {
-  return theme.replace(/_mode$/, '');
+  return theme.replace(/_mode$/, "");
 }
 ```
 
 **Python:**
+
 ```python
 # transforms/user_transform.py
 from datetime import datetime, timezone
@@ -186,6 +190,7 @@ def unix_to_iso(timestamp: int) -> str:
 ```
 
 **jq (for shell pipelines / one-liners):**
+
 ```bash
 # jq transform
 cat source.json | jq '{
@@ -205,6 +210,7 @@ cat source.json | jq '{
 ### Step 4 — Handle Nested Arrays
 
 When the source has arrays of nested objects:
+
 ```typescript
 // Flattening nested array
 interface SourceOrder {
@@ -226,13 +232,13 @@ interface FlatOrderRow {
 }
 
 export function flattenOrderItems(source: SourceOrder): FlatOrderRow[] {
-  return source.line_items.map(item => ({
-    orderId:     source.order_id,
-    sku:         item.product.sku,
+  return source.line_items.map((item) => ({
+    orderId: source.order_id,
+    sku: item.product.sku,
     productName: item.product.name,
-    quantity:    item.qty,
-    unitPrice:   item.unit_price,
-    lineTotal:   item.qty * item.unit_price,
+    quantity: item.qty,
+    unitPrice: item.unit_price,
+    lineTotal: item.qty * item.unit_price,
   }));
 }
 ```

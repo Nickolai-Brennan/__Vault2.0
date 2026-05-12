@@ -1,5 +1,7 @@
 # Classification Prompt Template
+
 Use this template to classify the document with the required metadata.
+
 ```
 # File Details
 
@@ -32,3 +34,4 @@ Use this template to classify the document with the required metadata.
 
 ## Level of Importance
 - [ImportanceLevel]
+```

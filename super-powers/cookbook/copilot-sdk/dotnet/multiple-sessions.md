@@ -12,7 +12,7 @@ Manage multiple independent conversations simultaneously.
 
 You need to run multiple conversations in parallel, each with its own context and history.
 
-## C #
+## C
 
 ```csharp
 using GitHub.Copilot.SDK;

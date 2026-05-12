@@ -38,6 +38,7 @@ of icons to hundreds — with a single reusable wrapper component.
 ### Step 1 — Understand the Requirements
 
 Ask for:
+
 1. **Icon source:** Lucide / Heroicons / Phosphor / Custom SVG files
 2. **Framework:** React + TS / Vue 3 / Web Component
 3. **Approach:** Inline SVG component per icon, or single sprite sheet
@@ -46,11 +47,11 @@ Ask for:
 
 ### Step 2 — Choose the Architecture
 
-| Approach | When to use | Pros | Cons |
-|----------|-------------|------|------|
-| **Inline SVG per file** | < 100 icons, React/Vue | Tree-shakeable, colorable via CSS, no extra request | Bundle size grows with count |
-| **SVG Sprite** | 100+ icons, performance critical | Single HTTP request, cached | Not tree-shakeable, needs sprite generator |
-| **Icon font (Iconfont)** | Legacy or cross-platform | Works everywhere | Blurry at small sizes, one color only |
+| Approach                 | When to use                      | Pros                                                | Cons                                       |
+| ------------------------ | -------------------------------- | --------------------------------------------------- | ------------------------------------------ |
+| **Inline SVG per file**  | < 100 icons, React/Vue           | Tree-shakeable, colorable via CSS, no extra request | Bundle size grows with count               |
+| **SVG Sprite**           | 100+ icons, performance critical | Single HTTP request, cached                         | Not tree-shakeable, needs sprite generator |
+| **Icon font (Iconfont)** | Legacy or cross-platform         | Works everywhere                                    | Blurry at small sizes, one color only      |
 
 **Recommendation for most apps:** Inline SVG per file with lazy loading.
 
@@ -66,7 +67,7 @@ export interface IconProps {
   /** Stroke/fill color — defaults to "currentColor" */
   color?: string;
   /** Accessible label (use for standalone icons, omit if decorative) */
-  'aria-label'?: string;
+  "aria-label"?: string;
   /** Additional CSS class */
   className?: string;
   /** Stroke width for stroke-based icons */
@@ -76,8 +77,8 @@ export interface IconProps {
 
 ```tsx
 // icons/Icon.tsx — generic wrapper
-import { forwardRef } from 'react';
-import type { IconProps } from './types';
+import { forwardRef } from "react";
+import type { IconProps } from "./types";
 
 interface IconWrapperProps extends IconProps {
   children: React.ReactNode;
@@ -88,15 +89,15 @@ export const Icon = forwardRef<SVGSVGElement, IconWrapperProps>(
   (
     {
       size = 24,
-      color = 'currentColor',
-      'aria-label': ariaLabel,
+      color = "currentColor",
+      "aria-label": ariaLabel,
       className,
       children,
-      viewBox = '0 0 24 24',
+      viewBox = "0 0 24 24",
       strokeWidth = 2,
       ...props
     },
-    ref
+    ref,
   ) => {
     return (
       <svg
@@ -110,7 +111,7 @@ export const Icon = forwardRef<SVGSVGElement, IconWrapperProps>(
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
-        role={ariaLabel ? 'img' : 'presentation'}
+        role={ariaLabel ? "img" : "presentation"}
         aria-label={ariaLabel}
         aria-hidden={!ariaLabel}
         className={className}
@@ -119,15 +120,15 @@ export const Icon = forwardRef<SVGSVGElement, IconWrapperProps>(
         {children}
       </svg>
     );
-  }
+  },
 );
-Icon.displayName = 'Icon';
+Icon.displayName = "Icon";
 ```
 
 ```tsx
 // icons/ChevronDown.tsx — individual icon
-import { Icon } from './Icon';
-import type { IconProps } from './types';
+import { Icon } from "./Icon";
+import type { IconProps } from "./types";
 
 export function ChevronDownIcon(props: IconProps) {
   return (
@@ -140,26 +141,32 @@ export function ChevronDownIcon(props: IconProps) {
 
 ```typescript
 // icons/index.ts — barrel export
-export { ChevronDownIcon } from './ChevronDown';
-export { CheckIcon } from './Check';
-export { XIcon } from './X';
-export { MenuIcon } from './Menu';
+export { ChevronDownIcon } from "./ChevronDown";
+export { CheckIcon } from "./Check";
+export { XIcon } from "./X";
+export { MenuIcon } from "./Menu";
 // ... all icons
 
 // Union of all icon names for typed icon maps
-export type IconName = 'chevron-down' | 'check' | 'x' | 'menu';
+export type IconName = "chevron-down" | "check" | "x" | "menu";
 ```
 
 **Dynamic icon lookup by name:**
+
 ```tsx
 // icons/DynamicIcon.tsx
-import { lazy, Suspense } from 'react';
-import type { IconProps } from './types';
-import type { IconName } from './index';
+import { lazy, Suspense } from "react";
+import type { IconProps } from "./types";
+import type { IconName } from "./index";
 
-const iconMap: Record<IconName, React.LazyExoticComponent<React.FC<IconProps>>> = {
-  'chevron-down': lazy(() => import('./ChevronDown').then(m => ({ default: m.ChevronDownIcon }))),
-  'check':        lazy(() => import('./Check').then(m => ({ default: m.CheckIcon }))),
+const iconMap: Record<
+  IconName,
+  React.LazyExoticComponent<React.FC<IconProps>>
+> = {
+  "chevron-down": lazy(() =>
+    import("./ChevronDown").then((m) => ({ default: m.ChevronDownIcon })),
+  ),
+  check: lazy(() => import("./Check").then((m) => ({ default: m.CheckIcon }))),
   // ...
 };
 
@@ -170,7 +177,17 @@ interface DynamicIconProps extends IconProps {
 export function DynamicIcon({ name, ...props }: DynamicIconProps) {
   const IconComponent = iconMap[name];
   return (
-    <Suspense fallback={<span style={{ width: props.size, height: props.size, display: 'inline-block' }} />}>
+    <Suspense
+      fallback={
+        <span
+          style={{
+            width: props.size,
+            height: props.size,
+            display: "inline-block",
+          }}
+        />
+      }
+    >
       <IconComponent {...props} />
     </Suspense>
   );
@@ -181,22 +198,26 @@ export function DynamicIcon({ name, ...props }: DynamicIconProps) {
 
 ```typescript
 // scripts/generate-icons.ts
-import fs from 'fs';
-import path from 'path';
+import fs from "fs";
+import path from "path";
 
-const SVG_DIR = 'assets/icons';
-const OUT_DIR = 'src/icons';
+const SVG_DIR = "assets/icons";
+const OUT_DIR = "src/icons";
 
-const files = fs.readdirSync(SVG_DIR).filter(f => f.endsWith('.svg'));
+const files = fs.readdirSync(SVG_DIR).filter((f) => f.endsWith(".svg"));
 
-files.forEach(file => {
-  const name = path.basename(file, '.svg');
-  const componentName = name.split('-').map(p => p[0].toUpperCase() + p.slice(1)).join('') + 'Icon';
-  const svgContent = fs.readFileSync(path.join(SVG_DIR, file), 'utf-8');
+files.forEach((file) => {
+  const name = path.basename(file, ".svg");
+  const componentName =
+    name
+      .split("-")
+      .map((p) => p[0].toUpperCase() + p.slice(1))
+      .join("") + "Icon";
+  const svgContent = fs.readFileSync(path.join(SVG_DIR, file), "utf-8");
 
   // Extract path data from SVG
   const pathMatch = svgContent.match(/<path[^>]+>/g) ?? [];
-  const paths = pathMatch.join('\n      ');
+  const paths = pathMatch.join("\n      ");
 
   const component = `// GENERATED — DO NOT EDIT
 import { Icon } from './Icon';

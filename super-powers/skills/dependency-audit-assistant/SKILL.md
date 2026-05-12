@@ -37,6 +37,7 @@ license issues, and unnecessary bloat — then produce a prioritized action plan
 ### Step 1 — Receive the Dependency Manifest
 
 Accept any of:
+
 - `package.json` / `package-lock.json`
 - `requirements.txt` / `pyproject.toml` / `Pipfile`
 - `go.mod`
@@ -51,21 +52,25 @@ Ask: "Which ecosystem is this? (npm, pip, go, rubygems, maven, etc.)"
 For each dependency, check across four risk dimensions:
 
 #### Security (Highest Priority)
+
 - Known CVEs (reference NVD, GitHub Advisory DB, Snyk OSS index)
 - Severity: Critical / High / Medium / Low
 - Available patch version
 
 #### Freshness
+
 - Current version vs latest stable
 - Packages more than 2 major versions behind flagged as high risk
 - End-of-life packages flagged
 
 #### License Compliance
+
 - Identify license for each package
 - Flag: GPL (copyleft risk for proprietary apps), AGPL, unlicensed
 - Note: MIT, Apache 2.0, BSD = generally safe
 
 #### Bloat / Unused
+
 - Packages declared but not imported in any source file (if codebase accessible)
 - Packages with a narrower-scope alternative
 
@@ -73,34 +78,41 @@ For each dependency, check across four risk dimensions:
 
 ```markdown
 ## Dependency Audit Report — [Project Name]
+
 _Date: [YYYY-MM-DD] | Ecosystem: [npm/pip/go/etc.] | Total packages: N_
 
 ### 🚨 Critical / High Severity Issues
-| Package | Current | Fixed | CVE | Severity | Action |
-|---------|---------|-------|-----|----------|--------|
-| lodash | 4.17.4 | 4.17.21 | CVE-2021-23337 | High | Update now |
+
+| Package | Current | Fixed   | CVE            | Severity | Action     |
+| ------- | ------- | ------- | -------------- | -------- | ---------- |
+| lodash  | 4.17.4  | 4.17.21 | CVE-2021-23337 | High     | Update now |
 
 ### ⚠️ Outdated Packages (2+ major versions behind)
-| Package | Current | Latest | Notes |
-|---------|---------|--------|-------|
-| express | 3.x | 5.x | Major API changes — review migration guide |
+
+| Package | Current | Latest | Notes                                      |
+| ------- | ------- | ------ | ------------------------------------------ |
+| express | 3.x     | 5.x    | Major API changes — review migration guide |
 
 ### 📋 License Flags
-| Package | License | Risk | Notes |
-|---------|---------|------|-------|
+
+| Package  | License    | Risk   | Notes                |
+| -------- | ---------- | ------ | -------------------- |
 | left-pad | Unlicensed | Medium | Consider alternative |
 
 ### 🧹 Cleanup Candidates
+
 - `moment` — consider replacing with `date-fns` or `dayjs` (smaller bundle)
 - `lodash` — if only using `_.get`, import directly from `lodash/get`
 
 ### ✅ Summary
+
 - Critical/High CVEs: N (patch immediately)
 - Outdated packages: N
 - License flags: N
 - Cleanup suggestions: N
 
 ### 📋 Recommended Action Order
+
 1. Patch critical/high CVEs (packages: X, Y, Z)
 2. Update packages that are EOL
 3. Review license flags with legal if needed

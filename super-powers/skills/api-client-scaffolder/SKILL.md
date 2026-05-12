@@ -37,12 +37,14 @@ complete with authentication, error handling, retry logic, and TypeScript types.
 ### Step 1 — Receive the API Definition
 
 Accept any of:
+
 1. An OpenAPI / Swagger YAML or JSON spec (or file path)
 2. A list of endpoints with method, path, params, and response shape
 3. A prose description of the API and its endpoints
 4. A link to API documentation (if web access available)
 
 Ask:
+
 1. **Target language:** TypeScript, JavaScript, or Python?
 2. **Auth method:** API key (header/query), Bearer token, OAuth, Basic auth?
 3. **Base URL:** Production and/or staging?
@@ -77,26 +79,29 @@ api_client/
 ### Step 3 — Generate Base Client
 
 **TypeScript base client:**
+
 ```typescript
 // client.ts
-const API_BASE_URL = process.env.API_BASE_URL ?? 'https://api.example.com/v1';
+const API_BASE_URL = process.env.API_BASE_URL ?? "https://api.example.com/v1";
 const API_KEY = process.env.API_KEY;
 
 async function apiRequest<T>(
   method: string,
   path: string,
-  options: { body?: unknown; params?: Record<string, string> } = {}
+  options: { body?: unknown; params?: Record<string, string> } = {},
 ): Promise<T> {
   const url = new URL(path, API_BASE_URL);
   if (options.params) {
-    Object.entries(options.params).forEach(([k, v]) => url.searchParams.set(k, v));
+    Object.entries(options.params).forEach(([k, v]) =>
+      url.searchParams.set(k, v),
+    );
   }
 
   const response = await fetch(url.toString(), {
     method,
     headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${API_KEY}`,
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${API_KEY}`,
     },
     body: options.body ? JSON.stringify(options.body) : undefined,
   });
@@ -110,6 +115,7 @@ async function apiRequest<T>(
 ```
 
 **Python base client:**
+
 ```python
 # client.py
 import os
@@ -142,15 +148,15 @@ For each endpoint, generate a typed function:
 
 ```typescript
 // endpoints/users.ts
-import { apiRequest } from '../client';
-import { User, CreateUserRequest } from '../types';
+import { apiRequest } from "../client";
+import { User, CreateUserRequest } from "../types";
 
 export async function getUser(userId: string): Promise<User> {
-  return apiRequest<User>('GET', `/users/${userId}`);
+  return apiRequest<User>("GET", `/users/${userId}`);
 }
 
 export async function createUser(data: CreateUserRequest): Promise<User> {
-  return apiRequest<User>('POST', '/users', { body: data });
+  return apiRequest<User>("POST", "/users", { body: data });
 }
 ```
 
@@ -160,18 +166,19 @@ export async function createUser(data: CreateUserRequest): Promise<User> {
 async function withRetry<T>(
   fn: () => Promise<T>,
   maxRetries = 3,
-  backoffMs = 1000
+  backoffMs = 1000,
 ): Promise<T> {
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
     try {
       return await fn();
     } catch (err) {
       if (attempt === maxRetries) throw err;
-      if (err instanceof ApiError && err.status >= 400 && err.status < 500) throw err; // Don't retry 4xx
-      await new Promise(resolve => setTimeout(resolve, backoffMs * attempt));
+      if (err instanceof ApiError && err.status >= 400 && err.status < 500)
+        throw err; // Don't retry 4xx
+      await new Promise((resolve) => setTimeout(resolve, backoffMs * attempt));
     }
   }
-  throw new Error('unreachable');
+  throw new Error("unreachable");
 }
 ```
 
@@ -182,6 +189,7 @@ async function withRetry<T>(
 Complete, runnable code files (not pseudo-code). Each file in its own code block with filename as a comment.
 
 Include:
+
 - A README snippet showing how to install and use the client
 - Environment variable names required (as a list)
 - Example usage for the most common endpoint

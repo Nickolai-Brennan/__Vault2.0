@@ -1,6 +1,3 @@
-- https://brand.github.com/ -Github Brand Design System 
-
-
+- https://brand.github.com/ -Github Brand Design System
 
 <!-- Comment -->
-

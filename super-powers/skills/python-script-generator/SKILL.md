@@ -38,6 +38,7 @@ proper error handling, logging, and safeguards for destructive operations.
 ### Step 1 — Understand the Task
 
 Ask the user:
+
 1. **What should the script do?** (Be specific: input → process → output)
 2. **Input:** File(s), stdin, API, database, or command-line args?
 3. **Output:** File, stdout, database write, API call?
@@ -82,6 +83,7 @@ For larger scripts (100+ lines), use functions and a `if __name__ == '__main__':
 ### Step 3 — Write the Script
 
 Follow these conventions:
+
 - **Type hints** on all function signatures
 - **Docstrings** for all functions (one-line minimum)
 - **Logging** instead of print statements (except for intentional user output)
@@ -127,6 +129,7 @@ Include at the top as a comment:
 ## Output Format
 
 A complete Python script with:
+
 1. Module docstring (purpose, usage, author placeholder)
 2. Imports
 3. Logging setup

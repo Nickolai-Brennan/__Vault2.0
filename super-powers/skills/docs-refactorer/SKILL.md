@@ -37,6 +37,7 @@ and easier to maintain — without changing what the content actually means.
 ### Step 1 — Receive the Document
 
 Accept the document as:
+
 - Pasted Markdown text
 - A file path (if file access is available)
 - A description of the document with key sections
@@ -47,13 +48,13 @@ Ask: "What style should this follow? (We'll default to standard Markdown best pr
 
 Identify issues in these categories:
 
-| Category | Common issues |
-|----------|--------------|
-| **Structure** | Missing headings, wrong heading hierarchy (##→####), no TOC for long docs |
-| **Style** | Passive voice, inconsistent tone (formal vs. casual mixed), jargon without definition |
-| **Formatting** | Inconsistent list styles, broken code blocks, raw URLs |
-| **Content** | Duplicate sections, orphaned content, outdated examples |
-| **Length** | Walls of text (need breaking up), redundant preamble |
+| Category       | Common issues                                                                         |
+| -------------- | ------------------------------------------------------------------------------------- |
+| **Structure**  | Missing headings, wrong heading hierarchy (##→####), no TOC for long docs             |
+| **Style**      | Passive voice, inconsistent tone (formal vs. casual mixed), jargon without definition |
+| **Formatting** | Inconsistent list styles, broken code blocks, raw URLs                                |
+| **Content**    | Duplicate sections, orphaned content, outdated examples                               |
+| **Length**     | Walls of text (need breaking up), redundant preamble                                  |
 
 Output a brief audit before rewriting: "I found 3 structural issues, 2 style issues, and 1 outdated example. Shall I fix all of these?"
 
@@ -87,6 +88,7 @@ Ask: "Should I make any of these changes more or less aggressive?"
 ### Step 5 — Handle Style Guide
 
 If a custom style guide is provided:
+
 - Apply it systematically
 - Flag any conflicts between the existing content and the guide
 - Note any rules that couldn't be applied automatically
@@ -96,11 +98,13 @@ If a custom style guide is provided:
 ## Output Format
 
 Two outputs:
+
 1. **Refactored document** — the cleaned-up Markdown, ready to replace the original
 2. **Change summary** — a bulleted list of what was changed and why
 
 ```markdown
 ---
+
 ## Change Summary
 
 **Structural changes:** N
@@ -109,6 +113,7 @@ Two outputs:
 **Content edits:** N
 
 Details:
+
 - [Change description]
 ```
 

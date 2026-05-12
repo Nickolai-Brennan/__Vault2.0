@@ -7,10 +7,12 @@
 ## Components
 
 ### Core Components
+
 - [Component 1]
 - [Component 2]
 
 ### Supporting Components
+
 - [Component 3]
 - [Component 4]
 

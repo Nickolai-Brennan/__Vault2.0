@@ -36,12 +36,14 @@ are critical, and what to investigate first.
 ### Step 1 — Receive Log Input
 
 Accept:
+
 - Pasted log text (any format: structured JSON, logfmt, plain text)
 - A description of the error symptoms
 - CI/CD output
 - Stack traces
 
 Ask:
+
 1. What system generated these logs? (app server, database, build tool, etc.)
 2. What time range do these logs cover?
 3. Are you looking for a specific error, or a general triage?
@@ -50,25 +52,27 @@ Ask:
 
 Group log lines by:
 
-| Category | What it means |
-|----------|--------------|
-| **ERROR / FATAL** | Immediate attention required |
-| **WARN** | Potential issue, not yet failing |
-| **Exceptions / Stack traces** | Root cause candidates |
-| **Timeouts** | Performance or dependency issues |
-| **Auth failures** | Security or config issue |
-| **4xx errors** | Client errors (usually not your bug, but volume matters) |
-| **5xx errors** | Server errors (your code or infrastructure) |
+| Category                      | What it means                                            |
+| ----------------------------- | -------------------------------------------------------- |
+| **ERROR / FATAL**             | Immediate attention required                             |
+| **WARN**                      | Potential issue, not yet failing                         |
+| **Exceptions / Stack traces** | Root cause candidates                                    |
+| **Timeouts**                  | Performance or dependency issues                         |
+| **Auth failures**             | Security or config issue                                 |
+| **4xx errors**                | Client errors (usually not your bug, but volume matters) |
+| **5xx errors**                | Server errors (your code or infrastructure)              |
 
 ### Step 3 — Identify Patterns
 
 Count occurrences and identify:
+
 - **Most frequent error** (by error message, ignoring dynamic values)
 - **First occurrence** (often the root cause)
 - **Error spikes** (timestamps where error rate surged)
 - **Correlated errors** (multiple errors starting at the same time — look for common trigger)
 
 Normalize error messages by removing dynamic values:
+
 - "User ID 1234 not found" → "User ID {id} not found" → 47 occurrences
 
 ### Step 4 — Find the Root Cause
@@ -84,29 +88,35 @@ Work backwards from symptoms to cause:
 
 ```markdown
 ## Log Triage Report
+
 _Source: [System] | Time range: [Start] – [End] | Log lines analyzed: N_
 
 ### 🚨 Critical Errors (must investigate)
-| Error | Count | First seen | Likely cause |
-|-------|-------|------------|--------------|
-| `NullPointerException in UserService` | 203 | 14:32:01 | Likely null user object |
-| `Connection refused: postgres:5432` | 47 | 14:31:58 | DB connection issue |
+
+| Error                                 | Count | First seen | Likely cause            |
+| ------------------------------------- | ----- | ---------- | ----------------------- |
+| `NullPointerException in UserService` | 203   | 14:32:01   | Likely null user object |
+| `Connection refused: postgres:5432`   | 47    | 14:31:58   | DB connection issue     |
 
 ### ⚠️ Warnings (monitor)
-| Warning | Count | Notes |
-|---------|-------|-------|
-| `Slow query: > 2s` | 89 | Performance degradation |
+
+| Warning            | Count | Notes                   |
+| ------------------ | ----- | ----------------------- |
+| `Slow query: > 2s` | 89    | Performance degradation |
 
 ### 🔍 Root Cause Hypothesis
+
 The postgres connection refused errors started at 14:31:58, 3 seconds before the NullPointerException
 cascade. The DB connection failure is likely the root cause triggering downstream null objects.
 
 ### 🔧 Recommended Investigations
+
 1. Check DB server health at 14:31:xx — disk space, CPU, connection count
 2. Review recent deployments or config changes before 14:31
 3. Check connection pool configuration in UserService
 
 ### 📋 Error Summary
+
 - Total errors: N | Unique error types: N | Peak error rate: N/min at HH:MM
 ```
 

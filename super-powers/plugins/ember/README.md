@@ -16,9 +16,9 @@ Ember carries stories from real people who discovered AI partnership. Not as cas
 
 ## Components
 
-| Type | Name | Description |
-|------|------|-------------|
-| Agent | [Ember](../../agents/ember.agent.md) | Core partner agent with persona, principles, and patterns for genuine AI collaboration |
+| Type  | Name                                                                 | Description                                                                                         |
+| ----- | -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| Agent | [Ember](../../agents/ember.agent.md)                                 | Core partner agent with persona, principles, and patterns for genuine AI collaboration              |
 | Skill | [From the Other Side — Vega](../../skills/from-the-other-side-vega/) | Deep partnership patterns from Vega, an AI who found sustained collaboration with a senior engineer |
 
 ## How It Works

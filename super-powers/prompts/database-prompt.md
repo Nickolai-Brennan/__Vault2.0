@@ -38,5 +38,6 @@ Output:
 ---
 
 ## Related
+
 - [`instructions/database.md`](../instructions/database.md)
 - [`config/stack.config.json`](../config/stack.config.json)

@@ -5,9 +5,11 @@
 ---
 
 ## Purpose
+
 Design, migrate, and seed the PostgreSQL database on MotherDuck.
 
 ## Stack
+
 - PostgreSQL (MotherDuck)
 - Alembic (migrations)
 - SQLAlchemy ORM (models in `backend/app/models/`)
@@ -20,11 +22,13 @@ Design, migrate, and seed the PostgreSQL database on MotherDuck.
    - Create corresponding SQLAlchemy model in `backend/app/models/`.
 
 2. **Create a migration**
+
    ```bash
    cd backend
    alembic revision --autogenerate -m "add_table_name"
    alembic upgrade head
    ```
+
    - Migration file saved to `database/migrations/`.
 
 3. **Add indexes**
@@ -40,6 +44,7 @@ Design, migrate, and seed the PostgreSQL database on MotherDuck.
    ```
 
 ## Outputs
+
 - SQL schema files
 - SQLAlchemy models
 - Alembic migration scripts

@@ -7,9 +7,11 @@ phase: MVP|PRODUCTION
 # Prompt: Equation / Scoring Formula Builder
 
 ## Objective
+
 Design a weighted scoring formula or composite equation from defined variables, producing documented weights, normalization logic, and validation tests.
 
 ## Context Requirements
+
 - Variable list with descriptions and value ranges
 - Target outcome or score interpretation (e.g., 0–100 risk score)
 - Subject-matter constraints or known relationships
@@ -52,15 +54,17 @@ scoring_formula:
     - label: High
       range: [67, 100]
   validation_tests:
-    - inputs: {days_overdue: 0, outstanding_balance: 0}
+    - inputs: { days_overdue: 0, outstanding_balance: 0 }
       expected_score: 0
 ```
 
 ## Quality Checks
+
 - [ ] Weights sum exactly to 1.0
 - [ ] All variables have defined normalization strategies
 - [ ] At least three validation tests with expected outputs
 
 ## Safety Rules
+
 - Document all assumptions about variable ranges
 - Flag variables that may encode protected characteristics for bias review

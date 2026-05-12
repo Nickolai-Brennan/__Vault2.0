@@ -37,6 +37,7 @@ prioritized, actionable list of issues with exact code-level fixes.
 ### Step 1 — Receive the Code
 
 Accept:
+
 - HTML snippets or full component files
 - JSX/TSX React components
 - CSS with color values to check
@@ -49,6 +50,7 @@ Ask: "Do you want a quick scan for critical issues, or a thorough WCAG 2.1 AA re
 Check against these WCAG success criteria:
 
 #### Perceivable
+
 - [ ] **1.1.1** All non-text content has alt text (`<img alt="...">`, `aria-label`, `aria-labelledby`)
 - [ ] **1.3.1** Info conveyed by structure/color alone also conveyed semantically
 - [ ] **1.3.2** Reading order makes sense without CSS
@@ -58,6 +60,7 @@ Check against these WCAG success criteria:
 - [ ] **1.4.11** UI component contrast ≥ 3:1 vs. adjacent colors
 
 #### Operable
+
 - [ ] **2.1.1** All functionality available via keyboard
 - [ ] **2.1.2** No keyboard trap
 - [ ] **2.4.3** Focus order is logical and matches visual order
@@ -66,11 +69,13 @@ Check against these WCAG success criteria:
 - [ ] **2.5.3** Labels match visible text (no mismatch between `aria-label` and visible label)
 
 #### Understandable
+
 - [ ] **3.2.2** Form submission doesn't change context unexpectedly
 - [ ] **3.3.1** Input errors are identified and described in text
 - [ ] **3.3.2** Form labels and instructions are provided
 
 #### Robust
+
 - [ ] **4.1.1** Valid HTML (no duplicate IDs, proper nesting)
 - [ ] **4.1.2** All UI components have name, role, and value exposed
 - [ ] **4.1.3** Status messages announced without focus (via `role="status"` or `aria-live`)
@@ -81,13 +86,14 @@ For any color pairs provided, calculate the contrast ratio:
 
 **Formula:** L1 + 0.05 / L2 + 0.05 (where L1 is lighter, L2 is darker relative luminance)
 
-| Text type | Required ratio |
-|-----------|---------------|
-| Normal text (<18pt / <14pt bold) | 4.5:1 |
-| Large text (≥18pt or ≥14pt bold) | 3:1 |
-| UI components (borders, icons) | 3:1 |
+| Text type                        | Required ratio |
+| -------------------------------- | -------------- |
+| Normal text (<18pt / <14pt bold) | 4.5:1          |
+| Large text (≥18pt or ≥14pt bold) | 3:1            |
+| UI components (borders, icons)   | 3:1            |
 
 Common failures:
+
 - Light gray text on white: `#767676` on `#FFFFFF` = 4.48:1 ❌ (barely fails)
 - Use `#757575` on `#FFFFFF` = 4.60:1 ✅
 
@@ -95,21 +101,25 @@ Common failures:
 
 ```markdown
 ## Accessibility Audit Report
+
 _Date: [YYYY-MM-DD] | Standard: WCAG 2.1 AA | Scope: [Component name]_
 
 ### Critical Issues (must fix before launch)
 
 #### ❌ Missing alt text on images
+
 **Location:** `<img src="hero.jpg">` (line 12)
 **WCAG:** 1.1.1 Non-text content
 **Fix:**
 \`\`\`html
 <img src="hero.jpg" alt="Team members collaborating at a whiteboard">
+
 <!-- For decorative images: -->
 <img src="divider.svg" alt="" role="presentation">
 \`\`\`
 
 #### ❌ Insufficient color contrast
+
 **Location:** `.hint-text { color: #9CA3AF; }` on white background
 **Ratio:** 2.85:1 (required: 4.5:1)
 **Fix:** Change to `color: #6B7280` (4.54:1 ✅) or darken further.
@@ -117,19 +127,21 @@ _Date: [YYYY-MM-DD] | Standard: WCAG 2.1 AA | Scope: [Component name]_
 ### High Priority Issues
 
 #### ⚠️ No visible focus indicator
+
 **Location:** `button { outline: none; }`
 **WCAG:** 2.4.7 Focus Visible
 **Fix:**
 \`\`\`css
 button:focus-visible {
-  outline: 2px solid #2563EB;
-  outline-offset: 2px;
+outline: 2px solid #2563EB;
+outline-offset: 2px;
 }
 \`\`\`
 
 ### Medium Priority
 
 #### ℹ️ Form field missing associated label
+
 **Location:** `<input type="email" placeholder="Email">` (line 34)
 **WCAG:** 1.3.1, 3.3.2
 **Fix:**
@@ -139,33 +151,35 @@ button:focus-visible {
 \`\`\`
 
 ### Passed ✅
+
 - Heading hierarchy is correct (h1 → h2 → h3)
 - Buttons use `<button>` element (not `<div>`)
 - Form submit is keyboard accessible
 
 ### Summary
+
 | Severity | Count |
-|----------|-------|
-| Critical | 2 |
-| High | 1 |
-| Medium | 1 |
-| Passed | 3 |
+| -------- | ----- |
+| Critical | 2     |
+| High     | 1     |
+| Medium   | 1     |
+| Passed   | 3     |
 ```
 
 ---
 
 ## Common Quick Fixes Reference
 
-| Issue | Fix |
-|-------|-----|
-| `<div onClick>` | Replace with `<button type="button">` |
-| `outline: none` | Use `outline: none` only on `:focus` + add `:focus-visible` style |
-| Icon-only button | Add `aria-label="Close dialog"` |
-| Empty link | Add `aria-label` or meaningful text content |
-| `<img>` no alt | Add `alt=""` for decorative, descriptive text for informational |
-| Modal focus trap | Use `focus-trap` library or `inert` attribute |
-| Toast/snackbar | Add `role="status"` or `aria-live="polite"` |
-| Loading state | Add `aria-busy="true"` to the loading container |
+| Issue            | Fix                                                               |
+| ---------------- | ----------------------------------------------------------------- |
+| `<div onClick>`  | Replace with `<button type="button">`                             |
+| `outline: none`  | Use `outline: none` only on `:focus` + add `:focus-visible` style |
+| Icon-only button | Add `aria-label="Close dialog"`                                   |
+| Empty link       | Add `aria-label` or meaningful text content                       |
+| `<img>` no alt   | Add `alt=""` for decorative, descriptive text for informational   |
+| Modal focus trap | Use `focus-trap` library or `inert` attribute                     |
+| Toast/snackbar   | Add `role="status"` or `aria-live="polite"`                       |
+| Loading state    | Add `aria-busy="true"` to the loading container                   |
 
 ---
 

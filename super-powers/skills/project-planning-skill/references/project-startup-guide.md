@@ -1,9 +1,11 @@
 # Project Startup Guide
 
 ## Purpose
+
 Use this guide when turning a new idea into a real project.
 
 ## Startup Flow
+
 1. Capture the idea
 2. Complete the idea intake form
 3. Generate the project brief
@@ -13,6 +15,7 @@ Use this guide when turning a new idea into a real project.
 7. Create first build milestone
 
 ## Required Starting Files
+
 - idea-intake-form.md
 - project-brief-template.md
 - project-brief-example.md
@@ -21,6 +24,7 @@ Use this guide when turning a new idea into a real project.
 - tasks/master-task-list.md
 
 ## Recommended First Questions
+
 - What is the project?
 - Who is it for?
 - What problem does it solve?
@@ -31,7 +35,9 @@ Use this guide when turning a new idea into a real project.
 - What tools or APIs are required?
 
 ## First Build Milestone
+
 The first milestone should produce:
+
 - Working repo
 - Basic documentation
 - Core folder structure
@@ -40,6 +46,7 @@ The first milestone should produce:
 - MVP scope
 
 ## MVP Rules
+
 - Build the smallest useful version first
 - Avoid adding secondary features too early
 - Keep one clear primary user
@@ -48,7 +55,9 @@ The first milestone should produce:
 - Document every major decision
 
 ## Output
+
 At the end of startup, the project should have:
+
 - Project brief
 - Repo scaffold
 - Stack decision

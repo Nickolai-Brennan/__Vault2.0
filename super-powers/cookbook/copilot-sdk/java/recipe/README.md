@@ -30,15 +30,15 @@ jbang <FileName>.java
 
 ### Available Recipes
 
-| Recipe               | Command                              | Description                                |
-| -------------------- | ------------------------------------ | ------------------------------------------ |
-| Error Handling       | `jbang ErrorHandling.java`           | Demonstrates error handling patterns       |
-| Multiple Sessions    | `jbang MultipleSessions.java`        | Manages multiple independent conversations |
-| Managing Local Files | `jbang ManagingLocalFiles.java`      | Organizes files using AI grouping          |
-| PR Visualization     | `jbang PRVisualization.java`         | Generates PR age charts                    |
-| Persisting Sessions  | `jbang PersistingSessions.java`      | Save and resume sessions across restarts   |
-| Ralph Loop           | `jbang RalphLoop.java`              | Autonomous AI task loop                    |
-| Accessibility Report | `jbang AccessibilityReport.java`     | WCAG accessibility report generator        |
+| Recipe               | Command                          | Description                                |
+| -------------------- | -------------------------------- | ------------------------------------------ |
+| Error Handling       | `jbang ErrorHandling.java`       | Demonstrates error handling patterns       |
+| Multiple Sessions    | `jbang MultipleSessions.java`    | Manages multiple independent conversations |
+| Managing Local Files | `jbang ManagingLocalFiles.java`  | Organizes files using AI grouping          |
+| PR Visualization     | `jbang PRVisualization.java`     | Generates PR age charts                    |
+| Persisting Sessions  | `jbang PersistingSessions.java`  | Save and resume sessions across restarts   |
+| Ralph Loop           | `jbang RalphLoop.java`           | Autonomous AI task loop                    |
+| Accessibility Report | `jbang AccessibilityReport.java` | WCAG accessibility report generator        |
 
 ### Examples with Arguments
 

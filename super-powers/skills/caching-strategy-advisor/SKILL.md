@@ -38,6 +38,7 @@ cache-aside patterns, proper invalidation, and monitoring hooks.
 ### Step 1 — Diagnose the Caching Opportunity
 
 Ask:
+
 1. **What's slow?** (Specific endpoint, query, or computation)
 2. **How often does the data change?** (Real-time / seconds / minutes / hours / rarely)
 3. **How many users share the same data?** (Shared cache vs. per-user cache)
@@ -46,21 +47,22 @@ Ask:
 
 ### Step 2 — Recommend the Cache Strategy
 
-| Data type | Strategy | TTL |
-|-----------|---------|-----|
-| User profile (own data) | Per-user cache, short TTL | 5 min |
-| Public content (blog posts, catalog) | Shared cache | 1–24 hrs |
-| Aggregate stats / dashboards | Shared cache, background refresh | 5–60 min |
-| Third-party API responses | Shared cache, respect API cache headers | 1–60 min |
-| Auth tokens / sessions | Per-user, until expiry | Token TTL |
-| Heavy computation results | Shared, keyed by inputs | Until input changes |
+| Data type                            | Strategy                                | TTL                 |
+| ------------------------------------ | --------------------------------------- | ------------------- |
+| User profile (own data)              | Per-user cache, short TTL               | 5 min               |
+| Public content (blog posts, catalog) | Shared cache                            | 1–24 hrs            |
+| Aggregate stats / dashboards         | Shared cache, background refresh        | 5–60 min            |
+| Third-party API responses            | Shared cache, respect API cache headers | 1–60 min            |
+| Auth tokens / sessions               | Per-user, until expiry                  | Token TTL           |
+| Heavy computation results            | Shared, keyed by inputs                 | Until input changes |
 
 ### Step 3 — Implement Cache-Aside Pattern
 
 **Node.js + Redis (ioredis):**
+
 ```typescript
 // cache/redis.ts
-import Redis from 'ioredis';
+import Redis from "ioredis";
 
 const redis = new Redis(process.env.REDIS_URL!, {
   maxRetriesPerRequest: 3,
@@ -70,7 +72,7 @@ const redis = new Redis(process.env.REDIS_URL!, {
 export async function cacheAside<T>(
   key: string,
   fetcher: () => Promise<T>,
-  ttlSeconds: number
+  ttlSeconds: number,
 ): Promise<T> {
   // 1. Try cache
   const cached = await redis.get(key);
@@ -82,15 +84,15 @@ export async function cacheAside<T>(
   const data = await fetcher();
 
   // 3. Store in cache (don't await — let it happen in background)
-  redis.setex(key, ttlSeconds, JSON.stringify(data)).catch(err =>
-    console.error(`[cache] Failed to set key ${key}:`, err)
-  );
+  redis
+    .setex(key, ttlSeconds, JSON.stringify(data))
+    .catch((err) => console.error(`[cache] Failed to set key ${key}:`, err));
 
   return data;
 }
 
 export function buildCacheKey(...parts: string[]): string {
-  return parts.join(':');
+  return parts.join(":");
 }
 
 export async function invalidateCache(...keys: string[]): Promise<void> {
@@ -108,37 +110,42 @@ export async function invalidateCacheByPattern(pattern: string): Promise<void> {
 ```
 
 **Usage in a service:**
+
 ```typescript
 // services/productService.ts
-import { cacheAside, invalidateCache, buildCacheKey } from '../cache/redis';
+import { cacheAside, invalidateCache, buildCacheKey } from "../cache/redis";
 
 const PRODUCT_TTL = 60 * 30; // 30 minutes
 
 export async function getProduct(id: string): Promise<Product | null> {
   return cacheAside(
-    buildCacheKey('product', id),
+    buildCacheKey("product", id),
     () => db.products.findOne({ where: { id } }),
-    PRODUCT_TTL
+    PRODUCT_TTL,
   );
 }
 
-export async function updateProduct(id: string, data: Partial<Product>): Promise<Product> {
+export async function updateProduct(
+  id: string,
+  data: Partial<Product>,
+): Promise<Product> {
   const updated = await db.products.update(data, { where: { id } });
   // Invalidate cache on write
-  await invalidateCache(buildCacheKey('product', id));
+  await invalidateCache(buildCacheKey("product", id));
   return updated;
 }
 
 export async function getProductList(category: string): Promise<Product[]> {
   return cacheAside(
-    buildCacheKey('products', 'list', category),
+    buildCacheKey("products", "list", category),
     () => db.products.findAll({ where: { category } }),
-    PRODUCT_TTL
+    PRODUCT_TTL,
   );
 }
 ```
 
 **Python + Redis:**
+
 ```python
 # cache/redis_cache.py
 import json
@@ -155,7 +162,7 @@ def cache_aside(key: str, fetcher: Callable, ttl_seconds: int):
     cached = r.get(key)
     if cached is not None:
         return json.loads(cached)
-    
+
     data = fetcher()
     r.setex(key, ttl_seconds, json.dumps(data))
     return data
@@ -182,34 +189,42 @@ For API responses, add HTTP caching headers:
 
 ```typescript
 // middleware/cacheHeaders.ts
-export function setCacheHeaders(maxAge: number, options: { private?: boolean; revalidate?: boolean } = {}) {
+export function setCacheHeaders(
+  maxAge: number,
+  options: { private?: boolean; revalidate?: boolean } = {},
+) {
   return (req: Request, res: Response, next: NextFunction) => {
     const directives: string[] = [
-      options.private ? 'private' : 'public',
+      options.private ? "private" : "public",
       `max-age=${maxAge}`,
     ];
     if (options.revalidate) {
-      directives.push('must-revalidate');
+      directives.push("must-revalidate");
     }
-    res.set('Cache-Control', directives.join(', '));
+    res.set("Cache-Control", directives.join(", "));
     next();
   };
 }
 
 // Route usage:
-router.get('/products', setCacheHeaders(1800), asyncHandler(getProducts));
-router.get('/profile',  setCacheHeaders(60, { private: true }), asyncHandler(getProfile));
+router.get("/products", setCacheHeaders(1800), asyncHandler(getProducts));
+router.get(
+  "/profile",
+  setCacheHeaders(60, { private: true }),
+  asyncHandler(getProfile),
+);
 ```
 
 ### Step 5 — Stale-While-Revalidate (Background Refresh)
 
 For data that should never be slow:
+
 ```typescript
 export async function staleWhileRevalidate<T>(
   key: string,
   fetcher: () => Promise<T>,
   staleTTL: number,
-  revalidateTTL: number
+  revalidateTTL: number,
 ): Promise<T> {
   const cached = await redis.get(key);
   const revalidateFlagKey = `${key}:revalidating`;
@@ -218,8 +233,10 @@ export async function staleWhileRevalidate<T>(
     // Return stale data immediately, refresh in background if near expiry
     const ttl = await redis.ttl(key);
     if (ttl < revalidateTTL && !(await redis.get(revalidateFlagKey))) {
-      await redis.setex(revalidateFlagKey, 30, '1'); // lock for 30s
-      fetcher().then(fresh => redis.setex(key, staleTTL, JSON.stringify(fresh)));
+      await redis.setex(revalidateFlagKey, 30, "1"); // lock for 30s
+      fetcher().then((fresh) =>
+        redis.setex(key, staleTTL, JSON.stringify(fresh)),
+      );
     }
     return JSON.parse(cached);
   }

@@ -16,10 +16,13 @@ outputs:
 # Documentation Generator Skill
 
 ## Purpose
+
 Produce clear, accurate, up-to-date Markdown documentation for all layers of the DZIRE_v1 project.
 
 ## When To Use
+
 Use this skill when the user asks to:
+
 - Write or update a README
 - Add a changelog entry
 - Document architecture or data flow
@@ -27,11 +30,13 @@ Use this skill when the user asks to:
 - Document API endpoints or database schema
 
 ## Inputs
+
 - User request
 - Relevant source files or folders
 - `docs/` current state
 
 ## Workflow
+
 1. Identify the documentation type (README, changelog, architecture, etc.)
 2. Gather relevant file paths and content
 3. Write clear Markdown following the project doc standards
@@ -40,6 +45,7 @@ Use this skill when the user asks to:
 6. Review against checklist
 
 ## Output Format
+
 ```
 # [Doc Title]
 ## Overview
@@ -48,6 +54,7 @@ Use this skill when the user asks to:
 ```
 
 ## Quality Checklist
+
 - [ ] File placed in `docs/`
 - [ ] Added to `docs/README.md` index
 - [ ] Changelog updated if major change
@@ -55,6 +62,7 @@ Use this skill when the user asks to:
 - [ ] All file path references are relative and correct
 
 ## References
+
 - [Docs Rules](../../instructions/docs-rules.md)
 - [Docs Guide](../../instructions/docs.md)
 - [Markdown Content Creation](../../instructions/markdown-content-creation.instructions.md)

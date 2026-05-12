@@ -4,11 +4,12 @@ You know that thing you do every week — the fifteen-click, four-app, copy-past
 
 ## How It Works
 
-1. **Record your screen.** Use QuickTime, OBS, Loom, or whatever you already have. Do the process exactly the way you normally do. If you want to talk through it while you record ("now I'm downloading this report because finance needs it every Monday"), even better — the plugin transcribes your narration and uses it to understand *why* you're doing each step, not just *what* you're clicking.
+1. **Record your screen.** Use QuickTime, OBS, Loom, or whatever you already have. Do the process exactly the way you normally do. If you want to talk through it while you record ("now I'm downloading this report because finance needs it every Monday"), even better — the plugin transcribes your narration and uses it to understand _why_ you're doing each step, not just _what_ you're clicking.
 
 2. **Drop the recording on your Desktop** (or anywhere — it just needs a file path).
 
 3. **Tell Copilot CLI to analyze it:**
+
    ```
    copilot
    > /skills
@@ -29,6 +30,7 @@ Before proposing automation, the plugin checks your environment — what's insta
 ## Prerequisites
 
 - **ffmpeg** (required) — for extracting frames and audio from your recording
+
   ```bash
   brew install ffmpeg
   ```

@@ -13,15 +13,15 @@ Use this template when initializing an **Automation / Workflow / Script** projec
 
 ## Section 2: Basic Identity
 
-| Field | Value |
-|-------|-------|
-| **Project Name** | |
-| **Tagline** (one sentence) | |
-| **Version / Phase** | `prototype` · `mvp` · `production` |
-| **Status** | `active` · `on-hold` · `archived` |
-| **Owner / Team** | |
-| **Created** | YYYY-MM-DD |
-| **Last Updated** | YYYY-MM-DD |
+| Field                      | Value                              |
+| -------------------------- | ---------------------------------- |
+| **Project Name**           |                                    |
+| **Tagline** (one sentence) |                                    |
+| **Version / Phase**        | `prototype` · `mvp` · `production` |
+| **Status**                 | `active` · `on-hold` · `archived`  |
+| **Owner / Team**           |                                    |
+| **Created**                | YYYY-MM-DD                         |
+| **Last Updated**           | YYYY-MM-DD                         |
 
 ---
 
@@ -46,7 +46,7 @@ Use this template when initializing an **Automation / Workflow / Script** projec
 ## Section 4: Audience
 
 **4.1 — Who benefits directly from this automation?**
-*(e.g. engineering team, operations team, end customers)*
+_(e.g. engineering team, operations team, end customers)_
 
 > **Answer**:
 
@@ -59,7 +59,7 @@ Use this template when initializing an **Automation / Workflow / Script** projec
 > **Answer**:
 
 **4.4 — What is the expected execution frequency or volume?**
-*(e.g. "Runs hourly", "Triggered 500 times/day", "On every PR opened")*
+_(e.g. "Runs hourly", "Triggered 500 times/day", "On every PR opened")_
 
 > **Answer**:
 
@@ -72,12 +72,12 @@ Use this template when initializing an **Automation / Workflow / Script** projec
 > **Answer**:
 
 **5.2 — What automation or workflow framework is used?**
-*(e.g. GitHub Actions, n8n, Zapier, Make, Temporal, cron, shell script, Python script)*
+_(e.g. GitHub Actions, n8n, Zapier, Make, Temporal, cron, shell script, Python script)_
 
 > **Answer**:
 
 **5.3 — What systems or APIs does this automation integrate with?**
-*(e.g. Slack, GitHub, Jira, Salesforce, AWS, email)*
+_(e.g. Slack, GitHub, Jira, Salesforce, AWS, email)_
 
 > **Answer**:
 
@@ -90,7 +90,7 @@ Use this template when initializing an **Automation / Workflow / Script** projec
 > **Answer**:
 
 **5.6 — What cloud or infrastructure platforms run this automation?**
-*(e.g. AWS Lambda, GitHub Actions runner, cron on VM, serverless)*
+_(e.g. AWS Lambda, GitHub Actions runner, cron on VM, serverless)_
 
 > **Answer**:
 
@@ -99,7 +99,7 @@ Use this template when initializing an **Automation / Workflow / Script** projec
 > **Answer**:
 
 **5.8 — How are secrets and credentials managed?**
-*(e.g. environment variables, secrets manager, `.env` file)*
+_(e.g. environment variables, secrets manager, `.env` file)_
 
 > **Answer**:
 
@@ -108,7 +108,7 @@ Use this template when initializing an **Automation / Workflow / Script** projec
 ## Section 6: Automation Design
 
 **6.1 — What triggers this automation?**
-*(e.g. scheduled cron, webhook event, file arrival, manual trigger, message queue)*
+_(e.g. scheduled cron, webhook event, file arrival, manual trigger, message queue)_
 
 > **Answer**:
 
@@ -119,22 +119,22 @@ Use this template when initializing an **Automation / Workflow / Script** projec
 3.
 
 **6.3 — What is the error handling and retry strategy?**
-*(e.g. retry up to 3 times with backoff, send alert on failure, log and continue)*
+_(e.g. retry up to 3 times with backoff, send alert on failure, log and continue)_
 
 > **Answer**:
 
 **6.4 — What happens if the automation fails partway through?**
-*(e.g. idempotent — safe to re-run; rollback step; manual intervention required)*
+_(e.g. idempotent — safe to re-run; rollback step; manual intervention required)_
 
 > **Answer**:
 
 **6.5 — How are results or outcomes communicated?**
-*(e.g. Slack notification, email summary, log entry, database record)*
+_(e.g. Slack notification, email summary, log entry, database record)_
 
 > **Answer**:
 
 **6.6 — What monitoring and alerting is in place?**
-*(e.g. execution logs, failure alerts, SLA dashboards)*
+_(e.g. execution logs, failure alerts, SLA dashboards)_
 
 > **Answer**:
 
@@ -173,7 +173,7 @@ Choose one: `true` · `false`
 > **Answer**:
 
 **8.2 — What architectural pattern does this automation follow?**
-*(e.g. event-driven, scheduled batch, reactive, webhook-driven, polling)*
+_(e.g. event-driven, scheduled batch, reactive, webhook-driven, polling)_
 
 > **Answer**:
 
@@ -198,12 +198,12 @@ Choose one: `true` · `false`
 > **Answer**:
 
 **9.4 — What is the execution time SLA?**
-*(e.g. "Must complete within 5 minutes of trigger", "Daily job finishes by 07:00 UTC")*
+_(e.g. "Must complete within 5 minutes of trigger", "Daily job finishes by 07:00 UTC")_
 
 > **Answer**:
 
 **9.5 — What is the reliability target?**
-*(e.g. "≥ 99% successful executions per week")*
+_(e.g. "≥ 99% successful executions per week")_
 
 > **Answer**:
 
@@ -219,9 +219,9 @@ Choose one: `true` · `false`
 
 ## Section 11: Related Files
 
-| File / URL | Purpose |
-|------------|---------|
-| `README.md` | Project overview |
+| File / URL           | Purpose                                             |
+| -------------------- | --------------------------------------------------- |
+| `README.md`          | Project overview                                    |
 | `.github/workflows/` | GitHub Actions workflow definitions (if applicable) |
-| | |
-| | |
+|                      |                                                     |
+|                      |                                                     |

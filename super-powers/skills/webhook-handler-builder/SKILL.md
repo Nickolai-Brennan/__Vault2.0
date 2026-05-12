@@ -37,6 +37,7 @@ idempotency, event routing, and proper error responses.
 ### Step 1 — Gather Requirements
 
 Ask for:
+
 1. **Webhook source:** Stripe, GitHub, Shopify, custom, etc.
 2. **Signature type:** HMAC-SHA256, HMAC-SHA1, RSA, or none
 3. **Event types to handle:** (e.g., `payment.completed`, `pull_request.opened`)
@@ -48,18 +49,19 @@ Ask for:
 Always verify signatures before processing:
 
 **Stripe (HMAC-SHA256 with timestamp):**
+
 ```typescript
 // webhooks/stripe.ts
-import crypto from 'crypto';
+import crypto from "crypto";
 
 export function verifyStripeSignature(
-  payload:   Buffer,
+  payload: Buffer,
   signature: string,
-  secret:    string
+  secret: string,
 ): boolean {
-  const [, timestampPart, signaturePart] = signature.split(',');
-  const timestamp = timestampPart?.split('=')[1];
-  const expectedSig = signaturePart?.split('=')[1];
+  const [, timestampPart, signaturePart] = signature.split(",");
+  const timestamp = timestampPart?.split("=")[1];
+  const expectedSig = signaturePart?.split("=")[1];
 
   if (!timestamp || !expectedSig) return false;
 
@@ -69,58 +71,56 @@ export function verifyStripeSignature(
 
   const signedPayload = `${timestamp}.${payload.toString()}`;
   const expectedHash = crypto
-    .createHmac('sha256', secret)
+    .createHmac("sha256", secret)
     .update(signedPayload)
-    .digest('hex');
+    .digest("hex");
 
   return crypto.timingSafeEqual(
-    Buffer.from(expectedHash, 'hex'),
-    Buffer.from(expectedSig, 'hex')
+    Buffer.from(expectedHash, "hex"),
+    Buffer.from(expectedSig, "hex"),
   );
 }
 ```
 
 **GitHub (HMAC-SHA256):**
+
 ```typescript
 export function verifyGitHubSignature(
   payload: Buffer,
   signature: string,
-  secret: string
+  secret: string,
 ): boolean {
-  const expected = 'sha256=' + crypto
-    .createHmac('sha256', secret)
-    .update(payload)
-    .digest('hex');
-  return crypto.timingSafeEqual(
-    Buffer.from(expected),
-    Buffer.from(signature)
-  );
+  const expected =
+    "sha256=" +
+    crypto.createHmac("sha256", secret).update(payload).digest("hex");
+  return crypto.timingSafeEqual(Buffer.from(expected), Buffer.from(signature));
 }
 ```
 
 ### Step 3 — Build the Endpoint
 
 **Express webhook receiver:**
+
 ```typescript
 // routes/webhooks.ts
-import { Router, Request, Response } from 'express';
-import { verifyStripeSignature } from '../webhooks/stripe';
-import { handleStripeEvent } from '../webhooks/handlers';
+import { Router, Request, Response } from "express";
+import { verifyStripeSignature } from "../webhooks/stripe";
+import { handleStripeEvent } from "../webhooks/handlers";
 
 const router = Router();
 
 router.post(
-  '/stripe',
-  express.raw({ type: 'application/json' }), // IMPORTANT: raw body for sig verification
+  "/stripe",
+  express.raw({ type: "application/json" }), // IMPORTANT: raw body for sig verification
   async (req: Request, res: Response) => {
-    const signature = req.headers['stripe-signature'] as string;
-    const secret    = process.env.STRIPE_WEBHOOK_SECRET!;
+    const signature = req.headers["stripe-signature"] as string;
+    const secret = process.env.STRIPE_WEBHOOK_SECRET!;
 
     // 1. Verify signature
     const isValid = verifyStripeSignature(req.body, signature, secret);
     if (!isValid) {
-      console.warn('[webhook] Invalid signature');
-      return res.status(400).json({ error: 'Invalid signature' });
+      console.warn("[webhook] Invalid signature");
+      return res.status(400).json({ error: "Invalid signature" });
     }
 
     // 2. Parse event
@@ -128,7 +128,7 @@ router.post(
     try {
       event = JSON.parse(req.body.toString());
     } catch {
-      return res.status(400).json({ error: 'Invalid JSON' });
+      return res.status(400).json({ error: "Invalid JSON" });
     }
 
     // 3. Acknowledge immediately (before processing)
@@ -136,10 +136,10 @@ router.post(
     res.status(200).json({ received: true });
 
     // 4. Process asynchronously
-    handleStripeEvent(event).catch(err => {
-      console.error('[webhook] Processing error:', err);
+    handleStripeEvent(event).catch((err) => {
+      console.error("[webhook] Processing error:", err);
     });
-  }
+  },
 );
 ```
 
@@ -147,11 +147,11 @@ router.post(
 
 ```typescript
 // webhooks/idempotency.ts
-import { redis } from '../redis';
+import { redis } from "../redis";
 
 export async function isAlreadyProcessed(eventId: string): Promise<boolean> {
   const key = `webhook:processed:${eventId}`;
-  const wasSet = await redis.set(key, '1', 'EX', 86400, 'NX'); // 24h TTL, set if not exists
+  const wasSet = await redis.set(key, "1", "EX", 86400, "NX"); // 24h TTL, set if not exists
   return wasSet === null; // null means key already existed
 }
 
@@ -163,10 +163,10 @@ async function handleStripeEvent(event: StripeEvent) {
   }
 
   switch (event.type) {
-    case 'payment_intent.succeeded':
+    case "payment_intent.succeeded":
       await handlePaymentSucceeded(event.data.object);
       break;
-    case 'customer.subscription.deleted':
+    case "customer.subscription.deleted":
       await handleSubscriptionCancelled(event.data.object);
       break;
     default:
@@ -178,15 +178,16 @@ async function handleStripeEvent(event: StripeEvent) {
 ### Step 5 — Event Router Pattern
 
 For services with many event types:
+
 ```typescript
 type EventHandler<T = unknown> = (data: T) => Promise<void>;
 
 const eventHandlers: Record<string, EventHandler> = {
-  'payment_intent.succeeded':        handlePaymentSucceeded,
-  'payment_intent.payment_failed':   handlePaymentFailed,
-  'customer.subscription.created':   handleSubscriptionCreated,
-  'customer.subscription.deleted':   handleSubscriptionCancelled,
-  'invoice.payment_succeeded':       handleInvoicePaid,
+  "payment_intent.succeeded": handlePaymentSucceeded,
+  "payment_intent.payment_failed": handlePaymentFailed,
+  "customer.subscription.created": handleSubscriptionCreated,
+  "customer.subscription.deleted": handleSubscriptionCancelled,
+  "invoice.payment_succeeded": handleInvoicePaid,
 };
 
 async function routeEvent(event: WebhookEvent) {

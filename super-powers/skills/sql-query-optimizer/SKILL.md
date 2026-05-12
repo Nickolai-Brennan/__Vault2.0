@@ -37,6 +37,7 @@ queries for optimal performance.
 ### Step 1 — Collect the Query and Context
 
 Ask for:
+
 1. **The slow SQL query** (exact text)
 2. **EXPLAIN (ANALYZE)** output if available
 3. **Table schemas** — especially column types and existing indexes
@@ -48,18 +49,18 @@ Ask for:
 
 Check for these common performance problems:
 
-| Problem | Symptom in EXPLAIN | Fix |
-|---------|-------------------|-----|
-| Sequential scan on large table | `Seq Scan` on table with many rows | Add index |
-| Missing join index | `Hash Join` with `Seq Scan` on joined table | Index the FK column |
-| N+1 query | Loop of single-row lookups | JOIN or `IN (subquery)` |
-| `SELECT *` with unused columns | Fetching wide rows | Select only needed columns |
-| No covering index | Index scan + heap fetch | Add covering index |
-| Correlated subquery in SELECT | Subquery per row | Rewrite as JOIN or CTE |
-| `LIKE '%value%'` | Seq scan (can't use B-tree index) | Use full-text search |
-| Large `OFFSET` pagination | Sequential scan to skip rows | Cursor-based pagination |
-| `ORDER BY` without index | Sort operation | Add index on sort column |
-| `DISTINCT` without index | Expensive dedup | Add index or restructure |
+| Problem                        | Symptom in EXPLAIN                          | Fix                        |
+| ------------------------------ | ------------------------------------------- | -------------------------- |
+| Sequential scan on large table | `Seq Scan` on table with many rows          | Add index                  |
+| Missing join index             | `Hash Join` with `Seq Scan` on joined table | Index the FK column        |
+| N+1 query                      | Loop of single-row lookups                  | JOIN or `IN (subquery)`    |
+| `SELECT *` with unused columns | Fetching wide rows                          | Select only needed columns |
+| No covering index              | Index scan + heap fetch                     | Add covering index         |
+| Correlated subquery in SELECT  | Subquery per row                            | Rewrite as JOIN or CTE     |
+| `LIKE '%value%'`               | Seq scan (can't use B-tree index)           | Use full-text search       |
+| Large `OFFSET` pagination      | Sequential scan to skip rows                | Cursor-based pagination    |
+| `ORDER BY` without index       | Sort operation                              | Add index on sort column   |
+| `DISTINCT` without index       | Expensive dedup                             | Add index or restructure   |
 
 ### Step 3 — Interpret the EXPLAIN Plan
 
@@ -99,6 +100,7 @@ CREATE INDEX CONCURRENTLY idx_orders_user_status_covering
 ### Step 5 — Rewrite Problem Queries
 
 **Correlated subquery → JOIN:**
+
 ```sql
 -- Before (slow: subquery runs once per row)
 SELECT u.id, u.name,
@@ -113,6 +115,7 @@ GROUP BY u.id, u.name;
 ```
 
 **Large OFFSET pagination → cursor-based:**
+
 ```sql
 -- Before (slow: PostgreSQL must scan and skip all rows before offset)
 SELECT * FROM orders ORDER BY created_at DESC LIMIT 20 OFFSET 10000;
@@ -125,6 +128,7 @@ LIMIT 20;
 ```
 
 **Unnecessary DISTINCT:**
+
 ```sql
 -- Before
 SELECT DISTINCT u.id, u.email FROM users u JOIN orders o ON o.user_id = u.id;
@@ -136,6 +140,7 @@ SELECT u.id, u.email FROM users u WHERE EXISTS (
 ```
 
 **Rewrite subquery as CTE for readability and planning:**
+
 ```sql
 -- CTE (WITH clause) — PostgreSQL < 12 materializes; use for complex multi-step logic
 WITH recent_orders AS (
@@ -155,21 +160,25 @@ LEFT JOIN recent_orders ro ON ro.user_id = u.id;
 ## Query Optimization Report
 
 ### Identified Issues
+
 1. ❌ Sequential scan on `orders` (1.2M rows) — no index on (user_id, status)
 2. ❌ Correlated subquery in SELECT running once per user row
-3. ⚠️  OFFSET 50000 in pagination — scans and discards rows
+3. ⚠️ OFFSET 50000 in pagination — scans and discards rows
 
 ### Recommended Indexes
+
 \`\`\`sql
 CREATE INDEX CONCURRENTLY idx_orders_user_status_created
-    ON orders (user_id, status, created_at DESC);
+ON orders (user_id, status, created_at DESC);
 \`\`\`
 Estimated time to create: ~45 seconds on 1.2M rows (CONCURRENTLY is safe for production)
 
 ### Rewritten Query
+
 [shows optimized version]
 
 ### Expected Improvement
+
 Before: ~3,200ms | After: ~12ms (estimated from index selectivity)
 ```
 

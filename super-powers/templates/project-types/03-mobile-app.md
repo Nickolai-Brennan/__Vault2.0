@@ -13,15 +13,15 @@ Use this template when initializing a **Mobile App** project (iOS, Android, Reac
 
 ## Section 2: Basic Identity
 
-| Field | Value |
-|-------|-------|
-| **Project Name** | |
-| **Tagline** (one sentence) | |
-| **Version / Phase** | `prototype` · `mvp` · `production` |
-| **Status** | `active` · `on-hold` · `archived` |
-| **Owner / Team** | |
-| **Created** | YYYY-MM-DD |
-| **Last Updated** | YYYY-MM-DD |
+| Field                      | Value                              |
+| -------------------------- | ---------------------------------- |
+| **Project Name**           |                                    |
+| **Tagline** (one sentence) |                                    |
+| **Version / Phase**        | `prototype` · `mvp` · `production` |
+| **Status**                 | `active` · `on-hold` · `archived`  |
+| **Owner / Team**           |                                    |
+| **Created**                | YYYY-MM-DD                         |
+| **Last Updated**           | YYYY-MM-DD                         |
 
 ---
 
@@ -58,7 +58,7 @@ Use this template when initializing a **Mobile App** project (iOS, Android, Reac
 > **Answer**:
 
 **4.4 — What is the expected install / active user scale?**
-*(e.g. "10,000 installs in first month", "500 daily active users")*
+_(e.g. "10,000 installs in first month", "500 daily active users")_
 
 > **Answer**:
 
@@ -67,12 +67,12 @@ Use this template when initializing a **Mobile App** project (iOS, Android, Reac
 ## Section 5: Technical Stack
 
 **5.1 — What platform(s) does this app target?**
-*(e.g. iOS only, Android only, both via React Native / Flutter / KMM)*
+_(e.g. iOS only, Android only, both via React Native / Flutter / KMM)_
 
 > **Answer**:
 
 **5.2 — What language and framework are used?**
-*(e.g. Swift / SwiftUI, Kotlin / Jetpack Compose, React Native, Flutter/Dart)*
+_(e.g. Swift / SwiftUI, Kotlin / Jetpack Compose, React Native, Flutter/Dart)_
 
 > **Answer**:
 
@@ -81,7 +81,7 @@ Use this template when initializing a **Mobile App** project (iOS, Android, Reac
 > **Answer**:
 
 **5.4 — What databases or local storage are used on-device?**
-*(e.g. SQLite, Realm, Core Data, SharedPreferences)*
+_(e.g. SQLite, Realm, Core Data, SharedPreferences)_
 
 > **Answer**:
 
@@ -94,17 +94,17 @@ Use this template when initializing a **Mobile App** project (iOS, Android, Reac
 > **Answer**:
 
 **5.7 — What CI/CD tooling is used?**
-*(e.g. Fastlane, Bitrise, GitHub Actions, Xcode Cloud)*
+_(e.g. Fastlane, Bitrise, GitHub Actions, Xcode Cloud)_
 
 > **Answer**:
 
 **5.8 — How is authentication and authorization handled?**
-*(e.g. OAuth 2.0, biometric, social sign-in, custom JWT)*
+_(e.g. OAuth 2.0, biometric, social sign-in, custom JWT)_
 
 > **Answer**:
 
 **5.9 — What external APIs or third-party SDKs are integrated?**
-*(e.g. push notifications, analytics, payments, maps)*
+_(e.g. push notifications, analytics, payments, maps)_
 
 > **Answer**:
 
@@ -113,27 +113,27 @@ Use this template when initializing a **Mobile App** project (iOS, Android, Reac
 ## Section 6: Mobile-Specific Details
 
 **6.1 — What app stores will this app be distributed through?**
-*(e.g. Apple App Store, Google Play, both, enterprise distribution)*
+_(e.g. Apple App Store, Google Play, both, enterprise distribution)_
 
 > **Answer**:
 
 **6.2 — What OS version ranges are supported?**
-*(e.g. iOS 16+, Android 10+)*
+_(e.g. iOS 16+, Android 10+)_
 
 > **Answer**:
 
 **6.3 — What device categories are supported?**
-*(e.g. phones only, phones + tablets, wearables)*
+_(e.g. phones only, phones + tablets, wearables)_
 
 > **Answer**:
 
 **6.4 — Does the app require offline support?**
-*(Describe what works offline and sync strategy)*
+_(Describe what works offline and sync strategy)_
 
 > **Answer**:
 
 **6.5 — What push notification strategy is used?**
-*(e.g. APNs, FCM, none)*
+_(e.g. APNs, FCM, none)_
 
 > **Answer**:
 
@@ -176,7 +176,7 @@ Choose one: `true` · `false`
 > **Answer**:
 
 **8.2 — What architectural pattern does this app follow?**
-*(e.g. MVVM, MVI, Clean Architecture, Redux, BLoC)*
+_(e.g. MVVM, MVI, Clean Architecture, Redux, BLoC)_
 
 > **Answer**:
 
@@ -197,17 +197,17 @@ Choose one: `true` · `false`
 > **Answer**:
 
 **9.3 — What compliance or regulatory requirements apply?**
-*(e.g. GDPR, COPPA, App Store Review Guidelines)*
+_(e.g. GDPR, COPPA, App Store Review Guidelines)_
 
 > **Answer**:
 
 **9.4 — What are the performance requirements?**
-*(e.g. "App launch < 2 s", "Smooth scrolling at 60 fps")*
+_(e.g. "App launch < 2 s", "Smooth scrolling at 60 fps")_
 
 > **Answer**:
 
 **9.5 — What is the crash-free rate target?**
-*(e.g. ≥ 99.5%)*
+_(e.g. ≥ 99.5%)_
 
 > **Answer**:
 
@@ -223,8 +223,8 @@ Choose one: `true` · `false`
 
 ## Section 11: Related Files
 
-| File / URL | Purpose |
-|------------|---------|
+| File / URL  | Purpose          |
+| ----------- | ---------------- |
 | `README.md` | Project overview |
-| | |
-| | |
+|             |                  |
+|             |                  |

@@ -24,25 +24,29 @@ await client.start();
 
 // Create multiple independent sessions
 const session1 = await client.createSession({
-    onPermissionRequest: approveAll,
-    model: "gpt-5",
+  onPermissionRequest: approveAll,
+  model: "gpt-5",
 });
 const session2 = await client.createSession({
-    onPermissionRequest: approveAll,
-    model: "gpt-5",
+  onPermissionRequest: approveAll,
+  model: "gpt-5",
 });
 const session3 = await client.createSession({
-    onPermissionRequest: approveAll,
-    model: "claude-sonnet-4.5",
+  onPermissionRequest: approveAll,
+  model: "claude-sonnet-4.5",
 });
 
 // Each session maintains its own conversation history
 await session1.sendAndWait({ prompt: "You are helping with a Python project" });
-await session2.sendAndWait({ prompt: "You are helping with a TypeScript project" });
+await session2.sendAndWait({
+  prompt: "You are helping with a TypeScript project",
+});
 await session3.sendAndWait({ prompt: "You are helping with a Go project" });
 
 // Follow-up messages stay in their respective contexts
-await session1.sendAndWait({ prompt: "How do I create a virtual environment?" });
+await session1.sendAndWait({
+  prompt: "How do I create a virtual environment?",
+});
 await session2.sendAndWait({ prompt: "How do I set up tsconfig?" });
 await session3.sendAndWait({ prompt: "How do I initialize a module?" });
 
@@ -59,9 +63,9 @@ Use custom IDs for easier tracking:
 
 ```typescript
 const session = await client.createSession({
-    onPermissionRequest: approveAll,
-    sessionId: "user-123-chat",
-    model: "gpt-5",
+  onPermissionRequest: approveAll,
+  sessionId: "user-123-chat",
+  model: "gpt-5",
 });
 
 console.log(session.sessionId); // "user-123-chat"

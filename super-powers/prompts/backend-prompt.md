@@ -40,5 +40,6 @@ Output:
 ---
 
 ## Related
+
 - [`prompt/backend-admin.md`](../prompt/backend-admin.md) — existing backend admin prompt
 - [`instructions/backend.md`](../instructions/backend.md)

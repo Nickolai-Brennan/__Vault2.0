@@ -2,9 +2,9 @@
 
 ## Results
 
-| Model | Accuracy | Precision | Recall | F1 |
-|-------|----------|-----------|--------|-----|
-| [Model] | [Score] | [Score] | [Score] | [Score] |
+| Model   | Accuracy | Precision | Recall  | F1      |
+| ------- | -------- | --------- | ------- | ------- |
+| [Model] | [Score]  | [Score]   | [Score] | [Score] |
 
 ## Analysis
 

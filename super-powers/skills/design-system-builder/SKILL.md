@@ -24,6 +24,7 @@ Build and extend the centralized DZIRE design system, from raw token definitions
 ## When To Use
 
 Use this skill when the user asks to:
+
 - Scaffold the full `frontend/src/design-system/` folder structure
 - Add a new token category
 - Create a new UI component, layout, or pattern
@@ -72,8 +73,8 @@ frontend/src/design-system/
 - [`phases/step-6.md`](../../phases/step-6.md)
 - [`.github/agents/design-system-agent.md`](../../.github/agents/design-system-agent.md)
 
-
 ## References
+
 - [Frontend Rules](../../instructions/frontend-rules.md)
 - [HTML/CSS Style Guide](../../instructions/html-css-style-color-guide.instructions.md)
 - [Dashboard Design Guide](../../references/dashboard-design-guide.md)

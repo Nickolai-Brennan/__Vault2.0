@@ -1,7 +1,7 @@
 ---
-name: 'Secrets Scanner'
-description: 'Scans files modified during a Copilot coding agent session for leaked secrets, credentials, and sensitive data'
-tags: ['security', 'secrets', 'scanning', 'session-end']
+name: "Secrets Scanner"
+description: "Scans files modified during a Copilot coding agent session for leaked secrets, credentials, and sensitive data"
+tags: ["security", "secrets", "scanning", "session-end"]
 ---
 
 # Secrets Scanner Hook
@@ -78,13 +78,13 @@ The hook is configured in `hooks.json` to run on the `sessionEnd` event:
 
 ### Environment Variables
 
-| Variable | Values | Default | Description |
-|----------|--------|---------|-------------|
-| `SCAN_MODE` | `warn`, `block` | `warn` | `warn` logs findings only; `block` exits non-zero to prevent auto-commit |
-| `SCAN_SCOPE` | `diff`, `staged` | `diff` | `diff` scans uncommitted changes vs HEAD; `staged` scans only staged files |
-| `SKIP_SECRETS_SCAN` | `true` | unset | Disable the scanner entirely |
-| `SECRETS_LOG_DIR` | path | `logs/copilot/secrets` | Directory where scan logs are written |
-| `SECRETS_ALLOWLIST` | comma-separated | unset | Patterns to ignore (e.g., `test_key_123,example.com`) |
+| Variable            | Values           | Default                | Description                                                                |
+| ------------------- | ---------------- | ---------------------- | -------------------------------------------------------------------------- |
+| `SCAN_MODE`         | `warn`, `block`  | `warn`                 | `warn` logs findings only; `block` exits non-zero to prevent auto-commit   |
+| `SCAN_SCOPE`        | `diff`, `staged` | `diff`                 | `diff` scans uncommitted changes vs HEAD; `staged` scans only staged files |
+| `SKIP_SECRETS_SCAN` | `true`           | unset                  | Disable the scanner entirely                                               |
+| `SECRETS_LOG_DIR`   | path             | `logs/copilot/secrets` | Directory where scan logs are written                                      |
+| `SECRETS_ALLOWLIST` | comma-separated  | unset                  | Patterns to ignore (e.g., `test_key_123,example.com`)                      |
 
 ## How It Works
 
@@ -100,23 +100,23 @@ The hook is configured in `hooks.json` to run on the `sessionEnd` event:
 
 ## Detected Secret Patterns
 
-| Pattern | Severity | Example Match |
-|---------|----------|---------------|
-| `AWS_ACCESS_KEY` | critical | `AKIAIOSFODNN7EXAMPLE` |
-| `AWS_SECRET_KEY` | critical | `aws_secret_access_key = wJalr...` |
-| `GCP_SERVICE_ACCOUNT` | critical | `"type": "service_account"` |
-| `GCP_API_KEY` | high | `AIzaSyC...` |
-| `AZURE_CLIENT_SECRET` | critical | `azure_client_secret = ...` |
-| `GITHUB_PAT` | critical | `ghp_xxxxxxxxxxxx...` |
-| `GITHUB_FINE_GRAINED_PAT` | critical | `github_pat_...` |
-| `PRIVATE_KEY` | critical | `-----BEGIN RSA PRIVATE KEY-----` |
-| `GENERIC_SECRET` | high | `api_key = "sk-..."` |
-| `CONNECTION_STRING` | high | `postgresql://user:pass@host/db` |
-| `SLACK_TOKEN` | high | `xoxb-...` |
-| `STRIPE_SECRET_KEY` | critical | `sk_live_...` |
-| `NPM_TOKEN` | high | `npm_...` |
-| `JWT_TOKEN` | medium | `eyJhbGci...` |
-| `INTERNAL_IP_PORT` | medium | `192.168.1.1:8080` |
+| Pattern                   | Severity | Example Match                      |
+| ------------------------- | -------- | ---------------------------------- |
+| `AWS_ACCESS_KEY`          | critical | `AKIAIOSFODNN7EXAMPLE`             |
+| `AWS_SECRET_KEY`          | critical | `aws_secret_access_key = wJalr...` |
+| `GCP_SERVICE_ACCOUNT`     | critical | `"type": "service_account"`        |
+| `GCP_API_KEY`             | high     | `AIzaSyC...`                       |
+| `AZURE_CLIENT_SECRET`     | critical | `azure_client_secret = ...`        |
+| `GITHUB_PAT`              | critical | `ghp_xxxxxxxxxxxx...`              |
+| `GITHUB_FINE_GRAINED_PAT` | critical | `github_pat_...`                   |
+| `PRIVATE_KEY`             | critical | `-----BEGIN RSA PRIVATE KEY-----`  |
+| `GENERIC_SECRET`          | high     | `api_key = "sk-..."`               |
+| `CONNECTION_STRING`       | high     | `postgresql://user:pass@host/db`   |
+| `SLACK_TOKEN`             | high     | `xoxb-...`                         |
+| `STRIPE_SECRET_KEY`       | critical | `sk_live_...`                      |
+| `NPM_TOKEN`               | high     | `npm_...`                          |
+| `JWT_TOKEN`               | medium   | `eyJhbGci...`                      |
+| `INTERNAL_IP_PORT`        | medium   | `192.168.1.1:8080`                 |
 
 See the full list in `scan-secrets.sh`.
 
@@ -164,11 +164,34 @@ See the full list in `scan-secrets.sh`.
 Scan events are written to `logs/copilot/secrets/scan.log` in JSON Lines format:
 
 ```json
-{"timestamp":"2026-03-13T10:30:00Z","event":"secrets_found","mode":"warn","scope":"diff","files_scanned":3,"finding_count":2,"findings":[{"file":"src/config.ts","line":12,"pattern":"GITHUB_PAT","severity":"critical","match":"ghp_...xyz1"}]}
+{
+  "timestamp": "2026-03-13T10:30:00Z",
+  "event": "secrets_found",
+  "mode": "warn",
+  "scope": "diff",
+  "files_scanned": 3,
+  "finding_count": 2,
+  "findings": [
+    {
+      "file": "src/config.ts",
+      "line": 12,
+      "pattern": "GITHUB_PAT",
+      "severity": "critical",
+      "match": "ghp_...xyz1"
+    }
+  ]
+}
 ```
 
 ```json
-{"timestamp":"2026-03-13T10:30:00Z","event":"scan_complete","mode":"warn","scope":"diff","status":"clean","files_scanned":5}
+{
+  "timestamp": "2026-03-13T10:30:00Z",
+  "event": "scan_complete",
+  "mode": "warn",
+  "scope": "diff",
+  "status": "clean",
+  "files_scanned": 5
+}
 ```
 
 ## Pairing with Other Hooks

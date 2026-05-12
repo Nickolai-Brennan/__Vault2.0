@@ -35,6 +35,7 @@ changelogs that developers and users can actually read.
 ### Step 1 — Gather Input
 
 Ask the user for:
+
 1. **Source material:** git log output, PR list, Jira/Linear tickets, or raw bullet notes
 2. **Version number** and **release date** (or "unreleased")
 3. **Audience:** Developer-facing (technical) or user-facing (plain language)?
@@ -46,14 +47,14 @@ If git log is provided, run: `git log --oneline --no-merges <from>..<to>`
 
 Sort each change into Keep a Changelog categories:
 
-| Category | What belongs here |
-|----------|------------------|
-| **Added** | New features, endpoints, config options |
-| **Changed** | Modified behavior, interface changes, renamed things |
-| **Deprecated** | Features scheduled for removal |
-| **Removed** | Deleted features, dropped support |
-| **Fixed** | Bug fixes |
-| **Security** | Patches for vulnerabilities |
+| Category       | What belongs here                                    |
+| -------------- | ---------------------------------------------------- |
+| **Added**      | New features, endpoints, config options              |
+| **Changed**    | Modified behavior, interface changes, renamed things |
+| **Deprecated** | Features scheduled for removal                       |
+| **Removed**    | Deleted features, dropped support                    |
+| **Fixed**      | Bug fixes                                            |
+| **Security**   | Patches for vulnerabilities                          |
 
 - Skip pure chore commits (formatting, typos, dependency bumps with no user impact) unless the user wants them.
 - Group related commits into a single entry where possible.
@@ -67,20 +68,24 @@ Format per [Keep a Changelog](https://keepachangelog.com) convention:
 ## [2.3.0] — 2024-11-15
 
 ### Added
+
 - Dark mode toggle in user settings (#102)
 - Export to CSV for all dashboard tables (#98)
 
 ### Fixed
+
 - File uploads over 10 MB no longer crash the app (#101)
 - Payment webhooks now fire correctly in staging environments (#104)
 
 ### Security
+
 - Closed unauthenticated endpoint that exposed user email addresses
 ```
 
 ### Step 4 — Review & Refine
 
 Present the draft and ask:
+
 - "Does this cover everything? Anything to add or remove?"
 - "Should I include dependency version bumps?"
 - "Do you want a separate user-facing summary?"
@@ -100,15 +105,19 @@ newest first.
 ## [VERSION] — YYYY-MM-DD
 
 ### Added
+
 - <description> (#PR_or_issue_number)
 
 ### Changed
+
 - <description>
 
 ### Fixed
+
 - <description>
 
 ### Security
+
 - <description>
 ```
 

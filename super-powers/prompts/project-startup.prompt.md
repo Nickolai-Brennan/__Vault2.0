@@ -7,9 +7,11 @@ phase: PROTOTYPE|MVP|PRODUCTION
 # Prompt: Project Startup
 
 ## Objective
+
 Create a complete project brief and initial roadmap from stakeholder inputs, establishing scope, goals, and success criteria.
 
 ## Context Requirements
+
 - Stakeholder description of the project idea and goals
 - Known constraints (timeline, budget, team, tech stack)
 - Target audience or end-user personas
@@ -56,11 +58,13 @@ phases:
 ```
 
 ## Quality Checks
+
 - [ ] All stated goals classified with priority
 - [ ] Scope boundary explicitly stated (in and out)
 - [ ] Success criteria are measurable
 - [ ] All three phases have milestones
 
 ## Safety Rules
+
 - Do not include personal contact details in project brief
 - Flag any regulatory or compliance requirements for legal review

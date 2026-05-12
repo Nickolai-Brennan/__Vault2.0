@@ -38,6 +38,7 @@ make layouts adapt gracefully from mobile to ultra-wide screens.
 ### Step 1 — Understand the Responsive Needs
 
 Ask:
+
 1. **Current state:** Desktop-first or mobile-first? Any existing breakpoints?
 2. **What changes:** Layout structure? Typography? Spacing? Component visibility?
 3. **Target breakpoints:** Custom or a standard system (Tailwind, Bootstrap, Material)?
@@ -48,6 +49,7 @@ Ask:
 #### Standard Breakpoint Systems
 
 **Tailwind CSS defaults (recommended for most projects):**
+
 ```css
 /* sm  */ @media (min-width: 640px)  { ... }
 /* md  */ @media (min-width: 768px)  { ... }
@@ -57,6 +59,7 @@ Ask:
 ```
 
 **Minimal 3-breakpoint system (cleaner for custom projects):**
+
 ```css
 /* Mobile default: 320px–599px */
 /* Tablet  */ @media (min-width: 600px)  { ... }
@@ -65,6 +68,7 @@ Ask:
 ```
 
 **Define as CSS custom properties for reuse:**
+
 ```css
 :root {
   --bp-sm: 640px;
@@ -76,18 +80,22 @@ Ask:
 ```
 
 **Define in JavaScript for use in CSS-in-JS:**
+
 ```typescript
 export const breakpoints = {
-  sm:  '640px',
-  md:  '768px',
-  lg:  '1024px',
-  xl:  '1280px',
-  '2xl': '1536px',
+  sm: "640px",
+  md: "768px",
+  lg: "1024px",
+  xl: "1280px",
+  "2xl": "1536px",
 } as const;
 
 // Usage in styled-components / Emotion:
 const mq = Object.fromEntries(
-  Object.entries(breakpoints).map(([key, val]) => [key, `@media (min-width: ${val})`])
+  Object.entries(breakpoints).map(([key, val]) => [
+    key,
+    `@media (min-width: ${val})`,
+  ]),
 );
 // mq.md = '@media (min-width: 768px)'
 ```
@@ -99,11 +107,11 @@ Always write mobile styles first (default), then progressively enhance:
 ```css
 /* ✅ Mobile-first (progressive enhancement) */
 .nav-links {
-  display: none;           /* hidden on mobile */
+  display: none; /* hidden on mobile */
 }
 @media (min-width: 768px) {
   .nav-links {
-    display: flex;         /* visible on tablet+ */
+    display: flex; /* visible on tablet+ */
     gap: 1rem;
   }
 }
@@ -114,13 +122,16 @@ Always write mobile styles first (default), then progressively enhance:
   gap: 1rem;
 }
 @media (max-width: 767px) {
-  .nav-links { display: none; }
+  .nav-links {
+    display: none;
+  }
 }
 ```
 
 ### Step 4 — Handle Common Responsive Patterns
 
 #### Typography scaling
+
 ```css
 /* Fluid typography — no breakpoints needed */
 h1 {
@@ -132,6 +143,7 @@ body {
 ```
 
 #### Spacing scaling
+
 ```css
 .section {
   padding-block: clamp(2rem, 5vw, 5rem);
@@ -139,28 +151,42 @@ body {
 ```
 
 #### Grid column changes
+
 ```css
 .grid {
   display: grid;
-  grid-template-columns: 1fr;             /* 1 col mobile */
+  grid-template-columns: 1fr; /* 1 col mobile */
   gap: 1rem;
 }
 @media (min-width: 640px) {
-  .grid { grid-template-columns: repeat(2, 1fr); }   /* 2 col tablet */
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  } /* 2 col tablet */
 }
 @media (min-width: 1024px) {
-  .grid { grid-template-columns: repeat(3, 1fr); }   /* 3 col desktop */
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  } /* 3 col desktop */
 }
 ```
 
 #### Show/hide elements
+
 ```css
-.mobile-menu-btn { display: block; }
-.desktop-nav     { display: none; }
+.mobile-menu-btn {
+  display: block;
+}
+.desktop-nav {
+  display: none;
+}
 
 @media (min-width: 768px) {
-  .mobile-menu-btn { display: none; }
-  .desktop-nav     { display: flex; }
+  .mobile-menu-btn {
+    display: none;
+  }
+  .desktop-nav {
+    display: flex;
+  }
 }
 ```
 
@@ -187,11 +213,16 @@ For Tailwind projects, show the utility-class approach:
 ### Step 6 — Recommend Container Queries (When Appropriate)
 
 For components that should respond to their container size (not viewport):
+
 ```css
-.card-container { container-type: inline-size; }
+.card-container {
+  container-type: inline-size;
+}
 
 @container (min-width: 400px) {
-  .card { flex-direction: row; }
+  .card {
+    flex-direction: row;
+  }
 }
 ```
 

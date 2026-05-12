@@ -20,9 +20,11 @@ outputs:
 # Search Builder Skill
 
 ## Purpose
+
 Build and extend the search and discovery system for DZIRE_v1.
 
 ## When To Use
+
 - Add new search filters or sort options
 - Update search ranking weights
 - Rebuild or update the search index
@@ -48,13 +50,14 @@ score = title_match*3 + tag_match*2 + category_match*1.5 + recency + popularity 
 ```
 
 ## Conventions
+
 - Follow existing FastAPI + SQLAlchemy async patterns
 - Use Pydantic v2 `model_validate()` for ORM → schema conversion
 - Register router in `backend/app/main.py` under `# Step 9 routers`
 - See `docs/search.md` for full documentation
 
-
 ## References
+
 - [API Design Guide](../../references/api-design-guide.md)
 - [API Rules](../../instructions/api-rules.md)
 - [API Design Skill](../api-design-skill/SKILL.md)

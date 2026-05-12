@@ -36,6 +36,7 @@ their environment, and make their first contribution with confidence.
 ### Step 1 — Gather Information
 
 Ask for or infer from available files:
+
 1. **Repo name, tech stack, and primary language**
 2. **Project structure:** directory layout (tree output or description)
 3. **Setup requirements:** OS, tools, env vars, DB setup, test commands
@@ -51,9 +52,11 @@ Produce a guide with these sections:
 # Onboarding Guide — [Project Name]
 
 ## Welcome
+
 [1–2 sentence project summary and purpose]
 
 ## Table of Contents
+
 1. [Prerequisites](#prerequisites)
 2. [Getting Started](#getting-started)
 3. [Project Structure](#project-structure)
@@ -68,6 +71,7 @@ Produce a guide with these sections:
 ### Step 3 — Prerequisites Section
 
 List:
+
 - Required tools with minimum versions (Node 18+, Python 3.11+, Docker 24+)
 - OS requirements if any
 - Access/permissions needed (GitHub, AWS, internal tools)
@@ -109,6 +113,7 @@ Brief (1-sentence) description of each key directory.
 ### Step 6 — Development Workflow Section
 
 Cover:
+
 - Branching strategy (feature/[ticket-id]-description)
 - Commit message format (Conventional Commits, etc.)
 - PR process (draft PRs, review requirements)
@@ -117,8 +122,10 @@ Cover:
 ### Step 7 — Making Your First PR
 
 A checklist new contributors can follow:
+
 ```markdown
 ## First PR Checklist
+
 - [ ] Branch from `main` using `feature/[description]`
 - [ ] Code passes `npm run lint` and `npm run test`
 - [ ] PR description explains what and why
@@ -133,6 +140,7 @@ A checklist new contributors can follow:
 A single Markdown document structured as shown above.
 
 Optionally split into:
+
 - `README.md` — project summary and quick start
 - `CONTRIBUTING.md` — conventions, workflow, PR process
 - `docs/onboarding.md` — full developer guide

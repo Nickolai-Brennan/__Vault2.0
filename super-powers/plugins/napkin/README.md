@@ -60,28 +60,28 @@ Go back to your terminal and say `check the napkin`. Copilot looks at your white
 
 ### Skill
 
-| Skill | Description |
-|-------|-------------|
+| Skill    | Description                                                                                                               |
+| -------- | ------------------------------------------------------------------------------------------------------------------------- |
 | `napkin` | Visual whiteboard collaboration — creates a whiteboard, interprets your drawings and notes, and responds conversationally |
 
 ### Bundled Assets
 
-| Asset | Description |
-|-------|-------------|
+| Asset                | Description                                                                                       |
+| -------------------- | ------------------------------------------------------------------------------------------------- |
 | `assets/napkin.html` | The whiteboard application — a single HTML file that opens in any browser, no installation needed |
 
 ## Whiteboard Features
 
-| Feature | What it does |
-|---------|-------------|
-| **Freehand drawing** | Draw with a pen tool, just like on paper |
-| **Shapes** | Rectangles, circles, lines, and arrows — wobbly shapes snap to clean versions |
-| **Sticky notes** | Draggable, resizable, color-coded notes (yellow, pink, blue, green) |
-| **Text labels** | Click anywhere to type text directly on the canvas |
-| **Pan and zoom** | Hold spacebar and drag to move around; scroll to zoom |
-| **Undo/Redo** | Made a mistake? Ctrl+Z to undo, Ctrl+Shift+Z to redo |
-| **Auto-save** | Your work saves automatically — close the tab, come back later, it's still there |
-| **Share with Copilot** | One button exports a screenshot and copies your text content |
+| Feature                | What it does                                                                     |
+| ---------------------- | -------------------------------------------------------------------------------- |
+| **Freehand drawing**   | Draw with a pen tool, just like on paper                                         |
+| **Shapes**             | Rectangles, circles, lines, and arrows — wobbly shapes snap to clean versions    |
+| **Sticky notes**       | Draggable, resizable, color-coded notes (yellow, pink, blue, green)              |
+| **Text labels**        | Click anywhere to type text directly on the canvas                               |
+| **Pan and zoom**       | Hold spacebar and drag to move around; scroll to zoom                            |
+| **Undo/Redo**          | Made a mistake? Ctrl+Z to undo, Ctrl+Shift+Z to redo                             |
+| **Auto-save**          | Your work saves automatically — close the tab, come back later, it's still there |
+| **Share with Copilot** | One button exports a screenshot and copies your text content                     |
 
 ## How Copilot Understands Your Drawings
 
@@ -97,36 +97,36 @@ Copilot uses both to understand what you're thinking and respond as a collaborat
 
 Anything. But here are some things Copilot is especially good at interpreting:
 
-| What you draw | What Copilot understands |
-|---------------|------------------------|
-| Boxes connected by arrows | A process flow or workflow |
-| Items circled together | A group of related ideas |
-| Sticky notes in different colors | Categories or priorities |
-| Text with a line through it | Something rejected or deprioritized |
-| Stars or exclamation marks | High-priority items |
-| Items on opposite sides | A comparison or contrast |
-| A rough org chart | Reporting structure or team layout |
+| What you draw                    | What Copilot understands            |
+| -------------------------------- | ----------------------------------- |
+| Boxes connected by arrows        | A process flow or workflow          |
+| Items circled together           | A group of related ideas            |
+| Sticky notes in different colors | Categories or priorities            |
+| Text with a line through it      | Something rejected or deprioritized |
+| Stars or exclamation marks       | High-priority items                 |
+| Items on opposite sides          | A comparison or contrast            |
+| A rough org chart                | Reporting structure or team layout  |
 
 ## Keyboard Shortcuts
 
 You don't need these — everything works with mouse clicks. But if you want to work faster:
 
-| Key | Tool |
-|-----|------|
-| V | Select / move |
-| P | Pen (draw) |
-| R | Rectangle |
-| C | Circle |
-| A | Arrow |
-| L | Line |
-| T | Text |
-| N | New sticky note |
-| E | Eraser |
-| Delete | Delete selected item (not yet supported) |
-| Ctrl+Z | Undo |
-| Ctrl+Shift+Z | Redo |
-| Space + drag | Pan the canvas |
-| ? | Show help |
+| Key          | Tool                                     |
+| ------------ | ---------------------------------------- |
+| V            | Select / move                            |
+| P            | Pen (draw)                               |
+| R            | Rectangle                                |
+| C            | Circle                                   |
+| A            | Arrow                                    |
+| L            | Line                                     |
+| T            | Text                                     |
+| N            | New sticky note                          |
+| E            | Eraser                                   |
+| Delete       | Delete selected item (not yet supported) |
+| Ctrl+Z       | Undo                                     |
+| Ctrl+Shift+Z | Redo                                     |
+| Space + drag | Pan the canvas                           |
+| ?            | Show help                                |
 
 ## FAQ
 

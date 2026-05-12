@@ -20,9 +20,11 @@ outputs:
 # planning-agent
 
 ## Purpose
+
 Converts raw ideas into structured project plans, phases, MVP scope, risks, and outputs.
 
 ## Operating Instructions
+
 - Read project context first.
 - Identify missing decisions.
 - Produce structured, implementation-ready output.
@@ -31,6 +33,7 @@ Converts raw ideas into structured project plans, phases, MVP scope, risks, and 
 - Convert actionable work into tasks.
 
 ## Output Template
+
 ```yaml
 agent_output:
   agent: planning-agent
@@ -45,9 +48,8 @@ agent_output:
   handoff_notes:
 ```
 
-
-
 ## References
+
 - [AI Agent Architecture](../../references/ai-agent-architecture.md)
 - [Workflow Design Guide](../../references/workflow-design-guide.md)
 - [Automation Best Practices](../../references/automation-best-practices.md)

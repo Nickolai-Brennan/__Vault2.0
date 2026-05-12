@@ -8,12 +8,12 @@ Commands provide shorthand triggers that invoke agents, run workflows, or execut
 
 ## Planned Command Types
 
-| Type | Description |
-|------|-------------|
-| Slash commands | `/init-project`, `/create-agent`, `/run-workflow`, etc. |
-| CLI commands | `generate_agent.py`, `generate_skill.py` (see `scripts/`) |
-| Agent commands | Direct agent invocations with pre-set context |
-| Workflow commands | Single-line triggers for numbered workflows |
+| Type              | Description                                               |
+| ----------------- | --------------------------------------------------------- |
+| Slash commands    | `/init-project`, `/create-agent`, `/run-workflow`, etc.   |
+| CLI commands      | `generate_agent.py`, `generate_skill.py` (see `scripts/`) |
+| Agent commands    | Direct agent invocations with pre-set context             |
+| Workflow commands | Single-line triggers for numbered workflows               |
 
 ## Related
 

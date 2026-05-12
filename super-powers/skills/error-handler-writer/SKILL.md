@@ -38,6 +38,7 @@ failures visible, debuggable, and user-friendly.
 ### Step 1 — Understand the Context
 
 Ask for:
+
 1. **Language and framework:** Node.js/Express, Python/FastAPI, Go, Java/Spring, other
 2. **What to handle:** A specific function, a whole API layer, or a service boundary
 3. **Error types to cover:** Validation, auth, not-found, DB errors, external API errors
@@ -48,6 +49,7 @@ Ask for:
 Before writing handlers, define the error classes:
 
 **Node.js / TypeScript:**
+
 ```typescript
 // Base class
 export class AppError extends Error {
@@ -55,7 +57,7 @@ export class AppError extends Error {
     public readonly message: string,
     public readonly statusCode: number,
     public readonly code: string,
-    public readonly isOperational: boolean = true
+    public readonly isOperational: boolean = true,
   ) {
     super(message);
     this.name = this.constructor.name;
@@ -65,31 +67,35 @@ export class AppError extends Error {
 
 // Domain-specific subclasses
 export class ValidationError extends AppError {
-  constructor(message: string, public readonly fields?: Record<string, string>) {
-    super(message, 400, 'VALIDATION_ERROR');
+  constructor(
+    message: string,
+    public readonly fields?: Record<string, string>,
+  ) {
+    super(message, 400, "VALIDATION_ERROR");
   }
 }
 
 export class NotFoundError extends AppError {
   constructor(resource: string) {
-    super(`${resource} not found`, 404, 'NOT_FOUND');
+    super(`${resource} not found`, 404, "NOT_FOUND");
   }
 }
 
 export class UnauthorizedError extends AppError {
-  constructor(message = 'Authentication required') {
-    super(message, 401, 'UNAUTHORIZED');
+  constructor(message = "Authentication required") {
+    super(message, 401, "UNAUTHORIZED");
   }
 }
 
 export class ForbiddenError extends AppError {
-  constructor(message = 'Insufficient permissions') {
-    super(message, 403, 'FORBIDDEN');
+  constructor(message = "Insufficient permissions") {
+    super(message, 403, "FORBIDDEN");
   }
 }
 ```
 
 **Python:**
+
 ```python
 class AppError(Exception):
     def __init__(self, message: str, status_code: int, code: str):
@@ -111,15 +117,16 @@ class NotFoundError(AppError):
 ### Step 3 — Write the Centralized Error Handler
 
 **Express middleware:**
+
 ```typescript
-import { Request, Response, NextFunction } from 'express';
-import { AppError } from './errors';
+import { Request, Response, NextFunction } from "express";
+import { AppError } from "./errors";
 
 export function errorHandler(
   err: Error,
   req: Request,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ): void {
   // Known operational error
   if (err instanceof AppError) {
@@ -134,11 +141,11 @@ export function errorHandler(
   }
 
   // Unknown / programming error — log fully, return generic message
-  console.error('Unexpected error:', err);
+  console.error("Unexpected error:", err);
   res.status(500).json({
     error: {
-      code: 'INTERNAL_ERROR',
-      message: 'An unexpected error occurred. Please try again.',
+      code: "INTERNAL_ERROR",
+      message: "An unexpected error occurred. Please try again.",
     },
   });
 }
@@ -152,6 +159,7 @@ export function asyncHandler(fn: Function) {
 ```
 
 **FastAPI exception handler:**
+
 ```python
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
@@ -178,18 +186,25 @@ async def unhandled_error_handler(request: Request, exc: Exception):
 
 ```typescript
 // Express route using asyncHandler + custom errors
-router.get('/users/:id', asyncHandler(async (req, res) => {
-  const user = await userService.findById(req.params.id);
-  if (!user) throw new NotFoundError('User');
-  res.json(user);
-}));
+router.get(
+  "/users/:id",
+  asyncHandler(async (req, res) => {
+    const user = await userService.findById(req.params.id);
+    if (!user) throw new NotFoundError("User");
+    res.json(user);
+  }),
+);
 
-router.post('/users', asyncHandler(async (req, res) => {
-  const { email, name } = req.body;
-  if (!email) throw new ValidationError('Missing fields', { email: 'required' });
-  const user = await userService.create({ email, name });
-  res.status(201).json(user);
-}));
+router.post(
+  "/users",
+  asyncHandler(async (req, res) => {
+    const { email, name } = req.body;
+    if (!email)
+      throw new ValidationError("Missing fields", { email: "required" });
+    const user = await userService.create({ email, name });
+    res.status(201).json(user);
+  }),
+);
 ```
 
 ### Step 5 — Standardize Error Response Shape

@@ -36,11 +36,13 @@ findings, formatted tables, and plain-language narrative.
 ### Step 1 — Receive the Data
 
 Accept:
+
 - Pasted CSV text (first 20 rows is usually enough for structure analysis)
 - Column names and a description of the dataset
 - A file path (if file access is available)
 
 Ask:
+
 1. What does this data represent?
 2. Who is the audience? (executive, analyst, customer, internal team)
 3. What's the reporting period? (daily, weekly, monthly, ad hoc)
@@ -49,6 +51,7 @@ Ask:
 ### Step 2 — Profile the Data
 
 For each column, identify:
+
 - Data type (numeric, categorical, date, text)
 - Key statistics for numeric columns: min, max, mean, median, total
 - Value distribution for categorical columns: top 5 values and counts
@@ -57,6 +60,7 @@ For each column, identify:
 ### Step 3 — Generate Insights
 
 Look for:
+
 - **Top performers:** Highest values, most frequent categories
 - **Outliers:** Values significantly above or below average
 - **Trends:** If date column exists, directional change over time
@@ -66,36 +70,42 @@ Look for:
 
 ```markdown
 # [Report Title]
+
 **Period:** [Date range] | **Generated:** [Date] | **Source:** [Dataset name]
 
 ---
 
 ## Executive Summary
+
 [3–5 sentence narrative summary of the most important findings]
 
 ## Key Metrics
 
-| Metric | Value | vs. Previous Period |
-|--------|-------|-------------------|
-| Total Revenue | $X,XXX | +12% |
-| Total Orders | N | -3% |
-| Average Order Value | $XX | +15% |
+| Metric              | Value  | vs. Previous Period |
+| ------------------- | ------ | ------------------- |
+| Total Revenue       | $X,XXX | +12%                |
+| Total Orders        | N      | -3%                 |
+| Average Order Value | $XX    | +15%                |
 
 ## Top [Category] by [Metric]
 
 | Rank | [Category] | [Metric] | % of Total |
-|------|-----------|---------|-----------|
-| 1 | [name] | [value] | XX% |
+| ---- | ---------- | -------- | ---------- |
+| 1    | [name]     | [value]  | XX%        |
+
 ...
 
-## [Section — e.g., "Regional Breakdown"] 
+## [Section — e.g., "Regional Breakdown"]
+
 [Table or narrative]
 
 ## Notable Findings
+
 - **[Finding 1]:** [1–2 sentence explanation and implication]
 - **[Finding 2]:** [1–2 sentence explanation and implication]
 
 ## Data Notes
+
 - Source: [filename / system]
 - Records analyzed: N
 - Missing data: [Any caveats]
@@ -103,12 +113,12 @@ Look for:
 
 ### Step 5 — Tailor to Audience
 
-| Audience | Style adjustments |
-|----------|------------------|
-| Executive | Lead with money/growth metrics, minimize tables, add implications |
-| Analyst | More data tables, include methodology notes |
-| Customer-facing | Only relevant metrics, no internal identifiers, softer language |
-| Internal team | More detail, include raw counts alongside percentages |
+| Audience        | Style adjustments                                                 |
+| --------------- | ----------------------------------------------------------------- |
+| Executive       | Lead with money/growth metrics, minimize tables, add implications |
+| Analyst         | More data tables, include methodology notes                       |
+| Customer-facing | Only relevant metrics, no internal identifiers, softer language   |
+| Internal team   | More detail, include raw counts alongside percentages             |
 
 ---
 
@@ -117,6 +127,7 @@ Look for:
 Primary: Markdown report (copy into Notion, Confluence, or email).
 
 Optional outputs:
+
 - **Email format:** Subject line + 3-paragraph prose + bulleted highlights
 - **Slide outline:** Title slide → key metrics → top findings → next steps
 

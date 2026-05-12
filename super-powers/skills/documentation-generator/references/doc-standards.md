@@ -4,16 +4,16 @@ Reference for the `documentation-generator` skill. Covers Markdown formatting, d
 
 ## Doc Types and Locations
 
-| Doc Type | Location | Naming |
-|----------|---------|--------|
-| README | `docs/README.md` | Fixed |
-| Architecture guide | `docs/architecture.md` | Fixed |
-| Changelog | `docs/changelog.md` | Fixed |
-| Setup guide | `docs/setup.md` | Fixed |
-| API reference | `docs/api-reference.md` | Fixed |
-| Module docs | `docs/[module].md` | Per module |
-| Skill docs | `skills/[skill-name]/SKILL.md` | Per skill |
-| Workflow docs | `workflows/[workflow-name].md` | Per workflow |
+| Doc Type           | Location                       | Naming       |
+| ------------------ | ------------------------------ | ------------ |
+| README             | `docs/README.md`               | Fixed        |
+| Architecture guide | `docs/architecture.md`         | Fixed        |
+| Changelog          | `docs/changelog.md`            | Fixed        |
+| Setup guide        | `docs/setup.md`                | Fixed        |
+| API reference      | `docs/api-reference.md`        | Fixed        |
+| Module docs        | `docs/[module].md`             | Per module   |
+| Skill docs         | `skills/[skill-name]/SKILL.md` | Per skill    |
+| Workflow docs      | `workflows/[workflow-name].md` | Per workflow |
 
 ## Markdown Formatting Rules
 
@@ -33,21 +33,27 @@ Reference for the `documentation-generator` skill. Covers Markdown formatting, d
 > One-line description.
 
 ## Overview
+
 [What this is and why it exists]
 
 ## Tech Stack
+
 [Key technologies]
 
 ## Quick Start
+
 [Install + run commands]
 
 ## Project Structure
+
 [Key folders]
 
 ## Documentation
+
 [Links to other docs]
 
 ## Contributing
+
 [How to contribute]
 ```
 
@@ -57,15 +63,19 @@ Reference for the `documentation-generator` skill. Covers Markdown formatting, d
 ## [YYYY-MM-DD] — [Short description]
 
 ### Added
+
 - [What was added]
 
 ### Changed
+
 - [What was changed]
 
 ### Fixed
+
 - [What was fixed]
 
 ### Removed
+
 - [What was removed]
 ```
 
@@ -75,18 +85,23 @@ Reference for the `documentation-generator` skill. Covers Markdown formatting, d
 # Architecture: [System/Feature Name]
 
 ## Overview
+
 [System purpose and scope]
 
 ## Components
+
 [Key components and their roles]
 
 ## Data Flow
+
 [How data moves through the system]
 
 ## Dependencies
+
 [External services and libraries]
 
 ## Decisions
+
 [Key architectural decisions and rationale]
 ```
 
@@ -102,5 +117,6 @@ Reference for the `documentation-generator` skill. Covers Markdown formatting, d
 ## File Path References
 
 Always use relative paths from the document's location:
+
 - From `docs/` → `../skills/skill-creator/SKILL.md`
 - From `skills/[name]/` → `../../docs/architecture.md`

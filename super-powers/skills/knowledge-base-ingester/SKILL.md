@@ -38,6 +38,7 @@ knowledge base entries that teams can actually find and use.
 Accept the raw content (any format: prose, bullets, transcript, email thread).
 
 Ask:
+
 1. **Target system:** Notion, Confluence, GitHub wiki, static site, or generic Markdown?
 2. **Content type:** How-to guide / Reference / FAQ / Runbook / Glossary entry?
 3. **Audience:** Internal team, new hires, customers, or public?
@@ -47,20 +48,20 @@ Ask:
 
 Read the input and identify:
 
-| Element | What to capture |
-|---------|----------------|
-| **Key concept or procedure** | The main thing this entry teaches |
-| **Prerequisites** | What the reader needs to know first |
-| **Steps or facts** | The core content in logical order |
-| **Examples** | Concrete instances that illustrate the concept |
-| **Edge cases / gotchas** | Things that commonly trip people up |
-| **Related topics** | Links to other KB entries to add |
+| Element                      | What to capture                                |
+| ---------------------------- | ---------------------------------------------- |
+| **Key concept or procedure** | The main thing this entry teaches              |
+| **Prerequisites**            | What the reader needs to know first            |
+| **Steps or facts**           | The core content in logical order              |
+| **Examples**                 | Concrete instances that illustrate the concept |
+| **Edge cases / gotchas**     | Things that commonly trip people up            |
+| **Related topics**           | Links to other KB entries to add               |
 
 ### Step 3 — Structure the Entry
 
 Use this default template:
 
-```markdown
+````markdown
 # [Descriptive Title]
 
 > **Summary:** One-sentence description of what this article covers.
@@ -70,31 +71,38 @@ Use this default template:
 ---
 
 ## Overview
+
 [2–3 sentence context: what this is, when you'd need it, why it matters]
 
 ## Prerequisites
+
 - [Prerequisite 1]
 - [Prerequisite 2]
 
 ## [Main Content Section — How-To / Reference / Explanation]
 
 ### Step 1 — [Action]
+
 [Explanation]
 
-```code or example```
+`code or example`
 
 ### Step 2 — [Action]
+
 [Explanation]
 
 ## Common Issues & Gotchas
+
 - **[Issue]:** [How to handle it]
 
 ## Related Articles
+
 - [Link placeholder 1]
 - [Link placeholder 2]
-```
+````
 
 Adapt the template to the content type:
+
 - **FAQ:** Q&A format with bold questions
 - **Runbook:** numbered steps with verification checkpoints
 - **Glossary:** term, definition, example usage, related terms
@@ -107,6 +115,7 @@ Suggest 3–5 tags based on content. Common categories:
 ### Step 5 — Review
 
 Present the draft and ask:
+
 - "Does this capture everything important from the original?"
 - "Should I adjust the complexity level for your audience?"
 - "Are there related KB articles I should reference?"

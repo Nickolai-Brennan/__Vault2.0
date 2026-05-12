@@ -3,12 +3,14 @@
 ## Pipeline Design
 
 ### Stages
+
 - Ingestion
 - Processing
 - Storage
 - Retrieval
 
 ### Quality Assurance
+
 - Validation
 - Error handling
 - Monitoring

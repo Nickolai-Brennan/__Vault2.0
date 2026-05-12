@@ -36,6 +36,7 @@ JSON samples, API specs, or prose descriptions.
 ### Step 1 — Receive the Input
 
 Accept any of:
+
 - A JSON object or array (sample data)
 - An API endpoint response (curl output, Postman export)
 - A plain-language description of a data structure
@@ -47,20 +48,21 @@ Ask: "Should I generate plain TypeScript interfaces, or also a Zod schema for ru
 
 For each value in the JSON sample, infer the TypeScript type:
 
-| JSON value | TypeScript type |
-|-----------|----------------|
-| `"string"` | `string` |
-| `123`, `1.5` | `number` |
-| `true`, `false` | `boolean` |
-| `null` | `null` (mark field as optional: `field?: Type`) |
-| `[]` empty array | `unknown[]` (ask for element type) |
-| `[1, 2, 3]` | `number[]` |
-| `[{...}]` | `TypeName[]` (define nested interface) |
-| `{}` nested object | New interface (extract and name separately) |
-| ISO date string | `string` — add JSDoc `/** ISO 8601 date */` |
-| UUID string | `string` — add JSDoc `/** UUID */` |
+| JSON value         | TypeScript type                                 |
+| ------------------ | ----------------------------------------------- |
+| `"string"`         | `string`                                        |
+| `123`, `1.5`       | `number`                                        |
+| `true`, `false`    | `boolean`                                       |
+| `null`             | `null` (mark field as optional: `field?: Type`) |
+| `[]` empty array   | `unknown[]` (ask for element type)              |
+| `[1, 2, 3]`        | `number[]`                                      |
+| `[{...}]`          | `TypeName[]` (define nested interface)          |
+| `{}` nested object | New interface (extract and name separately)     |
+| ISO date string    | `string` — add JSDoc `/** ISO 8601 date */`     |
+| UUID string        | `string` — add JSDoc `/** UUID */`              |
 
 Rules:
+
 - If a field is `null` in the sample, mark it `field: Type | null`
 - If a field is missing in some samples, mark it `field?: Type`
 - Prefer `interface` over `type` for object shapes (more extensible)
@@ -69,6 +71,7 @@ Rules:
 ### Step 3 — Name the Types
 
 Follow these conventions:
+
 - **PascalCase** for all type/interface names: `UserProfile`, `OrderItem`
 - **Suffix by layer:** `UserResponse` (API), `UserRecord` (DB), `UserDto` (DTO)
 - **Arrays:** `User[]` not `Users` — avoid pluralizing type names
@@ -77,6 +80,7 @@ Follow these conventions:
 ### Step 4 — Generate the Output
 
 **From this JSON sample:**
+
 ```json
 {
   "id": "uuid-here",
@@ -95,6 +99,7 @@ Follow these conventions:
 ```
 
 **Generated TypeScript:**
+
 ```typescript
 export interface Address {
   street: string;
@@ -102,7 +107,7 @@ export interface Address {
   country: string;
 }
 
-export type UserRole = 'admin' | 'user' | 'viewer';
+export type UserRole = "admin" | "user" | "viewer";
 
 export interface User {
   /** UUID */
@@ -120,8 +125,9 @@ export interface User {
 ```
 
 **Optional Zod schema:**
+
 ```typescript
-import { z } from 'zod';
+import { z } from "zod";
 
 export const AddressSchema = z.object({
   street: z.string(),
@@ -134,7 +140,7 @@ export const UserSchema = z.object({
   email: z.string().email(),
   name: z.string().min(1),
   createdAt: z.string().datetime(),
-  role: z.enum(['admin', 'user', 'viewer']),
+  role: z.enum(["admin", "user", "viewer"]),
   address: AddressSchema,
   tags: z.array(z.string()),
   lastLoginAt: z.string().datetime().nullable(),
@@ -146,6 +152,7 @@ export type User = z.infer<typeof UserSchema>;
 ### Step 5 — Handle Arrays and Pagination
 
 For API responses that wrap data in pagination:
+
 ```typescript
 export interface PaginatedResponse<T> {
   data: T[];

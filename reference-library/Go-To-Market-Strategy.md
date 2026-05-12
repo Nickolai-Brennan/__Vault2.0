@@ -1,6 +1,7 @@
 ## What is a Go-To-Market Strategy?
 
 💬
+
 ## Definition of a Go-To-Market Strategy
 
 A Go-To-Market Strategy is essentially a plan of how a company is going to release a product after it has been developed and how it will be sold and promoted within the marketplace. The strategy is one that uses the internal and external resources of a business, advertises the overarching value of the product, and attempts to gain a competitive advantage in the market over its competitors.
@@ -61,7 +62,8 @@ Using this strategy not only enables the user - typically a [Product Manager](/g
 
 eBook
 
-### Leveraging  
+### Leveraging
+
 Product Strategy
 
 [Read now](/cta/inline/resources/ebooks/product-strategy/)

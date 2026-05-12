@@ -37,6 +37,7 @@ semantic roles, and ready-to-use CSS custom property outputs.
 ### Step 1 — Understand the Palette Requirements
 
 Ask for:
+
 1. **Brand / mood:** Is there a brand color to start from, or a mood description?
 2. **Use case:** Marketing site / app UI / data visualization / dark mode
 3. **Number of colors:** Minimal (2–3 base) or comprehensive (full scale)?
@@ -46,21 +47,22 @@ Ask for:
 
 A complete UI palette covers these semantic roles:
 
-| Role | Purpose |
-|------|---------|
-| **Primary** | Main brand color — CTAs, links, active states |
-| **Secondary** | Accent color — supporting actions, highlights |
-| **Success** | Positive outcomes — confirmation, complete |
-| **Warning** | Caution — degraded state, pending |
+| Role               | Purpose                                       |
+| ------------------ | --------------------------------------------- |
+| **Primary**        | Main brand color — CTAs, links, active states |
+| **Secondary**      | Accent color — supporting actions, highlights |
+| **Success**        | Positive outcomes — confirmation, complete    |
+| **Warning**        | Caution — degraded state, pending             |
 | **Error / Danger** | Destructive / failed — errors, delete actions |
-| **Neutral** | Surfaces, borders, text — the workhorse |
-| **Surface** | Background layers (page, card, modal) |
+| **Neutral**        | Surfaces, borders, text — the workhorse       |
+| **Surface**        | Background layers (page, card, modal)         |
 
 ### Step 3 — Generate the Color Scale
 
 For each base hue, generate a 10-step scale (50–900) following the OKLCH / HSL lightness curve:
 
 **Example: Blue primary**
+
 ```
 blue-50:  #EFF6FF  (near white tint — hover backgrounds)
 blue-100: #DBEAFE  (light tint — selected backgrounds)
@@ -78,12 +80,12 @@ blue-900: #1E3A8A  (dark text on light backgrounds)
 
 For key text/background combinations:
 
-| Combination | Ratio | WCAG |
-|-------------|-------|------|
-| `blue-600` (#2563EB) on white | 5.9:1 | ✅ AA |
+| Combination                   | Ratio | WCAG                            |
+| ----------------------------- | ----- | ------------------------------- |
+| `blue-600` (#2563EB) on white | 5.9:1 | ✅ AA                           |
 | `blue-500` (#3B82F6) on white | 3.9:1 | ❌ AA (use for large text only) |
-| `blue-700` (#1D4ED8) on white | 7.2:1 | ✅ AAA |
-| White on `blue-600` | 5.9:1 | ✅ AA |
+| `blue-700` (#1D4ED8) on white | 7.2:1 | ✅ AAA                          |
+| White on `blue-600`           | 5.9:1 | ✅ AA                           |
 
 ### Step 5 — Generate CSS Custom Properties
 
@@ -95,40 +97,40 @@ For key text/background combinations:
 
 :root {
   /* Primary — Blue */
-  --color-primary-50:  #EFF6FF;
-  --color-primary-100: #DBEAFE;
-  --color-primary-200: #BFDBFE;
-  --color-primary-300: #93C5FD;
-  --color-primary-400: #60A5FA;
-  --color-primary-500: #3B82F6;
-  --color-primary-600: #2563EB;
-  --color-primary-700: #1D4ED8;
-  --color-primary-800: #1E40AF;
-  --color-primary-900: #1E3A8A;
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  --color-primary-800: #1e40af;
+  --color-primary-900: #1e3a8a;
 
   /* Semantic roles — Light mode */
-  --color-brand:         var(--color-primary-600);  /* use on white bg */
-  --color-brand-hover:   var(--color-primary-700);
-  --color-success:       #16A34A;  /* 5.1:1 on white */
-  --color-warning:       #D97706;  /* 3.1:1 on white — large text only */
-  --color-error:         #DC2626;  /* 5.8:1 on white */
-  --color-text-primary:  #111827;  /* 16.7:1 on white */
-  --color-text-muted:    #6B7280;  /* 4.6:1 on white */
-  --color-surface:       #FFFFFF;
-  --color-surface-alt:   #F9FAFB;
-  --color-border:        #E5E7EB;
+  --color-brand: var(--color-primary-600); /* use on white bg */
+  --color-brand-hover: var(--color-primary-700);
+  --color-success: #16a34a; /* 5.1:1 on white */
+  --color-warning: #d97706; /* 3.1:1 on white — large text only */
+  --color-error: #dc2626; /* 5.8:1 on white */
+  --color-text-primary: #111827; /* 16.7:1 on white */
+  --color-text-muted: #6b7280; /* 4.6:1 on white */
+  --color-surface: #ffffff;
+  --color-surface-alt: #f9fafb;
+  --color-border: #e5e7eb;
 }
 
 /* Dark mode overrides */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-brand:         var(--color-primary-400);  /* lighter for dark bg */
-    --color-brand-hover:   var(--color-primary-300);
-    --color-text-primary:  #F9FAFB;
-    --color-text-muted:    #9CA3AF;
-    --color-surface:       #111827;
-    --color-surface-alt:   #1F2937;
-    --color-border:        #374151;
+    --color-brand: var(--color-primary-400); /* lighter for dark bg */
+    --color-brand-hover: var(--color-primary-300);
+    --color-text-primary: #f9fafb;
+    --color-text-muted: #9ca3af;
+    --color-surface: #111827;
+    --color-surface-alt: #1f2937;
+    --color-border: #374151;
   }
 }
 ```
@@ -142,14 +144,14 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          50:  '#EFF6FF',
-          100: '#DBEAFE',
-          500: '#3B82F6',
-          600: '#2563EB',
-          700: '#1D4ED8',
+          50: "#EFF6FF",
+          100: "#DBEAFE",
+          500: "#3B82F6",
+          600: "#2563EB",
+          700: "#1D4ED8",
           // ...etc
         },
-        brand: 'var(--color-brand)',
+        brand: "var(--color-brand)",
       },
     },
   },

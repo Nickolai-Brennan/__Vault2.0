@@ -48,6 +48,7 @@ grep -r 'bg-\|text-\|border-' src/ --include="*.tsx" --include="*.html"
 ```
 
 Group them into:
+
 - **Surface colors** (backgrounds, cards)
 - **Text colors** (primary, secondary, muted)
 - **Border colors**
@@ -63,49 +64,49 @@ Replace hard-coded values with CSS custom properties:
 
 /* ── Light Mode (default) ── */
 :root {
-  --color-bg-page:     #FFFFFF;
-  --color-bg-surface:  #F9FAFB;
-  --color-bg-elevated: #FFFFFF;
+  --color-bg-page: #ffffff;
+  --color-bg-surface: #f9fafb;
+  --color-bg-elevated: #ffffff;
 
-  --color-text-primary:  #111827;
-  --color-text-secondary:#4B5563;
-  --color-text-muted:    #9CA3AF;
-  --color-text-disabled: #D1D5DB;
+  --color-text-primary: #111827;
+  --color-text-secondary: #4b5563;
+  --color-text-muted: #9ca3af;
+  --color-text-disabled: #d1d5db;
 
-  --color-border:        #E5E7EB;
-  --color-border-strong: #D1D5DB;
+  --color-border: #e5e7eb;
+  --color-border-strong: #d1d5db;
 
-  --color-brand:         #2563EB;
-  --color-brand-hover:   #1D4ED8;
-  --color-brand-subtle:  #EFF6FF;
+  --color-brand: #2563eb;
+  --color-brand-hover: #1d4ed8;
+  --color-brand-subtle: #eff6ff;
 
-  --color-success:       #16A34A;
-  --color-warning:       #D97706;
-  --color-error:         #DC2626;
+  --color-success: #16a34a;
+  --color-warning: #d97706;
+  --color-error: #dc2626;
 }
 
 /* ── Dark Mode ── */
 [data-theme="dark"],
 .dark {
-  --color-bg-page:     #0F172A;
-  --color-bg-surface:  #1E293B;
+  --color-bg-page: #0f172a;
+  --color-bg-surface: #1e293b;
   --color-bg-elevated: #334155;
 
-  --color-text-primary:  #F1F5F9;
-  --color-text-secondary:#CBD5E1;
-  --color-text-muted:    #94A3B8;
+  --color-text-primary: #f1f5f9;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #94a3b8;
   --color-text-disabled: #475569;
 
-  --color-border:        #334155;
+  --color-border: #334155;
   --color-border-strong: #475569;
 
-  --color-brand:         #60A5FA;
-  --color-brand-hover:   #93C5FD;
-  --color-brand-subtle:  #1E3A8A;
+  --color-brand: #60a5fa;
+  --color-brand-hover: #93c5fd;
+  --color-brand-subtle: #1e3a8a;
 
-  --color-success:       #4ADE80;
-  --color-warning:       #FBBF24;
-  --color-error:         #F87171;
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
 }
 ```
 
@@ -116,7 +117,7 @@ Replace hard-coded values with CSS custom properties:
 @media (prefers-color-scheme: dark) {
   :root {
     /* same values as [data-theme="dark"] above */
-    --color-bg-page:     #0F172A;
+    --color-bg-page: #0f172a;
     /* ... etc */
   }
 }
@@ -126,31 +127,33 @@ Replace hard-coded values with CSS custom properties:
 
 ```tsx
 // hooks/useTheme.ts
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
-type Theme = 'light' | 'dark' | 'system';
+type Theme = "light" | "dark" | "system";
 
 export function useTheme() {
   const [theme, setThemeState] = useState<Theme>(() => {
-    if (typeof window === 'undefined') return 'system';
-    return (localStorage.getItem('theme') as Theme) ?? 'system';
+    if (typeof window === "undefined") return "system";
+    return (localStorage.getItem("theme") as Theme) ?? "system";
   });
 
   useEffect(() => {
     const root = document.documentElement;
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ).matches;
 
-    if (theme === 'dark' || (theme === 'system' && prefersDark)) {
-      root.setAttribute('data-theme', 'dark');
-      root.classList.add('dark');
+    if (theme === "dark" || (theme === "system" && prefersDark)) {
+      root.setAttribute("data-theme", "dark");
+      root.classList.add("dark");
     } else {
-      root.removeAttribute('data-theme');
-      root.classList.remove('dark');
+      root.removeAttribute("data-theme");
+      root.classList.remove("dark");
     }
   }, [theme]);
 
   const setTheme = (newTheme: Theme) => {
-    localStorage.setItem('theme', newTheme);
+    localStorage.setItem("theme", newTheme);
     setThemeState(newTheme);
   };
 
@@ -160,7 +163,7 @@ export function useTheme() {
 
 ```tsx
 // components/ThemeToggle.tsx
-import { useTheme } from '../hooks/useTheme';
+import { useTheme } from "../hooks/useTheme";
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
@@ -168,11 +171,11 @@ export function ThemeToggle() {
   return (
     <button
       type="button"
-      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
       className="rounded-md p-2 hover:bg-[var(--color-bg-surface)]"
     >
-      {theme === 'dark' ? '☀️' : '🌙'}
+      {theme === "dark" ? "☀️" : "🌙"}
     </button>
   );
 }
@@ -185,12 +188,12 @@ Add an inline script to `<head>` to apply the theme before paint:
 ```html
 <!-- In <head>, before any CSS loads -->
 <script>
-  (function() {
-    var theme = localStorage.getItem('theme') || 'system';
-    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (theme === 'dark' || (theme === 'system' && prefersDark)) {
-      document.documentElement.setAttribute('data-theme', 'dark');
-      document.documentElement.classList.add('dark');
+  (function () {
+    var theme = localStorage.getItem("theme") || "system";
+    var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    if (theme === "dark" || (theme === "system" && prefersDark)) {
+      document.documentElement.setAttribute("data-theme", "dark");
+      document.documentElement.classList.add("dark");
     }
   })();
 </script>
@@ -203,7 +206,7 @@ Add an inline script to `<head>` to apply the theme before paint:
 ```javascript
 // tailwind.config.js
 module.exports = {
-  darkMode: 'class',  // Use .dark class strategy
+  darkMode: "class", // Use .dark class strategy
   // OR: darkMode: ['class', '[data-theme="dark"]']
 };
 ```

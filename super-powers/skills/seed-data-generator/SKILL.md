@@ -38,6 +38,7 @@ inserts, JSON fixtures, and type-safe factory functions.
 ### Step 1 — Understand the Data Requirements
 
 Ask for:
+
 1. **Schema:** Table/model definitions with field names and types
 2. **Volume:** How many rows per table?
 3. **Realism level:** Completely fake / realistic names and addresses / domain-specific
@@ -48,12 +49,14 @@ Ask for:
 ### Step 2 — Analyze Relationships and Dependencies
 
 For tables with foreign keys, generate in dependency order:
+
 1. Independent tables first (users, products, categories)
 2. Dependent tables second (orders → users, order_items → orders + products)
 
 ### Step 3 — Generate SQL Seed Data
 
 **PostgreSQL INSERTs:**
+
 ```sql
 -- seed/users.sql
 -- Generated seed data — 10 users
@@ -101,24 +104,27 @@ COMMIT;
 
 ```typescript
 // test/factories/userFactory.ts
-import { faker } from '@faker-js/faker';
-import { User, UserRole } from '../../src/types';
+import { faker } from "@faker-js/faker";
+import { User, UserRole } from "../../src/types";
 
 // Set seed for deterministic output
 faker.seed(42);
 
 export function createUser(overrides: Partial<User> = {}): User {
   return {
-    id:        `usr_${faker.string.nanoid(8)}`,
-    email:     faker.internet.email().toLowerCase(),
-    name:      faker.person.fullName(),
-    role:      'user' as UserRole,
+    id: `usr_${faker.string.nanoid(8)}`,
+    email: faker.internet.email().toLowerCase(),
+    name: faker.person.fullName(),
+    role: "user" as UserRole,
     createdAt: faker.date.past({ years: 1 }).toISOString(),
     ...overrides,
   };
 }
 
-export function createUsers(count: number, overrides: Partial<User> = {}): User[] {
+export function createUsers(
+  count: number,
+  overrides: Partial<User> = {},
+): User[] {
   return Array.from({ length: count }, () => createUser(overrides));
 }
 
@@ -126,25 +132,28 @@ export function createUsers(count: number, overrides: Partial<User> = {}): User[
 export function createOrder(overrides: Partial<Order> = {}): Order {
   const createdAt = faker.date.past({ years: 1 });
   return {
-    id:          `ord_${faker.string.nanoid(8)}`,
-    userId:      `usr_${faker.string.nanoid(8)}`,
-    status:      faker.helpers.arrayElement(['pending', 'completed', 'cancelled']),
-    totalCents:  faker.number.int({ min: 999, max: 99999 }),
-    createdAt:   createdAt.toISOString(),
-    updatedAt:   faker.date.between({ from: createdAt, to: new Date() }).toISOString(),
+    id: `ord_${faker.string.nanoid(8)}`,
+    userId: `usr_${faker.string.nanoid(8)}`,
+    status: faker.helpers.arrayElement(["pending", "completed", "cancelled"]),
+    totalCents: faker.number.int({ min: 999, max: 99999 }),
+    createdAt: createdAt.toISOString(),
+    updatedAt: faker.date
+      .between({ from: createdAt, to: new Date() })
+      .toISOString(),
     ...overrides,
   };
 }
 ```
 
 **Usage in tests:**
+
 ```typescript
 // tests/orderService.test.ts
-import { createUser, createOrder } from './factories';
+import { createUser, createOrder } from "./factories";
 
-describe('OrderService', () => {
-  it('calculates total correctly', () => {
-    const user = createUser({ id: 'usr_test_123' });
+describe("OrderService", () => {
+  it("calculates total correctly", () => {
+    const user = createUser({ id: "usr_test_123" });
     const order = createOrder({ userId: user.id, totalCents: 4900 });
     expect(order.totalCents).toBe(4900);
   });

@@ -13,9 +13,11 @@ outputs:
 # Project Planning Skill
 
 ## Purpose
+
 Transform an unstructured idea into a clear, actionable project brief.
 
 ## Instructions
+
 1. Extract core idea
 2. Define audience
 3. Identify problem
@@ -25,6 +27,7 @@ Transform an unstructured idea into a clear, actionable project brief.
 7. Output structured markdown brief
 
 ## Output Format
+
 ```
 - Project Name
 - Description
@@ -34,15 +37,20 @@ Transform an unstructured idea into a clear, actionable project brief.
 - Features
 - Revenue Model
 ```
+
 ## Assets
+
 - idea-intake-form.md
 - project-brief-example.md
 
 ## Templates
+
 - project-brief-template.md
 
 ## Scripts
+
 - generate_project_brief.py
 
 ## References
+
 - project-startup-guide.md

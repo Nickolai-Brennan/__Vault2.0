@@ -34,6 +34,7 @@ and blockers so every attendee knows what happens next.
 ### Step 1 — Receive Input
 
 Accept any of:
+
 - Raw transcript (speaker-labeled or unlabeled)
 - Bullet-point notes
 - Voice memo text
@@ -45,13 +46,13 @@ Ask: "What meeting was this? (date, attendees, topic)" if not obvious from conte
 
 Scan the input and identify:
 
-| Category | What to capture |
-|----------|----------------|
-| **Action items** | Tasks with a responsible person and (ideally) a deadline |
-| **Decisions** | Choices that were made and ratified |
-| **Open questions** | Things discussed but not resolved |
-| **Blockers** | Impediments that need to be cleared |
-| **Key discussion points** | Important context worth preserving |
+| Category                  | What to capture                                          |
+| ------------------------- | -------------------------------------------------------- |
+| **Action items**          | Tasks with a responsible person and (ideally) a deadline |
+| **Decisions**             | Choices that were made and ratified                      |
+| **Open questions**        | Things discussed but not resolved                        |
+| **Blockers**              | Impediments that need to be cleared                      |
+| **Key discussion points** | Important context worth preserving                       |
 
 ### Step 3 — Structure the Output
 
@@ -59,37 +60,45 @@ Produce the following format:
 
 ```markdown
 ## Meeting Summary — [Topic] | [Date]
+
 **Attendees:** [List]
 **Duration:** [If known]
 
 ### ✅ Action Items
-| Action | Owner | Due Date |
-|--------|-------|----------|
+
+| Action             | Owner   | Due Date        |
+| ------------------ | ------- | --------------- |
 | [Task description] | @person | [date or "TBD"] |
 
 ### 🔴 Blockers
+
 - [Blocker description] — needs: [who/what]
 
 ### ✅ Decisions Made
+
 - [Decision 1]
 - [Decision 2]
 
 ### ❓ Open Questions
+
 - [Question] — follow up with: @person
 
 ### 📝 Key Notes
+
 - [Important context, briefly]
 ```
 
 ### Step 4 — Infer Owners When Not Explicit
 
 If a task was discussed without a clear owner:
+
 - Infer from context ("Alice mentioned she'd look into it" → owner: Alice)
 - If truly unclear, set owner to "TBD" and flag it
 
 ### Step 5 — Format for Destination
 
 Ask where the output will go:
+
 - **Notion/Confluence:** Use Markdown with headers
 - **Slack:** Condensed plain text with emoji bullets
 - **Email:** Prose summary + bulleted action items
@@ -102,6 +111,7 @@ Ask where the output will go:
 Default output is Markdown suitable for Notion/Confluence/GitHub.
 
 ### Slack-Friendly Compact Version
+
 ```
 📋 *[Meeting Topic] — [Date]*
 *Action Items:*

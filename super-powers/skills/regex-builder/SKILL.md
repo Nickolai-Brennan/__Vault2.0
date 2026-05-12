@@ -38,6 +38,7 @@ existing patterns do, and debug non-matching regexes with examples.
 ### Step 1 — Understand the Pattern Need
 
 Collect:
+
 1. **What to match:** Describe the strings that should match
 2. **What NOT to match:** Describe similar strings that must NOT match
 3. **Examples:** At least 3 positive and 2 negative examples
@@ -47,6 +48,7 @@ Collect:
 ### Step 2 — Build the Regex
 
 Construct the pattern with this priority order:
+
 1. Start with the simplest pattern that matches the examples
 2. Add boundary anchors (`^`, `$`, `\b`) as appropriate
 3. Add character classes for flexibility
@@ -56,6 +58,7 @@ Construct the pattern with this priority order:
 Annotate complex patterns with inline comments using verbose mode where supported:
 
 **Python verbose mode:**
+
 ```python
 import re
 pattern = re.compile(r"""
@@ -87,21 +90,22 @@ Testing: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 
 Break down every component:
 
-| Part | Meaning |
-|------|---------|
-| `^` | Anchors to start of string |
+| Part                | Meaning                                  |
+| ------------------- | ---------------------------------------- |
+| `^`                 | Anchors to start of string               |
 | `[a-zA-Z0-9._%+-]+` | One or more: letters, digits, or `._%+-` |
-| `@` | Literal @ symbol |
-| `[a-zA-Z0-9.-]+` | Domain: letters, digits, dots, hyphens |
-| `\.` | Literal dot (escaped) |
-| `[a-zA-Z]{2,}` | TLD: 2 or more letters |
-| `$` | Anchors to end of string |
+| `@`                 | Literal @ symbol                         |
+| `[a-zA-Z0-9.-]+`    | Domain: letters, digits, dots, hyphens   |
+| `\.`                | Literal dot (escaped)                    |
+| `[a-zA-Z]{2,}`      | TLD: 2 or more letters                   |
+| `$`                 | Anchors to end of string                 |
 
 ### Step 5 — Provide Usage Code
 
 Show a ready-to-use snippet in the requested language:
 
 **JavaScript:**
+
 ```javascript
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 function isValidEmail(email) {
@@ -110,6 +114,7 @@ function isValidEmail(email) {
 ```
 
 **Python:**
+
 ```python
 import re
 EMAIL_PATTERN = re.compile(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')
@@ -121,15 +126,15 @@ def is_valid_email(email: str) -> bool:
 
 ## Common Regex Patterns Reference
 
-| Pattern | Use case | Regex |
-|---------|---------|-------|
-| Email (basic) | Input validation | `^[^\s@]+@[^\s@]+\.[^\s@]+$` |
-| US phone | 10-digit with separators | `^\+?1?\s?(\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4})$` |
-| ISO date | YYYY-MM-DD | `^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$` |
-| URL (simple) | http/https URLs | `^https?://[^\s/$.?#].[^\s]*$` |
-| UUID v4 | Identifier validation | `^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$` |
-| Hex color | CSS colors | `^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$` |
-| IPv4 address | Network validation | `^(\d{1,3}\.){3}\d{1,3}$` |
+| Pattern       | Use case                 | Regex                                                                   |
+| ------------- | ------------------------ | ----------------------------------------------------------------------- | ----------------- | ------ | -------- |
+| Email (basic) | Input validation         | `^[^\s@]+@[^\s@]+\.[^\s@]+$`                                            |
+| US phone      | 10-digit with separators | `^\+?1?\s?(\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4})$`                       |
+| ISO date      | YYYY-MM-DD               | `^\d{4}-(0[1-9]                                                         | 1[0-2])-(0[1-9]   | [12]\d | 3[01])$` |
+| URL (simple)  | http/https URLs          | `^https?://[^\s/$.?#].[^\s]*$`                                          |
+| UUID v4       | Identifier validation    | `^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$` |
+| Hex color     | CSS colors               | `^#([0-9a-fA-F]{3}                                                      | [0-9a-fA-F]{6})$` |
+| IPv4 address  | Network validation       | `^(\d{1,3}\.){3}\d{1,3}$`                                               |
 
 ---
 

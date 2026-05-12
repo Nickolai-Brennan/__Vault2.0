@@ -39,6 +39,7 @@ monitoring — for operations that shouldn't block the request/response cycle.
 ### Step 1 — Analyze the Job Requirements
 
 Ask for:
+
 1. **What the job does:** Description and estimated duration
 2. **Triggers:** On-demand (API call) / Scheduled (cron) / Event-driven
 3. **Reliability needs:** At-least-once vs. exactly-once delivery
@@ -59,63 +60,73 @@ API Request → Enqueue Job → Queue (Redis/SQS) → Worker → Process → Suc
 ### Step 3 — Scaffold with BullMQ (Node.js)
 
 **Job definitions:**
+
 ```typescript
 // jobs/types.ts
 export interface SendEmailJobData {
-  to:       string;
-  subject:  string;
+  to: string;
+  subject: string;
   template: string;
-  variables:Record<string, string>;
+  variables: Record<string, string>;
 }
 
 export interface ProcessUploadJobData {
   uploadId: string;
-  fileKey:  string;
-  userId:   string;
+  fileKey: string;
+  userId: string;
 }
 ```
 
 **Queue configuration:**
+
 ```typescript
 // jobs/queues.ts
-import { Queue, QueueOptions } from 'bullmq';
-import IORedis from 'ioredis';
+import { Queue, QueueOptions } from "bullmq";
+import IORedis from "ioredis";
 
-const connection = new IORedis(process.env.REDIS_URL!, { maxRetriesPerRequest: null });
+const connection = new IORedis(process.env.REDIS_URL!, {
+  maxRetriesPerRequest: null,
+});
 
 const defaultQueueOpts: QueueOptions = { connection };
 
-export const emailQueue = new Queue<SendEmailJobData>('email', {
+export const emailQueue = new Queue<SendEmailJobData>("email", {
   ...defaultQueueOpts,
   defaultJobOptions: {
     removeOnComplete: { count: 100 },
-    removeOnFail:     { count: 200 },
+    removeOnFail: { count: 200 },
     attempts: 3,
-    backoff: { type: 'exponential', delay: 2000 },
+    backoff: { type: "exponential", delay: 2000 },
   },
 });
 
-export const uploadQueue = new Queue<ProcessUploadJobData>('upload-processing', {
-  ...defaultQueueOpts,
-  defaultJobOptions: {
-    attempts: 5,
-    backoff:  { type: 'exponential', delay: 5000 },
+export const uploadQueue = new Queue<ProcessUploadJobData>(
+  "upload-processing",
+  {
+    ...defaultQueueOpts,
+    defaultJobOptions: {
+      attempts: 5,
+      backoff: { type: "exponential", delay: 5000 },
+    },
   },
-});
+);
 ```
 
 **Worker:**
+
 ```typescript
 // jobs/workers/emailWorker.ts
-import { Worker, Job } from 'bullmq';
-import IORedis from 'ioredis';
-import { sendEmail } from '../../services/email';
-import type { SendEmailJobData } from '../types';
+import { Worker, Job } from "bullmq";
+import IORedis from "ioredis";
+import { sendEmail } from "../../services/email";
+import type { SendEmailJobData } from "../types";
 
-const connection = new IORedis(process.env.REDIS_URL!, { maxRetriesPerRequest: null });
+const connection = new IORedis(process.env.REDIS_URL!, {
+  maxRetriesPerRequest: null,
+});
 
 const emailWorker = new Worker<SendEmailJobData>(
-  'email',
+  "email",
   async (job: Job<SendEmailJobData>) => {
     const { to, subject, template, variables } = job.data;
     console.log(`[email-worker] Processing job ${job.id} — sending to ${to}`);
@@ -126,53 +137,58 @@ const emailWorker = new Worker<SendEmailJobData>(
   },
   {
     connection,
-    concurrency: 5,  // process 5 jobs concurrently
-  }
+    concurrency: 5, // process 5 jobs concurrently
+  },
 );
 
-emailWorker.on('completed', job => {
+emailWorker.on("completed", (job) => {
   console.log(`[email-worker] Job ${job.id} completed`);
 });
 
-emailWorker.on('failed', (job, err) => {
+emailWorker.on("failed", (job, err) => {
   console.error(`[email-worker] Job ${job?.id} failed:`, err.message);
 });
 ```
 
 **Enqueue from API route:**
+
 ```typescript
 // routes/users.ts
-import { emailQueue } from '../jobs/queues';
+import { emailQueue } from "../jobs/queues";
 
-router.post('/users', asyncHandler(async (req, res) => {
-  const user = await userService.create(req.body);
+router.post(
+  "/users",
+  asyncHandler(async (req, res) => {
+    const user = await userService.create(req.body);
 
-  // Enqueue welcome email asynchronously — don't await
-  await emailQueue.add('welcome-email', {
-    to:       user.email,
-    subject:  'Welcome to the platform',
-    template: 'welcome',
-    variables: { name: user.name },
-  });
+    // Enqueue welcome email asynchronously — don't await
+    await emailQueue.add("welcome-email", {
+      to: user.email,
+      subject: "Welcome to the platform",
+      template: "welcome",
+      variables: { name: user.name },
+    });
 
-  res.status(201).json(user);
-}));
+    res.status(201).json(user);
+  }),
+);
 ```
 
 **Dead-letter queue handling:**
+
 ```typescript
 // jobs/deadLetterHandler.ts
-import { QueueEvents } from 'bullmq';
+import { QueueEvents } from "bullmq";
 
-const emailQueueEvents = new QueueEvents('email', { connection });
+const emailQueueEvents = new QueueEvents("email", { connection });
 
-emailQueueEvents.on('failed', async ({ jobId, failedReason, prev }) => {
+emailQueueEvents.on("failed", async ({ jobId, failedReason, prev }) => {
   // After all retries exhausted
   const job = await emailQueue.getJob(jobId);
   if (job && job.attemptsMade >= job.opts.attempts!) {
     await alertingService.notify({
-      type: 'job_dead_lettered',
-      queue: 'email',
+      type: "job_dead_lettered",
+      queue: "email",
       jobId,
       data: job.data,
       error: failedReason,
@@ -214,6 +230,7 @@ def send_welcome_email(self, user_id: str):
 ### Step 5 — Monitoring Checklist
 
 Configure:
+
 - [ ] Queue depth monitoring (alert if > N jobs pending for > X minutes)
 - [ ] Failed job alerts (dead-letter queue drain)
 - [ ] Worker health checks (heartbeat endpoint)

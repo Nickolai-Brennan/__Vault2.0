@@ -51,7 +51,7 @@ Specialized agent for crafting high-engagement LinkedIn posts formatted with Uni
 ## Formatting Conventions
 
 - No emojis in body text unless explicitly requested. Exception: ♻️ in CTA.
-- No Markdown syntax (**, ##, etc.) — only Unicode characters.
+- No Markdown syntax (\*\*, ##, etc.) — only Unicode characters.
 - Hashtags on the final line, no mid-post hashtags.
 - Bold sparingly — headers and key phrases only, not entire sentences.
 - One blank line between paragraphs. LinkedIn collapses multiple blank lines.

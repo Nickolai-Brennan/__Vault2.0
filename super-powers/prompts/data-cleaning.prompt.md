@@ -7,9 +7,11 @@ phase: PROTOTYPE|MVP|PRODUCTION
 # Prompt: Data Cleaning
 
 ## Objective
+
 Clean, normalize, deduplicate, and validate a raw dataset, producing a cleaned output file and a documented cleaning report.
 
 ## Context Requirements
+
 - Raw dataset path or description
 - Expected schema (column names, types, constraints)
 - Cleaning rules from `instructions/data-rules.md`
@@ -53,10 +55,12 @@ cleaning_report:
 ```
 
 ## Quality Checks
+
 - [ ] Null rate < 5% in all key columns after cleaning
 - [ ] Zero rows with invalid types in final dataset
 - [ ] `cleaning_report.md` documents every transformation
 
 ## Safety Rules
+
 - Never remove records without logging the action in cleaning_report
 - Flag PII columns (email, name, SSN) before any transformation

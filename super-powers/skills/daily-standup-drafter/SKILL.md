@@ -34,6 +34,7 @@ that fits in under a minute.
 ### Step 1 — Gather Input
 
 Ask for any combination of:
+
 1. **Yesterday's activity:** commits, PR descriptions, ticket updates, notes, or a free-form brain dump
 2. **Today's plan:** what you intend to work on
 3. **Blockers:** anything preventing progress
@@ -45,12 +46,14 @@ If the user provides a git log or PR list, extract work items automatically.
 ### Step 2 — Categorize and Condense
 
 Group activities into clear categories:
+
 - Completed / shipped
 - In progress
 - Starting today
 - Blocked / waiting on
 
 Condense multiple related commits into a single line:
+
 - Bad: "Fixed typo, fixed another typo, updated test for typo"
 - Good: "Fixed several typos in the onboarding flow and updated tests"
 
@@ -60,25 +63,28 @@ Use the standard three-part format by default:
 
 ```markdown
 **Yesterday**
+
 - [Completed item 1]
 - [Completed item 2]
 
 **Today**
+
 - [Planned item 1]
 - [Planned item 2]
 
 **Blockers**
+
 - [Blocker] — waiting on @person / ETA: [date]
 - None
 ```
 
 ### Step 4 — Tone Adjustment
 
-| Tone | Style |
-|------|-------|
-| Casual (Slack) | "Shipped the auth fix 🎉, tackling CSV export today" |
+| Tone             | Style                                                                        |
+| ---------------- | ---------------------------------------------------------------------------- |
+| Casual (Slack)   | "Shipped the auth fix 🎉, tackling CSV export today"                         |
 | Formal (written) | "Completed implementation of authentication fix. Today: CSV export feature." |
-| Async (Notion) | Full sentences, more context per item |
+| Async (Notion)   | Full sentences, more context per item                                        |
 
 ### Step 5 — Optional: Add Context Links
 
@@ -93,16 +99,20 @@ If ticket numbers or PR links are provided, append them as inline references:
 **Daily Standup — [Date]**
 
 **Yesterday ✅**
+
 - [Item]
 
 **Today 🔨**
+
 - [Item]
 
 **Blockers 🚧**
+
 - [Blocker or "None"]
 ```
 
 ### Async Slack Format
+
 ```
 :white_check_mark: *Yesterday:* [item 1] · [item 2]
 :hammer: *Today:* [item 1] · [item 2]

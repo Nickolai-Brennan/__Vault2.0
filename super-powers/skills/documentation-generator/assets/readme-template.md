@@ -8,15 +8,15 @@
 
 ## Tech Stack
 
-| Layer | Technology |
-|-------|-----------|
+| Layer    | Technology                                  |
+| -------- | ------------------------------------------- |
 | Frontend | React 18 + Vite + TypeScript + Tailwind CSS |
-| Backend | FastAPI + Python 3.11 + SQLAlchemy |
-| Database | PostgreSQL (MotherDuck) + Alembic |
-| Auth | JWT (access + refresh tokens) |
-| API | REST (`/api/v1/`) |
-| Testing | pytest + Vitest + Playwright |
-| Deploy | Vercel (frontend) + Render (backend) |
+| Backend  | FastAPI + Python 3.11 + SQLAlchemy          |
+| Database | PostgreSQL (MotherDuck) + Alembic           |
+| Auth     | JWT (access + refresh tokens)               |
+| API      | REST (`/api/v1/`)                           |
+| Testing  | pytest + Vitest + Playwright                |
+| Deploy   | Vercel (frontend) + Render (backend)        |
 
 ## Quick Start
 

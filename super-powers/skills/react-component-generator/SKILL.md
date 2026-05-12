@@ -39,6 +39,7 @@ hooks patterns, and test stubs ready to drop into a codebase.
 ### Step 1 — Understand the Component
 
 Ask for:
+
 1. **Component name and purpose:** What does it do?
 2. **Props:** What data does it accept? Any callbacks?
 3. **State:** Does it manage its own state? What interactions does it handle?
@@ -56,11 +57,11 @@ export interface ButtonProps {
   /** Click handler */
   onClick: () => void;
   /** Visual variant */
-  variant?: 'primary' | 'secondary' | 'danger';
+  variant?: "primary" | "secondary" | "danger";
   /** Disabled state */
   disabled?: boolean;
   /** Accessible label for icon-only buttons */
-  'aria-label'?: string;
+  "aria-label"?: string;
   /** Additional CSS classes */
   className?: string;
 }
@@ -69,19 +70,30 @@ export interface ButtonProps {
 ### Step 3 — Generate the Component
 
 **Standard functional component (Tailwind):**
+
 ```tsx
 // components/Button/Button.tsx
-import { forwardRef } from 'react';
-import { clsx } from 'clsx';
+import { forwardRef } from "react";
+import { clsx } from "clsx";
 
 const VARIANT_CLASSES = {
-  primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500',
-  secondary: 'bg-gray-100 text-gray-900 hover:bg-gray-200 focus:ring-gray-400',
-  danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500',
+  primary: "bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500",
+  secondary: "bg-gray-100 text-gray-900 hover:bg-gray-200 focus:ring-gray-400",
+  danger: "bg-red-600 text-white hover:bg-red-700 focus:ring-red-500",
 } as const;
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ label, onClick, variant = 'primary', disabled = false, className, ...props }, ref) => {
+  (
+    {
+      label,
+      onClick,
+      variant = "primary",
+      disabled = false,
+      className,
+      ...props
+    },
+    ref,
+  ) => {
     return (
       <button
         ref={ref}
@@ -89,26 +101,27 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         onClick={onClick}
         disabled={disabled}
         className={clsx(
-          'inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium',
-          'focus:outline-none focus:ring-2 focus:ring-offset-2',
-          'disabled:cursor-not-allowed disabled:opacity-50',
+          "inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium",
+          "focus:outline-none focus:ring-2 focus:ring-offset-2",
+          "disabled:cursor-not-allowed disabled:opacity-50",
           VARIANT_CLASSES[variant],
-          className
+          className,
         )}
         {...props}
       >
         {label}
       </button>
     );
-  }
+  },
 );
-Button.displayName = 'Button';
+Button.displayName = "Button";
 ```
 
 **Component with local state:**
+
 ```tsx
 // components/Collapsible/Collapsible.tsx
-import { useState, useId } from 'react';
+import { useState, useId } from "react";
 
 export interface CollapsibleProps {
   title: string;
@@ -116,7 +129,11 @@ export interface CollapsibleProps {
   defaultOpen?: boolean;
 }
 
-export function Collapsible({ title, children, defaultOpen = false }: CollapsibleProps) {
+export function Collapsible({
+  title,
+  children,
+  defaultOpen = false,
+}: CollapsibleProps) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
   const contentId = useId();
 
@@ -126,11 +143,11 @@ export function Collapsible({ title, children, defaultOpen = false }: Collapsibl
         type="button"
         aria-expanded={isOpen}
         aria-controls={contentId}
-        onClick={() => setIsOpen(prev => !prev)}
+        onClick={() => setIsOpen((prev) => !prev)}
         className="flex w-full items-center justify-between"
       >
         <span>{title}</span>
-        <span aria-hidden="true">{isOpen ? '−' : '+'}</span>
+        <span aria-hidden="true">{isOpen ? "−" : "+"}</span>
       </button>
       <div id={contentId} hidden={!isOpen} role="region">
         {children}
@@ -141,13 +158,14 @@ export function Collapsible({ title, children, defaultOpen = false }: Collapsibl
 ```
 
 **Custom hook extraction (when logic is complex):**
+
 ```typescript
 // hooks/useToggle.ts
-import { useState, useCallback } from 'react';
+import { useState, useCallback } from "react";
 
 export function useToggle(initialState = false) {
   const [state, setState] = useState(initialState);
-  const toggle = useCallback(() => setState(s => !s), []);
+  const toggle = useCallback(() => setState((s) => !s), []);
   const setOn = useCallback(() => setState(true), []);
   const setOff = useCallback(() => setState(false), []);
   return { state, toggle, setOn, setOff } as const;
@@ -158,34 +176,36 @@ export function useToggle(initialState = false) {
 
 ```typescript
 // components/Button/index.ts
-export { Button } from './Button';
-export type { ButtonProps } from './Button';
+export { Button } from "./Button";
+export type { ButtonProps } from "./Button";
 ```
 
 ### Step 5 — Generate a Test Stub
 
 ```tsx
 // components/Button/Button.test.tsx
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { Button } from './Button';
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { Button } from "./Button";
 
-describe('Button', () => {
-  it('renders with the given label', () => {
+describe("Button", () => {
+  it("renders with the given label", () => {
     render(<Button label="Click me" onClick={() => {}} />);
-    expect(screen.getByRole('button', { name: 'Click me' })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: "Click me" }),
+    ).toBeInTheDocument();
   });
 
-  it('calls onClick when clicked', async () => {
+  it("calls onClick when clicked", async () => {
     const onClick = jest.fn();
     render(<Button label="Click me" onClick={onClick} />);
-    await userEvent.click(screen.getByRole('button'));
+    await userEvent.click(screen.getByRole("button"));
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
-  it('is disabled when disabled prop is true', () => {
+  it("is disabled when disabled prop is true", () => {
     render(<Button label="Click me" onClick={() => {}} disabled />);
-    expect(screen.getByRole('button')).toBeDisabled();
+    expect(screen.getByRole("button")).toBeDisabled();
   });
 });
 ```
@@ -195,6 +215,7 @@ describe('Button', () => {
 ## Accessibility Defaults
 
 Every component should include by default:
+
 - Correct semantic HTML element (`button` not `div`, etc.)
 - `aria-` attributes for interactive state (`aria-expanded`, `aria-controls`, `aria-label`)
 - `focus:ring` or equivalent visible focus indicator

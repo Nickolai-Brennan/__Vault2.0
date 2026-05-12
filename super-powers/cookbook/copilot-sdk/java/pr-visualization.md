@@ -98,11 +98,11 @@ public class PRVisualization {
             ).get();
 
             // Set up event handling
-            session.on(AssistantMessageEvent.class, msg -> 
+            session.on(AssistantMessageEvent.class, msg ->
                 System.out.println("\n🤖 " + msg.getData().content() + "\n")
             );
 
-            session.on(ToolExecutionStartEvent.class, evt -> 
+            session.on(ToolExecutionStartEvent.class, evt ->
                 System.out.println("  ⚙️  " + evt.getData().toolName())
             );
 

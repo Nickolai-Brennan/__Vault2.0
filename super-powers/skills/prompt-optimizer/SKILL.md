@@ -37,6 +37,7 @@ and consistent high-quality results.
 ### Step 1 — Receive the Prompt and Context
 
 Ask the user for:
+
 1. **The current prompt** (copy-paste)
 2. **Example of a bad output** (what did the AI produce that was wrong?)
 3. **What a good output looks like** (describe or show an example)
@@ -47,20 +48,21 @@ Ask the user for:
 
 Evaluate the prompt against common failure patterns:
 
-| Problem | Signals | Fix |
-|---------|---------|-----|
-| **Too vague** | Outputs are generic or off-topic | Add specificity, context, and constraints |
-| **No output format** | Format varies wildly | Specify exact format (JSON, bullet list, table) |
-| **No role/persona** | Wrong expertise level | Add "You are an expert [domain]..." opener |
-| **No examples** | Misunderstands task | Add 1–2 few-shot examples |
-| **Prompt too long** | AI ignores later instructions | Move critical instructions to the beginning |
-| **Passive/hedging** | AI adds disclaimers everywhere | Add "Be direct. Do not add disclaimers." |
-| **Wrong scope** | Too broad or too narrow | Define explicit scope with "Include:" and "Exclude:" |
-| **No negative examples** | AI does the thing you don't want | Add "Do NOT..." instructions |
+| Problem                  | Signals                          | Fix                                                  |
+| ------------------------ | -------------------------------- | ---------------------------------------------------- |
+| **Too vague**            | Outputs are generic or off-topic | Add specificity, context, and constraints            |
+| **No output format**     | Format varies wildly             | Specify exact format (JSON, bullet list, table)      |
+| **No role/persona**      | Wrong expertise level            | Add "You are an expert [domain]..." opener           |
+| **No examples**          | Misunderstands task              | Add 1–2 few-shot examples                            |
+| **Prompt too long**      | AI ignores later instructions    | Move critical instructions to the beginning          |
+| **Passive/hedging**      | AI adds disclaimers everywhere   | Add "Be direct. Do not add disclaimers."             |
+| **Wrong scope**          | Too broad or too narrow          | Define explicit scope with "Include:" and "Exclude:" |
+| **No negative examples** | AI does the thing you don't want | Add "Do NOT..." instructions                         |
 
 ### Step 3 — Apply Improvement Patterns
 
 #### Pattern 1: Role + Task + Format
+
 ```
 [Before]
 "Summarize this article."
@@ -72,6 +74,7 @@ Do not include your own opinions."
 ```
 
 #### Pattern 2: Add Output Schema
+
 ```
 [Before]
 "Extract the key information from this email."
@@ -83,6 +86,7 @@ priority (low/medium/high). Return ONLY the JSON, no explanation."
 ```
 
 #### Pattern 3: Few-Shot Examples
+
 ```
 [Before]
 "Classify the sentiment of this review."
@@ -100,6 +104,7 @@ Now classify this review:
 ```
 
 #### Pattern 4: Chain-of-Thought (for reasoning tasks)
+
 ```
 [Before]
 "Is this email a phishing attempt?"
@@ -116,6 +121,7 @@ Then give your verdict: phishing / likely phishing / legitimate. Explain your re
 ### Step 4 — Present Before/After
 
 Show:
+
 1. The original prompt
 2. The improved prompt with annotations explaining each change
 3. Why each change should improve output quality
@@ -123,6 +129,7 @@ Show:
 ### Step 5 — Suggest Variants
 
 Offer 2 alternatives:
+
 - One with minimal changes (conservative)
 - One with more aggressive restructuring
 
@@ -135,7 +142,9 @@ Offer 2 alternatives:
 
 ### Original Prompt
 ```
+
 [original]
+
 ```
 
 ### Diagnosis
@@ -144,7 +153,9 @@ Offer 2 alternatives:
 
 ### Improved Prompt
 ```
+
 [improved]
+
 ```
 
 ### Changes Made
@@ -154,8 +165,11 @@ Offer 2 alternatives:
 
 ### Alternative Variant (minimal changes)
 ```
+
 [alternative]
+
 ```
+
 ```
 
 ---

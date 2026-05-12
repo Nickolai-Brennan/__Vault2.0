@@ -36,7 +36,9 @@ When working in this repository, always:
 If this repo is in early setup, help with:
 
 ### 1. Project Summary
+
 Create or maintain a clean summary of:
+
 - project name
 - project type
 - purpose
@@ -47,7 +49,9 @@ Create or maintain a clean summary of:
 - future expansion
 
 ### 2. Tool Stack Verification
+
 Verify or recommend relevant tools used with this repo, such as:
+
 - VS Code
 - GitHub
 - GitHub Copilot
@@ -64,10 +68,13 @@ Verify or recommend relevant tools used with this repo, such as:
 Only recommend tools that support the actual repo stack.
 
 ### 3. Environment Stack Verification
+
 Verify the selected stack for:
 
 #### Frontend
+
 Examples:
+
 - JavaScript
 - TypeScript
 - React
@@ -76,7 +83,9 @@ Examples:
 - Vite
 
 #### Backend
+
 Examples:
+
 - Python
 - FastAPI
 - Django
@@ -85,7 +94,9 @@ Examples:
 - PHP
 
 #### Database
+
 Examples:
+
 - PostgreSQL
 - MySQL
 - SQLite
@@ -93,6 +104,7 @@ Examples:
 - Redis
 
 For each layer:
+
 - confirm what is being used
 - identify missing setup
 - identify missing dependencies
@@ -100,7 +112,9 @@ For each layer:
 - recommend corrections if needed
 
 ### 4. Extensions, CLIs, and Setup Tools
+
 Recommend or verify:
+
 - editor extensions
 - framework CLIs
 - package managers
@@ -114,6 +128,7 @@ Recommend or verify:
 ## Repo Structure Responsibilities
 
 Help maintain a clean structure for folders such as:
+
 - `apps/`
 - `services/`
 - `frontend/`
@@ -126,6 +141,7 @@ Help maintain a clean structure for folders such as:
 - `infra/`
 
 You should:
+
 - suggest the best layout for this repo
 - keep related logic grouped together
 - prevent folder sprawl
@@ -138,6 +154,7 @@ You should:
 This repo should always have documentation support.
 
 Help create and maintain:
+
 - `docs/environment-setup.md`
 - `docs/project-startup.md`
 - `docs/architecture-overview.md`
@@ -146,6 +163,7 @@ Help create and maintain:
 - `README.md`
 
 Documentation should include:
+
 - environment activation
 - install commands
 - dependency setup
@@ -158,6 +176,7 @@ Documentation should include:
 ## Database Responsibilities
 
 If the repo includes a database, help with:
+
 - selecting the correct DB system
 - defining connection setup
 - documenting environment variables
@@ -170,6 +189,7 @@ If the repo includes a database, help with:
 ## Settings and Config Responsibilities
 
 When relevant, help create or maintain:
+
 - `.vscode/settings.json`
 - `.vscode/extensions.json`
 - `.editorconfig`
@@ -188,6 +208,7 @@ All config should match the approved project stack.
 Whenever something changes in the repo, verify the effect of the change.
 
 This includes:
+
 - new code
 - updated code
 - deleted code
@@ -198,6 +219,7 @@ This includes:
 - changed startup scripts
 
 After changes, verify:
+
 - environment still works
 - dependencies resolve
 - schema is valid
@@ -212,6 +234,7 @@ Do not assume the repo still works after updates.
 ## Required Development Mindset
 
 Within this repo, you should think like:
+
 - repo architect
 - setup verifier
 - environment validator
@@ -222,6 +245,7 @@ Within this repo, you should think like:
 ## Output Style
 
 When responding inside this repository:
+
 - be direct
 - be structured
 - prefer actionable steps
@@ -256,6 +280,7 @@ When responding inside this repository:
 ## Default Deliverables
 
 When useful, produce:
+
 - cleaned project summary
 - stack verification notes
 - tool recommendations
@@ -271,6 +296,7 @@ When useful, produce:
 ## Continuous Repo Rule
 
 This repository should remain:
+
 - organized
 - documented
 - verifiable

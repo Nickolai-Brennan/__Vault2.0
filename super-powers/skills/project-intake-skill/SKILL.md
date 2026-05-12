@@ -16,6 +16,7 @@ description: |
 # Project Intake Skill
 
 ## Overview
+
 The Project Intake Skill guides users through defining a new project from scratch. It
 produces a structured project brief capturing goals, scope, stakeholders, deliverables,
 constraints, timeline, risks, and success criteria. It works interactively — asking
@@ -25,6 +26,7 @@ ready for review and sign-off.
 ## When to Use / When NOT to Use
 
 **Use this skill when:**
+
 - User is starting a new project and needs to define it clearly
 - User has a rough idea but needs it structured into a proper brief or charter
 - User needs to capture requirements from a stakeholder conversation
@@ -32,25 +34,29 @@ ready for review and sign-off.
 - User wants to document scope, goals, and success criteria before work begins
 
 **Do NOT use this skill when:**
+
 - The project is already in execution; use project management tooling instead
 - User needs sprint planning, story writing, or task breakdown (different phase)
 - User wants a full project plan with Gantt chart (execution-phase planning)
 - The request is about a technical design decision, not project definition
 
 ## Inputs
+
 - **Project description**: What the user wants to build, deliver, or achieve
-- **Stakeholders** *(optional)*: Who is involved, who funds it, who are the users
-- **Rough timeline** *(optional)*: Deadlines, key milestones, or launch window
-- **Constraints** *(optional)*: Budget, tech stack, team size, regulatory requirements
-- **Conversation transcript** *(optional)*: Notes from a discovery call or meeting
+- **Stakeholders** _(optional)_: Who is involved, who funds it, who are the users
+- **Rough timeline** _(optional)_: Deadlines, key milestones, or launch window
+- **Constraints** _(optional)_: Budget, tech stack, team size, regulatory requirements
+- **Conversation transcript** _(optional)_: Notes from a discovery call or meeting
 
 ## Outputs
+
 - **Project brief**: Structured document with all key fields completed
 - **Open questions log**: Items that need stakeholder clarification before proceeding
 - **Risk register stub**: Initial risk identification with likelihood/impact ratings
 - **Success criteria**: Measurable, time-bound definitions of project success
 
 ## Workflow
+
 1. Gather all available input about the project.
 2. Identify what is missing from the standard brief template; ask targeted questions.
 3. Draft the project brief section by section.
@@ -60,11 +66,13 @@ ready for review and sign-off.
 7. Present the draft brief for user review; iterate based on feedback.
 
 **Stop conditions:**
+
 - Do not proceed past the brief draft if critical inputs (goals, scope, stakeholders)
   are completely absent — ask for them first.
 - Flag clearly if stated goals conflict with stated constraints.
 
 ## Edge Cases
+
 - **Vague goals**: Ask "how will you know this project succeeded?" to force specificity.
 - **Scope creep in the brief**: Flag when new items are being added mid-intake; offer to
   create a separate "Phase 2" section rather than expanding Phase 1 scope.
@@ -74,6 +82,7 @@ ready for review and sign-off.
 - **Very large project**: Recommend phasing; split into workstreams with separate briefs.
 
 ## Safety & Secrets
+
 - Never log, commit, or store sensitive business information (financials, contracts,
   personnel data) beyond the immediate session.
 - Do not include client credentials, internal system names, or confidential pricing in
@@ -91,42 +100,52 @@ ready for review and sign-off.
 **Status:** Draft
 
 ## Goal
+
 [One or two sentences: what we are building and why.]
 
 ## Scope
+
 **In scope:**
+
 - [Item 1]
 - [Item 2]
 
 **Out of scope:**
+
 - [Item 1]
 
 ## Stakeholders
+
 | Name | Role | Responsibility |
-|------|------|----------------|
-| | | |
+| ---- | ---- | -------------- |
+|      |      |                |
 
 ## Deliverables
+
 | Deliverable | Description | Due Date |
-|-------------|-------------|----------|
-| | | |
+| ----------- | ----------- | -------- |
+|             |             |          |
 
 ## Constraints
+
 - Budget: [Amount or TBD]
 - Timeline: [Key dates]
 - Technical: [Stack requirements, must-use tools]
 - Regulatory: [Any compliance requirements]
 
 ## Success Criteria
+
 - [ ] [Measurable outcome 1 by date]
 - [ ] [Measurable outcome 2 by date]
 
 ## Risks
+
 | Risk | Likelihood | Impact | Mitigation |
-|------|-----------|--------|------------|
-| | | | |
+| ---- | ---------- | ------ | ---------- |
+|      |            |        |            |
 
 ## Open Questions
+
 - [ ] [Question 1 — owner: Name]
 - [ ] [Question 2 — owner: Name]
 ```
@@ -134,6 +153,7 @@ ready for review and sign-off.
 ## Examples
 
 ### Example 1: Client onboarding brief
+
 **User prompt:** "I just got off a call with a new client. They want a customer portal
 where their customers can view invoices, download statements, and submit support tickets.
 They want it done in 3 months. No budget defined yet."
@@ -147,6 +167,7 @@ criteria (X% of customers log in within 30d of launch), open questions (budget, 
 method, existing invoice system integration).
 
 ### Example 2: Internal tool brief from rough notes
+
 **User prompt:** "I need to build an internal tool for our ops team to track vendor
 contracts — expiry dates, renewal status, contact info. Right now it's in spreadsheets."
 
@@ -159,11 +180,12 @@ constraints (internal use, no budget noted — ask), risks (data migration from 
 adoption/change management).
 
 ## Testing / Evals
+
 See `evals/evals.json` for test prompts. Run 2–3 prompts and compare outputs against
 `expected_output` descriptions.
 
-
 ## References
+
 - [Workflow Design Guide](../../references/workflow-design-guide.md)
 - [Automation Best Practices](../../references/automation-best-practices.md)
 - [Project Planning Skill](../project-planning-skill/SKILL.md)

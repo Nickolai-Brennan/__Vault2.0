@@ -13,15 +13,15 @@ Use this template when initializing an **API / Microservice** project (REST, Gra
 
 ## Section 2: Basic Identity
 
-| Field | Value |
-|-------|-------|
-| **Project Name** | |
-| **Tagline** (one sentence) | |
-| **Version / Phase** | `prototype` · `mvp` · `production` |
-| **Status** | `active` · `on-hold` · `archived` |
-| **Owner / Team** | |
-| **Created** | YYYY-MM-DD |
-| **Last Updated** | YYYY-MM-DD |
+| Field                      | Value                              |
+| -------------------------- | ---------------------------------- |
+| **Project Name**           |                                    |
+| **Tagline** (one sentence) |                                    |
+| **Version / Phase**        | `prototype` · `mvp` · `production` |
+| **Status**                 | `active` · `on-hold` · `archived`  |
+| **Owner / Team**           |                                    |
+| **Created**                | YYYY-MM-DD                         |
+| **Last Updated**           | YYYY-MM-DD                         |
 
 ---
 
@@ -46,7 +46,7 @@ Use this template when initializing an **API / Microservice** project (REST, Gra
 ## Section 4: Audience
 
 **4.1 — Who are the primary consumers of this API?**
-*(Internal services, mobile apps, third-party developers, etc.)*
+_(Internal services, mobile apps, third-party developers, etc.)_
 
 > **Answer**:
 
@@ -59,7 +59,7 @@ Use this template when initializing an **API / Microservice** project (REST, Gra
 > **Answer**:
 
 **4.4 — What is the expected request scale?**
-*(e.g. "10,000 requests/minute at peak", "500 daily active consumers")*
+_(e.g. "10,000 requests/minute at peak", "500 daily active consumers")_
 
 > **Answer**:
 
@@ -72,7 +72,7 @@ Use this template when initializing an **API / Microservice** project (REST, Gra
 > **Answer**:
 
 **5.2 — What frameworks or runtimes are used?**
-*(e.g. Express, FastAPI, Gin, Spring Boot, gRPC)*
+_(e.g. Express, FastAPI, Gin, Spring Boot, gRPC)_
 
 > **Answer**:
 
@@ -93,7 +93,7 @@ Use this template when initializing an **API / Microservice** project (REST, Gra
 > **Answer**:
 
 **5.7 — How is authentication and authorization handled?**
-*(e.g. JWT, OAuth 2.0, API keys, mTLS)*
+_(e.g. JWT, OAuth 2.0, API keys, mTLS)_
 
 > **Answer**:
 
@@ -106,7 +106,7 @@ Use this template when initializing an **API / Microservice** project (REST, Gra
 ## Section 6: API Design
 
 **6.1 — What protocol does this API use?**
-*(e.g. REST/JSON, GraphQL, gRPC, WebSocket, webhooks)*
+_(e.g. REST/JSON, GraphQL, gRPC, WebSocket, webhooks)_
 
 > **Answer**:
 
@@ -115,12 +115,12 @@ Use this template when initializing an **API / Microservice** project (REST, Gra
 > **Answer**:
 
 **6.3 — What are the primary resource domains or operations exposed?**
-*(e.g. `/users`, `/orders`, `mutation CreatePayment`)*
+_(e.g. `/users`, `/orders`, `mutation CreatePayment`)_
 
 > **Answer**:
 
 **6.4 — Is there a versioning strategy?**
-*(e.g. URL path `/v1/`, Accept header, none)*
+_(e.g. URL path `/v1/`, Accept header, none)_
 
 > **Answer**:
 
@@ -129,7 +129,7 @@ Use this template when initializing an **API / Microservice** project (REST, Gra
 > **Answer**:
 
 **6.6 — Where is the API specification maintained?**
-*(e.g. OpenAPI/Swagger file path, GraphQL schema, Protobuf file)*
+_(e.g. OpenAPI/Swagger file path, GraphQL schema, Protobuf file)_
 
 > **Answer**:
 
@@ -168,12 +168,12 @@ Choose one: `true` · `false`
 > **Answer**:
 
 **8.2 — What architectural pattern does this service follow?**
-*(e.g. monolith, microservice, serverless function, event-driven consumer)*
+_(e.g. monolith, microservice, serverless function, event-driven consumer)_
 
 > **Answer**:
 
 **8.3 — How does this service communicate with other services?**
-*(e.g. synchronous HTTP, message queue, event bus, gRPC)*
+_(e.g. synchronous HTTP, message queue, event bus, gRPC)_
 
 > **Answer**:
 
@@ -194,17 +194,17 @@ Choose one: `true` · `false`
 > **Answer**:
 
 **9.3 — What compliance or regulatory requirements apply?**
-*(e.g. GDPR, HIPAA, SOC 2, PCI-DSS, or "none")*
+_(e.g. GDPR, HIPAA, SOC 2, PCI-DSS, or "none")_
 
 > **Answer**:
 
 **9.4 — What is the latency SLA?**
-*(e.g. "p99 < 200 ms", "p95 < 100 ms")*
+_(e.g. "p99 < 200 ms", "p95 < 100 ms")_
 
 > **Answer**:
 
 **9.5 — What is the availability / uptime target?**
-*(e.g. 99.9%, 99.99%, best-effort)*
+_(e.g. 99.9%, 99.99%, best-effort)_
 
 > **Answer**:
 
@@ -220,9 +220,9 @@ Choose one: `true` · `false`
 
 ## Section 11: Related Files
 
-| File / URL | Purpose |
-|------------|---------|
-| `README.md` | Project overview |
+| File / URL                                    | Purpose           |
+| --------------------------------------------- | ----------------- |
+| `README.md`                                   | Project overview  |
 | `openapi.yaml` / `schema.graphql` / `*.proto` | API specification |
-| | |
-| | |
+|                                               |                   |
+|                                               |                   |

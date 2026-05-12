@@ -13,15 +13,15 @@ Use this template when initializing a **Web App (Full-Stack)** project (server-r
 
 ## Section 2: Basic Identity
 
-| Field | Value |
-|-------|-------|
-| **Project Name** | |
-| **Tagline** (one sentence) | |
-| **Version / Phase** | `prototype` · `mvp` · `production` |
-| **Status** | `active` · `on-hold` · `archived` |
-| **Owner / Team** | |
-| **Created** | YYYY-MM-DD |
-| **Last Updated** | YYYY-MM-DD |
+| Field                      | Value                              |
+| -------------------------- | ---------------------------------- |
+| **Project Name**           |                                    |
+| **Tagline** (one sentence) |                                    |
+| **Version / Phase**        | `prototype` · `mvp` · `production` |
+| **Status**                 | `active` · `on-hold` · `archived`  |
+| **Owner / Team**           |                                    |
+| **Created**                | YYYY-MM-DD                         |
+| **Last Updated**           | YYYY-MM-DD                         |
 
 ---
 
@@ -58,7 +58,7 @@ Use this template when initializing a **Web App (Full-Stack)** project (server-r
 > **Answer**:
 
 **4.4 — What is the expected scale?**
-*(e.g. "2,000 daily active users", "50 concurrent sessions")*
+_(e.g. "2,000 daily active users", "50 concurrent sessions")_
 
 > **Answer**:
 
@@ -71,12 +71,12 @@ Use this template when initializing a **Web App (Full-Stack)** project (server-r
 > **Answer**:
 
 **5.2 — What frontend framework or library is used?**
-*(e.g. React, Vue, Next.js, Nuxt, SvelteKit, plain HTML/CSS)*
+_(e.g. React, Vue, Next.js, Nuxt, SvelteKit, plain HTML/CSS)_
 
 > **Answer**:
 
 **5.3 — What backend framework is used?**
-*(e.g. Express, Django, Rails, Laravel, Next.js API routes)*
+_(e.g. Express, Django, Rails, Laravel, Next.js API routes)_
 
 > **Answer**:
 
@@ -97,7 +97,7 @@ Use this template when initializing a **Web App (Full-Stack)** project (server-r
 > **Answer**:
 
 **5.8 — How is authentication and authorization handled?**
-*(e.g. NextAuth, Auth0, Supabase Auth, session cookies)*
+_(e.g. NextAuth, Auth0, Supabase Auth, session cookies)_
 
 > **Answer**:
 
@@ -114,17 +114,17 @@ Use this template when initializing a **Web App (Full-Stack)** project (server-r
 > **Answer**:
 
 **6.2 — What is the routing strategy?**
-*(e.g. file-based, React Router, manual)*
+_(e.g. file-based, React Router, manual)_
 
 > **Answer**:
 
 **6.3 — What CSS / styling approach is used?**
-*(e.g. Tailwind, CSS Modules, styled-components, Sass)*
+_(e.g. Tailwind, CSS Modules, styled-components, Sass)_
 
 > **Answer**:
 
 **6.4 — What state management solution is used?**
-*(e.g. Redux, Zustand, Context API, Pinia, none)*
+_(e.g. Redux, Zustand, Context API, Pinia, none)_
 
 > **Answer**:
 
@@ -167,7 +167,7 @@ Choose one: `true` · `false`
 > **Answer**:
 
 **8.2 — What architectural pattern does this project follow?**
-*(e.g. monolith, BFF + SPA, serverless, MVC)*
+_(e.g. monolith, BFF + SPA, serverless, MVC)_
 
 > **Answer**:
 
@@ -192,7 +192,7 @@ Choose one: `true` · `false`
 > **Answer**:
 
 **9.4 — What is the page load / performance SLA?**
-*(e.g. "LCP < 2.5 s", "Time to Interactive < 3 s")*
+_(e.g. "LCP < 2.5 s", "Time to Interactive < 3 s")_
 
 > **Answer**:
 
@@ -212,8 +212,8 @@ Choose one: `true` · `false`
 
 ## Section 11: Related Files
 
-| File / URL | Purpose |
-|------------|---------|
+| File / URL  | Purpose          |
+| ----------- | ---------------- |
 | `README.md` | Project overview |
-| | |
-| | |
+|             |                  |
+|             |                  |

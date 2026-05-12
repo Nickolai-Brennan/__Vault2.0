@@ -7,9 +7,11 @@ phase: PROTOTYPE|MVP|PRODUCTION
 # Prompt: API Builder
 
 ## Objective
+
 Design a complete REST or GraphQL API contract from project requirements, producing a valid OpenAPI specification.
 
 ## Context Requirements
+
 - Project brief with entity list and data model
 - Auth strategy (JWT, API key, OAuth)
 - Target database schema or ERD description
@@ -62,11 +64,13 @@ components:
 ```
 
 ## Quality Checks
+
 - [ ] Every endpoint has a success response and at least one error response
 - [ ] All schemas use standard JSON Schema types
 - [ ] Auth requirements documented on all protected routes
 - [ ] Spec validates with an OpenAPI 3.x linter
 
 ## Safety Rules
+
 - Never include real credentials, tokens, or connection strings in examples
 - Use placeholder values (e.g., `Bearer <token>`) for all auth examples

@@ -16,22 +16,27 @@ outputs:
 # Eval Runner Skill
 
 ## Purpose
+
 Define, run, and report on evaluation cases for agent skills to confirm output quality and correctness.
 
 ## When To Use
+
 Use this skill when the user asks to:
+
 - Create eval cases for a skill
 - Test whether an agent produces correct output
 - Benchmark skill performance
 - Validate agent routing behavior
 
 ## Inputs
+
 - Skill name
 - Test prompts (natural language)
 - Expected outputs (structured description)
 - Relevant files for context
 
 ## Workflow
+
 1. Identify the skill or agent being evaluated
 2. Write 2–5 eval cases covering core use cases and edge cases
 3. Define expected output for each case (structured, not exact match)
@@ -40,6 +45,7 @@ Use this skill when the user asks to:
 6. Report pass/fail with notes
 
 ## Output Format
+
 ```json
 {
   "skill_name": "[name]",
@@ -56,12 +62,14 @@ Use this skill when the user asks to:
 ```
 
 ## Quality Checklist
+
 - [ ] At least 2 eval cases defined
 - [ ] Expected outputs are specific and verifiable
 - [ ] Saved to `evals/[skill-name]-evals.json`
 - [ ] Edge cases covered where relevant
 
 ## References
+
 - [`evals/`](../../evals/)
 - [`instructions/testing.md`](../../instructions/testing.md)
 - [Skills Spec](../../references/skills-spec.md)

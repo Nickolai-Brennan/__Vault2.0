@@ -15,6 +15,7 @@ description: |
 # API Agent
 
 ## Overview
+
 The API Agent designs and documents REST and GraphQL APIs. It produces OpenAPI 3.x specs,
 endpoint definitions, request/response schemas, authentication patterns, error contracts,
 and service integration maps. It is oriented toward the GitHub Copilot / GitHub-hosted
@@ -23,6 +24,7 @@ workflow context and outputs implementation-ready, version-controlled documentat
 ## When to Use / When NOT to Use
 
 **Use this skill when:**
+
 - User asks to design, define, or plan an API ("design an API for my project")
 - User needs OpenAPI/Swagger YAML or JSON spec generated or improved
 - User wants to document REST endpoints or a GraphQL schema
@@ -30,18 +32,21 @@ workflow context and outputs implementation-ready, version-controlled documentat
 - User asks "what endpoints do I need?", "how should I structure my API?", or similar
 
 **Do NOT use this skill when:**
+
 - User wants to implement server-side handler code (use a code-generation approach)
 - User wants to call/test a live API (use a tool with HTTP execution capability)
 - User needs client SDK or wrapper code written
 - The request is purely about UI or frontend concerns
 
 ## Inputs
+
 - **Project context**: Description of the system, domain, entities, and intended consumers
 - **Requirements**: Functional requirements, user stories, or feature descriptions
 - **Current phase**: Prototype, MVP, production hardening, etc.
-- **Existing schemas** *(optional)*: Any existing data models, DB schemas, or partial specs
+- **Existing schemas** _(optional)_: Any existing data models, DB schemas, or partial specs
 
 ## Outputs
+
 - **OpenAPI 3.x spec** (YAML): Complete or partial, with paths, components, schemas
 - **Endpoint summary table**: Method, path, description, auth, request/response sketch
 - **Decisions log**: Key design choices and rationale (versioning, auth strategy, naming)
@@ -50,6 +55,7 @@ workflow context and outputs implementation-ready, version-controlled documentat
 - **Handoff notes**: Context for the next agent or developer
 
 ## Workflow
+
 1. Read all provided inputs; identify domain entities, consumers, and key operations.
 2. Clarify ambiguous scope — ask if critical context (auth method, versioning strategy,
    pagination style) is missing before proceeding.
@@ -61,10 +67,12 @@ workflow context and outputs implementation-ready, version-controlled documentat
 8. Save generated documentation to `docs/agent-outputs/api-agent/`.
 
 **Stop conditions:**
+
 - Stop and ask if the domain, entities, or consumer requirements are unclear.
 - Stop and warn before overwriting any existing spec files.
 
 ## Edge Cases
+
 - **Conflicting requirements**: Surface the conflict, propose options, ask user to decide.
 - **Very large API surface**: Design in layers — start with core CRUD, then extend.
 - **GraphQL vs REST ambiguity**: Ask which style is preferred; explain trade-offs briefly.
@@ -72,6 +80,7 @@ workflow context and outputs implementation-ready, version-controlled documentat
 - **Versioning not specified**: Default to URL path versioning (`/v1/`); document assumption.
 
 ## Safety & Secrets
+
 - Never log, commit, print, or embed API keys, tokens, or credentials in generated specs.
 - Use placeholder values (e.g., `YOUR_API_KEY`) in examples — never real credentials.
 - Warn before overwriting any existing YAML/JSON spec file; require confirmation.
@@ -80,10 +89,12 @@ workflow context and outputs implementation-ready, version-controlled documentat
 ## Examples
 
 ### Example 1: E-commerce product catalog API
+
 **User prompt:** "Design a REST API for an e-commerce product catalog with categories,
 products, and inventory. We use JWT auth."
 
 **Expected output:**
+
 - Endpoint table: `GET /v1/categories`, `GET /v1/products`, `POST /v1/products`,
   `GET /v1/products/{id}`, `PUT /v1/products/{id}`, `DELETE /v1/products/{id}`,
   `GET /v1/inventory/{productId}`, etc.
@@ -92,21 +103,24 @@ products, and inventory. We use JWT auth."
 - Decisions: URL versioning, standard HTTP status codes, cursor-based pagination
 
 ### Example 2: GraphQL schema for a task management system
+
 **User prompt:** "I need a GraphQL schema for tasks, projects, and users. Users can be
 assigned to multiple tasks."
 
 **Expected output:**
+
 - GraphQL SDL with types: `User`, `Project`, `Task`, queries (`tasks`, `project`),
   mutations (`createTask`, `updateTask`, `assignUser`), and subscriptions if appropriate
 - Notes on N+1 problem and DataLoader recommendation
 - Authentication directive pattern suggestion
 
 ## Testing / Evals
+
 See `evals/evals.json` for test prompts. Run 2–3 prompts and compare outputs against
 `expected_output` descriptions.
 
-
 ## References
+
 - [API Design Guide](../../references/api-design-guide.md)
 - [API Rules](../../instructions/api-rules.md)
 - [Global AI Instructions](../../instructions/global-ai-instructions.md)

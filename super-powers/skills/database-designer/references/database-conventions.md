@@ -26,14 +26,14 @@ user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE
 
 ## Naming Conventions
 
-| Object | Convention | Example |
-|--------|-----------|---------|
-| Tables | plural_snake_case | `job_applications` |
-| Columns | snake_case | `applied_at` |
-| Indexes | `idx_[table]_[column]` | `idx_users_email` |
-| Unique indexes | `uq_[table]_[column]` | `uq_users_email` |
-| FK columns | `[ref_table_singular]_id` | `user_id` |
-| Junction tables | `[table1]_[table2]` | `user_roles` |
+| Object          | Convention                | Example            |
+| --------------- | ------------------------- | ------------------ |
+| Tables          | plural_snake_case         | `job_applications` |
+| Columns         | snake_case                | `applied_at`       |
+| Indexes         | `idx_[table]_[column]`    | `idx_users_email`  |
+| Unique indexes  | `uq_[table]_[column]`     | `uq_users_email`   |
+| FK columns      | `[ref_table_singular]_id` | `user_id`          |
+| Junction tables | `[table1]_[table2]`       | `user_roles`       |
 
 ## Alembic Migration Rules
 
@@ -83,8 +83,8 @@ CREATE INDEX idx_users_active ON users(email) WHERE is_active = true;
 
 ## Environments
 
-| Environment | Database | Host |
-|------------|---------|------|
-| Local dev | PostgreSQL (Docker) | `localhost:5432` |
-| Staging | MotherDuck | cloud |
-| Production | MotherDuck | cloud |
+| Environment | Database            | Host             |
+| ----------- | ------------------- | ---------------- |
+| Local dev   | PostgreSQL (Docker) | `localhost:5432` |
+| Staging     | MotherDuck          | cloud            |
+| Production  | MotherDuck          | cloud            |

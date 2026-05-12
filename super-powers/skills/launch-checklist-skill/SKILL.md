@@ -16,6 +16,7 @@ description: |
 # Launch Checklist Skill
 
 ## Overview
+
 The Launch Checklist Skill generates tailored pre-launch readiness checklists and evaluates
 current launch status against standard criteria. It covers security hardening, performance
 validation, accessibility, SEO basics, monitoring setup, rollback plans, legal/compliance
@@ -25,30 +26,35 @@ items, and operational go-live steps. It adapts checklist depth to the product t
 ## When to Use / When NOT to Use
 
 **Use this skill when:**
+
 - Team is preparing for a product or feature launch and needs a structured checklist
 - User wants to verify readiness across multiple dimensions before going live
 - User needs a release review template or go/no-go decision framework
 - User asks what they might have missed before shipping
 
 **Do NOT use this skill when:**
+
 - User wants to write deployment automation or CI/CD pipeline configuration
 - User needs post-launch incident response runbooks (different skill domain)
 - User wants a deep security audit of source code (use `code-review-skill`)
 - User needs load testing scripts written (execution environment required)
 
 ## Inputs
+
 - **Product type**: Web app, API service, mobile app, data pipeline, etc.
 - **Launch scope**: New product, major feature, minor release, hotfix
-- **Team context** *(optional)*: Size, stack, infrastructure (helps tailor depth)
-- **Current status** *(optional)*: What's already done — to evaluate gaps
+- **Team context** _(optional)_: Size, stack, infrastructure (helps tailor depth)
+- **Current status** _(optional)_: What's already done — to evaluate gaps
 
 ## Outputs
+
 - **Readiness checklist**: Categorized checklist with priority levels (P0/P1/P2)
-- **Gap analysis** *(if status provided)*: Items not yet addressed, with risk rating
+- **Gap analysis** _(if status provided)_: Items not yet addressed, with risk rating
 - **Go/No-Go recommendation**: Clear recommendation with blocking vs. non-blocking items
 - **Rollback plan template**: Steps to revert if launch goes wrong
 
 ## Workflow
+
 1. Identify product type and launch scope from inputs.
 2. Generate a categorized checklist tailored to the product type.
 3. Mark each item P0 (launch blocker), P1 (should have), or P2 (nice to have).
@@ -57,10 +63,12 @@ items, and operational go-live steps. It adapts checklist depth to the product t
 6. Append a rollback plan template.
 
 **Stop conditions:**
+
 - Stop and ask if product type or launch scope is unclear — checklists differ significantly.
 - Do not mark a launch as "ready" if any P0 items are unresolved.
 
 ## Edge Cases
+
 - **Hotfix launch**: Streamlined checklist — skip low-priority items, focus on regression
   and rollback.
 - **Soft launch / canary**: Flag monitoring and canary percentage as P0 items.
@@ -69,6 +77,7 @@ items, and operational go-live steps. It adapts checklist depth to the product t
   evidence is required.
 
 ## Safety & Secrets
+
 - Never log, commit, or include real credentials, API keys, or environment secrets in
   checklist documentation.
 - Use placeholder values (`<YOUR_SECRET>`) in any configuration examples.
@@ -78,6 +87,7 @@ items, and operational go-live steps. It adapts checklist depth to the product t
 ## Checklist Categories
 
 ### P0 — Launch Blockers
+
 - [ ] All critical and high security vulnerabilities resolved
 - [ ] Secrets and credentials externalized to environment variables / secrets manager
 - [ ] Authentication and authorization verified end-to-end
@@ -88,6 +98,7 @@ items, and operational go-live steps. It adapts checklist depth to the product t
 - [ ] Production environment variables set correctly (not dev/staging values)
 
 ### P1 — Should Have Before Launch
+
 - [ ] Performance tested under expected load
 - [ ] Accessibility audit completed (WCAG 2.1 AA minimum)
 - [ ] SEO basics: meta tags, sitemap, robots.txt, canonical URLs
@@ -98,6 +109,7 @@ items, and operational go-live steps. It adapts checklist depth to the product t
 - [ ] On-call rotation and escalation policy in place
 
 ### P2 — Nice to Have
+
 - [ ] Performance budget documented and monitored
 - [ ] A/B testing framework configured
 - [ ] Feature flags for gradual rollout
@@ -106,6 +118,7 @@ items, and operational go-live steps. It adapts checklist depth to the product t
 ## Examples
 
 ### Example 1: Web app MVP launch
+
 **User prompt:** "We're launching our MVP next week — a React SPA with a Node.js API
 and PostgreSQL on AWS. What do we need to check?"
 
@@ -116,20 +129,23 @@ latency, WAF rules, Sentry for frontend errors, bundle size check, Lighthouse sc
 database migrations tested, rollback via ECS task revision pinning.
 
 ### Example 2: API service launch evaluation
+
 **User prompt:** "Here's what we've done so far: auth ✓, HTTPS ✓, logging ✓,
 load test ✗, rollback plan ✗, monitoring ✗. Are we ready to launch?"
 
 **Expected output:**
+
 - **No-Go recommendation**: 3 P0 items unresolved — load test, rollback plan, monitoring.
 - Gap analysis with risk description for each missing item.
 - Suggested minimum steps to reach launch readiness within the timeline.
 
 ## Testing / Evals
+
 See `evals/evals.json` for test prompts. Run 2–3 prompts and compare outputs against
 `expected_output` descriptions.
 
-
 ## References
+
 - [Automation Best Practices](../../references/automation-best-practices.md)
 - [Repo Rules](../../instructions/repo-rules.md)
 - [DevOps Core Principles](../../instructions/devops-core-principles.instructions.md)

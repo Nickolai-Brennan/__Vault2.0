@@ -38,6 +38,7 @@ sticky elements, and full-page structures with clean, commented code.
 ### Step 1 — Understand the Layout
 
 Ask the user to describe:
+
 1. **Layout type:** Page layout / section / component layout
 2. **Structure:** What elements are present? (header, sidebar, main, footer, etc.)
 3. **Responsive behavior:** How does it change at mobile / tablet / desktop?
@@ -48,22 +49,23 @@ Ask the user to describe:
 
 Identify the appropriate CSS strategy:
 
-| Layout need | Best approach |
-|-------------|--------------|
-| Side-by-side two columns | Flexbox or Grid |
-| Complex multi-area page | CSS Grid with named areas |
-| Sticky sidebar + scrollable main | Grid with `position: sticky` |
-| Centered content with max-width | Container utility |
-| Card grid (auto-fill) | `grid-template-columns: repeat(auto-fill, ...)` |
-| Equal-height columns | Flexbox `align-items: stretch` |
-| Stack (vertical spacing) | Flexbox column with `gap` |
-| Holy grail layout | CSS Grid 3-column + header/footer |
+| Layout need                      | Best approach                                   |
+| -------------------------------- | ----------------------------------------------- |
+| Side-by-side two columns         | Flexbox or Grid                                 |
+| Complex multi-area page          | CSS Grid with named areas                       |
+| Sticky sidebar + scrollable main | Grid with `position: sticky`                    |
+| Centered content with max-width  | Container utility                               |
+| Card grid (auto-fill)            | `grid-template-columns: repeat(auto-fill, ...)` |
+| Equal-height columns             | Flexbox `align-items: stretch`                  |
+| Stack (vertical spacing)         | Flexbox column with `gap`                       |
+| Holy grail layout                | CSS Grid 3-column + header/footer               |
 
 ### Step 3 — Generate the Layout Code
 
 #### Plain CSS Examples
 
 **Sidebar + Main (sticky sidebar):**
+
 ```css
 .page-layout {
   display: grid;
@@ -76,9 +78,20 @@ Identify the appropriate CSS strategy:
   gap: 0;
 }
 
-.header  { grid-area: header; }
-.sidebar { grid-area: sidebar; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
-.main    { grid-area: main; padding: 1.5rem; }
+.header {
+  grid-area: header;
+}
+.sidebar {
+  grid-area: sidebar;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+.main {
+  grid-area: main;
+  padding: 1.5rem;
+}
 
 @media (max-width: 768px) {
   .page-layout {
@@ -87,11 +100,14 @@ Identify the appropriate CSS strategy:
       "header"
       "main";
   }
-  .sidebar { display: none; } /* or slide-over — see below */
+  .sidebar {
+    display: none;
+  } /* or slide-over — see below */
 }
 ```
 
 **Responsive Card Grid:**
+
 ```css
 .card-grid {
   display: grid;
@@ -102,6 +118,7 @@ Identify the appropriate CSS strategy:
 ```
 
 **Centered Content Container:**
+
 ```css
 .container {
   width: 100%;
@@ -112,6 +129,7 @@ Identify the appropriate CSS strategy:
 ```
 
 **Sticky Header + Scrollable Content:**
+
 ```css
 .app-shell {
   display: grid;
@@ -135,10 +153,13 @@ Identify the appropriate CSS strategy:
 #### Tailwind CSS Examples
 
 **Sidebar + Main:**
+
 ```html
 <div class="flex h-screen overflow-hidden">
   <!-- Sidebar -->
-  <aside class="w-64 shrink-0 overflow-y-auto border-r bg-white lg:block hidden">
+  <aside
+    class="w-64 shrink-0 overflow-y-auto border-r bg-white lg:block hidden"
+  >
     <!-- nav items -->
   </aside>
   <!-- Main -->
@@ -149,13 +170,17 @@ Identify the appropriate CSS strategy:
 ```
 
 **Responsive Card Grid:**
+
 ```html
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-6">
+<div
+  class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-6"
+>
   <!-- cards -->
 </div>
 ```
 
 **Centered container with padding:**
+
 ```html
 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
   <!-- content -->
@@ -163,8 +188,11 @@ Identify the appropriate CSS strategy:
 ```
 
 **Holy Grail Layout:**
+
 ```html
-<div class="grid min-h-screen grid-rows-[auto_1fr_auto] grid-cols-[auto_1fr_auto]">
+<div
+  class="grid min-h-screen grid-rows-[auto_1fr_auto] grid-cols-[auto_1fr_auto]"
+>
   <header class="col-span-3 ...">Header</header>
   <nav class="row-start-2 w-48 ...">Left Nav</nav>
   <main class="row-start-2 min-w-0 p-6">Main Content</main>
@@ -176,6 +204,7 @@ Identify the appropriate CSS strategy:
 ### Step 4 — Explain the Key Decisions
 
 For each layout, explain:
+
 - Why Grid vs. Flexbox was chosen
 - How the responsive behavior is handled
 - What `min-width: 0` or `min-height: 0` fixes (overflow in grid items)

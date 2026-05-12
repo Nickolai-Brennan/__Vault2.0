@@ -36,6 +36,7 @@ blameless postmortem that helps teams learn and prevent recurrence.
 ### Step 1 — Gather Raw Material
 
 Collect from the user:
+
 1. **Incident summary:** What broke? What was impacted? How long?
 2. **Timeline:** Ordered events with timestamps (approximate is fine)
 3. **Root cause:** The underlying reason(s) the incident occurred
@@ -49,6 +50,7 @@ If a Slack/PagerDuty/OpsGenie thread is available, offer to extract the timeline
 ### Step 2 — Apply Blameless Framing
 
 Postmortems should:
+
 - Focus on **systems and processes**, not individuals
 - Ask "why did the system allow this?" not "why did [person] do X?"
 - Identify **multiple contributing factors**, not a single root cause
@@ -67,9 +69,11 @@ Postmortems should:
 ---
 
 ## Summary
+
 [2–3 sentence summary: what broke, what was impacted, how long, how resolved]
 
 ## Impact
+
 - **Users affected:** [N users / % of traffic]
 - **Services affected:** [Service names]
 - **Duration:** [Start] → [End] ([N] hours total)
@@ -77,48 +81,54 @@ Postmortems should:
 
 ## Timeline
 
-| Time (UTC) | Event |
-|------------|-------|
-| HH:MM | [Event description] |
-| HH:MM | [Alert fired / person paged] |
-| HH:MM | [Investigation began] |
-| HH:MM | [Root cause identified] |
-| HH:MM | [Fix deployed] |
-| HH:MM | [Incident resolved] |
+| Time (UTC) | Event                        |
+| ---------- | ---------------------------- |
+| HH:MM      | [Event description]          |
+| HH:MM      | [Alert fired / person paged] |
+| HH:MM      | [Investigation began]        |
+| HH:MM      | [Root cause identified]      |
+| HH:MM      | [Fix deployed]               |
+| HH:MM      | [Incident resolved]          |
 
 ## Root Cause Analysis
 
 ### Primary Cause
+
 [What was the direct technical cause?]
 
 ### Contributing Factors
+
 - [Factor 1 — e.g., monitoring gap]
 - [Factor 2 — e.g., insufficient testing of edge case]
 - [Factor 3 — e.g., manual process that was error-prone]
 
 ## What Went Well
+
 - [Thing 1 — e.g., quick detection via alerts]
 - [Thing 2 — e.g., team communication was clear]
 
 ## What Could Be Improved
+
 - [Improvement 1]
 - [Improvement 2]
 
 ## Action Items
 
-| Action | Owner | Priority | Due Date |
-|--------|-------|----------|----------|
-| [Preventive action] | @person | P[0-3] | [Date] |
-| [Detection improvement] | @person | P[0-3] | [Date] |
-| [Process change] | @person | P[0-3] | [Date] |
+| Action                  | Owner   | Priority | Due Date |
+| ----------------------- | ------- | -------- | -------- |
+| [Preventive action]     | @person | P[0-3]   | [Date]   |
+| [Detection improvement] | @person | P[0-3]   | [Date]   |
+| [Process change]        | @person | P[0-3]   | [Date]   |
 
 ## Lessons Learned
+
 [2–3 sentences on key takeaways for the team and organization]
 ```
 
 ### Step 4 — Review for Tone
 
 Check that the document:
+
 - Uses neutral, blameless language throughout
 - Does not name individuals as causes (names OK in "who investigated" contexts)
 - Is specific enough to be useful for prevention

@@ -7,9 +7,11 @@ phase: MVP|PRODUCTION
 # Prompt: Documentation Builder
 
 ## Objective
+
 Generate complete technical documentation (README, API reference, architecture doc, runbook) from existing project artifacts.
 
 ## Context Requirements
+
 - `openapi_spec.yaml` from WF-06
 - `erd_description.md` from WF-07
 - `service_layer_design.md` from WF-06
@@ -37,6 +39,7 @@ Complete the following:
 # README.md
 
 ## Quick Start
+
 1. Clone the repo: `git clone <repo-url>`
 2. Install dependencies: `npm install`
 3. Configure environment: copy `.env.example` to `.env`
@@ -45,11 +48,13 @@ Complete the following:
 ```
 
 ## Quality Checks
+
 - [ ] README setup completes in ≤5 steps on a clean machine
 - [ ] Every API endpoint documented with request and response examples
 - [ ] Runbook includes rollback steps for every deployment action
 - [ ] No placeholder text (`[TODO]`, `[TBD]`) in final output
 
 ## Safety Rules
+
 - Never include real credentials, tokens, or connection strings in documentation
 - Use `.env.example` patterns for all environment variable references

@@ -4,21 +4,22 @@ Reference for the `stack-verifier` skill. Documents the required tool versions, 
 
 ## Required Tools
 
-| Tool | Minimum Version | Install command |
-|------|----------------|-----------------|
-| Node.js | 18.x | `nvm install 18` or https://nodejs.org |
-| npm | 9.x | Bundled with Node.js |
-| Python | 3.11 | `pyenv install 3.11` or https://python.org |
-| pip | 23.x | `python -m pip install --upgrade pip` |
-| Docker | 24.x | https://docs.docker.com/get-docker |
-| Git | 2.x | https://git-scm.com |
-| PostgreSQL client | 14.x | `brew install postgresql` (local dev only) |
+| Tool              | Minimum Version | Install command                            |
+| ----------------- | --------------- | ------------------------------------------ |
+| Node.js           | 18.x            | `nvm install 18` or https://nodejs.org     |
+| npm               | 9.x             | Bundled with Node.js                       |
+| Python            | 3.11            | `pyenv install 3.11` or https://python.org |
+| pip               | 23.x            | `python -m pip install --upgrade pip`      |
+| Docker            | 24.x            | https://docs.docker.com/get-docker         |
+| Git               | 2.x             | https://git-scm.com                        |
+| PostgreSQL client | 14.x            | `brew install postgresql` (local dev only) |
 
 ## Frontend Dependencies
 
 Verify with: `cd frontend && npm ls`
 
 Required packages (from `frontend/package.json`):
+
 - `react` ^18.x
 - `react-dom` ^18.x
 - `react-router-dom` ^6.x
@@ -31,6 +32,7 @@ Required packages (from `frontend/package.json`):
 Verify with: `pip list | grep -E "fastapi|sqlalchemy|alembic|pydantic"`
 
 Required packages (from `backend/requirements.txt`):
+
 - `fastapi` >=0.110
 - `uvicorn[standard]` >=0.27
 - `sqlalchemy[asyncio]` >=2.0
@@ -67,10 +69,10 @@ CORS_ORIGINS=          # Comma-separated allowed origins
 
 ## Common Issues
 
-| Issue | Likely cause | Fix |
-|-------|-------------|-----|
-| `ModuleNotFoundError` | Missing Python dep | `pip install -r requirements.txt` |
-| `Cannot find module` | Missing npm dep | `npm install` in `frontend/` |
-| Database connection refused | DB not running | Start Docker: `docker compose up db -d` |
-| Alembic: "Can't locate revision" | Migrations out of sync | `alembic stamp head` (dev only) |
-| CORS error in browser | CORS_ORIGINS not set | Add frontend URL to `CORS_ORIGINS` in `.env` |
+| Issue                            | Likely cause           | Fix                                          |
+| -------------------------------- | ---------------------- | -------------------------------------------- |
+| `ModuleNotFoundError`            | Missing Python dep     | `pip install -r requirements.txt`            |
+| `Cannot find module`             | Missing npm dep        | `npm install` in `frontend/`                 |
+| Database connection refused      | DB not running         | Start Docker: `docker compose up db -d`      |
+| Alembic: "Can't locate revision" | Migrations out of sync | `alembic stamp head` (dev only)              |
+| CORS error in browser            | CORS_ORIGINS not set   | Add frontend URL to `CORS_ORIGINS` in `.env` |

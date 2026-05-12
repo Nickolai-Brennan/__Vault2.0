@@ -5,9 +5,11 @@
 ---
 
 ## Purpose
+
 Design and document REST endpoints and GraphQL schema for DZIRE_v1.
 
 ## Stack
+
 - REST: FastAPI routes under `/api/v1/`
 - GraphQL: Strawberry (`/graphql`)
 - Contracts: Pydantic v2 schemas
@@ -38,6 +40,7 @@ Design and document REST endpoints and GraphQL schema for DZIRE_v1.
    ```
 
 ## Outputs
+
 - REST endpoint contracts
 - GraphQL type definitions
 - OpenAPI docs

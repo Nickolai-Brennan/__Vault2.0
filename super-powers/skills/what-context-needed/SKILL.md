@@ -1,6 +1,6 @@
 ---
 name: what-context-needed
-description: 'Ask Copilot what files it needs to see before answering a question'
+description: "Ask Copilot what files it needs to see before answering a question"
 ---
 
 # What Context Do You Need?
@@ -24,22 +24,26 @@ Before answering my question, tell me what files you need to see.
 ## Files I Need
 
 ### Must See (required for accurate answer)
+
 - `path/to/file.ts` — [why needed]
 
 ### Should See (helpful for complete answer)
+
 - `path/to/file.ts` — [why helpful]
 
 ### Already Have
+
 - `path/to/file.ts` — [from earlier in conversation]
 
 ### Uncertainties
+
 - [What I'm not sure about without seeing the code]
 ```
 
 After I provide these files, I'll ask my question again.
 
-
 ## References
+
 - [AI Agent Architecture](../../references/ai-agent-architecture.md)
 - [Prompt Engineering Guide](../../references/prompt-engineering-guide.md)
 - [Global AI Instructions](../../instructions/global-ai-instructions.md)

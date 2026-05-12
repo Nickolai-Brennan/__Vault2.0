@@ -13,15 +13,15 @@ Use this template when initializing a **Desktop App** project (Electron, Tauri, 
 
 ## Section 2: Basic Identity
 
-| Field | Value |
-|-------|-------|
-| **Project Name** | |
-| **Tagline** (one sentence) | |
-| **Version / Phase** | `prototype` · `mvp` · `production` |
-| **Status** | `active` · `on-hold` · `archived` |
-| **Owner / Team** | |
-| **Created** | YYYY-MM-DD |
-| **Last Updated** | YYYY-MM-DD |
+| Field                      | Value                              |
+| -------------------------- | ---------------------------------- |
+| **Project Name**           |                                    |
+| **Tagline** (one sentence) |                                    |
+| **Version / Phase**        | `prototype` · `mvp` · `production` |
+| **Status**                 | `active` · `on-hold` · `archived`  |
+| **Owner / Team**           |                                    |
+| **Created**                | YYYY-MM-DD                         |
+| **Last Updated**           | YYYY-MM-DD                         |
 
 ---
 
@@ -66,12 +66,12 @@ Use this template when initializing a **Desktop App** project (Electron, Tauri, 
 ## Section 5: Technical Stack
 
 **5.1 — What OS platform(s) does this app target?**
-*(e.g. Windows only, macOS only, Linux, cross-platform)*
+_(e.g. Windows only, macOS only, Linux, cross-platform)_
 
 > **Answer**:
 
 **5.2 — What language and framework are used?**
-*(e.g. Electron/TypeScript, Tauri/Rust, Swift/AppKit, C#/WPF, Qt/C++)*
+_(e.g. Electron/TypeScript, Tauri/Rust, Swift/AppKit, C#/WPF, Qt/C++)_
 
 > **Answer**:
 
@@ -84,7 +84,7 @@ Use this template when initializing a **Desktop App** project (Electron, Tauri, 
 > **Answer**:
 
 **5.5 — What databases or local storage are used?**
-*(e.g. SQLite, LevelDB, IndexedDB, flat files)*
+_(e.g. SQLite, LevelDB, IndexedDB, flat files)_
 
 > **Answer**:
 
@@ -93,7 +93,7 @@ Use this template when initializing a **Desktop App** project (Electron, Tauri, 
 > **Answer**:
 
 **5.7 — What CI/CD and release tooling is used?**
-*(e.g. electron-builder, tauri-action, GitHub Actions, code signing)*
+_(e.g. electron-builder, tauri-action, GitHub Actions, code signing)_
 
 > **Answer**:
 
@@ -110,22 +110,22 @@ Use this template when initializing a **Desktop App** project (Electron, Tauri, 
 ## Section 6: Desktop-Specific Details
 
 **6.1 — What is the distribution channel?**
-*(e.g. direct download, Microsoft Store, Mac App Store, auto-update via Squirrel/Sparkle)*
+_(e.g. direct download, Microsoft Store, Mac App Store, auto-update via Squirrel/Sparkle)_
 
 > **Answer**:
 
 **6.2 — What OS version ranges are supported?**
-*(e.g. Windows 10+, macOS 12+)*
+_(e.g. Windows 10+, macOS 12+)_
 
 > **Answer**:
 
 **6.3 — Does the app require elevated privileges or OS-level integrations?**
-*(e.g. file system access, hardware peripherals, system tray, notifications)*
+_(e.g. file system access, hardware peripherals, system tray, notifications)_
 
 > **Answer**:
 
 **6.4 — What is the auto-update strategy?**
-*(e.g. built-in updater, manual download, silent background update)*
+_(e.g. built-in updater, manual download, silent background update)_
 
 > **Answer**:
 
@@ -168,7 +168,7 @@ Choose one: `true` · `false`
 > **Answer**:
 
 **8.2 — What architectural pattern does this app follow?**
-*(e.g. main/renderer process, MVC, MVVM, unidirectional data flow)*
+_(e.g. main/renderer process, MVC, MVVM, unidirectional data flow)_
 
 > **Answer**:
 
@@ -193,7 +193,7 @@ Choose one: `true` · `false`
 > **Answer**:
 
 **9.4 — What are the performance requirements?**
-*(e.g. "App startup < 3 s", "Memory footprint < 200 MB")*
+_(e.g. "App startup < 3 s", "Memory footprint < 200 MB")_
 
 > **Answer**:
 
@@ -213,8 +213,8 @@ Choose one: `true` · `false`
 
 ## Section 11: Related Files
 
-| File / URL | Purpose |
-|------------|---------|
+| File / URL  | Purpose          |
+| ----------- | ---------------- |
 | `README.md` | Project overview |
-| | |
-| | |
+|             |                  |
+|             |                  |

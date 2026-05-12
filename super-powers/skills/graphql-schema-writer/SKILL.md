@@ -37,6 +37,7 @@ proper typing, error handling, and authorization patterns.
 ### Step 1 — Understand the Data Model
 
 Ask for:
+
 1. **Entities:** What are the main types? (User, Post, Comment, Order)
 2. **Relationships:** How are types connected?
 3. **Operations:** Which queries, mutations, subscriptions are needed?
@@ -72,11 +73,7 @@ type User {
   email: String!
   name: String!
   role: UserRole!
-  posts(
-    status: PostStatus
-    limit: Int = 10
-    offset: Int = 0
-  ): PostConnection!
+  posts(status: PostStatus, limit: Int = 10, offset: Int = 0): PostConnection!
   createdAt: DateTime!
 }
 
@@ -93,16 +90,16 @@ type Post {
 
 # ── Pagination ──
 type PostConnection {
-  nodes:      [Post!]!
+  nodes: [Post!]!
   totalCount: Int!
-  pageInfo:   PageInfo!
+  pageInfo: PageInfo!
 }
 
 type PageInfo {
-  hasNextPage:     Boolean!
+  hasNextPage: Boolean!
   hasPreviousPage: Boolean!
-  startCursor:     String
-  endCursor:       String
+  startCursor: String
+  endCursor: String
 }
 
 # ── Errors ──
@@ -112,7 +109,7 @@ interface Error {
 
 type ValidationError implements Error {
   message: String!
-  field:   String!
+  field: String!
 }
 
 type NotFoundError implements Error {
@@ -121,16 +118,16 @@ type NotFoundError implements Error {
 
 # ── Input Types ──
 input CreatePostInput {
-  title:  String!
-  body:   String!
-  tags:   [String!]
+  title: String!
+  body: String!
+  tags: [String!]
   status: PostStatus = DRAFT
 }
 
 input UpdatePostInput {
-  title:  String
-  body:   String
-  tags:   [String!]
+  title: String
+  body: String
+  tags: [String!]
   status: PostStatus
 }
 
@@ -146,9 +143,9 @@ type Query {
   post(id: ID!): Post
   posts(
     authorId: ID
-    status:   PostStatus
-    limit:    Int = 20
-    offset:   Int = 0
+    status: PostStatus
+    limit: Int = 20
+    offset: Int = 0
   ): PostConnection!
 }
 
@@ -168,10 +165,15 @@ type Subscription {
 ### Step 3 — Write Resolvers
 
 **Apollo Server resolver map:**
+
 ```typescript
 // resolvers/index.ts
-import { Resolvers } from '../generated/graphql';
-import { AuthenticationError, ForbiddenError, UserInputError } from 'apollo-server-core';
+import { Resolvers } from "../generated/graphql";
+import {
+  AuthenticationError,
+  ForbiddenError,
+  UserInputError,
+} from "apollo-server-core";
 
 export const resolvers: Resolvers = {
   Query: {
@@ -192,24 +194,31 @@ export const resolvers: Resolvers = {
 
   Mutation: {
     createPost: async (_parent, { input }, ctx) => {
-      if (!ctx.user) throw new AuthenticationError('Login required');
+      if (!ctx.user) throw new AuthenticationError("Login required");
 
       const errors = validateCreatePost(input);
       if (errors.length > 0) {
-        return { __typename: 'ValidationError', message: errors[0].message, field: errors[0].field };
+        return {
+          __typename: "ValidationError",
+          message: errors[0].message,
+          field: errors[0].field,
+        };
       }
 
-      const post = await ctx.postService.create({ ...input, authorId: ctx.user.id });
-      return { __typename: 'Post', ...post };
+      const post = await ctx.postService.create({
+        ...input,
+        authorId: ctx.user.id,
+      });
+      return { __typename: "Post", ...post };
     },
 
     deletePost: async (_parent, { id }, ctx) => {
-      if (!ctx.user) throw new AuthenticationError('Login required');
+      if (!ctx.user) throw new AuthenticationError("Login required");
 
       const post = await ctx.postService.findById(id);
-      if (!post) throw new Error('Post not found');
-      if (post.authorId !== ctx.user.id && ctx.user.role !== 'ADMIN') {
-        throw new ForbiddenError('Not authorized');
+      if (!post) throw new Error("Post not found");
+      if (post.authorId !== ctx.user.id && ctx.user.role !== "ADMIN") {
+        throw new ForbiddenError("Not authorized");
       }
 
       await ctx.postService.delete(id);
@@ -219,7 +228,8 @@ export const resolvers: Resolvers = {
 
   Subscription: {
     postPublished: {
-      subscribe: (_parent, _args, ctx) => ctx.pubsub.asyncIterator('POST_PUBLISHED'),
+      subscribe: (_parent, _args, ctx) =>
+        ctx.pubsub.asyncIterator("POST_PUBLISHED"),
     },
   },
 
@@ -239,10 +249,10 @@ export const resolvers: Resolvers = {
 ```typescript
 // context.ts
 export interface Context {
-  user:        AuthUser | null;
+  user: AuthUser | null;
   userService: UserService;
   postService: PostService;
-  pubsub:      PubSub;
+  pubsub: PubSub;
 }
 
 // Apollo Server setup
@@ -250,7 +260,7 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: async ({ req }): Promise<Context> => {
-    const token = req.headers.authorization?.replace('Bearer ', '');
+    const token = req.headers.authorization?.replace("Bearer ", "");
     const user = token ? await verifyToken(token) : null;
     return { user, userService, postService, pubsub };
   },

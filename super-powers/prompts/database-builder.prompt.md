@@ -7,9 +7,11 @@ phase: PROTOTYPE|MVP|PRODUCTION
 # Prompt: Database Schema Builder
 
 ## Objective
+
 Design a normalized database schema from data model requirements, producing DDL SQL, an ERD description, and a migration strategy.
 
 ## Context Requirements
+
 - Entity list with attributes and relationships
 - Target database engine (PostgreSQL, MySQL, SQLite)
 - Volume estimates (row counts per table)
@@ -55,11 +57,13 @@ zero_downtime: true
 ```
 
 ## Quality Checks
+
 - [ ] All entities normalized to 3NF
 - [ ] Every foreign key has a corresponding index
 - [ ] DDL executes without errors on target engine
 - [ ] Rollback step defined for every migration version
 
 ## Safety Rules
+
 - Never include real connection strings or credentials in DDL files
 - Use placeholder schema names in examples (e.g., `public`)

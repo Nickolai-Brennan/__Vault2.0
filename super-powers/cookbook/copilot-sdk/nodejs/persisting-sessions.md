@@ -24,9 +24,9 @@ await client.start();
 
 // Create session with a memorable ID
 const session = await client.createSession({
-    onPermissionRequest: approveAll,
-    sessionId: "user-123-conversation",
-    model: "gpt-5",
+  onPermissionRequest: approveAll,
+  sessionId: "user-123-conversation",
+  model: "gpt-5",
 });
 
 await session.sendAndWait({ prompt: "Let's discuss TypeScript generics" });
@@ -46,7 +46,9 @@ const client = new CopilotClient();
 await client.start();
 
 // Resume the previous session
-const session = await client.resumeSession("user-123-conversation", { onPermissionRequest: approveAll });
+const session = await client.resumeSession("user-123-conversation", {
+  onPermissionRequest: approveAll,
+});
 
 // Previous context is restored
 await session.sendAndWait({ prompt: "What were we discussing?" });
@@ -81,7 +83,7 @@ Retrieve all messages from a session:
 ```typescript
 const messages = await session.getMessages();
 for (const msg of messages) {
-    console.log(`[${msg.type}]`, msg.data);
+  console.log(`[${msg.type}]`, msg.data);
 }
 ```
 

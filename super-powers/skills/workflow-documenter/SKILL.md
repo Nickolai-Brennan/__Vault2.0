@@ -38,6 +38,7 @@ runbooks that any team member can follow without the original author.
 ### Step 1 — Interview for the Process
 
 Ask the user to walk through the process. Prompt with:
+
 1. **What triggers this process?** (When does it start? What event or request causes it?)
 2. **Who performs it?** (Role, not name)
 3. **Step by step: what happens?** (Ask "then what?" after each step until complete)
@@ -48,16 +49,17 @@ Ask the user to walk through the process. Prompt with:
 
 ### Step 2 — Identify the Document Type
 
-| Type | When to use |
-|------|------------|
-| **SOP** | Repeatable business process, compliance-relevant, needs formal sign-off |
-| **Runbook** | Operational task for engineers, especially on-call scenarios |
-| **How-to guide** | Single task, more casual, knowledge-base article style |
-| **Process map** | Visual representation (see `architecture-diagram-generator` for Mermaid) |
+| Type             | When to use                                                              |
+| ---------------- | ------------------------------------------------------------------------ |
+| **SOP**          | Repeatable business process, compliance-relevant, needs formal sign-off  |
+| **Runbook**      | Operational task for engineers, especially on-call scenarios             |
+| **How-to guide** | Single task, more casual, knowledge-base article style                   |
+| **Process map**  | Visual representation (see `architecture-diagram-generator` for Mermaid) |
 
 ### Step 3 — Structure the Document
 
 **SOP Template:**
+
 ```markdown
 # [Process Name] — Standard Operating Procedure
 
@@ -71,14 +73,17 @@ Ask the user to walk through the process. Prompt with:
 ---
 
 ## Purpose
+
 [1–2 sentence description of what this process does and why it exists]
 
 ## Scope
+
 **Applies to:** [Who does this?]
 **Triggers:** [What event causes this process to start?]
 **Out of scope:** [What does this NOT cover?]
 
 ## Prerequisites
+
 - [ ] [Access/permission needed]
 - [ ] [Tool or system required]
 - [ ] [Knowledge assumed]
@@ -86,6 +91,7 @@ Ask the user to walk through the process. Prompt with:
 ## Procedure
 
 ### Step 1 — [Action Name]
+
 **Role:** [Who does this]
 **Tool:** [System/application]
 
@@ -94,26 +100,31 @@ Ask the user to walk through the process. Prompt with:
 **Verification:** [How do you know this step succeeded?]
 
 ### Step 2 — [Action Name]
+
 ...
 
 ## Decision Points
 
-| Condition | Action |
-|-----------|--------|
-| If [X] happens | Do [Y] |
-| If [error Z] | Escalate to [role] |
+| Condition      | Action             |
+| -------------- | ------------------ |
+| If [X] happens | Do [Y]             |
+| If [error Z]   | Escalate to [role] |
 
 ## Rollback / Recovery
+
 [What to do if the process fails partway through]
 
 ## Completion Criteria
+
 [How do you know the whole process is done?]
 
 ## Related Documents
+
 - [Link to related SOP or runbook]
 ```
 
 **Runbook Template:**
+
 ```markdown
 # [System/Scenario] Runbook
 
@@ -122,25 +133,32 @@ Ask the user to walk through the process. Prompt with:
 **On-call contact:** [Role or escalation path]
 
 ## Symptoms
+
 - [What the user/monitor reports]
 
 ## Quick Triage (5 minutes)
+
 1. [Check command]
 2. [Check command]
 
 ## Resolution Steps
+
 ### Option A — [Most likely fix]
+
 1. [Step]
 2. [Step]
-**Verify:** [How to confirm it worked]
+   **Verify:** [How to confirm it worked]
 
 ### Option B — [Alternative fix]
+
 ...
 
 ## Escalation
+
 If unresolved after [N] minutes: escalate to [role] via [channel]
 
 ## Post-Resolution
+
 - [ ] Update incident log
 - [ ] Notify [team]
 ```
@@ -148,6 +166,7 @@ If unresolved after [N] minutes: escalate to [role] via [channel]
 ### Step 4 — Fill in Detail
 
 For each step:
+
 - Write in imperative: "Click X", "Run Y", "Open Z" — not "You should click"
 - Include exact commands, menu paths, or UI descriptions
 - Note expected outputs so the user knows when they've done it right
@@ -156,6 +175,7 @@ For each step:
 ### Step 5 — Review for Completeness
 
 After drafting, verify:
+
 - Could a new team member follow this without asking questions?
 - Are all decision points handled?
 - Is there a failure/rollback path?

@@ -17,10 +17,13 @@ outputs:
 # Database Designer Skill
 
 ## Purpose
+
 Design a well-structured PostgreSQL schema with migrations, seeds, and indexes following the DZIRE_v1 database rules.
 
 ## When To Use
+
 Use this skill when the user asks to:
+
 - Create a new database table
 - Define relationships between tables
 - Write a migration
@@ -28,11 +31,13 @@ Use this skill when the user asks to:
 - Define database indexes
 
 ## Inputs
+
 - User request (entity or feature description)
 - Existing `database/schemas/` files
 - Stack: PostgreSQL on MotherDuck, Alembic, SQLAlchemy ORM
 
 ## Workflow
+
 1. Identify the entity and its attributes
 2. Define the SQL DDL with `id`, `created_at`, `updated_at` (required on all tables)
 3. Add foreign keys with `ON DELETE` behavior specified
@@ -42,6 +47,7 @@ Use this skill when the user asks to:
 7. Review against checklist
 
 ## Output Format
+
 ```
 database/
 ├── schemas/[entity].sql
@@ -51,6 +57,7 @@ database/
 ```
 
 ## Quality Checklist
+
 - [ ] Table has `id`, `created_at`, `updated_at`
 - [ ] snake_case naming throughout
 - [ ] Foreign keys have `ON DELETE` behavior
@@ -58,6 +65,7 @@ database/
 - [ ] Indexes defined in `database/indexes/`
 
 ## References
+
 - [`instructions/database.md`](../../instructions/database.md)
 - [`workflows/database-build.md`](../../workflows/database-build.md)
 - [Database Design Guide](../../references/database-design-guide.md)

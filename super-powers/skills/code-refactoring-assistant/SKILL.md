@@ -39,26 +39,28 @@ to maintain — without changing what the code does.
 ### Step 1 — Receive and Analyze the Code
 
 Accept:
+
 - A code snippet or file
 - A description of the refactoring goal ("too long", "duplicated", "hard to test")
 
 Identify which refactoring opportunities apply:
 
-| Smell | Refactoring pattern |
-|-------|-------------------|
-| Long function | Extract Function / Extract Method |
-| Deep nesting | Early Return / Guard Clauses |
-| Duplicated logic | Extract Helper / DRY |
-| Magic numbers/strings | Named Constants |
-| Long parameter list | Parameter Object / Config Object |
-| Complex boolean | Named Predicate Function |
-| Switch on type | Polymorphism / Strategy Pattern |
-| Unclear naming | Rename Variable / Function |
-| Dead code | Remove Dead Code |
+| Smell                 | Refactoring pattern               |
+| --------------------- | --------------------------------- |
+| Long function         | Extract Function / Extract Method |
+| Deep nesting          | Early Return / Guard Clauses      |
+| Duplicated logic      | Extract Helper / DRY              |
+| Magic numbers/strings | Named Constants                   |
+| Long parameter list   | Parameter Object / Config Object  |
+| Complex boolean       | Named Predicate Function          |
+| Switch on type        | Polymorphism / Strategy Pattern   |
+| Unclear naming        | Rename Variable / Function        |
+| Dead code             | Remove Dead Code                  |
 
 ### Step 2 — Plan Refactoring Steps
 
 List the changes to make, in order (smallest first):
+
 1. Rename variables for clarity
 2. Extract helpers / sub-functions
 3. Flatten nesting with early returns
@@ -72,6 +74,7 @@ Show the plan and confirm: "I'm going to make N changes. Want me to do all at on
 For each change, show **before → after** side by side where possible.
 
 Rules to follow:
+
 - **One refactoring at a time** for complex changes — don't mix rename + extract + restructure in one pass
 - **Preserve behavior** — no new logic, no changed conditionals (unless simplifying equivalent boolean)
 - **Keep tests green** — note if any test names or imports may need updating
@@ -80,12 +83,14 @@ Rules to follow:
 ### Step 4 — Highlight Risks
 
 Flag any change that:
+
 - Renames a public function/method (callers need updating)
 - Changes a function signature
 - Moves code to a new file (imports need updating)
 - Could affect memoization, closures, or side-effect ordering
 
 Format risk flags as:
+
 > ⚠️ `calculateTotal` is exported — update all call sites after renaming.
 
 ### Step 5 — Present the Final Result

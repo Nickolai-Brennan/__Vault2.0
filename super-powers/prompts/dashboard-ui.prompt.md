@@ -7,9 +7,11 @@ phase: PROTOTYPE|MVP
 # Prompt: Dashboard UI Designer
 
 ## Objective
+
 Design a complete dashboard UI specification including layout, components, and data bindings from KPIs and visualization specs.
 
 ## Context Requirements
+
 - Visualization specs (`visualization_specs.md`) from WF-05
 - KPI list with chart types and data sources
 - Branding guidelines or style constraints (if any)
@@ -52,11 +54,13 @@ dashboard:
 ```
 
 ## Quality Checks
+
 - [ ] Every KPI from `visualization_specs.md` is assigned to a component
 - [ ] Each component has a named data source endpoint
 - [ ] Responsive breakpoints defined for all three standard widths
 - [ ] Accessibility note included (WCAG 2.1 AA target)
 
 ## Safety Rules
+
 - Never include real API keys or auth tokens in component definitions
 - Flag any PII fields displayed on the dashboard for review

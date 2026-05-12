@@ -13,8 +13,8 @@ copilot plugin install phoenix@awesome-copilot
 
 ### Skills
 
-| Skill | Description |
-|-------|-------------|
-| `phoenix-cli` | Debug LLM applications using the Phoenix CLI. Fetch traces, analyze errors, review experiments, inspect datasets, and query the GraphQL API. |
-| `phoenix-evals` | Build and run evaluators for AI/LLM applications using Phoenix. |
-| `phoenix-tracing` | OpenInference semantic conventions and instrumentation for Phoenix AI observability. |
+| Skill             | Description                                                                                                                                  |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `phoenix-cli`     | Debug LLM applications using the Phoenix CLI. Fetch traces, analyze errors, review experiments, inspect datasets, and query the GraphQL API. |
+| `phoenix-evals`   | Build and run evaluators for AI/LLM applications using Phoenix.                                                                              |
+| `phoenix-tracing` | OpenInference semantic conventions and instrumentation for Phoenix AI observability.                                                         |

@@ -13,15 +13,15 @@ Use this template when initializing a **CLI Tool** project (command-line utility
 
 ## Section 2: Basic Identity
 
-| Field | Value |
-|-------|-------|
-| **Project Name** | |
-| **Tagline** (one sentence) | |
-| **Version / Phase** | `prototype` · `mvp` · `production` |
-| **Status** | `active` · `on-hold` · `archived` |
-| **Owner / Team** | |
-| **Created** | YYYY-MM-DD |
-| **Last Updated** | YYYY-MM-DD |
+| Field                      | Value                              |
+| -------------------------- | ---------------------------------- |
+| **Project Name**           |                                    |
+| **Tagline** (one sentence) |                                    |
+| **Version / Phase**        | `prototype` · `mvp` · `production` |
+| **Status**                 | `active` · `on-hold` · `archived`  |
+| **Owner / Team**           |                                    |
+| **Created**                | YYYY-MM-DD                         |
+| **Last Updated**           | YYYY-MM-DD                         |
 
 ---
 
@@ -46,7 +46,7 @@ Use this template when initializing a **CLI Tool** project (command-line utility
 ## Section 4: Audience
 
 **4.1 — Who are the primary users of this CLI tool?**
-*(e.g. developers, DevOps engineers, data engineers, end users via terminal)*
+_(e.g. developers, DevOps engineers, data engineers, end users via terminal)_
 
 > **Answer**:
 
@@ -59,7 +59,7 @@ Use this template when initializing a **CLI Tool** project (command-line utility
 > **Answer**:
 
 **4.4 — What is the expected install / usage scale?**
-*(e.g. "50 internal developers", "open source with 10,000 downloads/month")*
+_(e.g. "50 internal developers", "open source with 10,000 downloads/month")_
 
 > **Answer**:
 
@@ -72,22 +72,22 @@ Use this template when initializing a **CLI Tool** project (command-line utility
 > **Answer**:
 
 **5.2 — What CLI framework or argument parsing library is used?**
-*(e.g. Click, Typer, Cobra, clap, Commander.js, argparse, oclif)*
+_(e.g. Click, Typer, Cobra, clap, Commander.js, argparse, oclif)_
 
 > **Answer**:
 
 **5.3 — What output formatting library is used, if any?**
-*(e.g. Rich, Chalk, Ink, lipgloss, tables)*
+_(e.g. Rich, Chalk, Ink, lipgloss, tables)_
 
 > **Answer**:
 
 **5.4 — Does the tool interact with external APIs or services?**
-*(e.g. GitHub API, AWS SDK, database connections)*
+_(e.g. GitHub API, AWS SDK, database connections)_
 
 > **Answer**:
 
 **5.5 — What configuration and secrets management approach is used?**
-*(e.g. dotenv, config files, OS keychain, environment variables)*
+_(e.g. dotenv, config files, OS keychain, environment variables)_
 
 > **Answer**:
 
@@ -96,7 +96,7 @@ Use this template when initializing a **CLI Tool** project (command-line utility
 > **Answer**:
 
 **5.7 — What CI/CD and release tooling is used?**
-*(e.g. GitHub Actions, GoReleaser, PyPI publish, Homebrew tap)*
+_(e.g. GitHub Actions, GoReleaser, PyPI publish, Homebrew tap)_
 
 > **Answer**:
 
@@ -105,37 +105,37 @@ Use this template when initializing a **CLI Tool** project (command-line utility
 ## Section 6: CLI Design
 
 **6.1 — What is the tool's binary / command name?**
-*(e.g. `mytool`, `vault`)*
+_(e.g. `mytool`, `vault`)_
 
 > **Answer**:
 
 **6.2 — What are the primary commands or subcommands?**
-*(e.g. `init`, `run`, `list`, `delete`)*
+_(e.g. `init`, `run`, `list`, `delete`)_
 
 > **Answer**:
 
 **6.3 — What are the primary flags or options?**
-*(e.g. `--output`, `--verbose`, `--config`)*
+_(e.g. `--output`, `--verbose`, `--config`)_
 
 > **Answer**:
 
 **6.4 — What input modes does the tool support?**
-*(e.g. positional arguments, stdin piping, interactive prompts)*
+_(e.g. positional arguments, stdin piping, interactive prompts)_
 
 > **Answer**:
 
 **6.5 — What output formats does the tool support?**
-*(e.g. plain text, JSON, YAML, table, color-coded)*
+_(e.g. plain text, JSON, YAML, table, color-coded)_
 
 > **Answer**:
 
 **6.6 — How is the tool installed and distributed?**
-*(e.g. `pip install`, `npm install -g`, `brew install`, binary release, shell script)*
+_(e.g. `pip install`, `npm install -g`, `brew install`, binary release, shell script)_
 
 > **Answer**:
 
 **6.7 — What shell completion is supported?**
-*(e.g. bash, zsh, fish, none)*
+_(e.g. bash, zsh, fish, none)_
 
 > **Answer**:
 
@@ -174,7 +174,7 @@ Choose one: `true` · `false`
 > **Answer**:
 
 **8.2 — What architectural pattern does this tool follow?**
-*(e.g. single binary, plugin system, config-driven, pipe-friendly)*
+_(e.g. single binary, plugin system, config-driven, pipe-friendly)_
 
 > **Answer**:
 
@@ -199,12 +199,12 @@ Choose one: `true` · `false`
 > **Answer**:
 
 **9.4 — What are the performance requirements?**
-*(e.g. "Startup time < 200 ms", "Processes 1M lines in < 30 s")*
+_(e.g. "Startup time < 200 ms", "Processes 1M lines in < 30 s")_
 
 > **Answer**:
 
 **9.5 — What OS and shell environments must be supported?**
-*(e.g. Linux, macOS, Windows; bash, zsh, PowerShell)*
+_(e.g. Linux, macOS, Windows; bash, zsh, PowerShell)_
 
 > **Answer**:
 
@@ -220,9 +220,9 @@ Choose one: `true` · `false`
 
 ## Section 11: Related Files
 
-| File / URL | Purpose |
-|------------|---------|
-| `README.md` | Project overview and usage |
-| `CHANGELOG.md` | Release history |
-| | |
-| | |
+| File / URL     | Purpose                    |
+| -------------- | -------------------------- |
+| `README.md`    | Project overview and usage |
+| `CHANGELOG.md` | Release history            |
+|                |                            |
+|                |                            |

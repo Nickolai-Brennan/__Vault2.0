@@ -37,6 +37,7 @@ tests, and regression risks — before a line of test code is written.
 ### Step 1 — Understand What's Being Tested
 
 Collect from the user:
+
 1. **Feature or system description:** What does it do?
 2. **User flows:** Who uses this and how?
 3. **Tech context:** API, UI, backend service, CLI tool?
@@ -47,18 +48,19 @@ Collect from the user:
 
 Identify the testing layers needed:
 
-| Layer | When to include |
-|-------|----------------|
-| **Unit tests** | Functions with complex logic, edge cases |
-| **Integration tests** | DB interactions, service-to-service calls |
-| **API / contract tests** | Every endpoint's request/response contract |
-| **End-to-end (E2E)** | Critical user journeys |
-| **Negative tests** | Invalid inputs, unauthorized access, missing fields |
-| **Performance tests** | High-traffic paths, heavy data operations |
+| Layer                    | When to include                                     |
+| ------------------------ | --------------------------------------------------- |
+| **Unit tests**           | Functions with complex logic, edge cases            |
+| **Integration tests**    | DB interactions, service-to-service calls           |
+| **API / contract tests** | Every endpoint's request/response contract          |
+| **End-to-end (E2E)**     | Critical user journeys                              |
+| **Negative tests**       | Invalid inputs, unauthorized access, missing fields |
+| **Performance tests**    | High-traffic paths, heavy data operations           |
 
 ### Step 3 — Generate Test Cases
 
 For each area, produce test cases with:
+
 - **ID:** TC-001, TC-002, etc.
 - **Description:** What is being tested
 - **Preconditions:** Setup required
@@ -80,6 +82,7 @@ For each area, produce test cases with:
 ---
 
 ## Test Environment
+
 - [ ] Development / Staging / Production (check the appropriate env)
 - **Required data:** [Seeded users, specific DB state, etc.]
 - **Dependencies:** [External services, third-party APIs]
@@ -87,37 +90,44 @@ For each area, produce test cases with:
 ## Test Scenarios
 
 ### 1. Happy Path — [Main Flow Name]
-| ID | Test Case | Input | Expected Result | Priority |
-|----|-----------|-------|----------------|----------|
-| TC-001 | Successful login with valid credentials | email: valid, password: correct | Returns 200 + JWT token | P0 |
-| TC-002 | ... | ... | ... | ... |
+
+| ID     | Test Case                               | Input                           | Expected Result         | Priority |
+| ------ | --------------------------------------- | ------------------------------- | ----------------------- | -------- |
+| TC-001 | Successful login with valid credentials | email: valid, password: correct | Returns 200 + JWT token | P0       |
+| TC-002 | ...                                     | ...                             | ...                     | ...      |
 
 ### 2. Edge Cases
-| ID | Test Case | Input | Expected Result | Priority |
-|----|-----------|-------|----------------|----------|
-| TC-010 | Login with email containing uppercase | EMAIL@EXAMPLE.COM | Should work (case-insensitive) | P1 |
+
+| ID     | Test Case                             | Input             | Expected Result                | Priority |
+| ------ | ------------------------------------- | ----------------- | ------------------------------ | -------- |
+| TC-010 | Login with email containing uppercase | EMAIL@EXAMPLE.COM | Should work (case-insensitive) | P1       |
 
 ### 3. Negative / Error Cases
-| ID | Test Case | Input | Expected Result | Priority |
-|----|-----------|-------|----------------|----------|
-| TC-020 | Login with wrong password | valid email, wrong password | Returns 401, generic error (no info leak) | P0 |
-| TC-021 | Login with missing email field | no email, valid password | Returns 400 with field validation error | P1 |
+
+| ID     | Test Case                      | Input                       | Expected Result                           | Priority |
+| ------ | ------------------------------ | --------------------------- | ----------------------------------------- | -------- |
+| TC-020 | Login with wrong password      | valid email, wrong password | Returns 401, generic error (no info leak) | P0       |
+| TC-021 | Login with missing email field | no email, valid password    | Returns 400 with field validation error   | P1       |
 
 ### 4. Security Tests
-| ID | Test Case | Input | Expected Result | Priority |
-|----|-----------|-------|----------------|----------|
-| TC-030 | SQL injection in login form | `' OR 1=1--` in email field | Should return 400, no data exposed | P0 |
+
+| ID     | Test Case                   | Input                       | Expected Result                    | Priority |
+| ------ | --------------------------- | --------------------------- | ---------------------------------- | -------- |
+| TC-030 | SQL injection in login form | `' OR 1=1--` in email field | Should return 400, no data exposed | P0       |
 
 ### 5. Performance Tests (if applicable)
-| Scenario | Load | Acceptable threshold |
-|----------|------|---------------------|
-| Login endpoint under load | 100 concurrent requests | <500ms p99 |
+
+| Scenario                  | Load                    | Acceptable threshold |
+| ------------------------- | ----------------------- | -------------------- |
+| Login endpoint under load | 100 concurrent requests | <500ms p99           |
 
 ## Regression Risk Areas
+
 - [Area 1 that might break from this change]
 - [Area 2]
 
 ## Test Execution Checklist
+
 - [ ] All P0 test cases pass
 - [ ] All P1 test cases pass or risk accepted
 - [ ] No regression in [related feature]

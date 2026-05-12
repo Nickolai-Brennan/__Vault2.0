@@ -37,6 +37,7 @@ vulnerabilities before they reach production.
 ### Step 1 — Receive Input
 
 Accept:
+
 - Code files or snippets
 - API endpoint descriptions or OpenAPI specs
 - Architecture diagrams or system descriptions
@@ -49,6 +50,7 @@ Ask: "What type of review? (Web API / Auth flow / Data handling / File uploads /
 Apply the appropriate OWASP-based checklist for the input type:
 
 #### Web API Security Checklist
+
 - [ ] Authentication required on all non-public endpoints
 - [ ] Authorization checked at the resource level (not just route)
 - [ ] Input validation on all user-supplied data
@@ -61,6 +63,7 @@ Apply the appropriate OWASP-based checklist for the input type:
 - [ ] Error messages don't leak internal details to clients
 
 #### Authentication / Auth Flow Checklist
+
 - [ ] Passwords hashed with bcrypt/argon2 (not MD5/SHA1)
 - [ ] Brute force protection (rate limiting on auth endpoints)
 - [ ] Secure session management (httpOnly, Secure, SameSite cookies)
@@ -70,6 +73,7 @@ Apply the appropriate OWASP-based checklist for the input type:
 - [ ] Password reset flows protected against account enumeration
 
 #### Data Handling Checklist
+
 - [ ] PII identified and minimized
 - [ ] Data encrypted at rest and in transit
 - [ ] Database credentials stored in environment variables (not code)
@@ -77,6 +81,7 @@ Apply the appropriate OWASP-based checklist for the input type:
 - [ ] Data retention policies defined
 
 #### File Upload Checklist
+
 - [ ] File type validated (not just extension — check MIME type)
 - [ ] File size limits enforced
 - [ ] Files stored outside webroot (not directly served)
@@ -86,6 +91,7 @@ Apply the appropriate OWASP-based checklist for the input type:
 ### Step 3 — Assess Each Item
 
 For each checklist item, mark:
+
 - ✅ **Pass** — implemented correctly
 - ❌ **Fail** — issue found (with specific code reference)
 - ⚠️ **Warning** — partial or unclear implementation
@@ -95,13 +101,17 @@ For each checklist item, mark:
 
 ```markdown
 ## Security Review Report — [Feature/File Name]
+
 _Date: [YYYY-MM-DD] | Reviewer: AI | Scope: [What was reviewed]_
 
 ### Summary
+
 - ❌ Critical: N | ⚠️ High: N | 🔶 Medium: N | ℹ️ Low: N
 
 ### Critical Findings
+
 #### ❌ SQL Injection Risk
+
 **Location:** `src/api/users.js:42`
 **Issue:** Raw string concatenation in SQL query
 **Code:** `db.query("SELECT * FROM users WHERE id=" + req.params.id)`
@@ -109,16 +119,19 @@ _Date: [YYYY-MM-DD] | Reviewer: AI | Scope: [What was reviewed]_
 **Priority:** Patch before next release
 
 ### Checklist Results
-| Item | Status | Notes |
-|------|--------|-------|
-| Input validation | ❌ | See SQL injection finding above |
-| Auth on all routes | ✅ | Middleware applied globally |
+
+| Item               | Status | Notes                           |
+| ------------------ | ------ | ------------------------------- |
+| Input validation   | ❌     | See SQL injection finding above |
+| Auth on all routes | ✅     | Middleware applied globally     |
+
 ...
 
 ### Remediation Plan
+
 1. [Critical] Fix SQL injection in users endpoint
 2. [High] Add rate limiting to /auth/login
-3. [Medium] Restrict CORS from * to allowed origins
+3. [Medium] Restrict CORS from \* to allowed origins
 ```
 
 ---

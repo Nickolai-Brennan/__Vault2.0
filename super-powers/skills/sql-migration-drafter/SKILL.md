@@ -37,6 +37,7 @@ and zero-downtime strategies for production-critical changes.
 ### Step 1 — Understand the Change
 
 Ask the user:
+
 1. **What change is needed?** (Add column / remove column / add index / rename / change type)
 2. **Which database?** (PostgreSQL, MySQL, SQLite — syntax differs)
 3. **Is this table live in production?** (Affects zero-downtime strategy)
@@ -48,6 +49,7 @@ Ask the user:
 For each change type, apply the appropriate safe pattern:
 
 #### Adding a Column
+
 ```sql
 -- Safe: Add nullable first, backfill, then add constraint
 ALTER TABLE users ADD COLUMN phone_number VARCHAR(20);
@@ -58,6 +60,7 @@ ALTER TABLE users ALTER COLUMN phone_number SET NOT NULL;
 ```
 
 #### Removing a Column
+
 ```sql
 -- Step 1: Stop writing to the column in app code (deploy first)
 -- Step 2 (separate migration): Drop the column
@@ -65,12 +68,14 @@ ALTER TABLE users DROP COLUMN legacy_field;
 ```
 
 #### Adding an Index (Zero-Downtime for PostgreSQL)
+
 ```sql
 -- PostgreSQL: Use CONCURRENTLY to avoid table lock
 CREATE INDEX CONCURRENTLY idx_users_email ON users(email);
 ```
 
 #### Renaming a Column (Zero-Downtime)
+
 ```sql
 -- Never rename directly in production with active queries
 -- Step 1: Add new column, migrate data
@@ -82,6 +87,7 @@ ALTER TABLE users DROP COLUMN last_name;
 ```
 
 #### Changing Column Type
+
 ```sql
 -- Always test with USING clause to handle type conversion
 ALTER TABLE events ALTER COLUMN event_date TYPE TIMESTAMP
@@ -139,6 +145,7 @@ END $$;
 ### Step 5 — Flag Large Table Warnings
 
 If the table is large (>1M rows) and the migration involves:
+
 - Adding NOT NULL column with default → warn about table rewrite
 - Regular index creation → recommend CONCURRENTLY (PostgreSQL)
 - Column type change → recommend testing on a copy first
@@ -147,7 +154,7 @@ If the table is large (>1M rows) and the migration involves:
 
 ## Output Format
 
-```
+````
 ## Migration: [name]
 
 **Type:** [add column / add index / etc.]
@@ -168,7 +175,7 @@ If the table is large (>1M rows) and the migration involves:
 ### Testing Steps
 1. [Verify step]
 2. [Verify step]
-```
+````
 
 ---
 

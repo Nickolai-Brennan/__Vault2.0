@@ -36,6 +36,7 @@ actually does what it's supposed to do.
 ### Step 1 — Understand the Skill or Prompt
 
 Ask the user for:
+
 1. **The skill or prompt:** What does it do? What's the expected behavior?
 2. **Inputs:** What kinds of inputs will it receive?
 3. **Outputs:** What does a good output look like?
@@ -46,12 +47,12 @@ Ask the user for:
 
 Plan eval coverage across these dimensions:
 
-| Dimension | Description |
-|-----------|-------------|
-| **Happy path** | Normal, well-formed input → correct output |
-| **Edge cases** | Unusual but valid inputs the skill should handle |
-| **Failure modes** | Inputs the skill should gracefully decline or flag |
-| **Adversarial** | Inputs designed to confuse or misuse the skill |
+| Dimension           | Description                                                   |
+| ------------------- | ------------------------------------------------------------- |
+| **Happy path**      | Normal, well-formed input → correct output                    |
+| **Edge cases**      | Unusual but valid inputs the skill should handle              |
+| **Failure modes**   | Inputs the skill should gracefully decline or flag            |
+| **Adversarial**     | Inputs designed to confuse or misuse the skill                |
 | **Format variants** | Different input formats that should produce consistent output |
 
 Aim for 3–7 evals. More is better for high-stakes skills; fewer for simple ones.
@@ -71,6 +72,7 @@ For each test case:
 ### Step 4 — Identify Edge Cases
 
 Suggest at least 2 edge cases per skill:
+
 - What if the input is empty or malformed?
 - What if the user asks for something outside the skill's scope?
 - What if there's ambiguity about what the user wants?
@@ -94,6 +96,7 @@ Suggest at least 2 edge cases per skill:
 ### Step 6 — Recommend Assertion Strategy (Optional)
 
 If the user wants to automate eval checking, suggest assertion types:
+
 - **Exact match:** For deterministic outputs (JSON schemas, fixed templates)
 - **Contains:** For outputs that must include specific phrases or sections
 - **LLM judge:** For subjective quality assessments ("Does this sound professional?")

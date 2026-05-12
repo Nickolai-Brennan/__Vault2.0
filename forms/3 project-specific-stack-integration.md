@@ -1400,3 +1400,4 @@ STEP 2 BUILD PHASES
 Phase 1: Project intake
 Phase 2: Stack selection
 Phase 3: Doma
+```

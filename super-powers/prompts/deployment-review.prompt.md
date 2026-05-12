@@ -7,9 +7,11 @@ phase: MVP|PRODUCTION
 # Prompt: Deployment Readiness Review
 
 ## Objective
+
 Assess deployment readiness by auditing repo health, CI/CD configuration, and pre-launch checklist items, then issue a go/no-go recommendation.
 
 ## Context Requirements
+
 - Current repo state (branch, last commit SHA)
 - CI/CD pipeline config (GitHub Actions, etc.)
 - `launch_checklist.md` from WF-10
@@ -51,11 +53,13 @@ deployment_review:
 ```
 
 ## Quality Checks
+
 - [ ] Secrets scan completed with zero findings before GO is issued
 - [ ] All CI/CD jobs verified as passing
 - [ ] Every blocking checklist item has an assigned owner if NO-GO
 
 ## Safety Rules
+
 - Never commit or log any secret values found during scan
 - Require explicit human approval to proceed after GO recommendation
 - Immediately halt and escalate if secrets are detected in git history

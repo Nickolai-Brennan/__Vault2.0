@@ -40,6 +40,7 @@ or any Markdown renderer.
 ### Step 1 — Understand the Diagram Need
 
 Ask the user:
+
 1. **What to diagram:** System overview / API flow / Data model / Workflow / Service map
 2. **Diagram type:** Flowchart / Sequence / ERD / C4 / Class / State machine / Gantt
 3. **Level of detail:** High-level overview vs. detailed with all fields/methods
@@ -47,20 +48,21 @@ Ask the user:
 
 ### Step 2 — Select the Right Diagram Type
 
-| Use case | Mermaid type |
-|----------|-------------|
+| Use case                           | Mermaid type                     |
+| ---------------------------------- | -------------------------------- |
 | Service topology / system overview | `flowchart LR` or `flowchart TD` |
-| API or event sequence | `sequenceDiagram` |
-| Database tables and relationships | `erDiagram` |
-| System context / C4 | `C4Context` |
-| Deployment / infrastructure | `flowchart` with styled nodes |
-| State machine | `stateDiagram-v2` |
-| Process / workflow steps | `flowchart TD` |
-| Project timeline | `gantt` |
+| API or event sequence              | `sequenceDiagram`                |
+| Database tables and relationships  | `erDiagram`                      |
+| System context / C4                | `C4Context`                      |
+| Deployment / infrastructure        | `flowchart` with styled nodes    |
+| State machine                      | `stateDiagram-v2`                |
+| Process / workflow steps           | `flowchart TD`                   |
+| Project timeline                   | `gantt`                          |
 
 ### Step 3 — Generate the Mermaid Code
 
 #### System Architecture (Flowchart)
+
 ```mermaid
 flowchart LR
     Client["🖥️ Web Client"]
@@ -83,6 +85,7 @@ flowchart LR
 ```
 
 #### API Sequence Diagram
+
 ```mermaid
 sequenceDiagram
     actor User
@@ -99,6 +102,7 @@ sequenceDiagram
 ```
 
 #### Entity-Relationship Diagram
+
 ```mermaid
 erDiagram
     USER {
@@ -129,11 +133,12 @@ erDiagram
 ### Step 4 — Apply Styling (Optional)
 
 For flowcharts, add node styles for visual clarity:
+
 ```mermaid
 flowchart TD
     API["API Server"]
     DB[("Database")]
-    
+
     style API fill:#4A90D9,color:#fff
     style DB fill:#7B7B7B,color:#fff
 ```
@@ -141,6 +146,7 @@ flowchart TD
 ### Step 5 — Present and Iterate
 
 Show the diagram code and note:
+
 - "This renders in GitHub Markdown, Notion, GitLab, and most Markdown editors."
 - "Tip: Use [Mermaid Live Editor](https://mermaid.live) to preview."
 
@@ -151,6 +157,7 @@ Ask: "Should I add more detail, change the direction, or adjust any components?"
 ## Output Format
 
 A Mermaid code block with:
+
 1. The diagram type declaration on the first line
 2. Clean, readable node IDs (not random letters)
 3. Descriptive labels using quotes for multi-word/special character names

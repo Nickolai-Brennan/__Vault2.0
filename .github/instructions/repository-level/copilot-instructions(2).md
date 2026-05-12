@@ -38,43 +38,52 @@ Startup/
 ## Directory Conventions
 
 ### `.github/`
+
 - `copilot-instructions.md` — This file. Defines repo conventions for GitHub Copilot and all AI agents working in this repo.
 
 ### `Actions/`
+
 - **`Doc Creation/`** — Templates that define the metadata shape of a new document (title, type, owner, status, tags). Copy a template, fill in the front-matter, and move the finished doc to `Docs/`.
 
 ### `Automations/`
+
 All reusable AI automation assets live here.
 
-| Sub-folder | Purpose |
-|---|---|
-| `Agents/` | `.agent.md` files that define an AI agent's persona, goals, and tool access. |
-| `Instructions/` | Reference guides explaining *how* to author each asset type (agents, prompts, skills, etc.). |
-| `Prompts/` | Standalone, reusable prompt templates. Use `{{placeholders}}` for variable inputs. |
-| `Skills/` | Deterministic, single-responsibility capability definitions. Skills are composed into agents. |
-| `Information/` | Knowledge files and data sources injected as context at runtime. |
+| Sub-folder       | Purpose                                                                                           |
+| ---------------- | ------------------------------------------------------------------------------------------------- |
+| `Agents/`        | `.agent.md` files that define an AI agent's persona, goals, and tool access.                      |
+| `Instructions/`  | Reference guides explaining _how_ to author each asset type (agents, prompts, skills, etc.).      |
+| `Prompts/`       | Standalone, reusable prompt templates. Use `{{placeholders}}` for variable inputs.                |
+| `Skills/`        | Deterministic, single-responsibility capability definitions. Skills are composed into agents.     |
+| `Information/`   | Knowledge files and data sources injected as context at runtime.                                  |
 | `master-list.md` | The canonical index of every file in `Automations/`. Update it whenever you add or remove a file. |
 
 ### `Docs/`
+
 Human-readable project documentation.
 
-| Sub-folder | Purpose |
-|---|---|
-| `KBD/` | Knowledge-base documents — reference material, FAQs, glossaries. |
-| `PRD/` | Product requirement documents — feature specs, user stories, acceptance criteria. |
-| `Technical/` | Technical specs — architecture decisions, API contracts, data models. |
+| Sub-folder   | Purpose                                                                           |
+| ------------ | --------------------------------------------------------------------------------- |
+| `KBD/`       | Knowledge-base documents — reference material, FAQs, glossaries.                  |
+| `PRD/`       | Product requirement documents — feature specs, user stories, acceptance criteria. |
+| `Technical/` | Technical specs — architecture decisions, API contracts, data models.             |
 
 ### `System/`
+
 Meta-information about the repository itself.
+
 - `architecture.md` — High-level system architecture diagram and narrative.
 - `changelog.md` — Human-readable log of significant changes to the repo structure or major decisions.
 
 ### `Workflow/`
-Process documents that govern *how* work is done in this repo.
+
+Process documents that govern _how_ work is done in this repo.
+
 - `AI Execution Methods.md` — The master AI orchestration meta-prompt and decision framework.
 - `Guide.md` — The 9-step execution lifecycle for shipping any feature or document.
 
 ### Root files
+
 - `In Action.md` — Live tracker of active tasks, owners, and status.
 - `Master Stack.txt` — The full technology stack reference for this project.
 
@@ -86,8 +95,8 @@ Process documents that govern *how* work is done in this repo.
    ```yaml
    ---
    title: ""
-   type: ""        # agent | prompt | skill | doc | spec | guide
-   status: draft   # draft | review | active | archived
+   type: "" # agent | prompt | skill | doc | spec | guide
+   status: draft # draft | review | active | archived
    owner: ""
    updated: YYYY-MM-DD
    ---

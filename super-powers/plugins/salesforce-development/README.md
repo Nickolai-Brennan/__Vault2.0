@@ -12,12 +12,12 @@ copilot plugin install salesforce-development@awesome-copilot
 
 ### Agents
 
-| Agent | Description |
-|-------|-------------|
+| Agent                      | Description                                                                                                                           |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | `salesforce-apex-triggers` | Implement Salesforce business logic using Apex classes and triggers with production-quality code following Salesforce best practices. |
-| `salesforce-aura-lwc` | Implement Salesforce UI components using Lightning Web Components and Aura components following Lightning framework best practices. |
-| `salesforce-flow` | Implement business automation using Salesforce Flow following declarative automation best practices. |
-| `salesforce-visualforce` | Implement Visualforce pages and controllers following Salesforce MVC architecture and best practices. |
+| `salesforce-aura-lwc`      | Implement Salesforce UI components using Lightning Web Components and Aura components following Lightning framework best practices.   |
+| `salesforce-flow`          | Implement business automation using Salesforce Flow following declarative automation best practices.                                  |
+| `salesforce-visualforce`   | Implement Visualforce pages and controllers following Salesforce MVC architecture and best practices.                                 |
 
 ## Usage
 

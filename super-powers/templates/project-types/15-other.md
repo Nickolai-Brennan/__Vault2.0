@@ -13,15 +13,15 @@ Use this template when your project does not fit any of the standard project typ
 
 ## Section 2: Basic Identity
 
-| Field | Value |
-|-------|-------|
-| **Project Name** | |
-| **Tagline** (one sentence) | |
-| **Version / Phase** | `prototype` · `mvp` · `production` |
-| **Status** | `active` · `on-hold` · `archived` |
-| **Owner / Team** | |
-| **Created** | YYYY-MM-DD |
-| **Last Updated** | YYYY-MM-DD |
+| Field                      | Value                              |
+| -------------------------- | ---------------------------------- |
+| **Project Name**           |                                    |
+| **Tagline** (one sentence) |                                    |
+| **Version / Phase**        | `prototype` · `mvp` · `production` |
+| **Status**                 | `active` · `on-hold` · `archived`  |
+| **Owner / Team**           |                                    |
+| **Created**                | YYYY-MM-DD                         |
+| **Last Updated**           | YYYY-MM-DD                         |
 
 ---
 
@@ -58,7 +58,7 @@ Use this template when your project does not fit any of the standard project typ
 > **Answer**:
 
 **4.4 — What is the expected scale?**
-*(e.g. number of users, requests, devices, records)*
+_(e.g. number of users, requests, devices, records)_
 
 > **Answer**:
 
@@ -113,7 +113,7 @@ Use this template when your project does not fit any of the standard project typ
 > **Answer**:
 
 **6.3 — What domain-specific standards, protocols, or constraints apply?**
-*(e.g. hardware interfaces, game engine requirements, browser extension manifest version)*
+_(e.g. hardware interfaces, game engine requirements, browser extension manifest version)_
 
 > **Answer**:
 
@@ -199,8 +199,8 @@ Choose one: `true` · `false`
 
 ## Section 11: Related Files
 
-| File / URL | Purpose |
-|------------|---------|
+| File / URL  | Purpose          |
+| ----------- | ---------------- |
 | `README.md` | Project overview |
-| | |
-| | |
+|             |                  |
+|             |                  |

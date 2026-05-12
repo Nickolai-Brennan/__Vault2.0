@@ -4,16 +4,16 @@ A three-layer verification pipeline for AI-generated output. Extracts verifiable
 
 ## Why This Exists
 
-AI hallucinations are a model-level problem. No plugin can fix them. But the *consequences* of hallucinations -- acting on fabricated citations, relying on made-up statistics, citing nonexistent case law -- can be mitigated by making verification fast and structured.
+AI hallucinations are a model-level problem. No plugin can fix them. But the _consequences_ of hallucinations -- acting on fabricated citations, relying on made-up statistics, citing nonexistent case law -- can be mitigated by making verification fast and structured.
 
 Doublecheck doesn't tell you what's true. It extracts every verifiable claim from AI output, searches for sources you can check independently, and flags anything that matches known hallucination patterns. You make the final call.
 
 ## What's Included
 
-| Component | Type | Description |
-|-----------|------|-------------|
+| Component     | Type  | Description                                                                         |
+| ------------- | ----- | ----------------------------------------------------------------------------------- |
 | `doublecheck` | Skill | The core verification pipeline. Runs three layers and produces a structured report. |
-| `Doublecheck` | Agent | Interactive verification mode for follow-up questions and deeper investigation. |
+| `Doublecheck` | Agent | Interactive verification mode for follow-up questions and deeper investigation.     |
 
 ## The Three Layers
 
@@ -27,12 +27,12 @@ Doublecheck doesn't tell you what's true. It extracts every verifiable claim fro
 
 Each claim gets a final rating:
 
-| Rating | Meaning |
-|--------|---------|
-| VERIFIED | Supporting source found and linked |
-| PLAUSIBLE | Consistent with general knowledge, no specific source found |
-| UNVERIFIED | Could not find supporting or contradicting evidence |
-| DISPUTED | Contradicting evidence found from a credible source |
+| Rating           | Meaning                                                                      |
+| ---------------- | ---------------------------------------------------------------------------- |
+| VERIFIED         | Supporting source found and linked                                           |
+| PLAUSIBLE        | Consistent with general knowledge, no specific source found                  |
+| UNVERIFIED       | Could not find supporting or contradicting evidence                          |
+| DISPUTED         | Contradicting evidence found from a credible source                          |
 | FABRICATION RISK | Matches hallucination patterns (e.g., citation that can't be found anywhere) |
 
 ## Usage
@@ -48,6 +48,7 @@ use doublecheck
 ```
 
 Once active:
+
 - Simple factual lookups and single-claim answers get automatic inline verification summaries
 - Factual analysis, legal analysis, regulatory interpretation, compliance guidance, and content with case citations or statutory references automatically get the full verification report instead of inline summaries
 - If any claim rates DISPUTED or FABRICATION RISK during inline verification, the full report is generated automatically
@@ -82,6 +83,7 @@ For a conversational back-and-forth:
 ```
 
 The agent mode lets you:
+
 - Get the full verification report
 - Ask follow-up questions about specific flagged claims
 - Request deeper investigation ("dig deeper on C3")

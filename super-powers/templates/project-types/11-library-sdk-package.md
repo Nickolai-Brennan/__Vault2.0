@@ -13,15 +13,15 @@ Use this template when initializing a **Library / SDK / Package** project (reusa
 
 ## Section 2: Basic Identity
 
-| Field | Value |
-|-------|-------|
-| **Project Name** | |
-| **Tagline** (one sentence) | |
-| **Version / Phase** | `prototype` · `mvp` · `production` |
-| **Status** | `active` · `on-hold` · `archived` |
-| **Owner / Team** | |
-| **Created** | YYYY-MM-DD |
-| **Last Updated** | YYYY-MM-DD |
+| Field                      | Value                              |
+| -------------------------- | ---------------------------------- |
+| **Project Name**           |                                    |
+| **Tagline** (one sentence) |                                    |
+| **Version / Phase**        | `prototype` · `mvp` · `production` |
+| **Status**                 | `active` · `on-hold` · `archived`  |
+| **Owner / Team**           |                                    |
+| **Created**                | YYYY-MM-DD                         |
+| **Last Updated**           | YYYY-MM-DD                         |
 
 ---
 
@@ -46,7 +46,7 @@ Use this template when initializing a **Library / SDK / Package** project (reusa
 ## Section 4: Audience
 
 **4.1 — Who are the primary consumers of this library?**
-*(e.g. internal teams, open-source developers, third-party integrators)*
+_(e.g. internal teams, open-source developers, third-party integrators)_
 
 > **Answer**:
 
@@ -59,7 +59,7 @@ Use this template when initializing a **Library / SDK / Package** project (reusa
 > **Answer**:
 
 **4.4 — What is the expected adoption scale?**
-*(e.g. "3 internal services", "1,000 npm downloads/week")*
+_(e.g. "3 internal services", "1,000 npm downloads/week")_
 
 > **Answer**:
 
@@ -72,22 +72,22 @@ Use this template when initializing a **Library / SDK / Package** project (reusa
 > **Answer**:
 
 **5.2 — What language(s) or runtimes does this library target?**
-*(e.g. TypeScript ESM + CJS, Python 3.10+, Java 11+)*
+_(e.g. TypeScript ESM + CJS, Python 3.10+, Java 11+)_
 
 > **Answer**:
 
 **5.3 — What package registry is used for distribution?**
-*(e.g. npm, PyPI, Maven Central, NuGet, crates.io, RubyGems, Homebrew)*
+_(e.g. npm, PyPI, Maven Central, NuGet, crates.io, RubyGems, Homebrew)_
 
 > **Answer**:
 
 **5.4 — What build tooling is used?**
-*(e.g. tsc, Rollup, Vite, setuptools, Gradle, Cargo)*
+_(e.g. tsc, Rollup, Vite, setuptools, Gradle, Cargo)_
 
 > **Answer**:
 
 **5.5 — What testing framework is used?**
-*(e.g. Jest, Vitest, pytest, JUnit, Rust test)*
+_(e.g. Jest, Vitest, pytest, JUnit, Rust test)_
 
 > **Answer**:
 
@@ -108,17 +108,17 @@ Use this template when initializing a **Library / SDK / Package** project (reusa
 ## Section 6: Library Design
 
 **6.1 — What is the package name and namespace?**
-*(e.g. `@myorg/toolkit`, `myorg-sdk`, `com.myorg.sdk`)*
+_(e.g. `@myorg/toolkit`, `myorg-sdk`, `com.myorg.sdk`)_
 
 > **Answer**:
 
 **6.2 — What are the primary public API surface areas or modules?**
-*(e.g. `client`, `auth`, `utils`)*
+_(e.g. `client`, `auth`, `utils`)_
 
 > **Answer**:
 
 **6.3 — What versioning and breaking-change policy is followed?**
-*(e.g. Semantic Versioning 2.0, calendar versioning)*
+_(e.g. Semantic Versioning 2.0, calendar versioning)_
 
 > **Answer**:
 
@@ -127,7 +127,7 @@ Use this template when initializing a **Library / SDK / Package** project (reusa
 > **Answer**:
 
 **6.5 — What documentation system is used?**
-*(e.g. TypeDoc, Sphinx, Javadoc, rustdoc, hand-written Markdown)*
+_(e.g. TypeDoc, Sphinx, Javadoc, rustdoc, hand-written Markdown)_
 
 > **Answer**:
 
@@ -170,7 +170,7 @@ Choose one: `true` · `false`
 > **Answer**:
 
 **8.2 — What architectural pattern does this library follow?**
-*(e.g. facade, builder pattern, plugin system, functional core, reactive streams)*
+_(e.g. facade, builder pattern, plugin system, functional core, reactive streams)_
 
 > **Answer**:
 
@@ -191,17 +191,17 @@ Choose one: `true` · `false`
 > **Answer**:
 
 **9.3 — What compliance or licensing requirements apply?**
-*(e.g. MIT, Apache 2.0, proprietary; export control, FOSS policy)*
+_(e.g. MIT, Apache 2.0, proprietary; export control, FOSS policy)_
 
 > **Answer**:
 
 **9.4 — What are the performance requirements?**
-*(e.g. "Initialization overhead < 5 ms", "Zero dependencies for core module")*
+_(e.g. "Initialization overhead < 5 ms", "Zero dependencies for core module")_
 
 > **Answer**:
 
 **9.5 — What runtime / environment constraints apply?**
-*(e.g. "Must run in Node.js 18+ and edge runtimes", "No DOM APIs")*
+_(e.g. "Must run in Node.js 18+ and edge runtimes", "No DOM APIs")_
 
 > **Answer**:
 
@@ -217,10 +217,10 @@ Choose one: `true` · `false`
 
 ## Section 11: Related Files
 
-| File / URL | Purpose |
-|------------|---------|
-| `README.md` | Project overview and quick-start guide |
-| `CHANGELOG.md` | Release history |
-| `CONTRIBUTING.md` | Contribution guidelines |
-| | |
-| | |
+| File / URL        | Purpose                                |
+| ----------------- | -------------------------------------- |
+| `README.md`       | Project overview and quick-start guide |
+| `CHANGELOG.md`    | Release history                        |
+| `CONTRIBUTING.md` | Contribution guidelines                |
+|                   |                                        |
+|                   |                                        |

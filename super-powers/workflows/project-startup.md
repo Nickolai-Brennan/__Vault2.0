@@ -5,6 +5,7 @@
 ---
 
 ## Purpose
+
 Convert a project idea into an actionable build plan with a confirmed stack, repo structure, and first task list.
 
 ## Steps
@@ -30,6 +31,7 @@ Convert a project idea into an actionable build plan with a confirmed stack, rep
    - Proceed to [`stack-identification.md`](./stack-identification.md).
 
 ## Outputs
+
 - Confirmed stack
 - Populated task list
 - Ready repo structure

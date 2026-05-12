@@ -21,6 +21,7 @@ Audit CMS posts for SEO quality, compute scores, and generate actionable recomme
 ## When To Use
 
 Use this skill when the user asks to:
+
 - Run an SEO audit on a post or all posts
 - Generate SEO reports
 - Improve SEO scores
@@ -35,12 +36,12 @@ Use this skill when the user asks to:
 
 ## SEO Score Rules
 
-| Score | Rating |
-|-------|--------|
-| 90–100 | Excellent |
-| 75–89 | Good |
-| 60–74 | Needs Work |
-| 0–59 | Poor |
+| Score  | Rating     |
+| ------ | ---------- |
+| 90–100 | Excellent  |
+| 75–89  | Good       |
+| 60–74  | Needs Work |
+| 0–59   | Poor       |
 
 ## Scoring Checklist
 
@@ -70,8 +71,8 @@ Use this skill when the user asks to:
 - `frontend/src/admin/SEOReports.tsx`
 - `frontend/src/admin/KeywordTagReports.tsx`
 
-
 ## References
+
 - [Docs Rules](../../instructions/docs-rules.md)
 - [Markdown Content Creation](../../instructions/markdown-content-creation.instructions.md)
 - [Prompt Engineering Guide](../../references/prompt-engineering-guide.md)

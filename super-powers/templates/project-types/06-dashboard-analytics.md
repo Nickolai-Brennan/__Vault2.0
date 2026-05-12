@@ -13,15 +13,15 @@ Use this template when initializing a **Dashboard / Analytics / Statistics** pro
 
 ## Section 2: Basic Identity
 
-| Field | Value |
-|-------|-------|
-| **Project Name** | |
-| **Tagline** (one sentence) | |
-| **Version / Phase** | `prototype` · `mvp` · `production` |
-| **Status** | `active` · `on-hold` · `archived` |
-| **Owner / Team** | |
-| **Created** | YYYY-MM-DD |
-| **Last Updated** | YYYY-MM-DD |
+| Field                      | Value                              |
+| -------------------------- | ---------------------------------- |
+| **Project Name**           |                                    |
+| **Tagline** (one sentence) |                                    |
+| **Version / Phase**        | `prototype` · `mvp` · `production` |
+| **Status**                 | `active` · `on-hold` · `archived`  |
+| **Owner / Team**           |                                    |
+| **Created**                | YYYY-MM-DD                         |
+| **Last Updated**           | YYYY-MM-DD                         |
 
 ---
 
@@ -46,7 +46,7 @@ Use this template when initializing a **Dashboard / Analytics / Statistics** pro
 ## Section 4: Audience
 
 **4.1 — Who are the primary users of this dashboard?**
-*(e.g. executives, data analysts, operations teams, external customers)*
+_(e.g. executives, data analysts, operations teams, external customers)_
 
 > **Answer**:
 
@@ -71,17 +71,17 @@ Use this template when initializing a **Dashboard / Analytics / Statistics** pro
 > **Answer**:
 
 **5.2 — What BI or visualization framework is used?**
-*(e.g. Tableau, Power BI, Metabase, Grafana, Superset, D3.js, Recharts, Observable)*
+_(e.g. Tableau, Power BI, Metabase, Grafana, Superset, D3.js, Recharts, Observable)_
 
 > **Answer**:
 
 **5.3 — What data sources power the dashboard?**
-*(e.g. PostgreSQL, BigQuery, Snowflake, REST API, CSV files)*
+_(e.g. PostgreSQL, BigQuery, Snowflake, REST API, CSV files)_
 
 > **Answer**:
 
 **5.4 — What data transformation or query layer is used?**
-*(e.g. dbt, SQL views, Cube.js, Spark, pandas)*
+_(e.g. dbt, SQL views, Cube.js, Spark, pandas)_
 
 > **Answer**:
 
@@ -98,7 +98,7 @@ Use this template when initializing a **Dashboard / Analytics / Statistics** pro
 > **Answer**:
 
 **5.8 — How is authentication and access control handled?**
-*(e.g. SSO, role-based access, row-level security)*
+_(e.g. SSO, role-based access, row-level security)_
 
 > **Answer**:
 
@@ -111,12 +111,12 @@ Use this template when initializing a **Dashboard / Analytics / Statistics** pro
 > **Answer**:
 
 **6.2 — What is the data refresh frequency?**
-*(e.g. real-time streaming, every 15 min, daily batch, on-demand)*
+_(e.g. real-time streaming, every 15 min, daily batch, on-demand)_
 
 > **Answer**:
 
 **6.3 — What is the historical data range displayed?**
-*(e.g. last 30 days, last 12 months, all time)*
+_(e.g. last 30 days, last 12 months, all time)_
 
 > **Answer**:
 
@@ -125,12 +125,12 @@ Use this template when initializing a **Dashboard / Analytics / Statistics** pro
 > **Answer**:
 
 **6.5 — What export or sharing formats are required?**
-*(e.g. PDF reports, CSV downloads, shareable links, scheduled email)*
+_(e.g. PDF reports, CSV downloads, shareable links, scheduled email)_
 
 > **Answer**:
 
 **6.6 — What is the data volume and cardinality?**
-*(e.g. "100M rows in fact table", "1,000 unique customers")*
+_(e.g. "100M rows in fact table", "1,000 unique customers")_
 
 > **Answer**:
 
@@ -143,7 +143,7 @@ Use this template when initializing a **Dashboard / Analytics / Statistics** pro
 > **Answer**:
 
 **7.2 — What does the system output?**
-*(e.g. interactive charts, PDF reports, API endpoints for metrics)*
+_(e.g. interactive charts, PDF reports, API endpoints for metrics)_
 
 > **Answer**:
 
@@ -170,7 +170,7 @@ Choose one: `true` · `false`
 > **Answer**:
 
 **8.2 — What architectural pattern does this project follow?**
-*(e.g. embedded analytics, standalone BI tool, headless + custom frontend, Lambda architecture)*
+_(e.g. embedded analytics, standalone BI tool, headless + custom frontend, Lambda architecture)_
 
 > **Answer**:
 
@@ -195,7 +195,7 @@ Choose one: `true` · `false`
 > **Answer**:
 
 **9.4 — What is the query / dashboard load performance SLA?**
-*(e.g. "Dashboard renders in < 3 s", "Complex query < 10 s")*
+_(e.g. "Dashboard renders in < 3 s", "Complex query < 10 s")_
 
 > **Answer**:
 
@@ -215,8 +215,8 @@ Choose one: `true` · `false`
 
 ## Section 11: Related Files
 
-| File / URL | Purpose |
-|------------|---------|
+| File / URL  | Purpose          |
+| ----------- | ---------------- |
 | `README.md` | Project overview |
-| | |
-| | |
+|             |                  |
+|             |                  |

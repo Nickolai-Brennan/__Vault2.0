@@ -39,6 +39,7 @@ descriptions — from simple fades to scroll-triggered entrance effects.
 ### Step 1 — Understand the Animation
 
 Collect:
+
 1. **What to animate:** Element type (button, card, modal, icon, text, etc.)
 2. **Trigger:** On load, on hover, on click, on scroll enter, on state change
 3. **Effect type:** Fade, slide, scale, rotate, shake, pulse, bounce, draw
@@ -47,41 +48,57 @@ Collect:
 
 ### Step 2 — Select the Right Approach
 
-| Use case | Recommended approach |
-|----------|---------------------|
-| Simple hover effects | CSS `:hover` transition |
-| Enter/exit animations | CSS keyframes + class toggle |
-| Spring-feel motion | Framer Motion `motion` + `spring` |
-| Scroll entrance | IntersectionObserver + CSS class |
+| Use case              | Recommended approach                         |
+| --------------------- | -------------------------------------------- |
+| Simple hover effects  | CSS `:hover` transition                      |
+| Enter/exit animations | CSS keyframes + class toggle                 |
+| Spring-feel motion    | Framer Motion `motion` + `spring`            |
+| Scroll entrance       | IntersectionObserver + CSS class             |
 | Coordinated sequences | Framer Motion `variants` + `staggerChildren` |
-| Loading spinner | CSS `@keyframes` rotate |
+| Loading spinner       | CSS `@keyframes` rotate                      |
 
 ### Step 3 — Write the Animation
 
 #### CSS Transitions (hover / state change)
+
 ```css
 /* Smooth button press */
 .btn {
   transform: scale(1);
-  transition: transform 150ms ease, box-shadow 150ms ease;
+  transition:
+    transform 150ms ease,
+    box-shadow 150ms ease;
 }
-.btn:hover  { transform: scale(1.03); }
-.btn:active { transform: scale(0.97); }
+.btn:hover {
+  transform: scale(1.03);
+}
+.btn:active {
+  transform: scale(0.97);
+}
 
 /* Fade-in opacity */
 .fade-in {
   opacity: 0;
   transition: opacity 300ms ease-in-out;
 }
-.fade-in.visible { opacity: 1; }
+.fade-in.visible {
+  opacity: 1;
+}
 ```
 
 #### CSS Keyframe Animations
+
 ```css
 /* Slide in from bottom */
 @keyframes slideUp {
-  from { transform: translateY(24px); opacity: 0; }
-  to   { transform: translateY(0);    opacity: 1; }
+  from {
+    transform: translateY(24px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .card-enter {
@@ -90,7 +107,8 @@ Collect:
 
 /* Pulse ring */
 @keyframes ping {
-  75%, 100% {
+  75%,
+  100% {
     transform: scale(2);
     opacity: 0;
   }
@@ -105,7 +123,9 @@ Collect:
 
 /* Loading spinner */
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 .spinner {
   width: 1.25rem;
@@ -118,9 +138,10 @@ Collect:
 ```
 
 #### Scroll-Triggered Entrance (IntersectionObserver)
+
 ```typescript
 // hooks/useScrollReveal.ts
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
 export function useScrollReveal<T extends HTMLElement>() {
   const ref = useRef<T>(null);
@@ -132,11 +153,11 @@ export function useScrollReveal<T extends HTMLElement>() {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          el.classList.add('is-visible');
+          el.classList.add("is-visible");
           observer.disconnect();
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.15 },
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -150,7 +171,9 @@ export function useScrollReveal<T extends HTMLElement>() {
 .reveal {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 500ms ease, transform 500ms ease;
+  transition:
+    opacity 500ms ease,
+    transform 500ms ease;
 }
 .reveal.is-visible {
   opacity: 1;
@@ -159,25 +182,22 @@ export function useScrollReveal<T extends HTMLElement>() {
 ```
 
 #### Framer Motion Examples
+
 ```tsx
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from "framer-motion";
 
 // Fade + slide in
 const fadeSlideUp = {
   initial: { opacity: 0, y: 16 },
   animate: { opacity: 1, y: 0 },
-  exit:    { opacity: 0, y: -8 },
+  exit: { opacity: 0, y: -8 },
   transition: { duration: 0.25, ease: [0.16, 1, 0.3, 1] },
 };
 
 export function Modal({ isOpen, children }) {
   return (
     <AnimatePresence>
-      {isOpen && (
-        <motion.div {...fadeSlideUp}>
-          {children}
-        </motion.div>
-      )}
+      {isOpen && <motion.div {...fadeSlideUp}>{children}</motion.div>}
     </AnimatePresence>
   );
 }
@@ -190,14 +210,16 @@ const listVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, x: -12 },
-  show:   { opacity: 1, x: 0 },
+  show: { opacity: 1, x: 0 },
 };
 
 export function AnimatedList({ items }) {
   return (
     <motion.ul variants={listVariants} initial="hidden" animate="show">
-      {items.map(item => (
-        <motion.li key={item.id} variants={itemVariants}>{item.label}</motion.li>
+      {items.map((item) => (
+        <motion.li key={item.id} variants={itemVariants}>
+          {item.label}
+        </motion.li>
       ))}
     </motion.ul>
   );
@@ -210,7 +232,9 @@ Every animation snippet should respect `prefers-reduced-motion`:
 
 ```css
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
@@ -218,6 +242,7 @@ Every animation snippet should respect `prefers-reduced-motion`:
 ```
 
 In Framer Motion, use `useReducedMotion`:
+
 ```typescript
 const shouldReduceMotion = useReducedMotion();
 const animationProps = shouldReduceMotion ? {} : fadeSlideUp;

@@ -2,7 +2,6 @@
 
 ## Currently Active
 
-| ID | Title | Assignee | Priority | Due Date |
-|----|-------|----------|----------|----------|
-| [ID] | [Title] | [Assignee] | [Priority] | [Date] |
-
+| ID   | Title   | Assignee   | Priority   | Due Date |
+| ---- | ------- | ---------- | ---------- | -------- |
+| [ID] | [Title] | [Assignee] | [Priority] | [Date]   |

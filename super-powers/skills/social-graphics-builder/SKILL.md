@@ -23,6 +23,7 @@ Create and maintain social media graphic standards and templates for the DZIRE b
 ## When To Use
 
 Use this skill when the user asks to:
+
 - Add a new platform to the social media style guide
 - Define a new graphic template type
 - Update existing post dimensions or rules
@@ -50,6 +51,7 @@ Use this skill when the user asks to:
 
 ```markdown
 ### [Template Name] ([Width] × [Height])
+
 - Background: [color or image rule]
 - Logo: [position, size]
 - Headline: [font, size, max characters]
@@ -73,8 +75,8 @@ Use this skill when the user asks to:
 - [`docs/brand-guidelines.md`](../../docs/brand-guidelines.md)
 - [`.github/agents/social-graphics-agent.md`](../../.github/agents/social-graphics-agent.md)
 
-
 ## References
+
 - [HTML/CSS Style Guide](../../instructions/html-css-style-color-guide.instructions.md)
 - [Dashboard Design Guide](../../references/dashboard-design-guide.md)
 - [Design System Builder](../design-system-builder/SKILL.md)

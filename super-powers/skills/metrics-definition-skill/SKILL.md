@@ -15,10 +15,13 @@ outputs:
 # Metrics Definition Skill
 
 ## Purpose
+
 Define clear, measurable KPIs, tracking events, reporting dimensions, and success criteria so the team can measure and improve performance.
 
 ## When To Use
+
 Use this skill when the user asks to:
+
 - Define success metrics for a feature or product
 - Create a KPI dashboard plan
 - Set up event tracking and analytics
@@ -26,11 +29,13 @@ Use this skill when the user asks to:
 - Produce a measurement framework
 
 ## Inputs
+
 - Project or feature description
 - Business goals and success criteria
 - Reporting tool in use (e.g., Mixpanel, Amplitude, Datadog, custom)
 
 ## Workflow
+
 1. Clarify business goals and what "success" looks like
 2. Identify primary KPIs (the 3–5 numbers that matter most)
 3. Define supporting metrics and dimensions
@@ -39,6 +44,7 @@ Use this skill when the user asks to:
 6. Document the full metrics plan
 
 ## Output Format
+
 ```
 # Metrics Plan: [Feature/Project Name]
 ## Primary KPIs
@@ -51,6 +57,7 @@ Use this skill when the user asks to:
 ```
 
 ## Quality Checklist
+
 - [ ] At least 3 primary KPIs defined with clear definitions
 - [ ] Each KPI has a target value or trend direction
 - [ ] Events mapped to user actions
@@ -58,5 +65,6 @@ Use this skill when the user asks to:
 - [ ] Metrics owner assigned
 
 ## References
+
 - [Metrics Guide](references/metrics-guide.md)
 - [Metrics Report Script](scripts/generate_metrics_report.py)

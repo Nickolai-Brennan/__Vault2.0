@@ -1,7 +1,7 @@
 ---
-name: 'Tool Guardian'
-description: 'Blocks dangerous tool operations (destructive file ops, force pushes, DB drops) before the Copilot coding agent executes them'
-tags: ['security', 'safety', 'preToolUse', 'guardrails']
+name: "Tool Guardian"
+description: "Blocks dangerous tool operations (destructive file ops, force pushes, DB drops) before the Copilot coding agent executes them"
+tags: ["security", "safety", "preToolUse", "guardrails"]
 ---
 
 # Tool Guardian Hook
@@ -76,12 +76,12 @@ The hook is configured in `hooks.json` to run on the `preToolUse` event:
 
 ### Environment Variables
 
-| Variable | Values | Default | Description |
-|----------|--------|---------|-------------|
-| `GUARD_MODE` | `warn`, `block` | `block` | `warn` logs threats only; `block` exits non-zero to prevent tool execution |
-| `SKIP_TOOL_GUARD` | `true` | unset | Disable the guardian entirely |
-| `TOOL_GUARD_LOG_DIR` | path | `.github/logs/copilot/tool-guardian` | Directory where guard logs are written |
-| `TOOL_GUARD_ALLOWLIST` | comma-separated | unset | Patterns to skip (e.g., `git push --force,npm publish`) |
+| Variable               | Values          | Default                              | Description                                                                |
+| ---------------------- | --------------- | ------------------------------------ | -------------------------------------------------------------------------- |
+| `GUARD_MODE`           | `warn`, `block` | `block`                              | `warn` logs threats only; `block` exits non-zero to prevent tool execution |
+| `SKIP_TOOL_GUARD`      | `true`          | unset                                | Disable the guardian entirely                                              |
+| `TOOL_GUARD_LOG_DIR`   | path            | `.github/logs/copilot/tool-guardian` | Directory where guard logs are written                                     |
+| `TOOL_GUARD_ALLOWLIST` | comma-separated | unset                                | Patterns to skip (e.g., `git push --force,npm publish`)                    |
 
 ## How It Works
 
@@ -96,14 +96,14 @@ The hook is configured in `hooks.json` to run on the `preToolUse` event:
 
 ## Threat Categories
 
-| Category | Severity | Key Patterns | Suggestion |
-|----------|----------|-------------|------------|
-| `destructive_file_ops` | critical | `rm -rf /`, `rm -rf ~`, `rm -rf .`, delete `.env`/`.git` | Use targeted paths or `mv` to back up |
-| `destructive_git_ops` | critical/high | `git push --force` to main/master, `git reset --hard`, `git clean -fd` | Use `--force-with-lease`, `git stash`, dry-run |
-| `database_destruction` | critical/high | `DROP TABLE`, `DROP DATABASE`, `TRUNCATE`, `DELETE FROM` without WHERE | Use migrations, backups, add WHERE clause |
-| `permission_abuse` | high | `chmod 777`, `chmod -R 777` | Use `755` for dirs, `644` for files |
-| `network_exfiltration` | critical/high | `curl \| bash`, `wget \| sh`, `curl --data @file` | Download first, review, then execute |
-| `system_danger` | high | `sudo`, `npm publish` | Use least privilege; `--dry-run` first |
+| Category               | Severity      | Key Patterns                                                           | Suggestion                                     |
+| ---------------------- | ------------- | ---------------------------------------------------------------------- | ---------------------------------------------- |
+| `destructive_file_ops` | critical      | `rm -rf /`, `rm -rf ~`, `rm -rf .`, delete `.env`/`.git`               | Use targeted paths or `mv` to back up          |
+| `destructive_git_ops`  | critical/high | `git push --force` to main/master, `git reset --hard`, `git clean -fd` | Use `--force-with-lease`, `git stash`, dry-run |
+| `database_destruction` | critical/high | `DROP TABLE`, `DROP DATABASE`, `TRUNCATE`, `DELETE FROM` without WHERE | Use migrations, backups, add WHERE clause      |
+| `permission_abuse`     | high          | `chmod 777`, `chmod -R 777`                                            | Use `755` for dirs, `644` for files            |
+| `network_exfiltration` | critical/high | `curl \| bash`, `wget \| sh`, `curl --data @file`                      | Download first, review, then execute           |
+| `system_danger`        | high          | `sudo`, `npm publish`                                                  | Use least privilege; `--dry-run` first         |
 
 ## Examples
 
@@ -150,15 +150,39 @@ echo '{"toolName":"bash","toolInput":"git push --force origin main"}' | \
 Guard events are written to `.github/logs/copilot/tool-guardian/guard.log` in JSON Lines format:
 
 ```json
-{"timestamp":"2026-03-16T10:30:00Z","event":"threats_detected","mode":"block","tool":"bash","threat_count":1,"threats":[{"category":"destructive_git_ops","severity":"critical","match":"git push --force origin main","suggestion":"Use 'git push --force-with-lease' or push to a feature branch"}]}
+{
+  "timestamp": "2026-03-16T10:30:00Z",
+  "event": "threats_detected",
+  "mode": "block",
+  "tool": "bash",
+  "threat_count": 1,
+  "threats": [
+    {
+      "category": "destructive_git_ops",
+      "severity": "critical",
+      "match": "git push --force origin main",
+      "suggestion": "Use 'git push --force-with-lease' or push to a feature branch"
+    }
+  ]
+}
 ```
 
 ```json
-{"timestamp":"2026-03-16T10:30:00Z","event":"guard_passed","mode":"block","tool":"bash"}
+{
+  "timestamp": "2026-03-16T10:30:00Z",
+  "event": "guard_passed",
+  "mode": "block",
+  "tool": "bash"
+}
 ```
 
 ```json
-{"timestamp":"2026-03-16T10:30:00Z","event":"guard_skipped","reason":"allowlisted","tool":"bash"}
+{
+  "timestamp": "2026-03-16T10:30:00Z",
+  "event": "guard_skipped",
+  "reason": "allowlisted",
+  "tool": "bash"
+}
 ```
 
 ## Customization

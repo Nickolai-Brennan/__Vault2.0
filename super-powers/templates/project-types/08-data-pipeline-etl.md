@@ -13,15 +13,15 @@ Use this template when initializing a **Data Pipeline / ETL** project (ingest, t
 
 ## Section 2: Basic Identity
 
-| Field | Value |
-|-------|-------|
-| **Project Name** | |
-| **Tagline** (one sentence) | |
-| **Version / Phase** | `prototype` · `mvp` · `production` |
-| **Status** | `active` · `on-hold` · `archived` |
-| **Owner / Team** | |
-| **Created** | YYYY-MM-DD |
-| **Last Updated** | YYYY-MM-DD |
+| Field                      | Value                              |
+| -------------------------- | ---------------------------------- |
+| **Project Name**           |                                    |
+| **Tagline** (one sentence) |                                    |
+| **Version / Phase**        | `prototype` · `mvp` · `production` |
+| **Status**                 | `active` · `on-hold` · `archived`  |
+| **Owner / Team**           |                                    |
+| **Created**                | YYYY-MM-DD                         |
+| **Last Updated**           | YYYY-MM-DD                         |
 
 ---
 
@@ -46,7 +46,7 @@ Use this template when initializing a **Data Pipeline / ETL** project (ingest, t
 ## Section 4: Audience
 
 **4.1 — Who are the primary consumers of the data produced by this pipeline?**
-*(e.g. data scientists, BI tools, downstream services, data warehouse)*
+_(e.g. data scientists, BI tools, downstream services, data warehouse)_
 
 > **Answer**:
 
@@ -59,7 +59,7 @@ Use this template when initializing a **Data Pipeline / ETL** project (ingest, t
 > **Answer**:
 
 **4.4 — What is the expected data volume and velocity?**
-*(e.g. "10M records/day", "500 MB/hour", "event stream at 10k events/sec")*
+_(e.g. "10M records/day", "500 MB/hour", "event stream at 10k events/sec")_
 
 > **Answer**:
 
@@ -72,22 +72,22 @@ Use this template when initializing a **Data Pipeline / ETL** project (ingest, t
 > **Answer**:
 
 **5.2 — What orchestration or workflow engine is used?**
-*(e.g. Apache Airflow, Prefect, Dagster, dbt, AWS Glue, Azure Data Factory, Luigi, cron)*
+_(e.g. Apache Airflow, Prefect, Dagster, dbt, AWS Glue, Azure Data Factory, Luigi, cron)_
 
 > **Answer**:
 
 **5.3 — What data processing framework is used?**
-*(e.g. Apache Spark, Flink, dbt, pandas, Beam, plain SQL)*
+_(e.g. Apache Spark, Flink, dbt, pandas, Beam, plain SQL)_
 
 > **Answer**:
 
 **5.4 — What source systems does this pipeline read from?**
-*(e.g. REST APIs, databases, S3/GCS, Kafka, Salesforce, flat files)*
+_(e.g. REST APIs, databases, S3/GCS, Kafka, Salesforce, flat files)_
 
 > **Answer**:
 
 **5.5 — What destination systems does this pipeline write to?**
-*(e.g. data warehouse, data lake, database, API, S3)*
+_(e.g. data warehouse, data lake, database, API, S3)_
 
 > **Answer**:
 
@@ -112,24 +112,24 @@ Use this template when initializing a **Data Pipeline / ETL** project (ingest, t
 ## Section 6: Pipeline Design
 
 **6.1 — What is the pipeline trigger type?**
-*(e.g. scheduled cron, event-driven, streaming, manual, API-triggered)*
+_(e.g. scheduled cron, event-driven, streaming, manual, API-triggered)_
 
 > **Answer**:
 
 **6.2 — Describe the pipeline stages (Extract → Transform → Load).**
 
-| Stage | Description |
-|-------|-------------|
-| **Extract** | Where data comes from and how it is ingested |
+| Stage         | Description                                          |
+| ------------- | ---------------------------------------------------- |
+| **Extract**   | Where data comes from and how it is ingested         |
 | **Transform** | What cleaning, enrichment, or aggregation is applied |
-| **Load** | Where and how data is written to the destination |
+| **Load**      | Where and how data is written to the destination     |
 
 **6.3 — What data quality checks or validation rules are applied?**
 
 > **Answer**:
 
 **6.4 — What is the error handling and retry strategy?**
-*(e.g. dead-letter queue, exponential backoff, alerting on failure)*
+_(e.g. dead-letter queue, exponential backoff, alerting on failure)_
 
 > **Answer**:
 
@@ -138,7 +138,7 @@ Use this template when initializing a **Data Pipeline / ETL** project (ingest, t
 > **Answer**:
 
 **6.6 — What monitoring and alerting is in place?**
-*(e.g. data freshness checks, row-count SLAs, anomaly detection)*
+_(e.g. data freshness checks, row-count SLAs, anomaly detection)_
 
 > **Answer**:
 
@@ -177,7 +177,7 @@ Choose one: `true` · `false`
 > **Answer**:
 
 **8.2 — What architectural pattern does this pipeline follow?**
-*(e.g. batch ETL, micro-batch, streaming, Lambda architecture, ELT)*
+_(e.g. batch ETL, micro-batch, streaming, Lambda architecture, ELT)_
 
 > **Answer**:
 
@@ -198,17 +198,17 @@ Choose one: `true` · `false`
 > **Answer**:
 
 **9.3 — What compliance or regulatory requirements apply?**
-*(e.g. GDPR data residency, HIPAA audit logs, SOC 2)*
+_(e.g. GDPR data residency, HIPAA audit logs, SOC 2)_
 
 > **Answer**:
 
 **9.4 — What is the pipeline latency SLA?**
-*(e.g. "Data available within 15 min of source event", "Daily batch complete by 06:00 UTC")*
+_(e.g. "Data available within 15 min of source event", "Daily batch complete by 06:00 UTC")_
 
 > **Answer**:
 
 **9.5 — What is the data completeness / accuracy SLA?**
-*(e.g. "≥ 99.9% of records land without error")*
+_(e.g. "≥ 99.9% of records land without error")_
 
 > **Answer**:
 
@@ -224,9 +224,9 @@ Choose one: `true` · `false`
 
 ## Section 11: Related Files
 
-| File / URL | Purpose |
-|------------|---------|
-| `README.md` | Project overview |
+| File / URL          | Purpose              |
+| ------------------- | -------------------- |
+| `README.md`         | Project overview     |
 | `dags/` or `flows/` | Pipeline definitions |
-| | |
-| | |
+|                     |                      |
+|                     |                      |

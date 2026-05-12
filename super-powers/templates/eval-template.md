@@ -10,8 +10,8 @@ Use this template when conducting an evaluation.
 
 ## Criteria
 
-| Criterion | Score | Notes |
-|-----------|-------|-------|
+| Criterion     | Score   | Notes   |
+| ------------- | ------- | ------- |
 | [Criterion 1] | [Score] | [Notes] |
 | [Criterion 2] | [Score] | [Notes] |
 

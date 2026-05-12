@@ -7,9 +7,11 @@ phase: MVP|PRODUCTION
 # Prompt: Testing Review
 
 ## Objective
+
 Plan a complete test strategy, generate test cases for all major features, and produce a pre-release QA checklist.
 
 ## Context Requirements
+
 - `openapi_spec.yaml` from WF-06
 - `component_plan.md` from WF-05
 - `model_spec.md` from WF-04 (if applicable)
@@ -61,10 +63,12 @@ qa_checklist:
 ```
 
 ## Quality Checks
+
 - [ ] Every endpoint has both happy-path and error-path test cases
 - [ ] Performance thresholds defined with numeric values
 - [ ] QA checklist covers functional, security, and accessibility
 
 ## Safety Rules
+
 - Never use real production data in test cases
 - Flag any test that requires elevated permissions for security review

@@ -7,9 +7,11 @@ phase: PROTOTYPE|MVP|PRODUCTION
 # Prompt: Roadmap Builder
 
 ## Objective
+
 Generate a detailed, phased project roadmap with milestones, deliverables, dependencies, and risk flags from an approved project brief.
 
 ## Context Requirements
+
 - `project_brief.md` from WF-00
 - Team size and availability
 - Known dependencies (external APIs, data delivery dates)
@@ -56,11 +58,13 @@ risks:
 ```
 
 ## Quality Checks
+
 - [ ] All phases have start/end dates
 - [ ] Every milestone has a defined deliverable and owner agent
 - [ ] Critical path milestones explicitly flagged
 - [ ] At least five risks documented with mitigations
 
 ## Safety Rules
+
 - Do not include individual salary or budget details in roadmap
 - Flag any milestone that depends on external third-party delivery

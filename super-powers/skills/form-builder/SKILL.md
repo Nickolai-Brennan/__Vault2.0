@@ -37,6 +37,7 @@ and submission handling — ready to wire up to an API.
 ### Step 1 — Gather Form Requirements
 
 Ask for:
+
 1. **Purpose:** What data is being collected?
 2. **Fields:** Name, type, required/optional, validation rules
 3. **Submission:** Where does it post? API endpoint or handler function?
@@ -47,17 +48,18 @@ Ask for:
 
 For each field, define:
 
-| Field | Type | Required | Validation rules |
-|-------|------|----------|-----------------|
-| `email` | email | ✓ | Valid email format |
-| `password` | password | ✓ | ≥8 chars, 1 uppercase, 1 number |
-| `confirmPassword` | password | ✓ | Must match `password` |
-| `name` | text | ✓ | 2–50 characters |
-| `bio` | textarea | ✗ | Max 500 characters |
+| Field             | Type     | Required | Validation rules                |
+| ----------------- | -------- | -------- | ------------------------------- |
+| `email`           | email    | ✓        | Valid email format              |
+| `password`        | password | ✓        | ≥8 chars, 1 uppercase, 1 number |
+| `confirmPassword` | password | ✓        | Must match `password`           |
+| `name`            | text     | ✓        | 2–50 characters                 |
+| `bio`             | textarea | ✗        | Max 500 characters              |
 
 ### Step 3 — Generate the Form
 
 #### Plain HTML Form (with native validation)
+
 ```html
 <form id="registration-form" novalidate>
   <div class="field-group">
@@ -85,7 +87,9 @@ For each field, define:
       minlength="8"
       aria-describedby="password-hint password-error"
     />
-    <p id="password-hint" class="field-hint">At least 8 characters with 1 uppercase and 1 number</p>
+    <p id="password-hint" class="field-hint">
+      At least 8 characters with 1 uppercase and 1 number
+    </p>
     <span id="password-error" class="field-error" role="alert" hidden></span>
   </div>
 
@@ -94,25 +98,28 @@ For each field, define:
 ```
 
 #### React + React Hook Form + Zod
+
 ```tsx
 // components/RegistrationForm/RegistrationForm.tsx
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 
-const schema = z.object({
-  name: z.string().min(2, 'At least 2 characters').max(50),
-  email: z.string().email('Enter a valid email address'),
-  password: z
-    .string()
-    .min(8, 'At least 8 characters')
-    .regex(/[A-Z]/, 'Must contain an uppercase letter')
-    .regex(/[0-9]/, 'Must contain a number'),
-  confirmPassword: z.string(),
-}).refine(data => data.password === data.confirmPassword, {
-  message: "Passwords don't match",
-  path: ['confirmPassword'],
-});
+const schema = z
+  .object({
+    name: z.string().min(2, "At least 2 characters").max(50),
+    email: z.string().email("Enter a valid email address"),
+    password: z
+      .string()
+      .min(8, "At least 8 characters")
+      .regex(/[A-Z]/, "Must contain an uppercase letter")
+      .regex(/[0-9]/, "Must contain a number"),
+    confirmPassword: z.string(),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "Passwords don't match",
+    path: ["confirmPassword"],
+  });
 
 type FormValues = z.infer<typeof schema>;
 
@@ -137,8 +144,8 @@ export function RegistrationForm({ onSubmit }: RegistrationFormProps) {
             type="text"
             autoComplete="name"
             aria-invalid={!!errors.name}
-            aria-describedby={errors.name ? 'name-error' : undefined}
-            {...register('name')}
+            aria-describedby={errors.name ? "name-error" : undefined}
+            {...register("name")}
           />
           {errors.name && (
             <span id="name-error" role="alert" className="field-error">
@@ -154,8 +161,8 @@ export function RegistrationForm({ onSubmit }: RegistrationFormProps) {
             type="email"
             autoComplete="email"
             aria-invalid={!!errors.email}
-            aria-describedby={errors.email ? 'email-error' : undefined}
-            {...register('email')}
+            aria-describedby={errors.email ? "email-error" : undefined}
+            {...register("email")}
           />
           {errors.email && (
             <span id="email-error" role="alert" className="field-error">
@@ -172,13 +179,15 @@ export function RegistrationForm({ onSubmit }: RegistrationFormProps) {
             autoComplete="new-password"
             aria-invalid={!!errors.password}
             aria-describedby="password-hint"
-            {...register('password')}
+            {...register("password")}
           />
           <p id="password-hint" className="field-hint">
             At least 8 characters with 1 uppercase and 1 number
           </p>
           {errors.password && (
-            <span role="alert" className="field-error">{errors.password.message}</span>
+            <span role="alert" className="field-error">
+              {errors.password.message}
+            </span>
           )}
         </div>
 
@@ -189,15 +198,17 @@ export function RegistrationForm({ onSubmit }: RegistrationFormProps) {
             type="password"
             autoComplete="new-password"
             aria-invalid={!!errors.confirmPassword}
-            {...register('confirmPassword')}
+            {...register("confirmPassword")}
           />
           {errors.confirmPassword && (
-            <span role="alert" className="field-error">{errors.confirmPassword.message}</span>
+            <span role="alert" className="field-error">
+              {errors.confirmPassword.message}
+            </span>
           )}
         </div>
 
         <button type="submit" aria-busy={isSubmitting}>
-          {isSubmitting ? 'Creating account…' : 'Create account'}
+          {isSubmitting ? "Creating account…" : "Create account"}
         </button>
       </fieldset>
     </form>
@@ -208,13 +219,24 @@ export function RegistrationForm({ onSubmit }: RegistrationFormProps) {
 ### Step 4 — CSS for Error States
 
 ```css
-.field-group { display: flex; flex-direction: column; gap: 0.25rem; margin-bottom: 1rem; }
-.field-error { color: #DC2626; font-size: 0.875rem; }
-.field-hint  { color: #6B7280; font-size: 0.875rem; }
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+.field-error {
+  color: #dc2626;
+  font-size: 0.875rem;
+}
+.field-hint {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
 
 input[aria-invalid="true"] {
-  border-color: #DC2626;
-  outline-color: #DC2626;
+  border-color: #dc2626;
+  outline-color: #dc2626;
 }
 ```
 
@@ -223,13 +245,14 @@ input[aria-invalid="true"] {
 ## Multi-Step Form Pattern
 
 For forms with multiple steps, use a step state machine:
+
 ```tsx
-const STEPS = ['personal', 'account', 'confirm'] as const;
+const STEPS = ["personal", "account", "confirm"] as const;
 const [currentStep, setCurrentStep] = useState(0);
 
 // Validate current step before advancing
 const handleNext = handleSubmit(async (data) => {
-  setCurrentStep(prev => prev + 1);
+  setCurrentStep((prev) => prev + 1);
 });
 ```
 

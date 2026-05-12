@@ -3,6 +3,7 @@
 A dynamic marketplace platform that blends Reddit's community-driven content with eBay's marketplace functionality, featuring real-time announcements and live activity feeds.
 
 **Experience Qualities**:
+
 1. **Dynamic** — The interface feels alive with scrolling announcements, real-time updates, and constant activity that creates urgency and excitement
 2. **Discoverable** — Content is organized like Reddit with voting and discussions, but items are actionable like eBay with bidding and purchasing
 3. **Connected** — Live activity sidebar creates FOMO and social proof, showing what others are doing in real-time
@@ -16,6 +17,7 @@ This is a marketplace with social features, requiring feeds, real-time updates, 
 ## Essential Features
 
 ### 1. News Ticker / Announcement Scroll
+
 **Functionality**: Auto-scrolling horizontal banner showing flash prizes, promotions, trending items, and platform announcements  
 **Purpose**: Creates urgency, highlights special offers, and keeps users informed of time-sensitive opportunities  
 **Trigger**: Loads automatically on page load, continuously scrolls  
@@ -23,6 +25,7 @@ This is a marketplace with social features, requiring feeds, real-time updates, 
 **Success Criteria**: Smooth scrolling animation, readable text, clickable announcements, seamless loop
 
 ### 2. Main Feed (Reddit/eBay Hybrid)
+
 **Functionality**: Card-based feed showing marketplace listings with upvote/downvote, comments, prices, and bid counts  
 **Purpose**: Central content discovery combining social voting with commerce  
 **Trigger**: User lands on homepage  
@@ -30,6 +33,7 @@ This is a marketplace with social features, requiring feeds, real-time updates, 
 **Success Criteria**: Smooth scrolling, accurate vote counts, responsive cards, clear pricing
 
 ### 3. Live Activity Sidebar (20% width)
+
 **Functionality**: Right-side column showing real-time updates: new job posts, recent bids, user signups, completed sales  
 **Purpose**: Creates social proof and FOMO, shows platform is active and trustworthy  
 **Trigger**: Updates stream in real-time as actions occur  
@@ -37,6 +41,7 @@ This is a marketplace with social features, requiring feeds, real-time updates, 
 **Success Criteria**: Updates appear instantly, timestamps are relative, smooth animations, doesn't interrupt main content
 
 ### 4. Floating Auth Dialog
+
 **Functionality**: Bottom-right floating button opens modal with Sign In / Sign Up / Guest options, supporting OAuth providers (GitHub, Google, Microsoft, LinkedIn) and email/password authentication  
 **Purpose**: Persistent, non-intrusive access to authentication from anywhere  
 **Trigger**: User clicks floating profile/auth button or top-right dropdown  
@@ -44,6 +49,7 @@ This is a marketplace with social features, requiring feeds, real-time updates, 
 **Success Criteria**: Button visible but not obtrusive, dialog smooth animation, clear options, OAuth integrations functional, closes on success
 
 ### 5. Marketplace Listings
+
 **Functionality**: Items displayed with images, titles, prices, current bids, vote counts, and seller info  
 **Purpose**: Core marketplace content showing what's available  
 **Trigger**: User browses feed, searches, or filters  
@@ -51,6 +57,7 @@ This is a marketplace with social features, requiring feeds, real-time updates, 
 **Success Criteria**: Clear pricing, accurate bid counts, seller ratings visible, responsive images
 
 ### 6. Voting & Engagement
+
 **Functionality**: Reddit-style upvote/downvote system affects listing visibility and ranking  
 **Purpose**: Community curation of quality listings  
 **Trigger**: User clicks up/down arrow on listing  
@@ -79,15 +86,17 @@ The design should evoke a **bustling marketplace meets community forum**—vibra
 ## Color Selection
 
 **Primary Color**: Deep Purple `oklch(0.45 0.18 285)` — Bold, premium, marketplace sophistication  
-**Secondary Colors**: 
+**Secondary Colors**:
+
 - Bright Cyan `oklch(0.75 0.15 195)` for accents and highlights — Fresh, modern, digital
 - Warm Amber `oklch(0.78 0.14 70)` for prices and CTAs — Urgency and value  
-**Accent Color**: Hot Pink `oklch(0.65 0.22 350)` — High energy for announcements, flash sales, special offers  
-**Success**: `oklch(0.68 0.17 145)` for positive actions  
-**Upvote**: `oklch(0.70 0.18 35)` orange for upvotes  
-**Downvote**: `oklch(0.58 0.15 260)` blue for downvotes
+  **Accent Color**: Hot Pink `oklch(0.65 0.22 350)` — High energy for announcements, flash sales, special offers  
+  **Success**: `oklch(0.68 0.17 145)` for positive actions  
+  **Upvote**: `oklch(0.70 0.18 35)` orange for upvotes  
+  **Downvote**: `oklch(0.58 0.15 260)` blue for downvotes
 
 **Foreground/Background Pairings**:
+
 - Background `oklch(0.98 0.005 285)`: Dark Purple text `oklch(0.25 0.1 285)` — Ratio 10.5:1 ✓
 - Primary Purple `oklch(0.45 0.18 285)`: White text `oklch(1 0 0)` — Ratio 7.8:1 ✓
 - Accent Pink `oklch(0.65 0.22 350)`: White text `oklch(1 0 0)` — Ratio 5.2:1 ✓
@@ -104,8 +113,9 @@ Typography should be **bold, modern, and highly readable** for rapid content sca
 **Mono Font**: **JetBrains Mono** — For bids, prices, and technical data
 
 **Typographic Hierarchy**:
+
 - **H1 (Page Title)**: Bebas Neue / 48px / tight tracking / uppercase
-- **H2 (Section Headers)**: Inter Bold / 28px / -0.01em tracking / 1.2 line height  
+- **H2 (Section Headers)**: Inter Bold / 28px / -0.01em tracking / 1.2 line height
 - **H3 (Listing Titles)**: Inter Semibold / 20px / normal tracking / 1.3 line height
 - **Price (Large)**: Bebas Neue / 32px / normal tracking / 1.1 line height
 - **Body**: Inter Regular / 15px / normal tracking / 1.6 line height
@@ -130,6 +140,7 @@ Animations should **create energy and urgency** while maintaining smooth perform
 ## Component Selection
 
 **Components**:
+
 - **Card** (shadcn): Listing containers with hover effects and colored borders
 - **Button** (shadcn): CTAs, bids, votes — customize with bold gradients
 - **Badge** (shadcn): Category tags, status indicators, "NEW" labels
@@ -140,6 +151,7 @@ Animations should **create energy and urgency** while maintaining smooth perform
 - **Input** (shadcn): Search, bid amounts, auth forms
 
 **Customizations**:
+
 - **NewsTicker**: Custom component with infinite scroll animation
 - **ActivityFeed**: Custom real-time update stream with timestamp formatting
 - **VoteButtons**: Custom up/down arrows with count and color states
@@ -147,11 +159,13 @@ Animations should **create energy and urgency** while maintaining smooth perform
 - **FloatingAuthButton**: Custom fixed-position button with dialog trigger
 
 **States**:
+
 - **Vote Buttons**: Default → Hover (color hint) → Active (filled color) → Disabled (gray)
 - **Listing Cards**: Default → Hover (lift + shadow) → Clicked (scale down) → Active Bid (glowing border)
 - **Auth Button**: Default → Hover (expand label) → Open (icon rotates)
 
 **Icon Selection**:
+
 - `CaretUp` / `CaretDown` for voting
 - `ShoppingCart` for purchases
 - `Gavel` for auctions/bids
@@ -163,12 +177,14 @@ Animations should **create energy and urgency** while maintaining smooth perform
 - `TrendUp` for activity
 
 **Spacing**:
+
 - Main container: `max-w-[1800px] mx-auto px-8`
 - Feed cards: `gap-4` between cards, `p-6` internal
 - Sidebar: `w-[20%] min-w-[280px]` with `p-4`
 - Ticker: `h-12` with `px-6 py-3`
 
 **Mobile**:
+
 - Sidebar moves to bottom sheet/drawer
 - Feed becomes full-width
 - Ticker remains at top, smaller text

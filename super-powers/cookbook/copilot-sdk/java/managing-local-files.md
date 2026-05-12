@@ -15,6 +15,7 @@ You have a folder with many files and want to organize them into subfolders base
 ## Example code
 
 **Usage:**
+
 ```bash
 # Use with a specific folder (recommended)
 jbang recipe/ManagingLocalFiles.java /path/to/your/folder
@@ -24,6 +25,7 @@ jbang recipe/ManagingLocalFiles.java
 ```
 
 **Code:**
+
 ```java
 //DEPS com.github:copilot-sdk-java:0.2.1-java.1
 import com.github.copilot.sdk.CopilotClient;
@@ -49,15 +51,15 @@ public class ManagingLocalFiles {
             // Set up event handlers
             var done = new CountDownLatch(1);
 
-            session.on(AssistantMessageEvent.class, msg -> 
+            session.on(AssistantMessageEvent.class, msg ->
                 System.out.println("\nCopilot: " + msg.getData().content())
             );
 
-            session.on(ToolExecutionStartEvent.class, evt -> 
+            session.on(ToolExecutionStartEvent.class, evt ->
                 System.out.println("  → Running: " + evt.getData().toolName())
             );
 
-            session.on(ToolExecutionCompleteEvent.class, evt -> 
+            session.on(ToolExecutionCompleteEvent.class, evt ->
                 System.out.println("  ✓ Completed: " + evt.getData().toolCallId())
             );
 
@@ -65,7 +67,7 @@ public class ManagingLocalFiles {
 
             // Ask Copilot to organize files - using a safe example folder
             // For real use, replace with your target folder
-            String targetFolder = args.length > 0 ? args[0] : 
+            String targetFolder = args.length > 0 ? args[0] :
                 System.getProperty("java.io.tmpdir") + "/example-files";
 
             String prompt = String.format("""
@@ -74,7 +76,7 @@ public class ManagingLocalFiles {
                 1. First, list all files and their metadata
                 2. Preview grouping by file extension
                 3. Suggest appropriate subfolders (e.g., "images", "documents", "videos")
-                
+
                 IMPORTANT: DO NOT move any files. Only show the plan.
                 """, targetFolder);
 
@@ -165,13 +167,13 @@ public class InteractiveFileOrganizer {
     public static void main(String[] args) throws Exception {
         try (var client = new CopilotClient();
              var reader = new BufferedReader(new InputStreamReader(System.in))) {
-            
+
             client.start().get();
 
             var session = client.createSession(
                 new SessionConfig().setOnPermissionRequest(PermissionHandler.APPROVE_ALL).setModel("gpt-5")).get();
 
-            session.on(AssistantMessageEvent.class, msg -> 
+            session.on(AssistantMessageEvent.class, msg ->
                 System.out.println("\nCopilot: " + msg.getData().content())
             );
 

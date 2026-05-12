@@ -31,5 +31,6 @@ Output a markdown summary with these sections:
 ---
 
 ## Related
+
 - [`prompt/project-overview.md`](../prompt/project-overview.md) — existing project overview
 - [`config/stack.config.json`](../config/stack.config.json) — locked stack decisions

@@ -13,15 +13,15 @@ Use this template when initializing a **Database / Data Warehouse** project (sch
 
 ## Section 2: Basic Identity
 
-| Field | Value |
-|-------|-------|
-| **Project Name** | |
-| **Tagline** (one sentence) | |
-| **Version / Phase** | `prototype` · `mvp` · `production` |
-| **Status** | `active` · `on-hold` · `archived` |
-| **Owner / Team** | |
-| **Created** | YYYY-MM-DD |
-| **Last Updated** | YYYY-MM-DD |
+| Field                      | Value                              |
+| -------------------------- | ---------------------------------- |
+| **Project Name**           |                                    |
+| **Tagline** (one sentence) |                                    |
+| **Version / Phase**        | `prototype` · `mvp` · `production` |
+| **Status**                 | `active` · `on-hold` · `archived`  |
+| **Owner / Team**           |                                    |
+| **Created**                | YYYY-MM-DD                         |
+| **Last Updated**           | YYYY-MM-DD                         |
 
 ---
 
@@ -46,7 +46,7 @@ Use this template when initializing a **Database / Data Warehouse** project (sch
 ## Section 4: Audience
 
 **4.1 — Who are the primary consumers of this data store?**
-*(e.g. application services, data analysts, BI tools, data scientists)*
+_(e.g. application services, data analysts, BI tools, data scientists)_
 
 > **Answer**:
 
@@ -59,7 +59,7 @@ Use this template when initializing a **Database / Data Warehouse** project (sch
 > **Answer**:
 
 **4.4 — What is the expected query or connection scale?**
-*(e.g. "500 concurrent connections", "1,000 queries/sec")*
+_(e.g. "500 concurrent connections", "1,000 queries/sec")_
 
 > **Answer**:
 
@@ -68,32 +68,32 @@ Use this template when initializing a **Database / Data Warehouse** project (sch
 ## Section 5: Technical Stack
 
 **5.1 — What database engine(s) are used?**
-*(e.g. PostgreSQL, MySQL, MongoDB, Cassandra, BigQuery, Snowflake, DuckDB)*
+_(e.g. PostgreSQL, MySQL, MongoDB, Cassandra, BigQuery, Snowflake, DuckDB)_
 
 > **Answer**:
 
 **5.2 — What query language or ORM is used?**
-*(e.g. SQL, GraphQL, Prisma, SQLAlchemy, TypeORM)*
+_(e.g. SQL, GraphQL, Prisma, SQLAlchemy, TypeORM)_
 
 > **Answer**:
 
 **5.3 — What migration tool is used?**
-*(e.g. Flyway, Liquibase, Alembic, Prisma Migrate, Rails ActiveRecord, none)*
+_(e.g. Flyway, Liquibase, Alembic, Prisma Migrate, Rails ActiveRecord, none)_
 
 > **Answer**:
 
 **5.4 — What data transformation layer is used, if any?**
-*(e.g. dbt, Spark, stored procedures, none)*
+_(e.g. dbt, Spark, stored procedures, none)_
 
 > **Answer**:
 
 **5.5 — What AI/ML models or vector search is used, if any?**
-*(e.g. pgvector, Pinecone, Weaviate)*
+_(e.g. pgvector, Pinecone, Weaviate)_
 
 > **Answer**:
 
 **5.6 — What cloud or infrastructure platform hosts this data store?**
-*(e.g. RDS, Cloud SQL, Supabase, PlanetScale, self-hosted)*
+_(e.g. RDS, Cloud SQL, Supabase, PlanetScale, self-hosted)_
 
 > **Answer**:
 
@@ -102,7 +102,7 @@ Use this template when initializing a **Database / Data Warehouse** project (sch
 > **Answer**:
 
 **5.8 — How is access control handled?**
-*(e.g. database roles, row-level security, VPC, IAM)*
+_(e.g. database roles, row-level security, VPC, IAM)_
 
 > **Answer**:
 
@@ -111,7 +111,7 @@ Use this template when initializing a **Database / Data Warehouse** project (sch
 ## Section 6: Schema & Data Design
 
 **6.1 — What is the primary data modeling approach?**
-*(e.g. relational/3NF, star schema, wide table, document model, time-series, graph)*
+_(e.g. relational/3NF, star schema, wide table, document model, time-series, graph)_
 
 > **Answer**:
 
@@ -120,7 +120,7 @@ Use this template when initializing a **Database / Data Warehouse** project (sch
 > **Answer**:
 
 **6.3 — What indexing strategy is used?**
-*(e.g. B-tree primary keys, composite indexes, full-text search, vector indexes)*
+_(e.g. B-tree primary keys, composite indexes, full-text search, vector indexes)_
 
 > **Answer**:
 
@@ -129,12 +129,12 @@ Use this template when initializing a **Database / Data Warehouse** project (sch
 > **Answer**:
 
 **6.5 — What backup and recovery strategy is in place?**
-*(e.g. daily snapshots, WAL archiving, point-in-time recovery, RPO/RTO targets)*
+_(e.g. daily snapshots, WAL archiving, point-in-time recovery, RPO/RTO targets)_
 
 > **Answer**:
 
 **6.6 — What replication or high-availability setup is used?**
-*(e.g. primary-replica, multi-region, active-active)*
+_(e.g. primary-replica, multi-region, active-active)_
 
 > **Answer**:
 
@@ -165,7 +165,7 @@ Choose one: `true` · `false`
 > **Answer**:
 
 **7.6 — What is the expected data volume?**
-*(e.g. "500 GB initial, growing 10 GB/month", "5 TB warehouse")*
+_(e.g. "500 GB initial, growing 10 GB/month", "5 TB warehouse")_
 
 > **Answer**:
 
@@ -194,12 +194,12 @@ Choose one: `true` · `false`
 > **Answer**:
 
 **9.3 — What compliance or regulatory requirements apply?**
-*(e.g. GDPR right-to-erasure, HIPAA encryption at rest, SOC 2)*
+_(e.g. GDPR right-to-erasure, HIPAA encryption at rest, SOC 2)_
 
 > **Answer**:
 
 **9.4 — What is the read/write performance SLA?**
-*(e.g. "OLTP reads < 5 ms", "OLAP queries < 30 s")*
+_(e.g. "OLTP reads < 5 ms", "OLAP queries < 30 s")_
 
 > **Answer**:
 
@@ -219,9 +219,9 @@ Choose one: `true` · `false`
 
 ## Section 11: Related Files
 
-| File / URL | Purpose |
-|------------|---------|
-| `README.md` | Project overview |
+| File / URL                 | Purpose                                  |
+| -------------------------- | ---------------------------------------- |
+| `README.md`                | Project overview                         |
 | `schema/` or `migrations/` | Schema definitions and migration scripts |
-| | |
-| | |
+|                            |                                          |
+|                            |                                          |

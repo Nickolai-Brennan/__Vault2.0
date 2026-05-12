@@ -1,6 +1,7 @@
 # 🔁 Agent Execution Loop
 
 ## Purpose
+
 Automate multi-step development using chained agents.
 
 ---
@@ -8,21 +9,25 @@ Automate multi-step development using chained agents.
 ## FLOW
 
 ### STEP 1 — Prompt Engineer
+
 - Convert user input into structured prompt
 
 ### STEP 2 — System Architect
+
 - Design:
   - File structure
   - Tech stack
   - Components
 
 ### STEP 3 — Code Engineer
+
 - Generate:
   - Code
   - Config
   - Setup
 
 ### STEP 4 — Validator
+
 - Check:
   - Errors
   - Logic issues
@@ -37,16 +42,16 @@ Automate multi-step development using chained agents.
 ## EXTENDED FLOW
 
 STEP 1 — Prompt Engineer  
-STEP 2 — System Architect  
+STEP 2 — System Architect
 
 STEP 3 — Database Engineer  
 STEP 4 — API Engineer  
-STEP 5 — Data Engineer  
+STEP 5 — Data Engineer
 
 STEP 6 — Code Engineer  
-STEP 7 — UI Designer  
+STEP 7 — UI Designer
 
-STEP 8 — Validator  
+STEP 8 — Validator
 
 ---
 
@@ -65,6 +70,7 @@ If validation fails:
 → Re-run flow
 
 Repeat until:
+
 - No errors
 - Output meets constraints
 
