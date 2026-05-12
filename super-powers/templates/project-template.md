@@ -23,7 +23,7 @@ Choose exactly one:
 - [ ] DevOps / Infrastructure / IaC _(CI/CD, containers, Terraform, k8s)_
 - [ ] Documentation Site _(Docusaurus, MkDocs, GitBook)_
 - [ ] Automation / Workflow / Script _(recurring jobs, bots, glue code)_
-- [ ] Other: ********\_\_\_********
+- [ ] Other: **\*\*\*\***\_\_\_**\*\*\*\***
 
 > **Answer**:
 

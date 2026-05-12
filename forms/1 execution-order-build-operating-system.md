@@ -14,8 +14,11 @@ Project Stack Integration
 → Review System
 → Deployment Preparation
 ```
+
 ---
+
 MASTER EXECUTION FLOW
+
 ```
 1. Capture project idea
 2. Confirm project stack
@@ -37,9 +40,11 @@ MASTER EXECUTION FLOW
 18. Prepare deployment
 19. Review and optimize
 ```
+
 ---
 
 AGENT EXECUTION ORDER
+
 ```
 project-startup-agent
 → stack-verifier-agent
@@ -57,9 +62,11 @@ project-startup-agent
 → workflow-builder-agent
 
 ```
+
 ---
 
 INSTRUCTION ACTIVATION FLOW
+
 ```
 instructions/root.md
 → instructions/system.md
@@ -72,9 +79,11 @@ instructions/root.md
 → user request
 
 ```
+
 ---
 
 DOMAIN ACTIVATION MAP
+
 ```
 Frontend task
 → instructions/frontend.md
@@ -136,6 +145,7 @@ Command task
 ### PHASE 1 — PROJECT INTAKE
 
 Agent
+
 ```
 project-startup-agent
     Required Input
@@ -154,6 +164,7 @@ project-startup-agent
 
 ### Output
 ```
+
 Project Overview
 Feature List
 Stack Recommendation
@@ -164,11 +175,14 @@ Command Map
 Build Phases
 Risk Notes
 First Task List
+
 ```
 
 ---
 ```
+
 PHASE 2 — STACK VERIFICATION
+
 ```
 Agent
 

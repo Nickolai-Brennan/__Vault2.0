@@ -97,6 +97,7 @@ _(Note: If a tool uses a different directory structure, ask the user to confirm 
     - Confirm the correct path before generating the download URL
 3.  **Download Using Helper Script:**
     - Use `install_skill.py` (located in this skill's `scripts/` folder):
+
     ```bash
     python3 ~/.claude/skills/universal-skills-manager/scripts/install_skill.py \
       --url "https://github.com/{owner}/{repo}/tree/{branch}/{skill-folder}" \
@@ -108,6 +109,7 @@ _(Note: If a tool uses a different directory structure, ask the user to confirm 
     - **Safety feature**: Script will abort (exit code 4) if destination is a root skills directory
     - **Update detection**: If skill exists, shows diff and prompts for confirmation
     - **Security scan**: The install script automatically scans downloaded skills for security threats (invisible characters, data exfiltration, prompt injection). Review any findings before proceeding.
+
 4.  **Determine Primary Target:**
     - Ask: "Should this be installed Globally (User) or Locally (Project)?"
     - Determine the primary tool (e.g., if user is in Claude Code, Claude is primary)

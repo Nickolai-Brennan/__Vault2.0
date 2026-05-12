@@ -8,23 +8,23 @@
 
 Select **one primary type** and any applicable secondary types:
 
-| #   | Type                               | Select |
-| --- | ---------------------------------- | ------ |
-| 1   | API / Microservice                 | ☐      |
-| 2   | Web App (Full-Stack)               | ☐      |
-| 3   | Mobile App                         | ☐      |
-| 4   | Desktop App                        | ☐      |
-| 5   | Static Site / Landing Page         | ☐      |
-| 6   | Dashboard / Analytics / Statistics | ☐      |
-| 7   | Database / Data Warehouse          | ☐      |
-| 8   | Data Pipeline / ETL                | ☐      |
-| 9   | AI / LLM / RAG / Chatbot           | ☐      |
-| 10  | CLI Tool                           | ☐      |
-| 11  | Library / SDK / Package            | ☐      |
-| 12  | DevOps / Infrastructure / IaC      | ☐      |
-| 13  | Documentation Site                 | ☐      |
-| 14  | Automation / Workflow / Script     | ☐      |
-| 15  | Other: ********\_\_\_********      | ☐      |
+| #   | Type                                  | Select |
+| --- | ------------------------------------- | ------ |
+| 1   | API / Microservice                    | ☐      |
+| 2   | Web App (Full-Stack)                  | ☐      |
+| 3   | Mobile App                            | ☐      |
+| 4   | Desktop App                           | ☐      |
+| 5   | Static Site / Landing Page            | ☐      |
+| 6   | Dashboard / Analytics / Statistics    | ☐      |
+| 7   | Database / Data Warehouse             | ☐      |
+| 8   | Data Pipeline / ETL                   | ☐      |
+| 9   | AI / LLM / RAG / Chatbot              | ☐      |
+| 10  | CLI Tool                              | ☐      |
+| 11  | Library / SDK / Package               | ☐      |
+| 12  | DevOps / Infrastructure / IaC         | ☐      |
+| 13  | Documentation Site                    | ☐      |
+| 14  | Automation / Workflow / Script        | ☐      |
+| 15  | Other: **\*\*\*\***\_\_\_**\*\*\*\*** | ☐      |
 
 **Primary Type**: <!-- e.g. API / Microservice -->  
 **Secondary Types**: <!-- e.g. Dashboard, Database -->

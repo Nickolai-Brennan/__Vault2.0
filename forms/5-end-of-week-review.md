@@ -25,9 +25,7 @@ This loop ensures that you're not just grinding — you're evolving.
 
 -
 -
--
-
----
+- ***
 
 ### ⚠️ 2. What Felt Off?
 
@@ -35,9 +33,7 @@ This loop ensures that you're not just grinding — you're evolving.
 
 -
 -
--
-
----
+- ***
 
 ### 🔁 3. What Did You Finish?
 
@@ -45,9 +41,7 @@ This loop ensures that you're not just grinding — you're evolving.
 
 -
 -
--
-
----
+- ***
 
 ### 🧠 4. What Will You Adjust?
 

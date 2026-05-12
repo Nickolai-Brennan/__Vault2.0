@@ -42,7 +42,7 @@ The specification file must be formatted in well formed Markdown.
 
 Specification files must follow the template below, ensuring that all sections are filled out appropriately. The front matter for the markdown should be structured correctly as per the example following:
 
-```md
+````md
 ---
 title: [Concise Title Describing the Specification's Focus]
 version: [Optional: e.g., 1.0, Date]
@@ -139,6 +139,8 @@ tags: [Optional: List of relevant tags or categories, e.g., `infrastructure`, `p
 ```
 ````
 
+````
+
 ## 10. Validation Criteria
 
 [List the criteria or tests that must be satisfied for compliance with this specification.]
@@ -151,3 +153,4 @@ tags: [Optional: List of relevant tags or categories, e.g., `infrastructure`, `p
 ```
 
 ```
+````

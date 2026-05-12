@@ -61,7 +61,7 @@ Read the input and identify:
 
 Use this default template:
 
-````markdown
+```markdown
 # [Descriptive Title]
 
 > **Summary:** One-sentence description of what this article covers.
@@ -99,7 +99,7 @@ Use this default template:
 
 - [Link placeholder 1]
 - [Link placeholder 2]
-````
+```
 
 Adapt the template to the content type:
 
