@@ -13,21 +13,23 @@
 
 ## Domain Ownership Map
 
-| Domain | Folder | Owner Agent |
-|--------|--------|-------------|
-| Frontend | `frontend/` | `frontend-agent` |
-| Backend | `backend/` | `backend-agent` |
-| Database | `database/` | `database-agent` |
-| API | `api/` | `api-agent` |
-| Tests | `tests/` | `testing-agent` |
-| Docs | `docs/` | `documentation-agent` |
-| Scripts | `scripts/` | `deployment-agent` |
-| Config | `config/` | `stack-verifier-agent` |
+| Domain   | Folder      | Owner Agent            |
+| -------- | ----------- | ---------------------- |
+| Frontend | `frontend/` | `frontend-agent`       |
+| Backend  | `backend/`  | `backend-agent`        |
+| Database | `database/` | `database-agent`       |
+| API      | `api/`      | `api-agent`            |
+| Tests    | `tests/`    | `testing-agent`        |
+| Docs     | `docs/`     | `documentation-agent`  |
+| Scripts  | `scripts/`  | `deployment-agent`     |
+| Config   | `config/`   | `stack-verifier-agent` |
 
 ## Default Execution Order
+
 Per `config/agents.config.json`:
 project-startup → stack-verifier → system-architect → database → backend → api → frontend → testing → documentation → deployment → code-cleaner → workflow-builder
 
 ## Reference
+
 - [`instructions/root.md`](./root.md)
 - [`config/agents.config.json`](../config/agents.config.json)

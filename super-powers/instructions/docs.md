@@ -5,11 +5,13 @@
 ---
 
 ## Stack
+
 - Format: Markdown
 - Location: `docs/`
 - Index: `docs/README.md`
 
 ## Required Doc Files
+
 ```
 docs/
 ├── README.md           # Index / entry point
@@ -28,6 +30,7 @@ docs/
 ```
 
 ## Rules
+
 1. Every new feature that changes a public API must update the relevant doc.
 2. Every new doc file must be linked from `docs/README.md`.
 3. Use relative links between doc files.
@@ -35,5 +38,6 @@ docs/
 5. `docs/stack.md` must always match `config/stack.config.json`.
 
 ## Reference
+
 - [`prompts/docs-prompt.md`](../prompts/docs-prompt.md)
 - [`.github/copilot-instructions.md`](../.github/copilot-instructions.md)
