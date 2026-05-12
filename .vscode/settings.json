@@ -20,6 +20,18 @@
             "folderPath": "__Vault\\super-powers\\",
             "isFolderOnly": true,
             "color": "foldercolorizer.color_5fafff"
+        },
+        {
+            "filePath": "\\Nickolai-Brennan\\__Vault2.0\\super-powers\\agents\\preflight-file-orchestrator.md",
+            "color": "foldercolorizer.color_ff5f00"
+        },
+        {
+            "extension": "md",
+            "color": "foldercolorizer.color_080808"
+        },
+        {
+            "filePath": "\\Nickolai-Brennan\\__Vault2.0\\super-powers\\agents\\stack-verifier-agent.md",
+            "color": "foldercolorizer.color_00ffff"
         }
     ]
 }
