@@ -31,7 +31,59 @@
         },
         {
             "filePath": "\\Nickolai-Brennan\\__Vault2.0\\super-powers\\agents\\stack-verifier-agent.md",
-            "color": "foldercolorizer.color_00ffff"
+            "color": "foldercolorizer.color_0000ff"
+        },
+        {
+            "filePath": "\\Nickolai-Brennan\\__Vault2.0\\super-powers\\agents\\task-planner-instructrions.md",
+            "color": "foldercolorizer.color_0000ff"
+        },
+        {
+            "filePath": "\\Nickolai-Brennan\\__Vault2.0\\.github\\workflows\\assign-agent-skill.yml",
+            "color": "foldercolorizer.color_0000ff"
+        },
+        {
+            "filePath": "\\Nickolai-Brennan\\__Vault2.0\\.github\\workflows\\code-cleanup.yml",
+            "color": "foldercolorizer.color_0000ff"
+        },
+        {
+            "filePath": "\\Nickolai-Brennan\\__Vault2.0\\.github\\workflows\\copilot-setup-steps.yml",
+            "color": "foldercolorizer.color_0000ff"
+        },
+        {
+            "filePath": "\\Nickolai-Brennan\\__Vault2.0\\.github\\workflows\\docs-update.yml",
+            "color": "foldercolorizer.color_0000ff"
+        },
+        {
+            "filePath": "\\Nickolai-Brennan\\__Vault2.0\\.github\\workflows\\markdown-format.yml",
+            "color": "foldercolorizer.color_0000ff"
+        },
+        {
+            "filePath": "\\Nickolai-Brennan\\__Vault2.0\\.github\\workflows\\screenshot.yml",
+            "color": "foldercolorizer.color_0000ff"
+        },
+        {
+            "filePath": "\\Nickolai-Brennan\\__Vault2.0\\.github\\workflows\\stack-verify.yml",
+            "color": "foldercolorizer.color_0000ff"
+        },
+        {
+            "filePath": "\\Nickolai-Brennan\\__Vault2.0\\.github\\workflows\\sync-to-vault.yml",
+            "color": "foldercolorizer.color_0000ff"
+        },
+        {
+            "filePath": "\\Nickolai-Brennan\\__Vault2.0\\.github\\workflows\\update-docs copy.yml",
+            "color": "foldercolorizer.color_0000ff"
+        },
+        {
+            "filePath": "\\Nickolai-Brennan\\__Vault2.0\\.github\\workflows\\update-docs.yml",
+            "color": "foldercolorizer.color_0000ff"
+        },
+        {
+            "filePath": "\\Nickolai-Brennan\\__Vault2.0\\.github\\workflows\\verify-environment copy.yml",
+            "color": "foldercolorizer.color_0000ff"
+        },
+        {
+            "filePath": "\\Nickolai-Brennan\\__Vault2.0\\.github\\workflows\\verify-environment.yml",
+            "color": "foldercolorizer.color_0000ff"
         }
     ]
 }
