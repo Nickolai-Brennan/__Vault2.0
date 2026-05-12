@@ -1,12 +1,6 @@
 #1 — EXECUTION ORDER + BUILD OPERATING SYSTEM
 
-Step 3 turns the project-aware structure from Step 2 into an execution system.
-
-This layer defines how agents, skills, plugins, commands, workflows, scripts, docs, and project folders are created, activated, validated, and improved.
-
 ---
-
-## STEP 3 OBJECTIVE
 
 Move from mapped structure to controlled execution.
 
@@ -19,12 +13,10 @@ Project Stack Integration
 → Command Execution
 → Review System
 → Deployment Preparation
-
-
+```
 ---
-
 MASTER EXECUTION FLOW
-
+```
 1. Capture project idea
 2. Confirm project stack
 3. Verify environment
@@ -44,12 +36,11 @@ MASTER EXECUTION FLOW
 17. Document system
 18. Prepare deployment
 19. Review and optimize
-
-
+```
 ---
 
 AGENT EXECUTION ORDER
-
+```
 project-startup-agent
 → stack-verifier-agent
 → system-architect-agent
@@ -65,11 +56,11 @@ project-startup-agent
 → code-cleaner-agent
 → workflow-builder-agent
 
-
+```
 ---
 
 INSTRUCTION ACTIVATION FLOW
-
+```
 instructions/root.md
 → instructions/system.md
 → instructions/project.md
@@ -80,11 +71,11 @@ instructions/root.md
 → command instruction
 → user request
 
-
+```
 ---
 
 DOMAIN ACTIVATION MAP
-
+```
 Frontend task
 → instructions/frontend.md
 → frontend-agent
@@ -138,33 +129,31 @@ Command task
 → command-agent
 → command-builder skill
 → command workflow
-
+```
 
 ---
 
-PHASE 1 — PROJECT INTAKE
+### PHASE 1 — PROJECT INTAKE
 
 Agent
-
+```
 project-startup-agent
+    Required Input
+        Project Name:
+        Project Type:
+        Project Summary:
+        Target Users:
+        Core Features:
+        Revenue Model:
+        Content/Data Needs:
+        Admin Needs:
+        Integrations:
+        Preferred Stack:
+        Plugins Needed:
+        Commands Needed:`
 
-Required Input
-
-Project Name:
-Project Type:
-Project Summary:
-Target Users:
-Core Features:
-Revenue Model:
-Content/Data Needs:
-Admin Needs:
-Integrations:
-Preferred Stack:
-Plugins Needed:
-Commands Needed:
-
-Output
-
+### Output
+```
 Project Overview
 Feature List
 Stack Recommendation
@@ -175,30 +164,30 @@ Command Map
 Build Phases
 Risk Notes
 First Task List
-
+```
 
 ---
-
+```
 PHASE 2 — STACK VERIFICATION
-
+```
 Agent
 
 stack-verifier-agent
 
 Verify
 
-Frontend framework
-Backend framework
-Database engine
-API type
-Auth method
-Hosting target
-Package manager
-Dev tools
-VS Code extensions
-Environment variables
-Plugin requirements
-Command requirements
+    Frontend framework
+    Backend framework
+    Database engine
+    API type
+    Auth method
+    Hosting target
+    Package manager
+    Dev tools
+    VS Code extensions
+    Environment variables
+    Plugin requirements
+    Command requirements
 
 Output
 
